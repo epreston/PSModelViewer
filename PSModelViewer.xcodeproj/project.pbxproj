@@ -1,0 +1,769 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		280420C1108EA07E000629CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280420C0108EA07E000629CD /* CoreData.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		4F2BA1DF11E6C1C100B25D05 /* PSGridScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BA1DE11E6C1C100B25D05 /* PSGridScrollView.m */; };
+		4F5BBE4E13FA249600F314E7 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F5BBE4D13FA249600F314E7 /* icon_home.png */; };
+		4F5BBE5013FA24AC00F314E7 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F5BBE4F13FA24AC00F314E7 /* Icon-72.png */; };
+		4F5BBE5313FA25AC00F314E7 /* ModelViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BBE5113FA25AC00F314E7 /* ModelViewer.xcdatamodeld */; };
+		4FC1307611E264D500A0B940 /* PSBaseMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1307511E264D500A0B940 /* PSBaseMasterViewController.m */; };
+		4FC1307911E264F300A0B940 /* PSBaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1307811E264F300A0B940 /* PSBaseDetailViewController.m */; };
+		4FC1309511E2696C00A0B940 /* PSSplitViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1309411E2696C00A0B940 /* PSSplitViewDelegate.m */; };
+		4FD8589F11E2F2C400C9B22D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD8589C11E2F2C400C9B22D /* MainWindow.xib */; };
+		4FED8BCB11E25D9300ACE4FB /* PSModelListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BCA11E25D9300ACE4FB /* PSModelListController.m */; };
+		4FED8BD011E25DCF00ACE4FB /* PSConfigListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BCF11E25DCF00ACE4FB /* PSConfigListController.m */; };
+		4FED8BD311E25DEA00ACE4FB /* PSEntityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BD211E25DEA00ACE4FB /* PSEntityListController.m */; };
+		4FED8BD611E25DFB00ACE4FB /* PSFetchListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BD511E25DFB00ACE4FB /* PSFetchListController.m */; };
+		4FED8BDA11E25E2000ACE4FB /* PSModelDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BD811E25E2000ACE4FB /* PSModelDetailsController.m */; };
+		4FED8BDB11E25E2000ACE4FB /* PSModelDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BD911E25E2000ACE4FB /* PSModelDetails.xib */; };
+		4FED8BDF11E25E3D00ACE4FB /* PSEntityDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BDD11E25E3D00ACE4FB /* PSEntityDetailsController.m */; };
+		4FED8BE011E25E3D00ACE4FB /* PSEntityDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BDE11E25E3D00ACE4FB /* PSEntityDetails.xib */; };
+		4FED8BE411E25E5900ACE4FB /* PSAttributeDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BE211E25E5900ACE4FB /* PSAttributeDetailsController.m */; };
+		4FED8BE511E25E5900ACE4FB /* PSAttributeDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BE311E25E5900ACE4FB /* PSAttributeDetails.xib */; };
+		4FED8BE911E25E7B00ACE4FB /* PSRelationshipDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BE711E25E7B00ACE4FB /* PSRelationshipDetailsController.m */; };
+		4FED8BEA11E25E7B00ACE4FB /* PSRelationshipDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BE811E25E7B00ACE4FB /* PSRelationshipDetails.xib */; };
+		4FED8BEE11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BEC11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m */; };
+		4FED8BEF11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BED11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib */; };
+		4FED8BF311E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BF111E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m */; };
+		4FED8BF411E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BF211E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib */; };
+		4FED8C0D11E25F8300ACE4FB /* PSBaseContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8C0C11E25F8300ACE4FB /* PSBaseContentController.m */; };
+		4FED8C1011E25FA100ACE4FB /* PSContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8C0F11E25FA100ACE4FB /* PSContentController.m */; };
+		4FED8C1411E2600B00ACE4FB /* PSBaseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8C1311E2600B00ACE4FB /* PSBaseAppDelegate.m */; };
+		4FFFC41C11E76F1500B4C79E /* PSSmallItemUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFFC41A11E76F1500B4C79E /* PSSmallItemUI.m */; };
+		4FFFC41D11E76F1500B4C79E /* PSSmallItemUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FFFC41B11E76F1500B4C79E /* PSSmallItemUI.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* PSModelViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSModelViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		280420C0108EA07E000629CD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4F2BA1DD11E6C1C100B25D05 /* PSGridScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSGridScrollView.h; path = GridScrollView/PSGridScrollView.h; sourceTree = "<group>"; };
+		4F2BA1DE11E6C1C100B25D05 /* PSGridScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSGridScrollView.m; path = GridScrollView/PSGridScrollView.m; sourceTree = "<group>"; };
+		4F5BBE4D13FA249600F314E7 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_home.png; path = Graphics/icon_home.png; sourceTree = "<group>"; };
+		4F5BBE4F13FA24AC00F314E7 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Graphics/72x72/Icon-72.png"; sourceTree = "<group>"; };
+		4F5BBE5213FA25AC00F314E7 /* ModelViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelViewer.xcdatamodel; sourceTree = "<group>"; };
+		4F82470A1208B9920042EE8A /* PSModelViewer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSModelViewer_Prefix.pch; sourceTree = "<group>"; };
+		4FB34E1D14168F5100E0D1E1 /* Doxyfile */ = {isa = PBXFileReference; explicitFileType = text.script; path = Doxyfile; sourceTree = "<group>"; };
+		4FC1307411E264D500A0B940 /* PSBaseMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseMasterViewController.h; sourceTree = "<group>"; };
+		4FC1307511E264D500A0B940 /* PSBaseMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseMasterViewController.m; sourceTree = "<group>"; };
+		4FC1307711E264F300A0B940 /* PSBaseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseDetailViewController.h; sourceTree = "<group>"; };
+		4FC1307811E264F300A0B940 /* PSBaseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseDetailViewController.m; sourceTree = "<group>"; };
+		4FC1309311E2696C00A0B940 /* PSSplitViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSSplitViewDelegate.h; path = SplitView/PSSplitViewDelegate.h; sourceTree = "<group>"; };
+		4FC1309411E2696C00A0B940 /* PSSplitViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSSplitViewDelegate.m; path = SplitView/PSSplitViewDelegate.m; sourceTree = "<group>"; };
+		4FD6D9B011E9377800B086FA /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		4FD8589C11E2F2C400C9B22D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		4FED8BC911E25D9300ACE4FB /* PSModelListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSModelListController.h; sourceTree = "<group>"; };
+		4FED8BCA11E25D9300ACE4FB /* PSModelListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSModelListController.m; sourceTree = "<group>"; };
+		4FED8BCE11E25DCF00ACE4FB /* PSConfigListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSConfigListController.h; sourceTree = "<group>"; };
+		4FED8BCF11E25DCF00ACE4FB /* PSConfigListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSConfigListController.m; sourceTree = "<group>"; };
+		4FED8BD111E25DEA00ACE4FB /* PSEntityListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSEntityListController.h; sourceTree = "<group>"; };
+		4FED8BD211E25DEA00ACE4FB /* PSEntityListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSEntityListController.m; sourceTree = "<group>"; };
+		4FED8BD411E25DFB00ACE4FB /* PSFetchListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchListController.h; sourceTree = "<group>"; };
+		4FED8BD511E25DFB00ACE4FB /* PSFetchListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchListController.m; sourceTree = "<group>"; };
+		4FED8BD711E25E2000ACE4FB /* PSModelDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSModelDetailsController.h; sourceTree = "<group>"; };
+		4FED8BD811E25E2000ACE4FB /* PSModelDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSModelDetailsController.m; sourceTree = "<group>"; };
+		4FED8BD911E25E2000ACE4FB /* PSModelDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSModelDetails.xib; sourceTree = "<group>"; };
+		4FED8BDC11E25E3D00ACE4FB /* PSEntityDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSEntityDetailsController.h; sourceTree = "<group>"; };
+		4FED8BDD11E25E3D00ACE4FB /* PSEntityDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSEntityDetailsController.m; sourceTree = "<group>"; };
+		4FED8BDE11E25E3D00ACE4FB /* PSEntityDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSEntityDetails.xib; sourceTree = "<group>"; };
+		4FED8BE111E25E5900ACE4FB /* PSAttributeDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAttributeDetailsController.h; sourceTree = "<group>"; };
+		4FED8BE211E25E5900ACE4FB /* PSAttributeDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAttributeDetailsController.m; sourceTree = "<group>"; };
+		4FED8BE311E25E5900ACE4FB /* PSAttributeDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSAttributeDetails.xib; sourceTree = "<group>"; };
+		4FED8BE611E25E7B00ACE4FB /* PSRelationshipDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRelationshipDetailsController.h; sourceTree = "<group>"; };
+		4FED8BE711E25E7B00ACE4FB /* PSRelationshipDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRelationshipDetailsController.m; sourceTree = "<group>"; };
+		4FED8BE811E25E7B00ACE4FB /* PSRelationshipDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSRelationshipDetails.xib; sourceTree = "<group>"; };
+		4FED8BEB11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchedPropertyDetailsController.h; sourceTree = "<group>"; };
+		4FED8BEC11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchedPropertyDetailsController.m; sourceTree = "<group>"; };
+		4FED8BED11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSFetchedPropertyDetails.xib; sourceTree = "<group>"; };
+		4FED8BF011E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchedTemplateDetailsController.h; sourceTree = "<group>"; };
+		4FED8BF111E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchedTemplateDetailsController.m; sourceTree = "<group>"; };
+		4FED8BF211E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSFetchedTemplateDetails.xib; sourceTree = "<group>"; };
+		4FED8C0A11E25F6200ACE4FB /* PSDetailViewProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDetailViewProtocols.h; sourceTree = "<group>"; };
+		4FED8C0B11E25F8300ACE4FB /* PSBaseContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PSBaseContentController.h; path = "_Base Classes/PSBaseContentController.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		4FED8C0C11E25F8300ACE4FB /* PSBaseContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSBaseContentController.m; path = "_Base Classes/PSBaseContentController.m"; sourceTree = "<group>"; };
+		4FED8C0E11E25FA100ACE4FB /* PSContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSContentController.h; path = Content/PSContentController.h; sourceTree = "<group>"; };
+		4FED8C0F11E25FA100ACE4FB /* PSContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSContentController.m; path = Content/PSContentController.m; sourceTree = "<group>"; };
+		4FED8C1211E2600B00ACE4FB /* PSBaseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSBaseAppDelegate.h; path = "_Base Classes/PSBaseAppDelegate.h"; sourceTree = "<group>"; };
+		4FED8C1311E2600B00ACE4FB /* PSBaseAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSBaseAppDelegate.m; path = "_Base Classes/PSBaseAppDelegate.m"; sourceTree = "<group>"; };
+		4FED8C1F11E2614B00ACE4FB /* PSCoreDataProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCoreDataProtocols.h; sourceTree = "<group>"; };
+		4FFFC41911E76F1500B4C79E /* PSSmallItemUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSmallItemUI.h; sourceTree = "<group>"; };
+		4FFFC41A11E76F1500B4C79E /* PSSmallItemUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSmallItemUI.m; sourceTree = "<group>"; };
+		4FFFC41B11E76F1500B4C79E /* PSSmallItemUI.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSSmallItemUI.xib; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* PSModelViewer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PSModelViewer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				280420C1108EA07E000629CD /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* PSModelViewer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BCC11E25D9900ACE4FB /* Protocols */,
+				4FED8BAC11E25A6F00ACE4FB /* Application Delegate */,
+				4FED8BAD11E25A7E00ACE4FB /* Content Controller */,
+				4FC1309211E2696B00A0B940 /* Split View Delegate */,
+				4FED8BA911E25A6500ACE4FB /* Display Controllers */,
+				4F2BA1DB11E6C17600B25D05 /* Support Code */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				4FC1314511E2D03600A0B940 /* Data Model */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4F82470A1208B9920042EE8A /* PSModelViewer_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4FF9D86511E809C1007BCD21 /* Icons */,
+				4FD8589C11E2F2C400C9B22D /* MainWindow.xib */,
+				4FD6D9B011E9377800B086FA /* Entitlements.plist */,
+				8D1107310486CEB800E47090 /* PSModelViewer-Info.plist */,
+				4FB34E1D14168F5100E0D1E1 /* Doxyfile */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				280420C0108EA07E000629CD /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F2BA1DB11E6C17600B25D05 /* Support Code */ = {
+			isa = PBXGroup;
+			children = (
+				4F2BA1DC11E6C1A100B25D05 /* User Interface */,
+			);
+			name = "Support Code";
+			sourceTree = "<group>";
+		};
+		4F2BA1DC11E6C1A100B25D05 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				4F2BA1E811E6C9EF00B25D05 /* Entity Control Large */,
+				4F2BA1E711E6C9E100B25D05 /* Entity Control Small */,
+				4F2BA1E011E6C2E500B25D05 /* Scrolling Grid View */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		4F2BA1E011E6C2E500B25D05 /* Scrolling Grid View */ = {
+			isa = PBXGroup;
+			children = (
+				4F2BA1DD11E6C1C100B25D05 /* PSGridScrollView.h */,
+				4F2BA1DE11E6C1C100B25D05 /* PSGridScrollView.m */,
+			);
+			name = "Scrolling Grid View";
+			sourceTree = "<group>";
+		};
+		4F2BA1E711E6C9E100B25D05 /* Entity Control Small */ = {
+			isa = PBXGroup;
+			children = (
+				4FFFC41911E76F1500B4C79E /* PSSmallItemUI.h */,
+				4FFFC41A11E76F1500B4C79E /* PSSmallItemUI.m */,
+				4FFFC41B11E76F1500B4C79E /* PSSmallItemUI.xib */,
+			);
+			name = "Entity Control Small";
+			path = SmItemControl;
+			sourceTree = "<group>";
+		};
+		4F2BA1E811E6C9EF00B25D05 /* Entity Control Large */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Entity Control Large";
+			sourceTree = "<group>";
+		};
+		4FC1309211E2696B00A0B940 /* Split View Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				4FC1309311E2696C00A0B940 /* PSSplitViewDelegate.h */,
+				4FC1309411E2696C00A0B940 /* PSSplitViewDelegate.m */,
+			);
+			name = "Split View Delegate";
+			sourceTree = "<group>";
+		};
+		4FC1314511E2D03600A0B940 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F5BBE5113FA25AC00F314E7 /* ModelViewer.xcdatamodeld */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		4FED8BA911E25A6500ACE4FB /* Display Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BAE11E25A8D00ACE4FB /* Master */,
+				4FED8BAF11E25A9400ACE4FB /* Detail */,
+			);
+			name = "Display Controllers";
+			sourceTree = "<group>";
+		};
+		4FED8BAC11E25A6F00ACE4FB /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8C1111E25FDE00ACE4FB /* base class */,
+			);
+			name = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		4FED8BAD11E25A7E00ACE4FB /* Content Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8C0711E25F1500ACE4FB /* base class */,
+				4FED8C0E11E25FA100ACE4FB /* PSContentController.h */,
+				4FED8C0F11E25FA100ACE4FB /* PSContentController.m */,
+			);
+			name = "Content Controller";
+			sourceTree = "<group>";
+		};
+		4FED8BAE11E25A8D00ACE4FB /* Master */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BBF11E25B3800ACE4FB /* Model */,
+				4FED8BC211E25BCB00ACE4FB /* Config */,
+				4FED8BC011E25B4000ACE4FB /* Entity */,
+				4FED8BC111E25B4A00ACE4FB /* Fetch */,
+				4FC1307411E264D500A0B940 /* PSBaseMasterViewController.h */,
+				4FC1307511E264D500A0B940 /* PSBaseMasterViewController.m */,
+			);
+			name = Master;
+			path = Interface/CoreData/Master;
+			sourceTree = "<group>";
+		};
+		4FED8BAF11E25A9400ACE4FB /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BC311E25BFA00ACE4FB /* Model */,
+				4FED8BC411E25C0100ACE4FB /* Entity */,
+				4FED8BC711E25C4300ACE4FB /* Attribute */,
+				4FED8BC611E25C3100ACE4FB /* Relationship */,
+				4FED8BC811E25C5800ACE4FB /* Fetched Property */,
+				4FED8BC511E25C1500ACE4FB /* Fetched Template */,
+				4FC1307711E264F300A0B940 /* PSBaseDetailViewController.h */,
+				4FC1307811E264F300A0B940 /* PSBaseDetailViewController.m */,
+			);
+			name = Detail;
+			path = Interface/CoreData/Detail;
+			sourceTree = "<group>";
+		};
+		4FED8BBF11E25B3800ACE4FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BC911E25D9300ACE4FB /* PSModelListController.h */,
+				4FED8BCA11E25D9300ACE4FB /* PSModelListController.m */,
+			);
+			name = Model;
+			path = ../../../Interface/CoreData/Master/Model;
+			sourceTree = "<group>";
+		};
+		4FED8BC011E25B4000ACE4FB /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BD111E25DEA00ACE4FB /* PSEntityListController.h */,
+				4FED8BD211E25DEA00ACE4FB /* PSEntityListController.m */,
+			);
+			name = Entity;
+			path = ../../../Interface/CoreData/Master/Entity;
+			sourceTree = "<group>";
+		};
+		4FED8BC111E25B4A00ACE4FB /* Fetch */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BD411E25DFB00ACE4FB /* PSFetchListController.h */,
+				4FED8BD511E25DFB00ACE4FB /* PSFetchListController.m */,
+			);
+			name = Fetch;
+			path = ../../../Interface/CoreData/Master/Fetch;
+			sourceTree = "<group>";
+		};
+		4FED8BC211E25BCB00ACE4FB /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BCE11E25DCF00ACE4FB /* PSConfigListController.h */,
+				4FED8BCF11E25DCF00ACE4FB /* PSConfigListController.m */,
+			);
+			name = Config;
+			path = ../../../Interface/CoreData/Master/Config;
+			sourceTree = "<group>";
+		};
+		4FED8BC311E25BFA00ACE4FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BD711E25E2000ACE4FB /* PSModelDetailsController.h */,
+				4FED8BD811E25E2000ACE4FB /* PSModelDetailsController.m */,
+				4FED8BD911E25E2000ACE4FB /* PSModelDetails.xib */,
+			);
+			name = Model;
+			path = ../../../Interface/CoreData/Detail/Model;
+			sourceTree = "<group>";
+		};
+		4FED8BC411E25C0100ACE4FB /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BDC11E25E3D00ACE4FB /* PSEntityDetailsController.h */,
+				4FED8BDD11E25E3D00ACE4FB /* PSEntityDetailsController.m */,
+				4FED8BDE11E25E3D00ACE4FB /* PSEntityDetails.xib */,
+			);
+			name = Entity;
+			path = ../../../Interface/CoreData/Detail/Entity;
+			sourceTree = "<group>";
+		};
+		4FED8BC511E25C1500ACE4FB /* Fetched Template */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BF011E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.h */,
+				4FED8BF111E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m */,
+				4FED8BF211E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib */,
+			);
+			name = "Fetched Template";
+			path = "../../../Interface/CoreData/Detail/Fetched Template";
+			sourceTree = "<group>";
+		};
+		4FED8BC611E25C3100ACE4FB /* Relationship */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BE611E25E7B00ACE4FB /* PSRelationshipDetailsController.h */,
+				4FED8BE711E25E7B00ACE4FB /* PSRelationshipDetailsController.m */,
+				4FED8BE811E25E7B00ACE4FB /* PSRelationshipDetails.xib */,
+			);
+			name = Relationship;
+			path = ../../../Interface/CoreData/Detail/Relationship;
+			sourceTree = "<group>";
+		};
+		4FED8BC711E25C4300ACE4FB /* Attribute */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BE111E25E5900ACE4FB /* PSAttributeDetailsController.h */,
+				4FED8BE211E25E5900ACE4FB /* PSAttributeDetailsController.m */,
+				4FED8BE311E25E5900ACE4FB /* PSAttributeDetails.xib */,
+			);
+			name = Attribute;
+			path = ../../../Interface/CoreData/Detail/Attribute;
+			sourceTree = "<group>";
+		};
+		4FED8BC811E25C5800ACE4FB /* Fetched Property */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BEB11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.h */,
+				4FED8BEC11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m */,
+				4FED8BED11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib */,
+			);
+			name = "Fetched Property";
+			path = "../../../Interface/CoreData/Detail/Fetched Property";
+			sourceTree = "<group>";
+		};
+		4FED8BCC11E25D9900ACE4FB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8C0A11E25F6200ACE4FB /* PSDetailViewProtocols.h */,
+				4FED8C1F11E2614B00ACE4FB /* PSCoreDataProtocols.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4FED8C0711E25F1500ACE4FB /* base class */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8C0B11E25F8300ACE4FB /* PSBaseContentController.h */,
+				4FED8C0C11E25F8300ACE4FB /* PSBaseContentController.m */,
+			);
+			name = "base class";
+			sourceTree = "<group>";
+		};
+		4FED8C1111E25FDE00ACE4FB /* base class */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8C1211E2600B00ACE4FB /* PSBaseAppDelegate.h */,
+				4FED8C1311E2600B00ACE4FB /* PSBaseAppDelegate.m */,
+			);
+			name = "base class";
+			sourceTree = "<group>";
+		};
+		4FF9D86511E809C1007BCD21 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				4F5BBE4D13FA249600F314E7 /* icon_home.png */,
+				4F5BBE4F13FA24AC00F314E7 /* Icon-72.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		4FB34E1E141691A000E0D1E1 /* Documentation */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "";
+			buildConfigurationList = 4FB34E1F141691A000E0D1E1 /* Build configuration list for PBXLegacyTarget "Documentation" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/doxygen;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = Documentation;
+			passBuildSettingsInEnvironment = 1;
+			productName = Documentation;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* PSModelViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "PSModelViewer" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PSModelViewer;
+			productName = ModelViewer;
+			productReference = 1D6058910D05DD3D006BFB54 /* PSModelViewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PSModelViewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* PSModelViewer */,
+				4FB34E1E141691A000E0D1E1 /* Documentation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FED8BDB11E25E2000ACE4FB /* PSModelDetails.xib in Resources */,
+				4FED8BE011E25E3D00ACE4FB /* PSEntityDetails.xib in Resources */,
+				4FED8BE511E25E5900ACE4FB /* PSAttributeDetails.xib in Resources */,
+				4FED8BEA11E25E7B00ACE4FB /* PSRelationshipDetails.xib in Resources */,
+				4FED8BEF11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib in Resources */,
+				4FED8BF411E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib in Resources */,
+				4FD8589F11E2F2C400C9B22D /* MainWindow.xib in Resources */,
+				4FFFC41D11E76F1500B4C79E /* PSSmallItemUI.xib in Resources */,
+				4F5BBE4E13FA249600F314E7 /* icon_home.png in Resources */,
+				4F5BBE5013FA24AC00F314E7 /* Icon-72.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				4FED8BCB11E25D9300ACE4FB /* PSModelListController.m in Sources */,
+				4FED8BD011E25DCF00ACE4FB /* PSConfigListController.m in Sources */,
+				4FED8BD311E25DEA00ACE4FB /* PSEntityListController.m in Sources */,
+				4FED8BD611E25DFB00ACE4FB /* PSFetchListController.m in Sources */,
+				4FED8BDA11E25E2000ACE4FB /* PSModelDetailsController.m in Sources */,
+				4FED8BDF11E25E3D00ACE4FB /* PSEntityDetailsController.m in Sources */,
+				4FED8BE411E25E5900ACE4FB /* PSAttributeDetailsController.m in Sources */,
+				4FED8BE911E25E7B00ACE4FB /* PSRelationshipDetailsController.m in Sources */,
+				4FED8BEE11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m in Sources */,
+				4FED8BF311E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m in Sources */,
+				4FED8C0D11E25F8300ACE4FB /* PSBaseContentController.m in Sources */,
+				4FED8C1011E25FA100ACE4FB /* PSContentController.m in Sources */,
+				4FED8C1411E2600B00ACE4FB /* PSBaseAppDelegate.m in Sources */,
+				4FC1307611E264D500A0B940 /* PSBaseMasterViewController.m in Sources */,
+				4FC1307911E264F300A0B940 /* PSBaseDetailViewController.m in Sources */,
+				4FC1309511E2696C00A0B940 /* PSSplitViewDelegate.m in Sources */,
+				4F2BA1DF11E6C1C100B25D05 /* PSGridScrollView.m in Sources */,
+				4FFFC41C11E76F1500B4C79E /* PSSmallItemUI.m in Sources */,
+				4F5BBE5313FA25AC00F314E7 /* ModelViewer.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PSModelViewer_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "PSModelViewer-Info.plist";
+				PRODUCT_NAME = PSModelViewer;
+			};
+			name = Debug;
+		};
+		4FB34E20141691A000E0D1E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4FB34E21141691A000E0D1E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4FB34E22141691A000E0D1E1 /* Ad Hoc Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = "Ad Hoc Distribution";
+		};
+		4FD6D98F11E9306500B086FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		4FD6D99011E9306500B086FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PSModelViewer_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "PSModelViewer-Info.plist";
+				PRODUCT_NAME = PSModelViewer;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4FF9D93011E81ABC007BCD21 /* Ad Hoc Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = "Ad Hoc Distribution";
+		};
+		4FF9D93111E81ABC007BCD21 /* Ad Hoc Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PSModelViewer_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "PSModelViewer-Info.plist";
+				PRODUCT_NAME = PSModelViewer;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc Distribution";
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "PSModelViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				4FD6D99011E9306500B086FA /* Release */,
+				4FF9D93111E81ABC007BCD21 /* Ad Hoc Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4FB34E1F141691A000E0D1E1 /* Build configuration list for PBXLegacyTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FB34E20141691A000E0D1E1 /* Debug */,
+				4FB34E21141691A000E0D1E1 /* Release */,
+				4FB34E22141691A000E0D1E1 /* Ad Hoc Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PSModelViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				4FD6D98F11E9306500B086FA /* Release */,
+				4FF9D93011E81ABC007BCD21 /* Ad Hoc Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4F5BBE5113FA25AC00F314E7 /* ModelViewer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4F5BBE5213FA25AC00F314E7 /* ModelViewer.xcdatamodel */,
+			);
+			currentVersion = 4F5BBE5213FA25AC00F314E7 /* ModelViewer.xcdatamodel */;
+			path = ModelViewer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

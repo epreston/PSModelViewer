@@ -1,0 +1,103 @@
+//
+// Prefix header for all source files of the 'ModelViewer' target in the 'ModelViewer' project
+//
+
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_2
+#warning "This project uses features only available in iPhone SDK 3.2 and later."
+#endif
+
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+
+#import "PSDetailViewProtocols.h"
+#import "PSCoreDataProtocols.h"
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Application Notifications
+
+FOUNDATION_EXPORT NSString * const PSMasterDisplayRequestNotification;
+FOUNDATION_EXPORT NSString * const PSDetailDisplayRequestNotification;
+
+FOUNDATION_EXPORT NSString * const PSDismissPopoverRequestNotification;
+FOUNDATION_EXPORT NSString * const PSConfirmPopoverRequestNotification;
+
+
+#define	PS_SHOW_MASTER_DISPLAY_FOR_OBJECT(__ps_display) [[NSNotificationCenter defaultCenter] postNotificationName:PSMasterDisplayRequestNotification object:__ps_display];
+#define	PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT(__ps_display) [[NSNotificationCenter defaultCenter] postNotificationName:PSDetailDisplayRequestNotification object:__ps_display];
+
+#define PS_DISMISS_MAIN_POPOVER_IF_NEEDED() [[NSNotificationCenter defaultCenter] postNotificationName:PSDismissPopoverRequestNotification object:nil];
+
+#define PS_RESET_MASTER_DISPLAY() [[NSNotificationCenter defaultCenter] postNotificationName:PSMasterDisplayRequestNotification object:nil];
+#define PS_RESET_DETAIL_DISPLAY() [[NSNotificationCenter defaultCenter] postNotificationName:PSDetailDisplayRequestNotification object:nil];
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Safe releases
+
+#define ERS_RELEASE_SAFELY(__POINTER) { [__POINTER release]; __POINTER = nil; }
+#define ERS_INVALIDATE_TIMER(__TIMER) { [__TIMER invalidate]; __TIMER = nil; }
+
+// Release a CoreFoundation object safely.
+#define ERS_RELEASE_CF_SAFELY(__REF) { if (nil != (__REF)) { CFRelease(__REF); __REF = nil; } }
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Core data error debugging
+
+
+#define ERS_DEBUG_SAVE_ERROR(__ers_error) \
+do { \
+NSLog(@"Failed to save to data store: %@", [__ers_error localizedDescription]); \
+NSArray* __ers_detailedErrors = [[__ers_error userInfo] objectForKey:NSDetailedErrorsKey];  \
+if(__ers_detailedErrors != nil && [__ers_detailedErrors count] > 0) {  \
+for(NSError* __ers_detailedError in __ers_detailedErrors) {  \
+NSLog(@"DetailedError: %@", [__ers_detailedError userInfo]); \
+}  \
+} \
+else {  \
+NSLog(@"%@", [__ers_error userInfo]);  \
+}  \
+} while(0);
+
+
+#define ERS_DEBUG_FETCH_ERROR(__ers_error) \
+do { \
+NSLog(@"Failed to fetch data: %@", [__ers_error localizedDescription]); \
+NSArray* __ers_detailedErrors = [[__ers_error userInfo] objectForKey:NSDetailedErrorsKey];  \
+if(__ers_detailedErrors != nil && [__ers_detailedErrors count] > 0) {  \
+for(NSError* __ers_detailedError in __ers_detailedErrors) {  \
+NSLog(@"DetailedError: %@", [__ers_detailedError userInfo]); \
+}  \
+} \
+else {  \
+NSLog(@"%@", [__ers_error userInfo]);  \
+}  \
+} while(0);
+
+
+#define ERS_DEBUG_STORE_ERROR(__ers_error) \
+do { \
+NSLog(@"Failed to add persistant store: %@", [__ers_error localizedDescription]); \
+NSArray* __ers_detailedErrors = [[__ers_error userInfo] objectForKey:NSDetailedErrorsKey];  \
+if(__ers_detailedErrors != nil && [__ers_detailedErrors count] > 0) {  \
+for(NSError* __ers_detailedError in __ers_detailedErrors) {  \
+NSLog(@"DetailedError: %@", [__ers_detailedError userInfo]); \
+}  \
+} \
+else {  \
+NSLog(@"%@", [__ers_error userInfo]);  \
+}  \
+} while(0);
+
+
+

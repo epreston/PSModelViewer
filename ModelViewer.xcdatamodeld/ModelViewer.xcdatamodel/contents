@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11A511" minimumToolsVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11B26" minimumToolsVersion="Automatic" iOSVersion="Automatic">
     <entity name="PSArchive" representedClassName="PSArchive" isAbstract="YES" parentEntity="PSBaseElement">
         <attribute name="fileName" optional="YES" attributeType="String" defaultValueString="Archive"/>
         <attribute name="filePath" optional="YES" attributeType="String"/>
@@ -176,44 +176,95 @@
         <relationship name="systemConfig" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSSystemConfig" inverseName="systemValues" inverseEntity="PSSystemConfig" indexed="YES"/>
     </entity>
     <fetchRequest name="TestFetchRequest" entity="PSEvent" predicateString="timeStamp > CAST(0.000000, &quot;NSDate&quot;) OR elementID LIKE[c] &quot;new&quot;"/>
+    <configuration name="BrandingRelated">
+        <memberEntity name="PSBrandingConfig"/>
+        <memberEntity name="PSBrandingValue"/>
+        <memberEntity name="PSDetailListItem"/>
+        <memberEntity name="PSListItem"/>
+        <memberEntity name="PSNameValuePair"/>
+        <memberEntity name="PSBaseElement"/>
+    </configuration>
+    <configuration name="EventRelated">
+        <memberEntity name="PSEvent"/>
+        <memberEntity name="PSEventType"/>
+        <memberEntity name="PSBaseElement"/>
+        <memberEntity name="PSListItem"/>
+    </configuration>
+    <configuration name="FormsRelated">
+        <memberEntity name="PSFormArchive"/>
+        <memberEntity name="PSFormCategory"/>
+        <memberEntity name="PSFormDataModel"/>
+        <memberEntity name="PSFormDisplay"/>
+        <memberEntity name="PSFormDisplayElement"/>
+        <memberEntity name="PSFormEntryInstance"/>
+        <memberEntity name="PSFormEntryItem"/>
+        <memberEntity name="PSFormPreviewArchive"/>
+        <memberEntity name="PSFormSet"/>
+        <memberEntity name="PSFormSetCategory"/>
+        <memberEntity name="PSFormSetItem"/>
+        <memberEntity name="PSFormTarget"/>
+        <memberEntity name="PSFormTargetKeyValue"/>
+        <memberEntity name="PSFormTargetSimpleValue"/>
+        <memberEntity name="PSForm"/>
+        <memberEntity name="PSListItem"/>
+        <memberEntity name="PSDetailListItem"/>
+        <memberEntity name="PSArchive"/>
+        <memberEntity name="PSBaseElement"/>
+        <memberEntity name="PSNameValuePair"/>
+        <memberEntity name="PSDataModelNode"/>
+        <memberEntity name="PSCustomElementValue"/>
+        <memberEntity name="PSAudioArchive"/>
+        <memberEntity name="PSAudioNote"/>
+        <memberEntity name="PSAudioNoteCategory"/>
+        <memberEntity name="PSDisplayElementType"/>
+        <memberEntity name="PSDisplayElementValue"/>
+    </configuration>
+    <configuration name="SystemRelated">
+        <memberEntity name="PSSystemConfig"/>
+        <memberEntity name="PSSystemValue"/>
+        <memberEntity name="PSDetailListItem"/>
+        <memberEntity name="PSNameValuePair"/>
+        <memberEntity name="PSBaseElement"/>
+        <memberEntity name="PSListItem"/>
+    </configuration>
     <elements>
-        <element name="PSSystemConfig" positionX="766" positionY="886" width="128" height="60"/>
-        <element name="PSBrandingConfig" positionX="903" positionY="1099" width="128" height="60"/>
-        <element name="PSSystemValue" positionX="373" positionY="1093" width="128" height="60"/>
-        <element name="PSFormTarget" positionX="319" positionY="267" width="128" height="90"/>
-        <element name="PSDetailListItem" positionX="887" positionY="735" width="128" height="75"/>
-        <element name="PSReferenceArchive" positionX="1193" positionY="15" width="128" height="60"/>
-        <element name="PSDisplayElementType" positionX="1275" positionY="862" width="128" height="90"/>
-        <element name="PSForm" positionX="917" positionY="369" width="128" height="195"/>
-        <element name="PSFormDisplay" positionX="832" positionY="575" width="128" height="75"/>
-        <element name="PSAuthorConfigValue" positionX="40" positionY="1057" width="128" height="60"/>
-        <element name="PSFormEntryInstance" positionX="504" positionY="389" width="128" height="135"/>
-        <element name="PSAuthorSimpleValue" positionX="311" positionY="805" width="128" height="60"/>
-        <element name="PSFormPreviewArchive" positionX="688" positionY="8" width="128" height="60"/>
-        <element name="PSDataModelNode" positionX="1227" positionY="413" width="128" height="165"/>
-        <element name="PSFormTargetKeyValue" positionX="18" positionY="709" width="128" height="60"/>
-        <element name="PSFormSetItem" positionX="1250" positionY="661" width="128" height="75"/>
-        <element name="PSBaseElement" positionX="699" positionY="453" width="128" height="60"/>
-        <element name="PSBrandingValue" positionX="644" positionY="1109" width="128" height="60"/>
-        <element name="PSFormTargetSimpleValue" positionX="1" positionY="392" width="164" height="60"/>
-        <element name="PSNameValuePair" positionX="294" positionY="537" width="128" height="75"/>
-        <element name="PSEvent" positionX="590" positionY="226" width="128" height="90"/>
-        <element name="PSAudioNote" positionX="511" positionY="599" width="128" height="120"/>
-        <element name="PSFormEntryItem" positionX="688" positionY="652" width="128" height="120"/>
-        <element name="PSDisplayElementValue" positionX="1576" positionY="789" width="128" height="75"/>
-        <element name="PSFormSet" positionX="1171" positionY="1102" width="128" height="75"/>
-        <element name="PSListItem" positionX="1039" positionY="573" width="128" height="105"/>
-        <element name="PSAuthorConfig" positionX="544" positionY="845" width="128" height="75"/>
-        <element name="PSCustomElementValue" positionX="1543" positionY="551" width="128" height="75"/>
         <element name="PSArchive" positionX="405" positionY="1" width="128" height="90"/>
-        <element name="PSFormDataModel" positionX="814" positionY="226" width="128" height="120"/>
         <element name="PSAudioArchive" positionX="49" positionY="52" width="128" height="60"/>
-        <element name="PSFormDisplayElement" positionX="1037" positionY="798" width="128" height="165"/>
-        <element name="PSFormCategory" positionX="1574" positionY="325" width="128" height="60"/>
+        <element name="PSAudioNote" positionX="511" positionY="599" width="128" height="120"/>
         <element name="PSAudioNoteCategory" positionX="1276" positionY="262" width="128" height="60"/>
-        <element name="PSFormArchive" positionX="938" positionY="23" width="128" height="60"/>
-        <element name="PSReference" positionX="1042" positionY="274" width="128" height="90"/>
+        <element name="PSAuthorConfig" positionX="544" positionY="845" width="128" height="75"/>
+        <element name="PSAuthorConfigValue" positionX="40" positionY="1057" width="128" height="60"/>
+        <element name="PSAuthorSimpleValue" positionX="311" positionY="805" width="128" height="60"/>
+        <element name="PSBaseElement" positionX="699" positionY="453" width="128" height="60"/>
+        <element name="PSBrandingConfig" positionX="903" positionY="1099" width="128" height="60"/>
+        <element name="PSBrandingValue" positionX="644" positionY="1109" width="128" height="60"/>
+        <element name="PSCustomElementValue" positionX="1543" positionY="551" width="128" height="75"/>
+        <element name="PSDataModelNode" positionX="1227" positionY="413" width="128" height="165"/>
+        <element name="PSDetailListItem" positionX="887" positionY="735" width="128" height="75"/>
+        <element name="PSDisplayElementType" positionX="1275" positionY="862" width="128" height="90"/>
+        <element name="PSDisplayElementValue" positionX="1576" positionY="789" width="128" height="75"/>
+        <element name="PSEvent" positionX="590" positionY="226" width="128" height="90"/>
         <element name="PSEventType" positionX="1542" positionY="31" width="128" height="60"/>
+        <element name="PSForm" positionX="917" positionY="369" width="128" height="195"/>
+        <element name="PSFormArchive" positionX="938" positionY="23" width="128" height="60"/>
+        <element name="PSFormCategory" positionX="1574" positionY="325" width="128" height="60"/>
+        <element name="PSFormDataModel" positionX="814" positionY="226" width="128" height="120"/>
+        <element name="PSFormDisplay" positionX="832" positionY="575" width="128" height="75"/>
+        <element name="PSFormDisplayElement" positionX="1037" positionY="798" width="128" height="165"/>
+        <element name="PSFormEntryInstance" positionX="504" positionY="389" width="128" height="135"/>
+        <element name="PSFormEntryItem" positionX="688" positionY="652" width="128" height="120"/>
+        <element name="PSFormPreviewArchive" positionX="688" positionY="8" width="128" height="60"/>
+        <element name="PSFormSet" positionX="1171" positionY="1102" width="128" height="75"/>
         <element name="PSFormSetCategory" positionX="1536" positionY="1091" width="128" height="60"/>
+        <element name="PSFormSetItem" positionX="1250" positionY="661" width="128" height="75"/>
+        <element name="PSFormTarget" positionX="319" positionY="267" width="128" height="90"/>
+        <element name="PSFormTargetKeyValue" positionX="18" positionY="709" width="128" height="60"/>
+        <element name="PSFormTargetSimpleValue" positionX="1" positionY="392" width="164" height="60"/>
+        <element name="PSListItem" positionX="1039" positionY="573" width="128" height="105"/>
+        <element name="PSNameValuePair" positionX="294" positionY="537" width="128" height="75"/>
+        <element name="PSReference" positionX="1042" positionY="274" width="128" height="90"/>
+        <element name="PSReferenceArchive" positionX="1193" positionY="15" width="128" height="60"/>
+        <element name="PSSystemConfig" positionX="766" positionY="886" width="128" height="60"/>
+        <element name="PSSystemValue" positionX="373" positionY="1093" width="128" height="60"/>
     </elements>
 </model>

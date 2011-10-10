@@ -59,21 +59,24 @@
 		
 		newController = [[PSModelListController alloc] init] ;
 
-		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passManagedObjectModel:(NSManagedObjectModel *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSEntityDescription class]] ) {
 		
 		newController = [[PSEntityListController alloc] init] ;
 
-		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passEntityDescription:(NSEntityDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSFetchRequest class]] ) {
 		
 		newController = [[PSFetchListController alloc] init] ;
 
-		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passFetchRequest:(NSFetchRequest *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSAttributeDescription class]] ) {
@@ -115,7 +118,8 @@
 	
 		newController = [[PSConfigListController alloc] init] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passString:(NSString *)anObject toObject:newController];
 									   
 	} else if ( [anObject isKindOfClass:[NSArray class]] ) { 
@@ -158,7 +162,8 @@
 		newController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" 
                                                                    bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passManagedObjectModel:(NSManagedObjectModel *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSEntityDescription class]] ) {
@@ -166,7 +171,8 @@
 		newController = [[PSEntityDetailsController alloc] initWithNibName:@"PSEntityDetails" 
                                                                     bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passEntityDescription:(NSEntityDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSFetchRequest class]] ) {
@@ -174,7 +180,8 @@
 		newController = [[PSFetchedTemplateDetailsController alloc] initWithNibName:@"PSFetchedTemplateDetails" 
                                                                              bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passFetchRequest:(NSFetchRequest *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSAttributeDescription class]] ) {
@@ -182,7 +189,8 @@
 		newController = [[PSAttributeDetailsController alloc] initWithNibName:@"PSAttributeDetails" 
                                                                        bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passAttributeDescription:(NSAttributeDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSRelationshipDescription class]] ) {
@@ -190,7 +198,8 @@
 		newController = [[PSRelationshipDetailsController alloc] initWithNibName:@"PSRelationshipDetails" 
                                                                           bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passRelationshipDescription:(NSRelationshipDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSFetchedPropertyDescription class]] ) {
@@ -198,7 +207,8 @@
 		newController = [[PSFetchedPropertyDetailsController alloc] initWithNibName:@"PSFetchedPropertyDetails" 
                                                                              bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+//		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+        [self passManagedObjectModel:self.managedObjectModel toObject:newController];
 		[self passFetchedPropertyDescription:(NSFetchedPropertyDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSManagedObject class]] ) {

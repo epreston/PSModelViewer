@@ -16,7 +16,8 @@
     
 @private
     
-    NSManagedObjectContext	*managedObjectContext_;
+//    NSManagedObjectContext	*managedObjectContext_;
+    NSManagedObjectModel	*managedObjectModel_;
     
 	UISplitViewController	*splitViewController_;
 	UINavigationController	*navigationController_;
@@ -24,8 +25,8 @@
 	UIViewController		*rootViewController_;
     UIViewController		*detailViewController_;
 }
-
-@property (nonatomic, retain)			NSManagedObjectContext	*managedObjectContext;
+@property (nonatomic, retain)           NSManagedObjectModel    *managedObjectModel;
+//@property (nonatomic, retain)			NSManagedObjectContext	*managedObjectContext;
 
 @property (nonatomic, retain) IBOutlet	UISplitViewController	*splitViewController;
 @property (nonatomic, retain) IBOutlet	UINavigationController	*navigationController;

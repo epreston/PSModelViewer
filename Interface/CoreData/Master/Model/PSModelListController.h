@@ -13,17 +13,17 @@
 
 
 @interface PSModelListController : PSBaseMasterViewController 
-    < PSAcceptsManagedObjectModel > 
+//    < PSAcceptsManagedObjectModel > 
 {
 
 @private
-    NSManagedObjectModel	*managedObjectModel_;
+//    NSManagedObjectModel	*managedObjectModel_;
     
 	NSArray		*configNamesInModel_;
 	NSArray		*entitiesInModel_;						
 	NSArray		*fetchRequestTemplateNamesInModel_;
 }
 
-@property (nonatomic, retain) NSManagedObjectModel	*managedObjectModel;
+//@property (nonatomic, retain) NSManagedObjectModel	*managedObjectModel;
 
 @end

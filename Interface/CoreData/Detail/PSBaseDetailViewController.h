@@ -12,17 +12,20 @@
 
 
 @interface PSBaseDetailViewController : UIViewController 
-	< PSSwappableDetailView, PSAcceptsManagedObjectContext > 
+	< PSSwappableDetailView, PSAcceptsManagedObjectModel > 
+// < PSSwappableDetailView, PSAcceptsManagedObjectContext > 
 {
 
 @private
     
 	UIToolbar				*toolbar_;
-	NSManagedObjectContext	*managedObjectContext_;
+//	NSManagedObjectContext	*managedObjectContext_;
+    NSManagedObjectModel    *managedObjectModel_;
 }
 
 // PSAcceptsObjectContext
-@property (nonatomic, retain) NSManagedObjectContext	*managedObjectContext;
+//@property (nonatomic, retain) NSManagedObjectContext	*managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectModel  *managedObjectModel;
 
 // For convienience
 @property (nonatomic, retain) IBOutlet UIToolbar        *toolbar;

@@ -10,15 +10,17 @@
 #import <CoreData/CoreData.h>
 
 @interface PSBaseMasterViewController : UITableViewController 
-    < PSAcceptsManagedObjectContext > 
+    < PSAcceptsManagedObjectModel > // < PSAcceptsManagedObjectContext > 
 {
 	
 @private
     
-	NSManagedObjectContext	*managedObjectContext_;
+//	NSManagedObjectContext	*managedObjectContext_;
+    NSManagedObjectModel    *managedObjectModel_;
 }
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+//@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectModel  *managedObjectModel;
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 

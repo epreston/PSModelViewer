@@ -12,7 +12,8 @@
 @implementation PSBaseDetailViewController
 
 @synthesize	toolbar                 = toolbar_;
-@synthesize	managedObjectContext    = managedObjectContext_;
+//@synthesize	managedObjectContext    = managedObjectContext_;
+@synthesize managedObjectModel      = managedObjectModel_;
 
 
 // IMPLEMENT IN SUBCLASS: Update the user interface for the detail item.
@@ -56,7 +57,8 @@
 
 - (void) dealloc 
 {    
-	[managedObjectContext_ release];
+//	[managedObjectContext_ release];
+    [managedObjectModel_ release];
     
 	[super dealloc];
 }
@@ -71,6 +73,8 @@
 	if ( [itemsArray indexOfObject:barButtonItem] == NSNotFound ) {
 		[itemsArray insertObject:barButtonItem atIndex:0];
 	} else {
+        // This may seem silly but is nessary, button will disappear when displaying the
+        // detailViewController for a second time in portrait.
         [itemsArray replaceObjectAtIndex:[itemsArray indexOfObject:barButtonItem] 
                               withObject:barButtonItem];
     }

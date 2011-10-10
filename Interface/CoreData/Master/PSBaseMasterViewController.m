@@ -19,7 +19,8 @@
 
 @implementation PSBaseMasterViewController
 
-@synthesize	managedObjectContext = managedObjectContext_;
+//@synthesize	managedObjectContext = managedObjectContext_;
+@synthesize managedObjectModel  = managedObjectModel_;
 
 
 // IMPLEMENT IN SUBCLASS: Update the cell text.
@@ -87,7 +88,8 @@
 
 - (void)dealloc
 {
-    [managedObjectContext_ release];
+//    [managedObjectContext_ release];
+    [managedObjectModel_ release];
     
     [super dealloc];
 }

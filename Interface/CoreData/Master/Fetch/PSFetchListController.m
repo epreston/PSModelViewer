@@ -56,8 +56,11 @@
 			cell.textLabel.text = [keyPathNamesForPrefetching_ objectAtIndex:indexPath.row];
 			
 			// we can pull the related class name for the key property
-			NSEntityDescription *entity = [NSEntityDescription entityForName:[keyPathNamesForPrefetching_ objectAtIndex:indexPath.row]
-													   inManagedObjectContext:[self managedObjectContext]];
+//			NSEntityDescription *entity = [NSEntityDescription entityForName:[keyPathNamesForPrefetching_ objectAtIndex:indexPath.row]
+//													   inManagedObjectContext:[self managedObjectContext]];
+            
+            NSEntityDescription *entity = [self.managedObjectModel.entitiesByName objectForKey:[keyPathNamesForPrefetching_ objectAtIndex:indexPath.row] ];
+            
 			if ( entity ) {
 				cell.detailTextLabel.text = [entity name];
 			}

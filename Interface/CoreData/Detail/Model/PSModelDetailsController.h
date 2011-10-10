@@ -18,12 +18,13 @@
 
 
 @interface PSModelDetailsController : PSBaseDetailViewController 
-    < PSAcceptsManagedObjectModel, PSSmallItemUIDelegate > 
+    < PSSmallItemUIDelegate > 
+//    < PSAcceptsManagedObjectModel, PSSmallItemUIDelegate > 
 {
 
 @private
     
-    NSManagedObjectModel	*managedObjectModel_;
+//    NSManagedObjectModel	*managedObjectModel_;
     
 	// User Interface - Stats
 	UILabel				*numberOfEntities_;
@@ -37,7 +38,7 @@
 }
 
 // Data object
-@property (nonatomic, retain) NSManagedObjectModel			*managedObjectModel;
+//@property (nonatomic, retain) NSManagedObjectModel			*managedObjectModel;
 
 // Interface
 @property (nonatomic, assign) IBOutlet UILabel				*numberOfEntities;

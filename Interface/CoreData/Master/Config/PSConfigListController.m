@@ -49,8 +49,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
-	NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
-	entitiesInConfig_ = [[model entitiesForConfiguration:detailString_] retain];
+//	NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
+	entitiesInConfig_ = [[self.managedObjectModel entitiesForConfiguration:detailString_] retain];
 }
 
 

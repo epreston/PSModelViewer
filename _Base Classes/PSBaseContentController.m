@@ -24,7 +24,8 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 
 @implementation PSBaseContentController
 
-@synthesize managedObjectContext    = managedObjectContext_;
+//@synthesize managedObjectContext    = managedObjectContext_;
+@synthesize managedObjectModel      = managedObjectModel_;
 
 @synthesize splitViewController     = splitViewController_;
 @synthesize navigationController    = navigationController_;
@@ -63,8 +64,11 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	[super awakeFromNib];
 	
 	// Pass along the managed object context
-	[self passManagedObjectContext:managedObjectContext_ toObject:rootViewController_];
-    [self passManagedObjectContext:managedObjectContext_ toObject:detailViewController_];
+//	[self passManagedObjectContext:managedObjectContext_ toObject:rootViewController_];
+//  [self passManagedObjectContext:managedObjectContext_ toObject:detailViewController_];
+    
+    [self passManagedObjectModel:managedObjectModel_ toObject:rootViewController_];
+    [self passManagedObjectModel:managedObjectModel_ toObject:detailViewController_];
 	
 	// Listen for our messages
 	NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
@@ -91,7 +95,8 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	[navigationController_ release];
 	[splitViewController_ release];
 	
-	[managedObjectContext_ release];
+//	[managedObjectContext_ release];
+    [managedObjectModel_ release];
 	
     [super dealloc];
 }

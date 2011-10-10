@@ -31,10 +31,4 @@
 
 @property (nonatomic, retain) NSFetchRequest		*detailFetchRequest;
 
-@property (nonatomic, retain) NSEntityDescription	*fetchEntityDescription;
-@property (nonatomic, retain) NSArray				*affectedPersistantStores;
-@property (nonatomic, retain) NSArray				*orderedSortDescriptors;
-@property (nonatomic, retain) NSArray				*keyPathNamesForPrefetching;
-@property (nonatomic, retain) NSArray				*propertyDescriptionsToFetch;
-
 @end

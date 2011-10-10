@@ -11,7 +11,6 @@
 
 @interface PSRelationshipDetailsController ()
 
-// Methods
 - (void) configureView;
 - (NSString *) nameFromDeleteRuleType:(NSDeleteRule)type;
 
@@ -94,32 +93,26 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void) viewDidUnload 
-{    
-	[super viewDidUnload];
-	
-	// Release any retained subviews of the main view. Or anything that can be recreated on viewDidLoad
-    // e.g. self.myOutlet = nil;
-	
-	self.relatedEntityName = nil;
-	self.propertyIsIndexed = nil;
-	self.propertyIsOptional = nil;
-	self.propertyIsTransient = nil;
-	self.propertyName = nil;
-	
-	self.relationDestinationEntity = nil;
-	self.relationInverseRelationship = nil;
-	
-	self.relationDeleteRule = nil;
-	
-	self.relationMaxCount = nil;
-	self.relationMinCount = nil;
-	self.relationIsToMany = nil;
+- (void) viewDidUnload
+{
+    self.relatedEntityName = nil;
+    self.propertyIsIndexed = nil;
+    self.propertyIsOptional = nil;
+    self.propertyIsTransient = nil;
+    self.propertyName = nil;
+    self.relationDestinationEntity = nil;
+    self.relationInverseRelationship = nil;
+    self.relationDeleteRule = nil;
+    self.relationMaxCount = nil;
+    self.relationMinCount = nil;
+    self.relationIsToMany = nil;
+    
+    [super viewDidUnload];
 }
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailRelationshipDescription_ );
+	[detailRelationshipDescription_ release];
 	
 	[super dealloc];
 }

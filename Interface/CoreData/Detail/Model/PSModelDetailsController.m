@@ -92,26 +92,6 @@
 }
 
 
-#pragma mark - Small Item Delegate 
-
-- (void) performInfoAction: (PSSmallItemUI *) aSmallItem 
-{	
-	NSLog(@"Info button clicked.");	
-}
-
-
-#pragma mark - Rotation Support
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
-                                         duration:(NSTimeInterval)duration 
-{
-	// Edge case where view is scrolling and orientation changes:
-	// Need to update the display of the gridview
-	
-	[self.gridView setNeedsLayout];
-}
-
-
 #pragma mark - Resource Management
 
 - (void) didReceiveMemoryWarning 
@@ -123,24 +103,41 @@
 }
 
 - (void) viewDidUnload 
-{    
-	[super viewDidUnload];
-	
-	// Release any retained subviews of the main view. Or anything that can be recreated on viewDidLoad
-    // e.g. self.myOutlet = nil;
-	
+{	
 	self.numberOfEntities = nil;
 	self.numberOfConfigurations = nil;
 	self.numberOfFetchRequestTemplates = nil;
 	
 	self.gridView = nil;
+    
+    [super viewDidUnload];
 }
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( managedObjectModel_ );
+	[managedObjectModel_ release];
 	
 	[super dealloc];
+}
+
+
+#pragma mark - PSSmallItemUIDelegate 
+
+- (void) performInfoAction: (PSSmallItemUI *)aSmallItem 
+{	
+	NSLog(@"Info button clicked.");	
+}
+
+
+#pragma mark - Rotation Support
+
+- (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
+                                         duration:(NSTimeInterval)duration 
+{
+	// Edge case where view is scrolling and orientation changes:
+	// Need to update the display of the gridview
+	
+	[self.gridView setNeedsLayout];
 }
 
 @end

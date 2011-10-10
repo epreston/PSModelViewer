@@ -17,11 +17,9 @@
     < PSAcceptsAttributeDescription > 
 {
     
-@protected
-
-	NSAttributeDescription		*detailAttributeDescription_;
-	
 @private
+    
+    NSAttributeDescription		*detailAttributeDescription_;
 	
 	// Validation
 	// – validationPredicates
@@ -43,7 +41,6 @@
 	
 	// Value Transformers
 	UILabel		*attributeValueTransformerName_;
-	
 }
 
 // Data objects

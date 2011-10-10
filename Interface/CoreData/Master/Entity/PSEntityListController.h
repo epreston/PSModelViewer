@@ -30,13 +30,6 @@
 	NSMutableArray			*fetchedPropertiesOfEntity_;
 }
 
-
 @property (nonatomic, retain) NSEntityDescription	*detailEntityDescription;
-
-@property (nonatomic, retain) NSEntityDescription	*superEntityDescription;
-@property (nonatomic, retain) NSArray				*subEntityDescriptions;
-@property (nonatomic, retain) NSArray				*atrributesOfEntity;
-@property (nonatomic, retain) NSArray				*relationshipsOfEntity;
-@property (nonatomic, retain) NSArray				*fetchedPropertiesOfEntity;
 
 @end

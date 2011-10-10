@@ -22,10 +22,10 @@
 	NSMutableArray *gridViews_;
 }
 
-@property (nonatomic, copy) NSMutableArray *gridViews;
-@property (nonatomic) int					itemWidth;
-@property (nonatomic) int					itemHeight;
-@property (nonatomic) int					itemBorder;
+@property (nonatomic, retain) NSMutableArray *gridViews;
+@property (nonatomic, assign) int	itemWidth;
+@property (nonatomic, assign) int	itemHeight;
+@property (nonatomic, assign) int	itemBorder;
 
 - (void) addViewToGrid:(UIView *)view;
 

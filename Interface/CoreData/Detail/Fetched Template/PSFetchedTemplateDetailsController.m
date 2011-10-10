@@ -12,7 +12,6 @@
 
 @interface PSFetchedTemplateDetailsController ()
 
-// Methods
 - (void) configureView;
 
 @end
@@ -50,21 +49,18 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void) viewDidUnload 
-{    
-	[super viewDidUnload];
-	
-	// Release any retained subviews of the main view. Or anything that can be recreated on viewDidLoad
-    // e.g. self.myOutlet = nil;
-	
-	self.entityName = nil;
-	self.entityClassName = nil;
-	self.hasSubEntities = nil;
+- (void) viewDidUnload
+{
+    self.entityName = nil;
+    self.entityClassName = nil;
+    self.hasSubEntities = nil;
+    
+    [super viewDidUnload];
 }
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailFetchRequest_ );
+	[detailFetchRequest_ release];
 	
 	[super dealloc];
 }

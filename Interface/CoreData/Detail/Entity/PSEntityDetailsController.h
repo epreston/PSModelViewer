@@ -15,13 +15,11 @@
 
 @interface PSEntityDetailsController : PSBaseDetailViewController 
     < PSAcceptsEntityDescription > 
-{	
-
-@protected
-    
-	NSEntityDescription	*detailEntityDescription_;
+{
 
 @private
+    
+    NSEntityDescription	*detailEntityDescription_;
     
 	// Information About an Entity Description
 	UILabel			*entityName_;
@@ -42,6 +40,5 @@
 @property (nonatomic, assign) IBOutlet UILabel		*entityName;
 @property (nonatomic, assign) IBOutlet UILabel		*entityManagedObjectClassName;
 @property (nonatomic, assign) IBOutlet UILabel		*entityIsAbstract;
-
 
 @end

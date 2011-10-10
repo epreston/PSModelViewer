@@ -16,11 +16,8 @@
     < PSAcceptsManagedObjectModel > 
 {
 
-@protected
-    
-	NSManagedObjectModel	*managedObjectModel_;
-	
 @private
+    NSManagedObjectModel	*managedObjectModel_;
     
 	NSArray		*configNamesInModel_;
 	NSArray		*entitiesInModel_;						
@@ -28,10 +25,5 @@
 }
 
 @property (nonatomic, retain) NSManagedObjectModel	*managedObjectModel;
-
-@property (nonatomic, retain) NSArray	*configNamesInModel;
-@property (nonatomic, retain) NSArray	*entitiesInModel;
-@property (nonatomic, retain) NSArray	*fetchRequestTemplateNamesInModel;
-
 
 @end

@@ -20,9 +20,6 @@
 @implementation PSModelListController
 
 @synthesize managedObjectModel                  = managedObjectModel_;
-@synthesize configNamesInModel                  = configNamesInModel_;
-@synthesize entitiesInModel                     = entitiesInModel_;
-@synthesize fetchRequestTemplateNamesInModel    = fetchRequestTemplateNamesInModel_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
@@ -69,15 +66,43 @@
 	
 	NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
 	
-	entitiesInModel_ = [[model entities] retain];
+	entitiesInModel_    = [[model entities] retain];
 	configNamesInModel_ = [[model configurations] retain];
 	
-	NSDictionary *namesLookup = [model fetchRequestTemplatesByName];
-	fetchRequestTemplateNamesInModel_ = [[namesLookup allKeys] retain];
+	NSDictionary *namesLookup           = [model fetchRequestTemplatesByName];
+	fetchRequestTemplateNamesInModel_   = [[namesLookup allKeys] retain];
 }
 
 
-#pragma mark - Table View Delegate
+#pragma mark Resource Management
+
+- (void) didReceiveMemoryWarning 
+{
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc. that aren't in use.
+}
+
+- (void) viewDidUnload 
+{    
+	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+	
+	[super viewDidUnload];
+}
+
+- (void) dealloc
+{
+    [managedObjectModel_ release];
+    [configNamesInModel_ release];
+    [entitiesInModel_ release];
+    [fetchRequestTemplateNamesInModel_ release];
+    
+    [super dealloc];
+}
+
+#pragma mark - UITableViewDelegate
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
@@ -136,7 +161,7 @@
 }
 
 
-#pragma mark - Table View Data Source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
@@ -254,36 +279,6 @@
 			return @"Error";
 			break;
 	}
-}
-
-
-#pragma mark Resource Management
-
-- (void) didReceiveMemoryWarning 
-{
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
-}
-
-- (void) viewDidUnload 
-{    
-	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-	
-	[super viewDidUnload];
-	
-	ERS_RELEASE_SAFELY( entitiesInModel_ );
-	ERS_RELEASE_SAFELY( configNamesInModel_ );
-	ERS_RELEASE_SAFELY( fetchRequestTemplateNamesInModel_ );
-}
-
-- (void) dealloc 
-{	
-	ERS_RELEASE_SAFELY( managedObjectModel_ );
-    
-    [super dealloc];
 }
 
 

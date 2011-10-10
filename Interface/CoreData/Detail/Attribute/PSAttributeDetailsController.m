@@ -11,7 +11,6 @@
 
 @interface PSAttributeDetailsController ()
 
-// Methods
 - (void) configureView;
 - (NSString *) nameFromAttributeType:(NSAttributeType)type;
 
@@ -141,23 +140,24 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void) viewDidUnload 
-{    
-	[super viewDidUnload];
-	
-	// Release any retained subviews of the main view. Or anything that can be recreated on viewDidLoad
-    // e.g. self.myOutlet = nil;
-	
-	self.relatedEntityName = nil;
-	self.propertyIsIndexed = nil;
-	self.propertyIsOptional = nil;
-	self.propertyIsTransient = nil;
-	self.propertyName = nil;
+- (void) viewDidUnload
+{
+    self.relatedEntityName = nil;
+    self.propertyIsIndexed = nil;
+    self.propertyIsOptional = nil;
+    self.propertyIsTransient = nil;
+    self.propertyName = nil;
+    self.attributeType = nil;
+    self.attributeValueClassName = nil;
+    self.attributeDefaultValue = nil;
+    self.attributeValueTransformerName = nil;
+    
+    [super viewDidUnload];
 }
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailAttributeDescription_ );
+	[detailAttributeDescription_ release];
 	
 	[super dealloc];
 }

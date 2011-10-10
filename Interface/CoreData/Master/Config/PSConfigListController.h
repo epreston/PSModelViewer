@@ -21,7 +21,6 @@
 	NSArray     *entitiesInConfig_;
 }
 
-@property (nonatomic, retain) NSString	*detailString;
-@property (nonatomic, retain) NSArray   *entitiesInConfig;
+@property (nonatomic, retain) NSString          *detailString;
 
 @end

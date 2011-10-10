@@ -20,7 +20,6 @@
 @implementation PSConfigListController
 
 @synthesize detailString        = detailString_;
-@synthesize entitiesInConfig    = entitiesInConfig_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
@@ -29,7 +28,6 @@
 	
 	cell.textLabel.text = [entity name];
 	cell.detailTextLabel.text = [entity managedObjectClassName];
-	
 }
 
 
@@ -56,7 +54,34 @@
 }
 
 
-#pragma mark - Table View Delegate
+#pragma mark - Resource Management
+
+- (void) didReceiveMemoryWarning 
+{    
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc. that aren't in use.
+}
+
+- (void) viewDidUnload 
+{    
+	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+	
+	[super viewDidUnload];
+}
+
+- (void)dealloc
+{
+    [detailString_ release];
+    [entitiesInConfig_ release];
+    
+    [super dealloc];
+}
+
+
+#pragma mark - UITableViewDelegate
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
@@ -74,12 +99,12 @@
 	//
 	
 	// PS_DISMISS_MAIN_POPOVER_IF_NEEDED();
-	PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( [self.entitiesInConfig objectAtIndex:indexPath.row] );
+	PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( [entitiesInConfig_ objectAtIndex:indexPath.row] );
 	
 }
 
 
-#pragma mark - Table View Data Source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView 
 {
@@ -155,34 +180,6 @@
 			return @"Error";
 			break;
 	}
-}
-
-
-#pragma mark - Resource Management
-
-- (void) didReceiveMemoryWarning 
-{    
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
-}
-
-- (void) viewDidUnload 
-{    
-	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-	
-	[super viewDidUnload];
-	
-	ERS_RELEASE_SAFELY( entitiesInConfig_ );
-}
-
-- (void) dealloc 
-{	
-	ERS_RELEASE_SAFELY( detailString_ );
-    
-    [super dealloc];
 }
 
 

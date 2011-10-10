@@ -11,7 +11,6 @@
 
 @interface PSEntityDetailsController () 
 
-// Methods
 - (void) configureView;
 
 @end
@@ -52,20 +51,17 @@
 }
 
 - (void) viewDidUnload 
-{    
-	[super viewDidUnload];
-	
-	// Release any retained subviews of the main view. Or anything that can be recreated on viewDidLoad
-    // e.g. self.myOutlet = nil;
-	
+{
 	self.entityName = nil;
 	self.entityManagedObjectClassName = nil;
 	self.entityIsAbstract = nil;
+    
+    [super viewDidUnload];
 }
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailEntityDescription_ );
+	[detailEntityDescription_ release];
 	
 	[super dealloc];
 }

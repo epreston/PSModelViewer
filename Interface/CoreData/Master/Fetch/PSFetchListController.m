@@ -20,11 +20,6 @@
 @implementation PSFetchListController
 
 @synthesize detailFetchRequest          = detailFetchRequest_;
-@synthesize fetchEntityDescription      = fetchEntityDescription_;
-@synthesize affectedPersistantStores    = affectedPersistantStores_;
-@synthesize orderedSortDescriptors      = orderedSortDescriptors_;
-@synthesize keyPathNamesForPrefetching  = keyPathNamesForPrefetching_;
-@synthesize propertyDescriptionsToFetch = propertyDescriptionsToFetch_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
@@ -103,11 +98,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
 	
-	fetchEntityDescription_ = [detailFetchRequest_ entity];
-	affectedPersistantStores_ = [[detailFetchRequest_ affectedStores] retain];
-	orderedSortDescriptors_ = [[detailFetchRequest_ sortDescriptors] retain];
-	keyPathNamesForPrefetching_ = [[detailFetchRequest_ relationshipKeyPathsForPrefetching] retain];
-	propertyDescriptionsToFetch_ = [[detailFetchRequest_ propertiesToFetch] retain];
+	fetchEntityDescription_         = [[detailFetchRequest_ entity] retain];
+	affectedPersistantStores_       = [[detailFetchRequest_ affectedStores] retain];
+	orderedSortDescriptors_         = [[detailFetchRequest_ sortDescriptors] retain];
+	keyPathNamesForPrefetching_     = [[detailFetchRequest_ relationshipKeyPathsForPrefetching] retain];
+	propertyDescriptionsToFetch_    = [[detailFetchRequest_ propertiesToFetch] retain];
 }
 
 
@@ -127,23 +122,22 @@
     // For example: self.myOutlet = nil;
 	
 	[super viewDidUnload];
-	
-	ERS_RELEASE_SAFELY( fetchEntityDescription_ );
-	ERS_RELEASE_SAFELY( affectedPersistantStores_ );
-	ERS_RELEASE_SAFELY( orderedSortDescriptors_ );
-	ERS_RELEASE_SAFELY( keyPathNamesForPrefetching_ );
-	ERS_RELEASE_SAFELY( propertyDescriptionsToFetch_ );
 }
 
-- (void) dealloc 
-{    
-	ERS_RELEASE_SAFELY( detailFetchRequest_ );
-	
+- (void) dealloc
+{
+    [detailFetchRequest_ release];
+    [fetchEntityDescription_ release];
+    [affectedPersistantStores_ release];
+    [orderedSortDescriptors_ release];
+    [keyPathNamesForPrefetching_ release];
+    [propertyDescriptionsToFetch_ release];
+    
     [super dealloc];
 }
 
 
-#pragma mark - Table View Delegate
+#pragma mark - UITableViewDelegate
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
@@ -210,7 +204,7 @@
 }
 
 
-#pragma mark - Table View Data Source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView 
 {

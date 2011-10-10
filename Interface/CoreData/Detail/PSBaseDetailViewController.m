@@ -23,34 +23,15 @@
 @synthesize	managedObjectContext    = managedObjectContext_;
 
 
+// IMPLEMENT IN SUBCLASS: Update the user interface for the detail item.
+
 - (void) configureView 
-{	
-	// [super configureView];
-	
-	// The nib will overwrite our configuration if we are not loaded
-	if ( [self isViewLoaded] ) {
-		
-		// IMPLEMENT IN SUBCLASS: Update the user interface for the detail item.
-	}
-}
-
-
-#pragma mark - Notification Processing
-
-// Notification message from our managedObjectContext that it will save
-- (void) contextWillSave:(NSNotification *)notification 
-{	
-	/*
-	 // We might have been deleted; dismiss view in this case
-	 if ( detailObject ) {
-	 if ( [detailObject isDeleted] ) {
-	 
-	 // Tell the content controller to show the welcome screen
-	 [[NSNotificationCenter defaultCenter] postNotificationName:ERSLoadDetailDisplayRequestedForItemNotification 
-	 object:nil];
-	 }
-	 }
-	 */
+{		
+//	// The nib will overwrite our configuration if we are not loaded
+//	if ( [self isViewLoaded] ) {
+//		
+//		
+//	}
 }
 
 
@@ -72,7 +53,45 @@
 }
 
 
-#pragma mark - Swappable Detail View Controller
+#pragma mark - Resource Management
+
+- (void) didReceiveMemoryWarning 
+{    
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
+
+- (void) viewDidUnload 
+{	
+	// Remove self as an observer.
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	
+	self.toolbar = nil;
+    
+    [super viewDidUnload];
+}
+
+- (void) dealloc 
+{    
+	[managedObjectContext_ release];
+	
+	[super dealloc];
+}
+
+
+#pragma mark - Notification Processing
+
+// Notification message from our managedObjectContext that it will save
+- (void) contextWillSave:(NSNotification *)notification 
+{
+    // We might have been deleted; dismiss view in this case	 
+    // Tell the content controller to show the welcome screen
+}
+
+
+#pragma mark - PSSwappableDetailView
 
 - (void) showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem 
 {    
@@ -95,7 +114,7 @@
 }
 
 
-#pragma mark - UITextField Delegate
+#pragma mark - UITextFieldDelegate
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField 
 {	
@@ -107,43 +126,12 @@
 
 #pragma mark - Rotation Support
 
-// Ensure that the view controller supports rotation and that the split view can therefore
-// show in both portrait and landscape.
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
-{    
-	return YES;
-}
-
-
-#pragma mark - Resource Management
-
-- (void) didReceiveMemoryWarning 
-{    
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+{   
+    // Ensure that the view controller supports rotation and that the split view can therefore
+    // show in both portrait and landscape.
     
-    // Release any cached data, images, etc that aren't in use.
-}
-
-- (void) viewDidUnload 
-{    
-	[super viewDidUnload];
-	
-	// Release any retained subviews of the main view. Or anything that can be recreated on viewDidLoad
-    // e.g. self.myOutlet = nil;
-	
-	// Remove self as an observer.
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-	self.toolbar = nil;
-}
-
-- (void) dealloc 
-{    
-	// ERS_RELEASE_SAFELY( toolbar );
-	ERS_RELEASE_SAFELY( managedObjectContext_ );
-	
-	[super dealloc];
+	return YES;
 }
 
 

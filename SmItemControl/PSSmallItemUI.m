@@ -53,9 +53,11 @@
 
 #pragma mark - Resource Management
 
-- (void)dealloc 
-{    
-	[super dealloc];
+- (void)dealloc
+{
+    delegate_ = nil;
+    
+    [super dealloc];
 }
 
 

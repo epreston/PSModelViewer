@@ -28,7 +28,7 @@
 
 - (void) setItemWidth:(int)newValue 
 {	
-	itemWidth_ = newValue;
+    itemWidth_ = (newValue < 40) ? 40 : newValue;
 	
 	// Update the display
 	[self setNeedsLayout];
@@ -38,7 +38,7 @@
 
 - (void) setItemHeight:(int)newValue 
 {	
-	itemHeight_ = newValue;
+	itemHeight_ = (newValue < 40) ? 40 : newValue;
 	
 	// Update the display
 	[self setNeedsLayout];
@@ -48,7 +48,7 @@
 
 - (void) setItemBorder:(int)newValue 
 {	
-	itemBorder_ = newValue;
+	itemBorder_ = (newValue < 0) ? 0 : newValue;
 	
 	// Update the display
 	[self setNeedsLayout];
@@ -61,7 +61,7 @@
 		return gridViews_;
 	}
 	
-	gridViews_ = [[NSMutableArray alloc] init];
+	gridViews_ = [[[NSMutableArray alloc] init] retain];
 	
 	return gridViews_;
 }

@@ -19,11 +19,6 @@
 @implementation PSEntityListController
 
 @synthesize detailEntityDescription     = detailEntityDescription_;
-@synthesize superEntityDescription      = superEntityDescription_;
-@synthesize subEntityDescriptions       = subEntityDescriptions_;
-@synthesize atrributesOfEntity          = atrributesOfEntity_;
-@synthesize relationshipsOfEntity       = relationshipsOfEntity_;
-@synthesize fetchedPropertiesOfEntity   = fetchedPropertiesOfEntity_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
@@ -90,16 +85,15 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
-	superEntityDescription_ = [detailEntityDescription_ superentity];
-	subEntityDescriptions_ = [[detailEntityDescription_ subentities] retain];
-	
-	atrributesOfEntity_ = [[[detailEntityDescription_ attributesByName] allValues] retain];
-	relationshipsOfEntity_ = [[[detailEntityDescription_ relationshipsByName] allValues] retain];
+	superEntityDescription_     = [[detailEntityDescription_ superentity] retain];
+	subEntityDescriptions_      = [[detailEntityDescription_ subentities] retain];
+	atrributesOfEntity_         = [[[detailEntityDescription_ attributesByName] allValues] retain];
+	relationshipsOfEntity_      = [[[detailEntityDescription_ relationshipsByName] allValues] retain];
 	
 	// I am not happy we do not have direct access to fetched properties
 	NSArray *allProperties = [detailEntityDescription_ properties];
 	
-	fetchedPropertiesOfEntity_ = [[NSMutableArray arrayWithCapacity:6] retain];
+	fetchedPropertiesOfEntity_  = [[NSMutableArray arrayWithCapacity:6] retain];
 	
 	for ( NSPropertyDescription *aProperty in allProperties ) {
 		if ( [aProperty isKindOfClass:[NSFetchedPropertyDescription class]] ) {
@@ -110,7 +104,38 @@
 }
 
 
-#pragma mark - Table View Delegate
+#pragma mark - Resource Management
+
+- (void) didReceiveMemoryWarning 
+{    
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc. that aren't in use.
+}
+
+- (void) viewDidUnload 
+{
+	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+	
+	[super viewDidUnload];
+}
+
+- (void) dealloc
+{
+    [detailEntityDescription_ release];
+    [superEntityDescription_ release];
+    [subEntityDescriptions_ release];
+    [atrributesOfEntity_ release];
+    [relationshipsOfEntity_ release];
+    [fetchedPropertiesOfEntity_ release];
+    
+    [super dealloc];
+}
+
+
+#pragma mark - UITableViewDelegate
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
@@ -177,7 +202,7 @@
 }
 
 
-#pragma mark - Table View Data Source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView 
 {
@@ -328,38 +353,6 @@
 			return @"Error";
 			break;
 	}
-}
-
-
-#pragma mark - Resource Management
-
-- (void) didReceiveMemoryWarning 
-{    
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
-}
-
-- (void) viewDidUnload 
-{
-	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-	
-	[super viewDidUnload];
-	
-	ERS_RELEASE_SAFELY( superEntityDescription_ );
-	ERS_RELEASE_SAFELY(	subEntityDescriptions_ );
-	ERS_RELEASE_SAFELY(	atrributesOfEntity_ );
-	ERS_RELEASE_SAFELY(	relationshipsOfEntity_ );
-	ERS_RELEASE_SAFELY(	fetchedPropertiesOfEntity_ );
-}
-
-- (void) dealloc 
-{    
-	ERS_RELEASE_SAFELY( detailEntityDescription_ );
-	
-    [super dealloc];
 }
 
 

@@ -12,7 +12,6 @@
 
 @interface PSFetchedPropertyDetailsController ()
 
-// Methods
 - (void) configureView;
 
 @end
@@ -58,23 +57,20 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void) viewDidUnload 
-{    
-	[super viewDidUnload];
-	
-	// Release any retained subviews of the main view. Or anything that can be recreated on viewDidLoad
-    // e.g. self.myOutlet = nil;
-	
-	self.relatedEntityName = nil;
-	self.propertyIsIndexed = nil;
-	self.propertyIsOptional = nil;
-	self.propertyIsTransient = nil;
-	self.propertyName = nil;
+- (void) viewDidUnload
+{
+    self.relatedEntityName = nil;
+    self.propertyIsIndexed = nil;
+    self.propertyIsOptional = nil;
+    self.propertyIsTransient = nil;
+    self.propertyName = nil;
+    
+    [super viewDidUnload];
 }
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailFetchedPropertyDescription_ );
+	[detailFetchedPropertyDescription_ release];
 	
 	[super dealloc];
 }

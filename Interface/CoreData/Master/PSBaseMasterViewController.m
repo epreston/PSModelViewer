@@ -10,17 +10,25 @@
 #import "PSBaseMasterViewController.h"
 
 
+@interface PSBaseMasterViewController ()
+
+- (IBAction) showHomeDetailDisplay:(id)sender;
+
+@end
+
+
 @implementation PSBaseMasterViewController
 
 @synthesize	managedObjectContext = managedObjectContext_;
 
+
+// IMPLEMENT IN SUBCLASS: Update the cell text.
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
 {
     cell.textLabel.text = @"Table Item";
-	
-	// IMPLEMENT IN SUBCLASS: Update the cell text.
 }
 
+// Shared interface actions
 - (IBAction) showHomeDetailDisplay:(id)sender 
 {
 	PS_RESET_DETAIL_DISPLAY();
@@ -59,7 +67,33 @@
 }
 
 
-#pragma mark - Table View Delegate
+#pragma mark - Resource Management
+
+- (void) didReceiveMemoryWarning 
+{    
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc. that aren't in use.
+}
+
+- (void) viewDidUnload 
+{    
+	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+	
+	[super viewDidUnload];
+}
+
+- (void)dealloc
+{
+    [managedObjectContext_ release];
+    
+    [super dealloc];
+}
+
+
+#pragma mark - UITableViewDelegate
 
 - (void) tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {	
@@ -74,7 +108,7 @@
 }
 
 
-#pragma mark - Table View Data Source
+#pragma mark - UITableViewDataSource
 
 - (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath 
 {    
@@ -129,32 +163,6 @@
 		self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 		self.navigationController.toolbar.barStyle = UIBarStyleBlack;
 	}
-}
-
-
-#pragma mark - Resource Management
-
-- (void) didReceiveMemoryWarning 
-{    
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
-}
-
-- (void) viewDidUnload 
-{    
-	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-	
-	[super viewDidUnload];
-}
-
-- (void) dealloc 
-{	
-    ERS_RELEASE_SAFELY( managedObjectContext_ );
-    
-    [super dealloc];
 }
 
 

@@ -16,12 +16,10 @@
 @interface PSRelationshipDetailsController : PSBaseDetailViewController 
     < PSAcceptsRelationshipDescription > 
 {
-
-@protected
-    
-	NSRelationshipDescription	*detailRelationshipDescription_;
 	
 @private
+    
+    NSRelationshipDescription	*detailRelationshipDescription_;
 	
 	// Validation
 	// – validationPredicates
@@ -65,6 +63,5 @@
 @property (nonatomic, assign) IBOutlet UILabel	*relationMaxCount;
 @property (nonatomic, assign) IBOutlet UILabel	*relationMinCount;
 @property (nonatomic, assign) IBOutlet UILabel	*relationIsToMany;
-
 
 @end

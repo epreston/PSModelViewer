@@ -16,7 +16,6 @@
 @private
     
 	NSManagedObjectContext	*managedObjectContext_;
-	
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;

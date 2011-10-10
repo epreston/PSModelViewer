@@ -15,12 +15,10 @@
 @interface PSFetchedTemplateDetailsController : PSBaseDetailViewController 
     < PSAcceptsFetchRequest > 
 {
-    
-@protected
-    
-	NSFetchRequest	*detailFetchRequest_;
 	
 @private
+    
+    NSFetchRequest	*detailFetchRequest_;
     
 	// Entity
 	UILabel			*entityName_;
@@ -60,6 +58,5 @@
 @property (nonatomic, assign) IBOutlet UILabel	*entityName;
 @property (nonatomic, assign) IBOutlet UILabel	*entityClassName;
 @property (nonatomic, assign) IBOutlet UILabel	*hasSubEntities;
-
 
 @end

@@ -19,7 +19,7 @@
 
 @implementation PSModelListController
 
-@synthesize managedObjectModel                  = managedObjectModel_;
+@synthesize managedObjectModel = managedObjectModel_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
@@ -64,12 +64,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
-	NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
+	managedObjectModel_ = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
 	
-	entitiesInModel_    = [[model entities] retain];
-	configNamesInModel_ = [[model configurations] retain];
+	entitiesInModel_    = [[managedObjectModel_ entities] retain];
+	configNamesInModel_ = [[managedObjectModel_ configurations] retain];
 	
-	NSDictionary *namesLookup           = [model fetchRequestTemplatesByName];
+	NSDictionary *namesLookup           = [managedObjectModel_ fetchRequestTemplatesByName];
 	fetchRequestTemplateNamesInModel_   = [[namesLookup allKeys] retain];
 }
 
@@ -145,9 +145,8 @@
 			// Fetch Request Templates
 		{
 			if ( [fetchRequestTemplateNamesInModel_ count] ) {
-				NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
 				NSString *selectedFetch = [fetchRequestTemplateNamesInModel_ objectAtIndex:indexPath.row];
-				NSFetchRequest *fetch = [model fetchRequestTemplateForName:selectedFetch];
+				NSFetchRequest *fetch = [managedObjectModel_ fetchRequestTemplateForName:selectedFetch];
 				
 				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( fetch );
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( fetch );

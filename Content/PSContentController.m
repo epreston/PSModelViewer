@@ -30,238 +30,210 @@
 
 @interface PSContentController ()
 
-- (UIViewController *) newDefaultDetailController;
+- (UIViewController *) newMasterControllerFor:(NSObject *)anObject;
+- (UIViewController *) newDetailControllerFor:(NSObject *)anObject;
 
 @end
 
 
 @implementation PSContentController
 
-@synthesize currentMasterViewController = currentMasterViewController_;
-@synthesize currentDetailViewController = currentDetailViewController_;
-
-
-#pragma mark - Object LifeCycle
-
-- (void) awakeFromNib 
-{	
-	// Call Super
-	[super awakeFromNib];
-	
-	// Pass along the managed object context to detail view
-	[self passManagedObjectContext:self.managedObjectContext toObject:currentDetailViewController_];
-}
-
-- (void) dealloc 
-{	
-    
-    [super dealloc];
-}
-
-
-#pragma mark - Support Code
-
-- (UIViewController *) newDefaultDetailController 
-{	
-	return [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil];
-}
-
 
 #pragma mark - Master Display Contoller Lookup
 
-- (UIViewController *) masterDisplayControllerFor:(NSObject *)anObject 
+- (UIViewController *) newMasterControllerFor:(NSObject *)anObject 
 {	
+    UIViewController *newController = nil;
+    
 	// Process object if is was provided, if not, drop all state and pop all view contollers to root
 	if ( !anObject ) {
-		
-//        self.lastMasterObject = nil;
-        self.currentDetailViewController = nil;
-		
-		return nil;
+		return newController;
 	}
 	
 	if ( [anObject isKindOfClass:[NSManagedObjectContext class]] ) {
-		
-		//currentMasterViewController = [PSModelListController alloc] ;
 
 		// We do not pass our managed object context.
 		//[self passManagedObjectContext:(NSManagedObjectContext *)anObject toObject:currentMasterViewController];
 		
 	} else if ( [anObject isKindOfClass:[NSManagedObjectModel class]] ) {
 		
-		self.currentMasterViewController = [PSModelListController alloc] ;
+		newController = [[PSModelListController alloc] init] ;
 
-		[self passManagedObjectContext:self.managedObjectContext toObject:currentMasterViewController_];
-		[self passManagedObjectModel:(NSManagedObjectModel *)anObject toObject:currentMasterViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+		[self passManagedObjectModel:(NSManagedObjectModel *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSEntityDescription class]] ) {
 		
-		self.currentMasterViewController = [PSEntityListController alloc] ;
+		newController = [[PSEntityListController alloc] init] ;
 
-		[self passManagedObjectContext:self.managedObjectContext toObject:currentMasterViewController_];
-		[self passEntityDescription:(NSEntityDescription *)anObject toObject:currentMasterViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+		[self passEntityDescription:(NSEntityDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSFetchRequest class]] ) {
 		
-		self.currentMasterViewController = [PSFetchListController alloc] ;
+		newController = [[PSFetchListController alloc] init] ;
 
-		[self passManagedObjectContext:self.managedObjectContext toObject:currentMasterViewController_];
-		[self passFetchRequest:(NSFetchRequest *)anObject toObject:currentMasterViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+		[self passFetchRequest:(NSFetchRequest *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSAttributeDescription class]] ) {
 		
-		//currentMasterViewController = [PSModelListController alloc] ;
+		//newController = [PSModelListController alloc] ;
 
-		//[self passManagedObjectContext:managedObjectContext toObject:currentMasterViewController];
-		//[self passAttributeDescription:(NSAttributeDescription *)anObject toObject:currentMasterViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject:newController];
+		//[self passAttributeDescription:(NSAttributeDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSRelationshipDescription class]] ) {
 		
-		//currentMasterViewController = [PSModelListController alloc] ;
+		//newController = [PSModelListController alloc] ;
 
-		//[self passManagedObjectContext:managedObjectContext toObject:currentMasterViewController];
-		//[self passRelationshipDescription:(NSRelationshipDescription *)anObject toObject:currentMasterViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject:newController];
+		//[self passRelationshipDescription:(NSRelationshipDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSFetchedPropertyDescription class]] ) {
 		
-		//currentMasterViewController = [PSModelListController alloc] ;
+		//newController = [PSModelListController alloc] ;
 		
-		//[self passManagedObjectContext:managedObjectContext toObject:currentMasterViewController];
-		//[self passFetchedPropertyDescription:(NSFetchedPropertyDescription *)anObject toObject:currentMasterViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject:newController];
+		//[self passFetchedPropertyDescription:(NSFetchedPropertyDescription *)anObject toObject:newController];
 	
 	} else if ( [anObject isKindOfClass:[NSManagedObject class]] ) {								   
 		
-		//currentMasterViewController = [PSModelListController alloc] ;
+		//newController = [PSModelListController alloc] ;
 		
-		//[self passManagedObjectContext:managedObjectContext toObject:currentMasterViewController];
-		//[self passManagedObject:(NSManagedObject *)anObject toObject:currentMasterViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject:newController];
+		//[self passManagedObject:(NSManagedObject *)anObject toObject:newController];
 									   
 	} else if ( [anObject isKindOfClass:[NSSet class]] ) {
 		
-		//currentMasterViewController = [PSModelListController alloc] ;
+		//newController = [PSModelListController alloc] ;
 		
-		//[self passManagedObjectContext:managedObjectContext toObject:currentMasterViewController];
-		//[self passSet:(NSSet *)anObject toObject:currentMasterViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject:newController];
+		//[self passSet:(NSSet *)anObject toObject:newController];
 	
 	} else if ( [anObject isKindOfClass:[NSString class]] ) { 
 	
-		self.currentMasterViewController = [PSConfigListController alloc] ;
+		newController = [[PSConfigListController alloc] init] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject:currentMasterViewController_];
-		[self passString:(NSString *)anObject toObject:currentMasterViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject:newController];
+		[self passString:(NSString *)anObject toObject:newController];
 									   
 	} else if ( [anObject isKindOfClass:[NSArray class]] ) { 
 	
-		//currentMasterViewController = [PSModelListController alloc] ;
+		//newController = [PSModelListController alloc] ;
 
-		//[self passManagedObjectContext:managedObjectContext toObject:currentMasterViewController];
-		//[self passArray:(NSArray *)anObject toObject:currentMasterViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject:newController];
+		//[self passArray:(NSArray *)anObject toObject:newController];
 									   
 	}
 	
 	// If currentMasterViewController is still nil, add support for it or find the bug
     
-	return currentMasterViewController_;
+	return newController;
 }
 
 
 #pragma mark - Detail Display Contoller Lookup
 
-- (UIViewController *) detailDisplayControllerFor:(NSObject *)anObject
+- (UIViewController *) newDetailControllerFor:(NSObject *)anObject
 {
+    UIViewController *newController = nil;
+    
 	// Process object if is was provided, if not, drop all state and display welcome screen
 	if ( !anObject ) {
 		
-		self.currentDetailViewController = [self newDefaultDetailController];
-		
-		// Pass the core data managedObjectContext to the default view controller
-		[self passManagedObjectContext:self.managedObjectContext toObject:currentDetailViewController_];
-		
-		return [[currentDetailViewController_ retain] autorelease];
+        // Like all good things, the initial detail view controller is constant.  An extra retain
+        // is added to ensure it is not released by calling methods.
+		return [[self detailViewController] retain];
 	}
 	
 	if ( [anObject isKindOfClass:[NSManagedObjectContext class]] ) {
 		
-		//currentDetailViewController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
+		//newController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
 		
 		// We dont pass our managed object context.
-		//[self passManagedObjectContext:(NSManagedObjectContext *)anObject toObject:currentDetailViewController];
 		
 	} else if ( [anObject isKindOfClass:[NSManagedObjectModel class]] ) {
 		
-		self.currentDetailViewController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
+		newController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" 
+                                                                   bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: currentDetailViewController_];
-		[self passManagedObjectModel:(NSManagedObjectModel *)anObject toObject:currentDetailViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+		[self passManagedObjectModel:(NSManagedObjectModel *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSEntityDescription class]] ) {
 		
-		self.currentDetailViewController = [[PSEntityDetailsController alloc] initWithNibName:@"PSEntityDetails" bundle:nil] ;
+		newController = [[PSEntityDetailsController alloc] initWithNibName:@"PSEntityDetails" 
+                                                                    bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: currentDetailViewController_];
-		[self passEntityDescription:(NSEntityDescription *)anObject toObject:currentDetailViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+		[self passEntityDescription:(NSEntityDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSFetchRequest class]] ) {
 		
-		self.currentDetailViewController = [[PSFetchedTemplateDetailsController alloc] initWithNibName:@"PSFetchedTemplateDetails" bundle:nil] ;
+		newController = [[PSFetchedTemplateDetailsController alloc] initWithNibName:@"PSFetchedTemplateDetails" 
+                                                                             bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: currentDetailViewController_];
-		[self passFetchRequest:(NSFetchRequest *)anObject toObject:currentDetailViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+		[self passFetchRequest:(NSFetchRequest *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSAttributeDescription class]] ) {
 		
-		self.currentDetailViewController = [[PSAttributeDetailsController alloc] initWithNibName:@"PSAttributeDetails" bundle:nil] ;
+		newController = [[PSAttributeDetailsController alloc] initWithNibName:@"PSAttributeDetails" 
+                                                                       bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: currentDetailViewController_];
-		[self passAttributeDescription:(NSAttributeDescription *)anObject toObject:currentDetailViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+		[self passAttributeDescription:(NSAttributeDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSRelationshipDescription class]] ) {
 		
-		self.currentDetailViewController = [[PSRelationshipDetailsController alloc] initWithNibName:@"PSRelationshipDetails" bundle:nil] ;
+		newController = [[PSRelationshipDetailsController alloc] initWithNibName:@"PSRelationshipDetails" 
+                                                                          bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: currentDetailViewController_];
-		[self passRelationshipDescription:(NSRelationshipDescription *)anObject toObject:currentDetailViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+		[self passRelationshipDescription:(NSRelationshipDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSFetchedPropertyDescription class]] ) {
 		
-		self.currentDetailViewController = [[PSFetchedPropertyDetailsController alloc] initWithNibName:@"PSFetchedPropertyDetails" bundle:nil] ;
+		newController = [[PSFetchedPropertyDetailsController alloc] initWithNibName:@"PSFetchedPropertyDetails" 
+                                                                             bundle:nil] ;
 		
-		[self passManagedObjectContext:self.managedObjectContext toObject: currentDetailViewController_];
-		[self passFetchedPropertyDescription:(NSFetchedPropertyDescription *)anObject toObject:currentDetailViewController_];
+		[self passManagedObjectContext:self.managedObjectContext toObject: newController];
+		[self passFetchedPropertyDescription:(NSFetchedPropertyDescription *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSManagedObject class]] ) {
 		
-		//currentDetailViewController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
+		//newController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
 		
-		//[self passManagedObjectContext:managedObjectContext toObject: currentDetailViewController];
-		//[self passManagedObject:(NSManagedObject *)anObject toObject:currentDetailViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject: newController];
+		//[self passManagedObject:(NSManagedObject *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSSet class]] ) {
 		
-		//currentDetailViewController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
+		//newController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
 		
-		//[self passManagedObjectContext:managedObjectContext toObject: currentDetailViewController];
-		//[self passSet:(NSSet *)anObject toObject:currentDetailViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject: newController];
+		//[self passSet:(NSSet *)anObject toObject:newController];
 		
 	} else if ( [anObject isKindOfClass:[NSString class]] ) {
 		
-		//currentDetailViewController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
+		//newController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
 		
-		//[self passManagedObjectContext:managedObjectContext toObject: currentDetailViewController];
-		//[self passString:(NSString *)anObject toObject: currentDetailViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject: newController];
+		//[self passString:(NSString *)anObject toObject: newController];
 		
 	} else if ( [anObject isKindOfClass:[NSArray class]] ) {
 		
-		//currentDetailViewController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
+		//newController = [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil] ;
 		
-		//[self passManagedObjectContext:managedObjectContext toObject: currentDetailViewController];
-		//[self passArray:(NSArray *)anObject toObject: currentDetailViewController];
+		//[self passManagedObjectContext:managedObjectContext toObject: newController];
+		//[self passArray:(NSArray *)anObject toObject: newController];
 	}
 
-	// If currentDetailViewController is still nil, add support for it or find the bug
+	// If newController is still nil, add support for it or find the bug
 	
 	// Return the UIViewController
-	return [[currentDetailViewController_ retain] autorelease];
+	return newController;
 }
 
 

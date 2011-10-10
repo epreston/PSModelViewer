@@ -22,6 +22,7 @@
 	UINavigationController	*navigationController_;
 	
 	UIViewController		*rootViewController_;
+    UIViewController		*detailViewController_;
 }
 
 @property (nonatomic, retain)			NSManagedObjectContext	*managedObjectContext;
@@ -29,14 +30,14 @@
 @property (nonatomic, retain) IBOutlet	UISplitViewController	*splitViewController;
 @property (nonatomic, retain) IBOutlet	UINavigationController	*navigationController;
 @property (nonatomic, retain) IBOutlet	UIViewController		*rootViewController;
-
+@property (nonatomic, retain) IBOutlet	UIViewController		*detailViewController;
 
 - (UIView *) view;
 
 
 // IMPLEMENT IN SUBCLASS
-- (UIViewController *) masterDisplayControllerFor:(NSObject *)anObject;
-- (UIViewController *) detailDisplayControllerFor:(NSObject *)anObject;
+- (UIViewController *) newMasterControllerFor:(NSObject *)anObject;
+- (UIViewController *) newDetailControllerFor:(NSObject *)anObject;
 
 
 // HELPERS

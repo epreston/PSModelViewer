@@ -12,18 +12,9 @@
 #import "PSBaseContentController.h"
 
 
-@interface PSContentController : PSBaseContentController 
-{
+@interface PSContentController : PSBaseContentController
 
-@private
-    UIViewController	*currentMasterViewController_;
-	UIViewController    *currentDetailViewController_;
-}
-
-@property (nonatomic, assign) IBOutlet	UIViewController	*currentMasterViewController;
-@property (nonatomic, assign) IBOutlet	UIViewController	*currentDetailViewController;
-
-- (UIViewController *) masterDisplayControllerFor:(NSObject *)anObject;
-- (UIViewController *) detailDisplayControllerFor:(NSObject *)anObject;
+- (UIViewController *) newMasterControllerFor:(NSObject *)anObject;
+- (UIViewController *) newDetailControllerFor:(NSObject *)anObject;
 
 @end

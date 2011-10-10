@@ -54,25 +54,25 @@
 		self.gridView.itemHeight = ITEM_HEIGHT;
 		self.gridView.itemBorder = ITEM_BORDER;
 		
-		NSArray *entities = [model entities];
-		NSArray *nibViews = nil;
-        
-        
+        // Create auto-release pool
         NSAutoreleasePool * subPool = [[NSAutoreleasePool alloc] init];
         
         // NIB Caching to speed up load (iOS 4.0 and above only)
         cachedEntityViewNib = [[UINib nibWithNibName:@"PSSmallItemUI" bundle:[NSBundle mainBundle]] retain];
         
-		// Populate the grid item display
+        // Store the loaded views in array
+        NSMutableArray *views = [[NSMutableArray alloc] initWithCapacity:32];
+    
+        // Enumerate entities to generate the display
+		NSArray *entities = [model entities];
 		for (NSEntityDescription *entity in entities) {
 			
-            nibViews = [cachedEntityViewNib instantiateWithOwner:self options:nil];;
+            // Instantiate nib from cache
+            NSArray *nibViews = [cachedEntityViewNib instantiateWithOwner:self options:nil];;
             
             if (nibViews) {
                 // Add a new item to array
                 PSSmallItemUI *smallItem = [nibViews objectAtIndex:0];
-                
-                [self.gridView addViewToGrid:smallItem];
                 
                 // Configure the properties
                 smallItem.delegate = self;
@@ -89,12 +89,17 @@
                 
                 smallItem.itemDetails.text = previewText;
                 
-                //[previewText release];
-                //[attributeNames release];
-                
+                // Add the view to the array
+                [views addObject:smallItem];
             }
 		}
         
+        // Populate the grid view display in on
+        [self.gridView setGridViews:views];
+        
+        [views release];
+        
+        // Drain the pool
         [subPool release];
 	}
 }
@@ -118,6 +123,8 @@
 	
 	self.gridView = nil;
     
+    NSLog(@"unload");
+    
     [super viewDidUnload];
 }
 
@@ -134,7 +141,14 @@
 
 - (void) performInfoAction: (PSSmallItemUI *)aSmallItem 
 {	
-	NSLog(@"Info button clicked.");	
+    NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
+    
+    NSEntityDescription	*entity =  [model.entitiesByName objectForKey:aSmallItem.itemTitle.text];
+    
+    if (entity) {
+        PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( entity );
+        PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
+    }
 }
 
 

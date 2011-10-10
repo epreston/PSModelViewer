@@ -6,15 +6,7 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSBaseDetailViewController.h"
-
-
-@interface PSBaseDetailViewController ()
-
-- (void) contextWillSave:(NSNotification *)notification;
-
-@end
 
 
 @implementation PSBaseDetailViewController
@@ -43,15 +35,7 @@
 	[super viewDidLoad];
 	
 	[self configureView];
-	
-	// Listen for save events on the managedObjectContext, we might be deleted.
-	NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
-	[dnc addObserver:self 
-			selector:@selector(contextWillSave:) 
-				name:NSManagedObjectContextWillSaveNotification 
-			  object:managedObjectContext_];
 }
-
 
 #pragma mark - Resource Management
 
@@ -64,10 +48,7 @@
 }
 
 - (void) viewDidUnload 
-{	
-	// Remove self as an observer.
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
+{		
 	self.toolbar = nil;
     
     [super viewDidUnload];
@@ -76,18 +57,8 @@
 - (void) dealloc 
 {    
 	[managedObjectContext_ release];
-	
+    
 	[super dealloc];
-}
-
-
-#pragma mark - Notification Processing
-
-// Notification message from our managedObjectContext that it will save
-- (void) contextWillSave:(NSNotification *)notification 
-{
-    // We might have been deleted; dismiss view in this case	 
-    // Tell the content controller to show the welcome screen
 }
 
 
@@ -99,8 +70,11 @@
     NSMutableArray *itemsArray = [toolbar_.items mutableCopy];
 	if ( [itemsArray indexOfObject:barButtonItem] == NSNotFound ) {
 		[itemsArray insertObject:barButtonItem atIndex:0];
-		[toolbar_ setItems:itemsArray animated:NO];
-	}
+	} else {
+        [itemsArray replaceObjectAtIndex:[itemsArray indexOfObject:barButtonItem] 
+                              withObject:barButtonItem];
+    }
+    [toolbar_ setItems:itemsArray animated:NO];
     [itemsArray release];
 }
 

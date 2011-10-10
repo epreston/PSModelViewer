@@ -25,7 +25,7 @@
 @property (nonatomic, retain) NSManagedObjectContext	*managedObjectContext;
 
 // For convienience
-@property (nonatomic, assign) IBOutlet UIToolbar        *toolbar;
+@property (nonatomic, retain) IBOutlet UIToolbar        *toolbar;
 
 // IMPLEMENT IN SUBCLASS: Update the user interface for the detail item.
 - (void) configureView;

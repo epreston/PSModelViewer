@@ -215,19 +215,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">currentMasterViewController</string>
-						<reference key="source" ref="798735322"/>
-						<reference key="destination" ref="461042891"/>
-					</object>
-					<int key="connectionID">35</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">currentDetailViewController</string>
+						<string key="label">detailViewController</string>
 						<reference key="source" ref="798735322"/>
 						<reference key="destination" ref="209185899"/>
 					</object>
-					<int key="connectionID">36</int>
+					<int key="connectionID">37</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -348,7 +340,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">36</int>
+			<int key="maxID">37</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -378,11 +370,16 @@
 					<string key="className">PSBaseContentController</string>
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="detailViewController">UIViewController</string>
 						<string key="navigationController">UINavigationController</string>
 						<string key="rootViewController">UIViewController</string>
 						<string key="splitViewController">UISplitViewController</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="detailViewController">
+							<string key="name">detailViewController</string>
+							<string key="candidateClassName">UIViewController</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="navigationController">
 							<string key="name">navigationController</string>
 							<string key="candidateClassName">UINavigationController</string>

@@ -24,21 +24,22 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 
 @implementation PSBaseContentController
 
+@synthesize managedObjectContext    = managedObjectContext_;
+
 @synthesize splitViewController     = splitViewController_;
 @synthesize navigationController    = navigationController_;
 @synthesize rootViewController      = rootViewController_;
-@synthesize managedObjectContext    = managedObjectContext_;
-
+@synthesize detailViewController    = detailViewController_;
 
 #pragma mark - Display Contoller Lookup
 
-- (UIViewController *) masterDisplayControllerFor:(NSNotification *)notification 
+- (UIViewController *) newMasterControllerFor:(NSNotification *)notification 
 {	
 	// IMPLEMENT IN SUBCLASS
 	return nil;
 }
 
-- (UIViewController *) detailDisplayControllerFor:(NSNotification *)notification 
+- (UIViewController *) newDetailControllerFor:(NSNotification *)notification 
 {	
 	// IMPLEMENT IN SUBCLASS
 	return nil;
@@ -63,6 +64,7 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	
 	// Pass along the managed object context
 	[self passManagedObjectContext:managedObjectContext_ toObject:rootViewController_];
+    [self passManagedObjectContext:managedObjectContext_ toObject:detailViewController_];
 	
 	// Listen for our messages
 	NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
@@ -85,6 +87,7 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
 	[rootViewController_ release];
+    [detailViewController_ release];
 	[navigationController_ release];
 	[splitViewController_ release];
 	
@@ -102,18 +105,18 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	NSObject *notificationObject		= [notification object];
 	
 	// Request the correct view controller
-	UIViewController *newViewController =  [ self masterDisplayControllerFor:notificationObject ];
+	UIViewController *newViewController =  [ self newMasterControllerFor:notificationObject ];
 	
 	if ( newViewController ) {
 		
 		[navigationController_ pushViewController:newViewController animated:YES];
 		
+        [newViewController release];
 	} else {
 		
 		// No controller returned, pop all
 		[navigationController_ popToRootViewControllerAnimated:YES];
 	}
-
 }
 
 - (void) detailDisplayRequested:(NSNotification *)notification 
@@ -121,7 +124,7 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	// Open the notification, pull out the object
 	NSObject *notificationObject		= [notification object];
 	
-	UIViewController *newViewController =  [ self detailDisplayControllerFor:notificationObject ];
+	UIViewController *newViewController =  [ self newDetailControllerFor:notificationObject ];
 	
 	if ( newViewController ) {
 				
@@ -132,9 +135,9 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 		
 		// Ensure button for popup is visable if needed
 		[[NSNotificationCenter defaultCenter] postNotificationName:PSConfirmPopoverRequestNotification object:nil];
-	}
-    
-    
+	
+        [newViewController release];
+    }
 }
 
 

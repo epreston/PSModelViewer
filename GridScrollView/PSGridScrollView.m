@@ -61,7 +61,7 @@
 		return gridViews_;
 	}
 	
-	gridViews_ = [[[NSMutableArray alloc] init] retain];
+	gridViews_ = [[NSMutableArray alloc] init];
 	
 	return gridViews_;
 }

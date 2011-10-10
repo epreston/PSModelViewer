@@ -57,10 +57,16 @@
 		NSArray *entities = [model entities];
 		NSArray *nibViews = nil;
         
+        
+        NSAutoreleasePool * subPool = [[NSAutoreleasePool alloc] init];
+        
+        // NIB Caching to speed up load (iOS 4.0 and above only)
+        cachedEntityViewNib = [[UINib nibWithNibName:@"PSSmallItemUI" bundle:[NSBundle mainBundle]] retain];
+        
 		// Populate the grid item display
 		for (NSEntityDescription *entity in entities) {
 			
-            nibViews = [[NSBundle mainBundle] loadNibNamed:@"PSSmallItemUI" owner:self options:nil];
+            nibViews = [cachedEntityViewNib instantiateWithOwner:self options:nil];;
             
             if (nibViews) {
                 // Add a new item to array
@@ -88,6 +94,8 @@
                 
             }
 		}
+        
+        [subPool release];
 	}
 }
 
@@ -116,7 +124,8 @@
 - (void) dealloc 
 {    
 	[managedObjectModel_ release];
-	
+	[cachedEntityViewNib release];
+    
 	[super dealloc];
 }
 

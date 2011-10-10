@@ -12,13 +12,9 @@
 @interface PSSplitViewDelegate : NSObject 
     < UISplitViewControllerDelegate > 
 {
-
-@protected
     
-	UISplitViewController	*splitViewController_;
-
 @private
-    
+    UISplitViewController	*splitViewController_;
 	UIPopoverController		*popoverController_;    
     UIBarButtonItem			*rootPopoverButtonItem_;
 }

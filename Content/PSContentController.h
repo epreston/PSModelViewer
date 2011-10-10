@@ -18,19 +18,12 @@
 @private
     UIViewController	*currentMasterViewController_;
 	UIViewController    *currentDetailViewController_;
-	NSObject			*lastMasterObject_;
-	NSObject			*lastDetailObject_;
 }
 
-@property (nonatomic, retain) IBOutlet	UIViewController	*currentMasterViewController;
-@property (nonatomic, retain) IBOutlet	UIViewController	*currentDetailViewController;
-
-@property (nonatomic, retain)			NSObject			*lastMasterObject;
-@property (nonatomic, retain)			NSObject			*lastDetailObject;
-
+@property (nonatomic, assign) IBOutlet	UIViewController	*currentMasterViewController;
+@property (nonatomic, assign) IBOutlet	UIViewController	*currentDetailViewController;
 
 - (UIViewController *) masterDisplayControllerFor:(NSObject *)anObject;
 - (UIViewController *) detailDisplayControllerFor:(NSObject *)anObject;
-
 
 @end

@@ -14,11 +14,9 @@
 @interface PSBaseContentController : NSObject 
 {	
     
-@protected
+@private
     
     NSManagedObjectContext	*managedObjectContext_;
-    
-@private
     
 	UISplitViewController	*splitViewController_;
 	UINavigationController	*navigationController_;
@@ -26,11 +24,12 @@
 	UIViewController		*rootViewController_;
 }
 
+@property (nonatomic, retain)			NSManagedObjectContext	*managedObjectContext;
+
 @property (nonatomic, retain) IBOutlet	UISplitViewController	*splitViewController;
 @property (nonatomic, retain) IBOutlet	UINavigationController	*navigationController;
 @property (nonatomic, retain) IBOutlet	UIViewController		*rootViewController;
 
-@property (nonatomic, retain)			NSManagedObjectContext	*managedObjectContext;
 
 - (UIView *) view;
 

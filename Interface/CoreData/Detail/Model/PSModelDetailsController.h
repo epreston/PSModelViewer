@@ -31,6 +31,9 @@
 	UILabel				*numberOfFetchRequestTemplates_;
 	
 	PSGridScrollView	*gridView_;
+    
+    // NIB Caching to speed up load (requires iOS 4.0 +)
+    UINib               *cachedEntityViewNib;
 }
 
 // Data object

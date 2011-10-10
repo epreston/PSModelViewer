@@ -26,32 +26,13 @@
 }
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
-{    
-	// load the content controller object for Pad-based devices
-	// [[NSBundle mainBundle] loadNibNamed:@"PSModelView" owner:self options:nil];
+{
 	
 	// Add the split view controller's view to the window and display.
 	[window_ addSubview:contentController_.view];
     [window_ makeKeyAndVisible];
 	
 	return YES;
-}
-
-/**
- Saves changes in the application's managed object context before the application terminates.
- */
-- (void) applicationWillTerminate:(UIApplication *)application 
-{	
-	// Save the data
-    NSError *error = nil;
-    if (managedObjectContext_ != nil) {
-        if ([managedObjectContext_ hasChanges] && ![managedObjectContext_ save:&error]) {
-			
-			ERS_DEBUG_SAVE_ERROR(error);
-			exit(-1);  // Fail
-			
-        } 
-    }
 }
 
 
@@ -65,17 +46,15 @@
      */
 }
 
-- (void) dealloc 
+- (void) dealloc
 {
-	ERS_RELEASE_SAFELY( contentController_ );
-	
-	ERS_RELEASE_SAFELY( managedObjectContext_ );
-    ERS_RELEASE_SAFELY( managedObjectModel_ );
-    ERS_RELEASE_SAFELY( persistentStoreCoordinator_ );
+    [contentController_ release];
+    [managedObjectContext_ release];
+    [managedObjectModel_ release];
+    [persistentStoreCoordinator_ release];
+    [window_ release];
     
-	ERS_RELEASE_SAFELY( window_ );
-	
-	[super dealloc];
+    [super dealloc];
 }
 
 

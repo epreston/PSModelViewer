@@ -84,11 +84,11 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	// Remove self as an observer.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
-	ERS_RELEASE_SAFELY( rootViewController_ );
-	ERS_RELEASE_SAFELY( navigationController_ );
-	ERS_RELEASE_SAFELY( splitViewController_ );
+	[rootViewController_ release];
+	[navigationController_ release];
+	[splitViewController_ release];
 	
-	ERS_RELEASE_SAFELY( managedObjectContext_ );
+	[managedObjectContext_ release];
 	
     [super dealloc];
 }
@@ -107,7 +107,6 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	if ( newViewController ) {
 		
 		[navigationController_ pushViewController:newViewController animated:YES];
-		// ERS_RELEASE_SAFELY( newViewController );
 		
 	} else {
 		
@@ -129,11 +128,13 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 		// Update the split view controller's view controllers array.
 		NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationController_, newViewController, nil];
 		splitViewController_.viewControllers = viewControllers;
-		ERS_RELEASE_SAFELY( viewControllers );
+		[viewControllers release];
 		
 		// Ensure button for popup is visable if needed
 		[[NSNotificationCenter defaultCenter] postNotificationName:PSConfirmPopoverRequestNotification object:nil];
 	}
+    
+    
 }
 
 

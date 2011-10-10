@@ -50,16 +50,16 @@
 @property (nonatomic, retain) NSAttributeDescription	*detailAttributeDescription;
 
 // Interface
-@property (nonatomic, retain) IBOutlet UILabel	*relatedEntityName;
-@property (nonatomic, retain) IBOutlet UILabel	*propertyIsIndexed;
-@property (nonatomic, retain) IBOutlet UILabel	*propertyIsOptional;
-@property (nonatomic, retain) IBOutlet UILabel	*propertyIsTransient;
-@property (nonatomic, retain) IBOutlet UILabel	*propertyName;
+@property (nonatomic, assign) IBOutlet UILabel	*relatedEntityName;
+@property (nonatomic, assign) IBOutlet UILabel	*propertyIsIndexed;
+@property (nonatomic, assign) IBOutlet UILabel	*propertyIsOptional;
+@property (nonatomic, assign) IBOutlet UILabel	*propertyIsTransient;
+@property (nonatomic, assign) IBOutlet UILabel	*propertyName;
 
-@property (nonatomic, retain) IBOutlet UILabel	*attributeType;
-@property (nonatomic, retain) IBOutlet UILabel	*attributeValueClassName;
-@property (nonatomic, retain) IBOutlet UILabel	*attributeDefaultValue;
-@property (nonatomic, retain) IBOutlet UILabel	*attributeValueTransformerName;
+@property (nonatomic, assign) IBOutlet UILabel	*attributeType;
+@property (nonatomic, assign) IBOutlet UILabel	*attributeValueClassName;
+@property (nonatomic, assign) IBOutlet UILabel	*attributeDefaultValue;
+@property (nonatomic, assign) IBOutlet UILabel	*attributeValueTransformerName;
 
 
 @end

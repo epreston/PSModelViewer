@@ -22,7 +22,7 @@
 }
 
 // For convienience
-@property (nonatomic, retain) IBOutlet UIToolbar        *toolbar;
+@property (nonatomic, assign) IBOutlet UIToolbar        *toolbar;
 
 // PSAcceptsObjectContext
 @property (nonatomic, retain) NSManagedObjectContext	*managedObjectContext;

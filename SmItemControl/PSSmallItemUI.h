@@ -20,7 +20,7 @@
 @end
 
 
-@interface PSSmallItemUI : UIViewController 
+@interface PSSmallItemUI : UIView 
 {
     
 @private	
@@ -34,10 +34,10 @@
 
 @property(nonatomic, assign) id delegate;
 
-@property(nonatomic, retain) IBOutlet UILabel		*itemTitle;
-@property(nonatomic, retain) IBOutlet UILabel		*itemSubTitle;
-@property(nonatomic, retain) IBOutlet UILabel		*itemType;
-@property(nonatomic, retain) IBOutlet UITextView	*itemDetails;
+@property(nonatomic, assign) IBOutlet UILabel		*itemTitle;
+@property(nonatomic, assign) IBOutlet UILabel		*itemSubTitle;
+@property(nonatomic, assign) IBOutlet UILabel		*itemType;
+@property(nonatomic, assign) IBOutlet UITextView	*itemDetails;
 
 - (IBAction) infoButonAction:(id)sender;
 

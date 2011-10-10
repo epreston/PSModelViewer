@@ -39,9 +39,9 @@
 @property (nonatomic, retain) NSEntityDescription	*detailEntityDescription;
 
 // Interface
-@property (nonatomic, retain) IBOutlet UILabel		*entityName;
-@property (nonatomic, retain) IBOutlet UILabel		*entityManagedObjectClassName;
-@property (nonatomic, retain) IBOutlet UILabel		*entityIsAbstract;
+@property (nonatomic, assign) IBOutlet UILabel		*entityName;
+@property (nonatomic, assign) IBOutlet UILabel		*entityManagedObjectClassName;
+@property (nonatomic, assign) IBOutlet UILabel		*entityIsAbstract;
 
 
 @end

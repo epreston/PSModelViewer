@@ -30,7 +30,7 @@
 
 @interface PSContentController ()
 
-- (UIViewController *) loadDefaultDetailController;
+- (UIViewController *) newDefaultDetailController;
 
 @end
 
@@ -68,7 +68,7 @@
 
 #pragma mark - Support Code
 
-- (UIViewController *) loadDefaultDetailController 
+- (UIViewController *) newDefaultDetailController 
 {	
 	return [[PSModelDetailsController alloc] initWithNibName:@"PSModelDetails" bundle:nil];
 }
@@ -199,7 +199,7 @@
 		ERS_RELEASE_SAFELY( lastDetailObject_ );
 		ERS_RELEASE_SAFELY( currentDetailViewController_ );
 		
-		currentDetailViewController_ = [self loadDefaultDetailController];
+		currentDetailViewController_ = [self newDefaultDetailController];
 		
 		// Pass the core data managedObjectContext to the default view controller
 		[self passManagedObjectContext:managedObjectContext_ toObject:currentDetailViewController_];

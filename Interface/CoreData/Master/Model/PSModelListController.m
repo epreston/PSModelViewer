@@ -122,7 +122,7 @@
 			if ( [fetchRequestTemplateNamesInModel_ count] ) {
 				NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
 				NSString *selectedFetch = [fetchRequestTemplateNamesInModel_ objectAtIndex:indexPath.row];
-				NSFetchRequest *fetch = [[model fetchRequestTemplateForName:selectedFetch ] retain];
+				NSFetchRequest *fetch = [model fetchRequestTemplateForName:selectedFetch];
 				
 				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( fetch );
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( fetch );

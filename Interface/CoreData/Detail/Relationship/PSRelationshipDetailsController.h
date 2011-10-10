@@ -51,20 +51,20 @@
 @property (nonatomic, retain) NSRelationshipDescription		*detailRelationshipDescription;
 
 // Interface
-@property (nonatomic, retain) IBOutlet UILabel	*relatedEntityName;
-@property (nonatomic, retain) IBOutlet UILabel	*propertyIsIndexed;
-@property (nonatomic, retain) IBOutlet UILabel	*propertyIsOptional;
-@property (nonatomic, retain) IBOutlet UILabel	*propertyIsTransient;
-@property (nonatomic, retain) IBOutlet UILabel	*propertyName;
+@property (nonatomic, assign) IBOutlet UILabel	*relatedEntityName;
+@property (nonatomic, assign) IBOutlet UILabel	*propertyIsIndexed;
+@property (nonatomic, assign) IBOutlet UILabel	*propertyIsOptional;
+@property (nonatomic, assign) IBOutlet UILabel	*propertyIsTransient;
+@property (nonatomic, assign) IBOutlet UILabel	*propertyName;
 
-@property (nonatomic, retain) IBOutlet UILabel	*relationDestinationEntity;
-@property (nonatomic, retain) IBOutlet UILabel	*relationInverseRelationship;
+@property (nonatomic, assign) IBOutlet UILabel	*relationDestinationEntity;
+@property (nonatomic, assign) IBOutlet UILabel	*relationInverseRelationship;
 
-@property (nonatomic, retain) IBOutlet UILabel	*relationDeleteRule;
+@property (nonatomic, assign) IBOutlet UILabel	*relationDeleteRule;
 
-@property (nonatomic, retain) IBOutlet UILabel	*relationMaxCount;
-@property (nonatomic, retain) IBOutlet UILabel	*relationMinCount;
-@property (nonatomic, retain) IBOutlet UILabel	*relationIsToMany;
+@property (nonatomic, assign) IBOutlet UILabel	*relationMaxCount;
+@property (nonatomic, assign) IBOutlet UILabel	*relationMinCount;
+@property (nonatomic, assign) IBOutlet UILabel	*relationIsToMany;
 
 
 @end

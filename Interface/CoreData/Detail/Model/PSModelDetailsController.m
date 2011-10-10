@@ -55,32 +55,38 @@
 		self.gridView.itemBorder = ITEM_BORDER;
 		
 		NSArray *entities = [model entities];
-		
+		NSArray *nibViews = nil;
+        
 		// Populate the grid item display
 		for (NSEntityDescription *entity in entities) {
 			
-			// Add a new item to array
-			PSSmallItemUI *smallItem = [[[PSSmallItemUI alloc] init] retain];
-			[self.gridView addViewToGrid:smallItem.view];
-			
-			// Configure the properties
-			smallItem.delegate = self;
-			smallItem.itemTitle.text = [entity name];
-			smallItem.itemSubTitle.text = [entity managedObjectClassName];
-			
-			
-			NSMutableString *previewText = [NSMutableString stringWithCapacity:255];
-			NSArray *attributeNames = [[entity attributesByName] allKeys] ;
-			
-			for ( NSString *name in attributeNames) {
-				[previewText appendFormat:@"%@\n", name];
-			}
-			
-			smallItem.itemDetails.text = previewText;
-			
-			//[previewText release];
-			//[attributeNames release];
-			
+            nibViews = [[NSBundle mainBundle] loadNibNamed:@"PSSmallItemUI" owner:self options:nil];
+            
+            if (nibViews) {
+                // Add a new item to array
+                PSSmallItemUI *smallItem = [nibViews objectAtIndex:0];
+                
+                [self.gridView addViewToGrid:smallItem];
+                
+                // Configure the properties
+                smallItem.delegate = self;
+                smallItem.itemTitle.text = [entity name];
+                smallItem.itemSubTitle.text = [entity managedObjectClassName];
+                
+                
+                NSMutableString *previewText = [NSMutableString stringWithCapacity:255];
+                NSArray *attributeNames = [[entity attributesByName] allKeys] ;
+                
+                for ( NSString *name in attributeNames) {
+                    [previewText appendFormat:@"%@\n", name];
+                }
+                
+                smallItem.itemDetails.text = previewText;
+                
+                //[previewText release];
+                //[attributeNames release];
+                
+            }
 		}
 	}
 }

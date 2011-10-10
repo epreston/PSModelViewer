@@ -37,11 +37,11 @@
 
 @property (nonatomic, retain) NSManagedObjectModel			*managedObjectModel;
 
-@property (nonatomic, retain) IBOutlet UILabel				*numberOfEntities;
-@property (nonatomic, retain) IBOutlet UILabel				*numberOfConfigurations;
-@property (nonatomic, retain) IBOutlet UILabel				*numberOfFetchRequestTemplates;
+@property (nonatomic, assign) IBOutlet UILabel				*numberOfEntities;
+@property (nonatomic, assign) IBOutlet UILabel				*numberOfConfigurations;
+@property (nonatomic, assign) IBOutlet UILabel				*numberOfFetchRequestTemplates;
 
-@property (nonatomic, retain) IBOutlet PSGridScrollView		*gridView;
+@property (nonatomic, assign) IBOutlet PSGridScrollView		*gridView;
 
 
 @end

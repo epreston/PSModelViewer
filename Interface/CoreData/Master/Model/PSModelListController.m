@@ -10,10 +10,19 @@
 #import "PSModelListController.h"
 
 
+@interface PSModelListController ()
+
+- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+
 @implementation PSModelListController
 
-@synthesize managedObjectModel;
-@synthesize configNamesInModel, entitiesInModel, fetchRequestTemplateNamesInModel;
+@synthesize managedObjectModel                  = managedObjectModel_;
+@synthesize configNamesInModel                  = configNamesInModel_;
+@synthesize entitiesInModel                     = entitiesInModel_;
+@synthesize fetchRequestTemplateNamesInModel    = fetchRequestTemplateNamesInModel_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
@@ -22,20 +31,20 @@
 		case 0:
 			// Configurations
 		{
-			cell.textLabel.text = [configNamesInModel objectAtIndex:indexPath.row];
+			cell.textLabel.text = [configNamesInModel_ objectAtIndex:indexPath.row];
 		}
 			break;
 		case 1:
 			// Entities
 		{
-			NSEntityDescription *entity = [entitiesInModel objectAtIndex:indexPath.row];
+			NSEntityDescription *entity = [entitiesInModel_ objectAtIndex:indexPath.row];
 			cell.textLabel.text = [entity name];
 		}
 			break;
 		case 2:
 			// Fetche Request Templates
 		{
-			cell.textLabel.text = [fetchRequestTemplateNamesInModel objectAtIndex:indexPath.row];
+			cell.textLabel.text = [fetchRequestTemplateNamesInModel_ objectAtIndex:indexPath.row];
 		}
 			break;
 			
@@ -60,11 +69,11 @@
 	
 	NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
 	
-	entitiesInModel = [[model entities] retain];
-	configNamesInModel = [[model configurations] retain];
+	entitiesInModel_ = [[model entities] retain];
+	configNamesInModel_ = [[model configurations] retain];
 	
 	NSDictionary *namesLookup = [model fetchRequestTemplatesByName];
-	fetchRequestTemplateNamesInModel = [[namesLookup allKeys] retain];
+	fetchRequestTemplateNamesInModel_ = [[namesLookup allKeys] retain];
 }
 
 
@@ -93,26 +102,26 @@
 		case 0:
 			// Configurations
 		{
-			if ( [configNamesInModel count] ) {
-				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( [configNamesInModel objectAtIndex:indexPath.row] );
+			if ( [configNamesInModel_ count] ) {
+				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( [configNamesInModel_ objectAtIndex:indexPath.row] );
 			}
 		}
 			break;
 		case 1:
 			// Entities
 		{
-			if ( [entitiesInModel count] ) {
-				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( [entitiesInModel objectAtIndex:indexPath.row] );
-				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( [entitiesInModel objectAtIndex:indexPath.row] );
+			if ( [entitiesInModel_ count] ) {
+				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( [entitiesInModel_ objectAtIndex:indexPath.row] );
+				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( [entitiesInModel_ objectAtIndex:indexPath.row] );
 			}
 		}
 			break;
 		case 2:
 			// Fetch Request Templates
 		{
-			if ( [fetchRequestTemplateNamesInModel count] ) {
+			if ( [fetchRequestTemplateNamesInModel_ count] ) {
 				NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
-				NSString *selectedFetch = [fetchRequestTemplateNamesInModel objectAtIndex:indexPath.row];
+				NSString *selectedFetch = [fetchRequestTemplateNamesInModel_ objectAtIndex:indexPath.row];
 				NSFetchRequest *fetch = [[model fetchRequestTemplateForName:selectedFetch ] retain];
 				
 				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( fetch );
@@ -140,24 +149,24 @@
 		case 0:
 			// Configurations
 		{
-			if ( [configNamesInModel count] ) {
-				return [configNamesInModel count];
+			if ( [configNamesInModel_ count] ) {
+				return [configNamesInModel_ count];
 			}
 		}
 			break;
 		case 1:
 			// Entities
 		{
-			if ( [entitiesInModel count] ) {
-				return [entitiesInModel count];
+			if ( [entitiesInModel_ count] ) {
+				return [entitiesInModel_ count];
 			}
 		}
 			break;
 		case 2:
 			// Fetch Request Templates
 		{
-			if ( [fetchRequestTemplateNamesInModel count] ) {
-				return [fetchRequestTemplateNamesInModel count];
+			if ( [fetchRequestTemplateNamesInModel_ count] ) {
+				return [fetchRequestTemplateNamesInModel_ count];
 			}
 		}
 			break;
@@ -181,15 +190,15 @@
 	switch (indexPath.section) {
 		case 0:
 			// Configurations
-			if ( ! [configNamesInModel count] ) presentEmptyCell = YES;
+			if ( ! [configNamesInModel_ count] ) presentEmptyCell = YES;
 			break;
 		case 1:
 			// Entities
-			if ( ! [entitiesInModel count] ) presentEmptyCell = YES;
+			if ( ! [entitiesInModel_ count] ) presentEmptyCell = YES;
 			break;
 		case 2:
 			// Fetch Request Template Properties
-			if ( ! [fetchRequestTemplateNamesInModel count] ) presentEmptyCell = YES;
+			if ( ! [fetchRequestTemplateNamesInModel_ count] ) presentEmptyCell = YES;
 			break;
 			
 		default:
@@ -265,14 +274,14 @@
 	
 	[super viewDidUnload];
 	
-	ERS_RELEASE_SAFELY( entitiesInModel );
-	ERS_RELEASE_SAFELY( configNamesInModel );
-	ERS_RELEASE_SAFELY( fetchRequestTemplateNamesInModel );
+	ERS_RELEASE_SAFELY( entitiesInModel_ );
+	ERS_RELEASE_SAFELY( configNamesInModel_ );
+	ERS_RELEASE_SAFELY( fetchRequestTemplateNamesInModel_ );
 }
 
 - (void) dealloc 
 {	
-	ERS_RELEASE_SAFELY( managedObjectModel );
+	ERS_RELEASE_SAFELY( managedObjectModel_ );
     
     [super dealloc];
 }

@@ -14,20 +14,19 @@
 
 @interface PSContentController : PSBaseContentController 
 {
-	UIViewController				*currentMasterViewController;
-	UIViewController				*currentDetailViewController;
-	
+
 @private
-    
-	NSObject						*lastMasterObject;
-	NSObject						*lastDetailObject;
+    UIViewController	*currentMasterViewController_;
+	UIViewController    *currentDetailViewController_;
+	NSObject			*lastMasterObject_;
+	NSObject			*lastDetailObject_;
 }
 
-@property (nonatomic, retain) IBOutlet	UIViewController		*currentMasterViewController;
-@property (nonatomic, retain) IBOutlet	UIViewController		*currentDetailViewController;
+@property (nonatomic, retain) IBOutlet	UIViewController	*currentMasterViewController;
+@property (nonatomic, retain) IBOutlet	UIViewController	*currentDetailViewController;
 
-@property (nonatomic, retain)			NSObject				*lastMasterObject;
-@property (nonatomic, retain)			NSObject				*lastDetailObject;
+@property (nonatomic, retain)			NSObject			*lastMasterObject;
+@property (nonatomic, retain)			NSObject			*lastDetailObject;
 
 
 - (UIViewController *) masterDisplayControllerFor:(NSObject *)anObject;

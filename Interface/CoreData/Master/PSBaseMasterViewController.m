@@ -12,7 +12,7 @@
 
 @implementation PSBaseMasterViewController
 
-@synthesize		managedObjectContext;
+@synthesize	managedObjectContext = managedObjectContext_;
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
 {
@@ -152,7 +152,7 @@
 
 - (void) dealloc 
 {	
-    ERS_RELEASE_SAFELY( managedObjectContext );
+    ERS_RELEASE_SAFELY( managedObjectContext_ );
     
     [super dealloc];
 }

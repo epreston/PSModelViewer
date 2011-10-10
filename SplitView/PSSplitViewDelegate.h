@@ -13,12 +13,14 @@
     < UISplitViewControllerDelegate > 
 {
 
-	UISplitViewController			*splitViewController;
+@protected
+    
+	UISplitViewController	*splitViewController_;
 
 @private
     
-	UIPopoverController				*popoverController;    
-    UIBarButtonItem					*rootPopoverButtonItem;
+	UIPopoverController		*popoverController_;    
+    UIBarButtonItem			*rootPopoverButtonItem_;
 }
 
 @property (nonatomic, assign) IBOutlet UISplitViewController	*splitViewController;

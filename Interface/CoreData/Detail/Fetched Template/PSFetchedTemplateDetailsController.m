@@ -10,16 +10,23 @@
 #import "PSFetchedTemplateDetailsController.h"
 
 
+@interface PSFetchedTemplateDetailsController ()
+
+// Methods
+- (void) configureView;
+
+@end
+
+
 @implementation PSFetchedTemplateDetailsController
 
 // Data Objects
-@synthesize detailFetchRequest;
+@synthesize detailFetchRequest = detailFetchRequest_;
 
 // Interface
-@synthesize entityName;
-@synthesize entityClassName;
-@synthesize hasSubEntities;
-
+@synthesize entityName      = entityName_;
+@synthesize entityClassName = entityClassName_;
+@synthesize hasSubEntities  = hasSubEntities_;
 
 - (void) configureView 
 {
@@ -57,7 +64,7 @@
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailFetchRequest );
+	ERS_RELEASE_SAFELY( detailFetchRequest_ );
 	
 	[super dealloc];
 }

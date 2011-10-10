@@ -6,31 +6,37 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSRelationshipDetailsController.h"
+
+
+@interface PSRelationshipDetailsController ()
+
+// Methods
+- (void) configureView;
+- (NSString *) nameFromDeleteRuleType:(NSDeleteRule)type;
+
+@end
 
 
 @implementation PSRelationshipDetailsController
 
 // Data objects
-@synthesize detailRelationshipDescription;
+@synthesize detailRelationshipDescription = detailRelationshipDescription_;
 
 // Interface
-@synthesize relatedEntityName;
-@synthesize propertyIsIndexed;
-@synthesize propertyIsOptional;
-@synthesize propertyIsTransient;
-@synthesize propertyName;
+@synthesize relatedEntityName   = relatedEntityName_;
 
-@synthesize relationDestinationEntity;
-@synthesize relationInverseRelationship;
+@synthesize propertyIsIndexed   = propertyIsIndexed_;
+@synthesize propertyIsOptional  = propertyIsOptional_;
+@synthesize propertyIsTransient = propertyIsTransient_;
+@synthesize propertyName        = propertyName_;
 
-@synthesize relationDeleteRule;
-
-@synthesize relationMaxCount;
-@synthesize relationMinCount;
-@synthesize relationIsToMany;
-
+@synthesize relationDestinationEntity = relationDestinationEntity_;
+@synthesize relationInverseRelationship = relationInverseRelationship_;
+@synthesize relationDeleteRule  = relationDeleteRule_;
+@synthesize relationMaxCount    = relationMaxCount_;
+@synthesize relationMinCount    = relationMinCount_;
+@synthesize relationIsToMany    = relationIsToMany_;
 
 - (void) configureView 
 {	
@@ -39,20 +45,20 @@
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
 		
-		propertyName.text = [detailRelationshipDescription name];
-		relatedEntityName.text = [[detailRelationshipDescription entity] name];
-		propertyIsIndexed.text = ( detailRelationshipDescription.isIndexed ) ? @"Yes" : @"No";
-		propertyIsOptional.text = ( detailRelationshipDescription.isOptional ) ? @"Yes" : @"No";
-		propertyIsTransient.text = ( detailRelationshipDescription.isTransient ) ? @"Yes" : @"No";
+		propertyName_.text = [detailRelationshipDescription_ name];
+		relatedEntityName_.text = [[detailRelationshipDescription_ entity] name];
+		propertyIsIndexed_.text = ( detailRelationshipDescription_.isIndexed ) ? @"Yes" : @"No";
+		propertyIsOptional_.text = ( detailRelationshipDescription_.isOptional ) ? @"Yes" : @"No";
+		propertyIsTransient_.text = ( detailRelationshipDescription_.isTransient ) ? @"Yes" : @"No";
 		
-		relationDestinationEntity.text = [[detailRelationshipDescription destinationEntity] name];
-		relationInverseRelationship.text = [[detailRelationshipDescription inverseRelationship] name];
+		relationDestinationEntity_.text = [[detailRelationshipDescription_ destinationEntity] name];
+		relationInverseRelationship_.text = [[detailRelationshipDescription_ inverseRelationship] name];
 		
-		relationDeleteRule.text = [self nameFromDeleteRuleType:[detailRelationshipDescription deleteRule]];
+		relationDeleteRule_.text = [self nameFromDeleteRuleType:[detailRelationshipDescription_ deleteRule]];
 		
-		relationMaxCount.text = [NSString stringWithFormat: @"%u", [detailRelationshipDescription maxCount]];
-		relationMinCount.text = [NSString stringWithFormat: @"%u", [detailRelationshipDescription minCount]];
-		relationIsToMany.text = ( detailRelationshipDescription.isToMany ) ? @"Yes" : @"No";
+		relationMaxCount_.text = [NSString stringWithFormat: @"%u", [detailRelationshipDescription_ maxCount]];
+		relationMinCount_.text = [NSString stringWithFormat: @"%u", [detailRelationshipDescription_ minCount]];
+		relationIsToMany_.text = ( detailRelationshipDescription_.isToMany ) ? @"Yes" : @"No";
 	}
 }
 
@@ -113,7 +119,7 @@
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailRelationshipDescription );
+	ERS_RELEASE_SAFELY( detailRelationshipDescription_ );
 	
 	[super dealloc];
 }

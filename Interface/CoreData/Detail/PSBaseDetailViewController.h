@@ -17,17 +17,15 @@
 
 @private
     
-	UIToolbar						*toolbar;
-	
-	// PSAcceptsObjectContext
-	NSManagedObjectContext			*managedObjectContext;
+	UIToolbar				*toolbar_;
+	NSManagedObjectContext	*managedObjectContext_;
 }
 
 // For convienience
-@property (nonatomic, retain) IBOutlet UIToolbar			*toolbar;
+@property (nonatomic, retain) IBOutlet UIToolbar        *toolbar;
 
 // PSAcceptsObjectContext
-@property (nonatomic, retain) NSManagedObjectContext		*managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectContext	*managedObjectContext;
 
 - (void) configureView;
 

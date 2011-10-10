@@ -6,24 +6,29 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSModelDetailsController.h"
 
 #import "PSGridScrollView.h"
 #import "PSSmallItemUI.h"
 
 
+@interface PSModelDetailsController ()
+
+- (void) configureView;
+
+@end
+
+
 @implementation PSModelDetailsController
 
-// Data
-@synthesize		managedObjectModel;
+// Data object
+@synthesize managedObjectModel              = managedObjectModel_;
 
 // Interface
-@synthesize 	numberOfEntities;
-@synthesize 	numberOfConfigurations;
-@synthesize 	numberOfFetchRequestTemplates;
-
-@synthesize		gridView;
+@synthesize numberOfEntities                = numberOfEntities_;
+@synthesize numberOfConfigurations          = numberOfConfigurations_;
+@synthesize numberOfFetchRequestTemplates   = numberOfFetchRequestTemplates_;
+@synthesize gridView                        = gridView_;
 
 
 #define ITEM_WIDTH 172
@@ -40,9 +45,9 @@
 		
 		NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
 		
-		numberOfEntities.text = [NSString stringWithFormat: @"%u", [[model entities] count]];
-		numberOfConfigurations.text = [NSString stringWithFormat: @"%u", [[model configurations] count]];
-		numberOfFetchRequestTemplates.text = [NSString stringWithFormat: @"%u", [[model fetchRequestTemplatesByName] count]];
+		numberOfEntities_.text = [NSString stringWithFormat: @"%u", [[model entities] count]];
+		numberOfConfigurations_.text = [NSString stringWithFormat: @"%u", [[model configurations] count]];
+		numberOfFetchRequestTemplates_.text = [NSString stringWithFormat: @"%u", [[model fetchRequestTemplatesByName] count]];
 		
 		// Set the item width and height
 		self.gridView.itemWidth = ITEM_WIDTH;
@@ -127,7 +132,7 @@
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( managedObjectModel );
+	ERS_RELEASE_SAFELY( managedObjectModel_ );
 	
 	[super dealloc];
 }

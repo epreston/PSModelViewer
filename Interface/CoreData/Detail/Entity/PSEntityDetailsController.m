@@ -6,19 +6,26 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSEntityDetailsController.h"
+
+
+@interface PSEntityDetailsController () 
+
+// Methods
+- (void) configureView;
+
+@end
 
 
 @implementation PSEntityDetailsController
 
 // Data object
-@synthesize detailEntityDescription;
+@synthesize detailEntityDescription         = detailEntityDescription_;
 
 // Interface
-@synthesize entityName;
-@synthesize entityManagedObjectClassName;
-@synthesize entityIsAbstract;
+@synthesize entityName                      = entityName_;
+@synthesize entityManagedObjectClassName    = entityManagedObjectClassName_;
+@synthesize entityIsAbstract                = entityIsAbstract_;
 
 - (void) configureView 
 {	
@@ -27,9 +34,9 @@
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
 		
-		entityName.text = [detailEntityDescription name];
-		entityManagedObjectClassName.text = [detailEntityDescription managedObjectClassName];
-		entityIsAbstract.text = ( detailEntityDescription.isAbstract ) ? @"Yes" : @"No";
+		entityName_.text = [detailEntityDescription_ name];
+		entityManagedObjectClassName_.text = [detailEntityDescription_ managedObjectClassName];
+		entityIsAbstract_.text = ( detailEntityDescription_.isAbstract ) ? @"Yes" : @"No";
 	}
 }
 
@@ -58,7 +65,7 @@
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailEntityDescription );
+	ERS_RELEASE_SAFELY( detailEntityDescription_ );
 	
 	[super dealloc];
 }

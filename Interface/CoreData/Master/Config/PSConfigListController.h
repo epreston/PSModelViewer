@@ -16,16 +16,12 @@
     < PSAcceptsString > 
 {
 
-	NSString						*detailString;
-
 @private
-    
-	NSArray							*entitiesInConfig;
+    NSString	*detailString_;
+	NSArray     *entitiesInConfig_;
 }
 
-@property (nonatomic, retain) NSString						*detailString;
-@property (nonatomic, retain) NSArray						*entitiesInConfig;
-
-- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@property (nonatomic, retain) NSString	*detailString;
+@property (nonatomic, retain) NSArray   *entitiesInConfig;
 
 @end

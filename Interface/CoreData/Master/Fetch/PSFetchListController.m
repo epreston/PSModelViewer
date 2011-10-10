@@ -10,14 +10,21 @@
 #import "PSFetchListController.h"
 
 
+@interface PSFetchListController ()
+
+- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+    
+@end
+
+
 @implementation PSFetchListController
 
-@synthesize detailFetchRequest;
-
-@synthesize	fetchEntityDescription;
-
-@synthesize affectedPersistantStores, orderedSortDescriptors;
-@synthesize keyPathNamesForPrefetching, propertyDescriptionsToFetch;
+@synthesize detailFetchRequest          = detailFetchRequest_;
+@synthesize fetchEntityDescription      = fetchEntityDescription_;
+@synthesize affectedPersistantStores    = affectedPersistantStores_;
+@synthesize orderedSortDescriptors      = orderedSortDescriptors_;
+@synthesize keyPathNamesForPrefetching  = keyPathNamesForPrefetching_;
+@synthesize propertyDescriptionsToFetch = propertyDescriptionsToFetch_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
@@ -25,13 +32,13 @@
 	switch (indexPath.section) {
 		case 0:
 			// Search Entity
-			cell.textLabel.text = [fetchEntityDescription name];
-			cell.detailTextLabel.text = [fetchEntityDescription managedObjectClassName];
+			cell.textLabel.text = [fetchEntityDescription_ name];
+			cell.detailTextLabel.text = [fetchEntityDescription_ managedObjectClassName];
 			break;
 		case 1:
 			// Affected Persistant Stores
 		{
-			NSPersistentStore *store = [affectedPersistantStores objectAtIndex:indexPath.row];
+			NSPersistentStore *store = [affectedPersistantStores_ objectAtIndex:indexPath.row];
 			cell.textLabel.text = [store identifier];
 			cell.detailTextLabel.text = [store type];
 		}
@@ -39,7 +46,7 @@
 		case 2:
 			// Sort Descriptors
 		{
-			NSSortDescriptor *sort = [orderedSortDescriptors objectAtIndex:indexPath.row];
+			NSSortDescriptor *sort = [orderedSortDescriptors_ objectAtIndex:indexPath.row];
 			cell.textLabel.text = [sort key];
 			if ( [sort ascending] ) {
 				cell.detailTextLabel.text = @"ascending";
@@ -51,11 +58,11 @@
 		case 3:
 			// Prefetch Keypaths
 		{
-			cell.textLabel.text = [keyPathNamesForPrefetching objectAtIndex:indexPath.row];
+			cell.textLabel.text = [keyPathNamesForPrefetching_ objectAtIndex:indexPath.row];
 			
 			// we can pull the related class name for the key property
-			NSEntityDescription *entity = [NSEntityDescription entityForName:[keyPathNamesForPrefetching objectAtIndex:indexPath.row]
-													   inManagedObjectContext:managedObjectContext];
+			NSEntityDescription *entity = [NSEntityDescription entityForName:[keyPathNamesForPrefetching_ objectAtIndex:indexPath.row]
+													   inManagedObjectContext:[self managedObjectContext]];
 			if ( entity ) {
 				cell.detailTextLabel.text = [entity name];
 			}
@@ -64,7 +71,7 @@
 		case 4:
 			// Properties to Fetch
 		{
-			NSPropertyDescription *property = [propertyDescriptionsToFetch objectAtIndex:indexPath.row];
+			NSPropertyDescription *property = [propertyDescriptionsToFetch_ objectAtIndex:indexPath.row];
 			cell.textLabel.text = [property name];
 			cell.detailTextLabel.text = @"see resultType";
 		}
@@ -83,7 +90,7 @@
 {
     [super viewDidLoad];
 	
-	if ( detailFetchRequest ) {
+	if ( detailFetchRequest_ ) {
 		
 		self.title = @"Fetch Request";
 		// self.title = [detailFetchRequest class];
@@ -96,11 +103,43 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
 	
-	fetchEntityDescription = [detailFetchRequest entity];
-	affectedPersistantStores = [[detailFetchRequest affectedStores] retain];
-	orderedSortDescriptors = [[detailFetchRequest sortDescriptors] retain];
-	keyPathNamesForPrefetching = [[detailFetchRequest relationshipKeyPathsForPrefetching] retain];
-	propertyDescriptionsToFetch = [[detailFetchRequest propertiesToFetch] retain];
+	fetchEntityDescription_ = [detailFetchRequest_ entity];
+	affectedPersistantStores_ = [[detailFetchRequest_ affectedStores] retain];
+	orderedSortDescriptors_ = [[detailFetchRequest_ sortDescriptors] retain];
+	keyPathNamesForPrefetching_ = [[detailFetchRequest_ relationshipKeyPathsForPrefetching] retain];
+	propertyDescriptionsToFetch_ = [[detailFetchRequest_ propertiesToFetch] retain];
+}
+
+
+#pragma mark - Resource Management
+
+- (void) didReceiveMemoryWarning 
+{
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc. that aren't in use.
+}
+
+- (void) viewDidUnload 
+{    
+	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+	
+	[super viewDidUnload];
+	
+	ERS_RELEASE_SAFELY( fetchEntityDescription_ );
+	ERS_RELEASE_SAFELY( affectedPersistantStores_ );
+	ERS_RELEASE_SAFELY( orderedSortDescriptors_ );
+	ERS_RELEASE_SAFELY( keyPathNamesForPrefetching_ );
+	ERS_RELEASE_SAFELY( propertyDescriptionsToFetch_ );
+}
+
+- (void) dealloc 
+{    
+	ERS_RELEASE_SAFELY( detailFetchRequest_ );
+	
+    [super dealloc];
 }
 
 
@@ -124,14 +163,14 @@
 	switch (indexPath.section) {
 		case 0:
 			// Search Entity
-			if ( fetchEntityDescription ) {
-				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( fetchEntityDescription );
+			if ( fetchEntityDescription_ ) {
+				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( fetchEntityDescription_ );
 			}
 			break;
 		case 1:
 			// Affected Persistant Stores
 		{
-			if ( [affectedPersistantStores count] ) {
+			if ( [affectedPersistantStores_ count] ) {
 				// NSEntityDescription *entity = [affectedPersistantStores objectAtIndex:indexPath.row];
 				// PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
@@ -140,7 +179,7 @@
 		case 2:
 			// Sort Descriptors
 		{
-			if ( [orderedSortDescriptors count] ) {
+			if ( [orderedSortDescriptors_ count] ) {
 				// NSEntityDescription *entity = [orderedSortDescriptors objectAtIndex:indexPath.row];
 				// PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
@@ -149,7 +188,7 @@
 		case 3:
 			// Prefetch Keypaths
 		{
-			if ( [keyPathNamesForPrefetching count] ) {
+			if ( [keyPathNamesForPrefetching_ count] ) {
 				// NSEntityDescription *entity = [keyPathNamesForPrefetching objectAtIndex:indexPath.row];
 				// PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
@@ -158,7 +197,7 @@
 		case 4:
 			// Properties to Fetch
 		{
-			if ( [propertyDescriptionsToFetch count] ) {
+			if ( [propertyDescriptionsToFetch_ count] ) {
 				// NSEntityDescription *entity = [propertyDescriptionsToFetch objectAtIndex:indexPath.row];
 				// PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
@@ -190,32 +229,32 @@
 		case 1:
 			// Affected Persistant Stores
 		{
-			if ( [affectedPersistantStores count] ) {
-				return [affectedPersistantStores count];
+			if ( [affectedPersistantStores_ count] ) {
+				return [affectedPersistantStores_ count];
 			}
 		}
 			break;
 		case 2:
 			// Sort Descriptors
 		{
-			if ( [orderedSortDescriptors count] ) {
-				return [orderedSortDescriptors count];
+			if ( [orderedSortDescriptors_ count] ) {
+				return [orderedSortDescriptors_ count];
 			}
 		}
 			break;
 		case 3:
 			// Prefetch Keypaths
 		{
-			if ( [keyPathNamesForPrefetching count] ) {
-				return [keyPathNamesForPrefetching count];
+			if ( [keyPathNamesForPrefetching_ count] ) {
+				return [keyPathNamesForPrefetching_ count];
 			}
 		}
 			break;
 		case 4:
 			// Properties to Fetch
 		{
-			if ( [propertyDescriptionsToFetch count] ) {
-				return [propertyDescriptionsToFetch count];
+			if ( [propertyDescriptionsToFetch_ count] ) {
+				return [propertyDescriptionsToFetch_ count];
 			}
 		}
 			break;
@@ -239,23 +278,23 @@
 	switch (indexPath.section) {
 		case 0:
 			// Search Entity
-			if ( ! fetchEntityDescription ) presentEmptyCell = YES;
+			if ( ! fetchEntityDescription_ ) presentEmptyCell = YES;
 			break;
 		case 1:
 			// Affected Persistant Stores
-			if ( ! [affectedPersistantStores count] ) presentEmptyCell = YES;
+			if ( ! [affectedPersistantStores_ count] ) presentEmptyCell = YES;
 			break;
 		case 2:
 			// Sort Descriptors
-			if ( ! [orderedSortDescriptors count] ) presentEmptyCell = YES;
+			if ( ! [orderedSortDescriptors_ count] ) presentEmptyCell = YES;
 			break;
 		case 3:
 			// Prefetch Keypaths
-			if ( ! [keyPathNamesForPrefetching count] ) presentEmptyCell = YES;
+			if ( ! [keyPathNamesForPrefetching_ count] ) presentEmptyCell = YES;
 			break;
 		case 4:
 			// Properties to Fetch
-			if ( ! [propertyDescriptionsToFetch count] ) presentEmptyCell = YES;
+			if ( ! [propertyDescriptionsToFetch_ count] ) presentEmptyCell = YES;
 			break;
 			
 		default:
@@ -320,38 +359,6 @@
 			return @"Error";
 			break;
 	}
-}
-
-
-#pragma mark - Resource Management
-
-- (void) didReceiveMemoryWarning 
-{
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
-}
-
-- (void) viewDidUnload 
-{    
-	// Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-	
-	[super viewDidUnload];
-	
-	ERS_RELEASE_SAFELY( fetchEntityDescription );
-	ERS_RELEASE_SAFELY( affectedPersistantStores );
-	ERS_RELEASE_SAFELY( orderedSortDescriptors );
-	ERS_RELEASE_SAFELY( keyPathNamesForPrefetching );
-	ERS_RELEASE_SAFELY( propertyDescriptionsToFetch );
-}
-
-- (void) dealloc 
-{    
-	ERS_RELEASE_SAFELY( detailFetchRequest );
-	
-    [super dealloc];
 }
 
 

@@ -16,15 +16,17 @@
 @interface PSEntityDetailsController : PSBaseDetailViewController 
     < PSAcceptsEntityDescription > 
 {	
-	// NSEntityDescription
-	NSEntityDescription			*detailEntityDescription;
+
+@protected
+    
+	NSEntityDescription	*detailEntityDescription_;
 
 @private
     
 	// Information About an Entity Description
-	UILabel							*entityName;
-	UILabel							*entityManagedObjectClassName;
-	UILabel							*entityIsAbstract;
+	UILabel			*entityName_;
+	UILabel			*entityManagedObjectClassName_;
+	UILabel			*entityIsAbstract_;
 	
 	// Working with Properties
 	//    – propertiesByName
@@ -34,15 +36,12 @@
 }
 
 // Data object
-@property (nonatomic, retain) NSEntityDescription			*detailEntityDescription;
+@property (nonatomic, retain) NSEntityDescription	*detailEntityDescription;
 
 // Interface
-@property (nonatomic, retain) IBOutlet UILabel				*entityName;
-@property (nonatomic, retain) IBOutlet UILabel				*entityManagedObjectClassName;
-@property (nonatomic, retain) IBOutlet UILabel				*entityIsAbstract;
-
-// Methods
-- (void) configureView;
+@property (nonatomic, retain) IBOutlet UILabel		*entityName;
+@property (nonatomic, retain) IBOutlet UILabel		*entityManagedObjectClassName;
+@property (nonatomic, retain) IBOutlet UILabel		*entityIsAbstract;
 
 
 @end

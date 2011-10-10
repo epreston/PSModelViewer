@@ -17,14 +17,15 @@
     < PSAcceptsFetchedPropertyDescription > 
 {
 
-	NSFetchedPropertyDescription	*detailFetchedPropertyDescription;
+@protected
+    
+	NSFetchedPropertyDescription	*detailFetchedPropertyDescription_;
 	
 	/*
 	 /////// NSFetchedPropertyDescription
 	 
 	 // Getting and Setting the Fetch Request
 	 – fetchRequest
-	 
 	 
 	 // NOTE: See fetched template details for the fetch request
 	 */
@@ -36,26 +37,22 @@
 	// – validationWarnings
 	
 	// Getting Features of a Property (common to all properties)
-	UILabel							*relatedEntityName;
-	UILabel							*propertyIsIndexed;
-	UILabel							*propertyIsOptional;
-	UILabel							*propertyIsTransient;
-	UILabel							*propertyName;
+	UILabel			*relatedEntityName_;
+	UILabel			*propertyIsIndexed_;
+	UILabel			*propertyIsOptional_;
+	UILabel			*propertyIsTransient_;
+	UILabel			*propertyName_;
 }
 
 // Data objects
 @property (nonatomic, retain) NSFetchedPropertyDescription	*detailFetchedPropertyDescription;
 
 // Interface
-@property (nonatomic, retain) IBOutlet UILabel				*relatedEntityName;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyIsIndexed;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyIsOptional;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyIsTransient;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyName;
-
-
-// Methods
-- (void) configureView;
+@property (nonatomic, retain) IBOutlet UILabel		*relatedEntityName;
+@property (nonatomic, retain) IBOutlet UILabel		*propertyIsIndexed;
+@property (nonatomic, retain) IBOutlet UILabel		*propertyIsOptional;
+@property (nonatomic, retain) IBOutlet UILabel		*propertyIsTransient;
+@property (nonatomic, retain) IBOutlet UILabel		*propertyName;
 
 
 @end

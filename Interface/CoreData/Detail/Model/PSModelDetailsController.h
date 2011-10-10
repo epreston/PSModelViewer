@@ -21,16 +21,18 @@
     < PSAcceptsManagedObjectModel, PSSmallItemUIDelegate > 
 {
 
-	NSManagedObjectModel			*managedObjectModel;
+@protected
+    
+	NSManagedObjectModel	*managedObjectModel_;
 	
 @private
     
 	// User Interface - Stats
-	UILabel							*numberOfEntities;
-	UILabel							*numberOfConfigurations;
-	UILabel							*numberOfFetchRequestTemplates;
+	UILabel				*numberOfEntities_;
+	UILabel				*numberOfConfigurations_;
+	UILabel				*numberOfFetchRequestTemplates_;
 	
-	PSGridScrollView				*gridView;
+	PSGridScrollView	*gridView_;
 }
 
 @property (nonatomic, retain) NSManagedObjectModel			*managedObjectModel;
@@ -41,6 +43,5 @@
 
 @property (nonatomic, retain) IBOutlet PSGridScrollView		*gridView;
 
-- (void) configureView;
 
 @end

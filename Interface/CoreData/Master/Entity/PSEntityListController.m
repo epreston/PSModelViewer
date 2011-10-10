@@ -6,16 +6,24 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSEntityListController.h"
+
+
+@interface PSEntityListController ()
+
+- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+@end
 
 
 @implementation PSEntityListController
 
-@synthesize detailEntityDescription;
-
-@synthesize superEntityDescription, subEntityDescriptions;
-@synthesize atrributesOfEntity, relationshipsOfEntity, fetchedPropertiesOfEntity;
+@synthesize detailEntityDescription     = detailEntityDescription_;
+@synthesize superEntityDescription      = superEntityDescription_;
+@synthesize subEntityDescriptions       = subEntityDescriptions_;
+@synthesize atrributesOfEntity          = atrributesOfEntity_;
+@synthesize relationshipsOfEntity       = relationshipsOfEntity_;
+@synthesize fetchedPropertiesOfEntity   = fetchedPropertiesOfEntity_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
@@ -23,13 +31,13 @@
 	switch (indexPath.section ) {
 		case 0:
 			// Super Entity
-			cell.textLabel.text = [superEntityDescription name];
-			cell.detailTextLabel.text = [superEntityDescription managedObjectClassName];
+			cell.textLabel.text = [superEntityDescription_ name];
+			cell.detailTextLabel.text = [superEntityDescription_ managedObjectClassName];
 			break;
 		case 1:
 			// Sub Entities
 		{
-			NSEntityDescription *entity = [subEntityDescriptions objectAtIndex:indexPath.row];
+			NSEntityDescription *entity = [subEntityDescriptions_ objectAtIndex:indexPath.row];
 			cell.textLabel.text = [entity name];
 			cell.detailTextLabel.text = [entity managedObjectClassName];
 		}
@@ -37,7 +45,7 @@
 		case 2:
 			// Attributes
 		{
-			NSAttributeDescription *attrib = [atrributesOfEntity objectAtIndex:indexPath.row];
+			NSAttributeDescription *attrib = [atrributesOfEntity_ objectAtIndex:indexPath.row];
 			cell.textLabel.text = [attrib name];
 			cell.detailTextLabel.text = [attrib attributeValueClassName];
 		}
@@ -45,7 +53,7 @@
 		case 3:
 			// Relationships
 		{
-			NSRelationshipDescription *relation = [relationshipsOfEntity objectAtIndex:indexPath.row];
+			NSRelationshipDescription *relation = [relationshipsOfEntity_ objectAtIndex:indexPath.row];
 			cell.textLabel.text = [relation name];
 			cell.detailTextLabel.text = [[relation destinationEntity] name];
 		}	
@@ -53,7 +61,7 @@
 		case 4:
 			// Fetched Properties
 		{
-			NSFetchedPropertyDescription *fetches = [fetchedPropertiesOfEntity objectAtIndex:indexPath.row];
+			NSFetchedPropertyDescription *fetches = [fetchedPropertiesOfEntity_ objectAtIndex:indexPath.row];
 			cell.textLabel.text = [fetches name];
 			cell.detailTextLabel.text = @"value is dynamic";
 		}
@@ -72,8 +80,8 @@
 {
     [super viewDidLoad];
 	
-	if ( detailEntityDescription ) {
-		self.title = [detailEntityDescription name];
+	if ( detailEntityDescription_ ) {
+		self.title = [detailEntityDescription_ name];
 	}
 
     // Uncomment the following line to preserve selection between presentations.
@@ -82,21 +90,21 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
-	superEntityDescription = [detailEntityDescription superentity];
-	subEntityDescriptions = [[detailEntityDescription subentities] retain];
+	superEntityDescription_ = [detailEntityDescription_ superentity];
+	subEntityDescriptions_ = [[detailEntityDescription_ subentities] retain];
 	
-	atrributesOfEntity = [[[detailEntityDescription attributesByName] allValues] retain];
-	relationshipsOfEntity = [[[detailEntityDescription relationshipsByName] allValues] retain];
+	atrributesOfEntity_ = [[[detailEntityDescription_ attributesByName] allValues] retain];
+	relationshipsOfEntity_ = [[[detailEntityDescription_ relationshipsByName] allValues] retain];
 	
 	// I am not happy we do not have direct access to fetched properties
-	NSArray *allProperties = [detailEntityDescription properties];
+	NSArray *allProperties = [detailEntityDescription_ properties];
 	
-	fetchedPropertiesOfEntity = [[NSMutableArray arrayWithCapacity:6] retain];
+	fetchedPropertiesOfEntity_ = [[NSMutableArray arrayWithCapacity:6] retain];
 	
 	for ( NSPropertyDescription *aProperty in allProperties ) {
 		if ( [aProperty isKindOfClass:[NSFetchedPropertyDescription class]] ) {
 			// add item to fetchedPropertiesOfEntity
-			[fetchedPropertiesOfEntity addObject:aProperty];
+			[fetchedPropertiesOfEntity_ addObject:aProperty];
 		}
 	}
 }
@@ -122,15 +130,15 @@
 	switch (indexPath.section ) {
 		case 0:
 			// Super Entity
-			if ( superEntityDescription ) {
-				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( superEntityDescription );
+			if ( superEntityDescription_ ) {
+				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( superEntityDescription_ );
 			}
 			break;
 		case 1:
 			// Sub Entities
 		{
-			if ( [subEntityDescriptions count] ) {
-				NSEntityDescription *entity = [subEntityDescriptions objectAtIndex:indexPath.row];
+			if ( [subEntityDescriptions_ count] ) {
+				NSEntityDescription *entity = [subEntityDescriptions_ objectAtIndex:indexPath.row];
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
 		}
@@ -138,8 +146,8 @@
 		case 2:
 			// Attributes
 		{
-			if ( [atrributesOfEntity count] ) {
-				NSAttributeDescription *attrib = [atrributesOfEntity objectAtIndex:indexPath.row];
+			if ( [atrributesOfEntity_ count] ) {
+				NSAttributeDescription *attrib = [atrributesOfEntity_ objectAtIndex:indexPath.row];
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( attrib );
 			}
 		}
@@ -147,8 +155,8 @@
 		case 3:
 			// Relationships
 		{
-			if ( [relationshipsOfEntity count] ) {
-				NSRelationshipDescription *relation = [relationshipsOfEntity objectAtIndex:indexPath.row];
+			if ( [relationshipsOfEntity_ count] ) {
+				NSRelationshipDescription *relation = [relationshipsOfEntity_ objectAtIndex:indexPath.row];
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( relation );
 			}
 		}
@@ -156,8 +164,8 @@
 		case 4:
 			// Fetched Properties
 		{
-			if ( [fetchedPropertiesOfEntity count] ) {
-				NSFetchedPropertyDescription *fetches = [fetchedPropertiesOfEntity objectAtIndex:indexPath.row];
+			if ( [fetchedPropertiesOfEntity_ count] ) {
+				NSFetchedPropertyDescription *fetches = [fetchedPropertiesOfEntity_ objectAtIndex:indexPath.row];
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( fetches );
 			}
 		}
@@ -188,32 +196,32 @@
 		case 1:
 			// Sub Entities
 		{
-			if ( [subEntityDescriptions count] ) {
-				return [subEntityDescriptions count];
+			if ( [subEntityDescriptions_ count] ) {
+				return [subEntityDescriptions_ count];
 			}
 		}
 			break;
 		case 2:
 			// Attributes
 		{
-			if ( [atrributesOfEntity count] ) {
-				return [atrributesOfEntity count];
+			if ( [atrributesOfEntity_ count] ) {
+				return [atrributesOfEntity_ count];
 			}
 		}
 			break;
 		case 3:
 			// Relationships
 		{
-			if ( [relationshipsOfEntity count] ) {
-				return [relationshipsOfEntity count];
+			if ( [relationshipsOfEntity_ count] ) {
+				return [relationshipsOfEntity_ count];
 			}
 		}
 			break;
 		case 4:
 			// Fetched Properties
 		{
-			if ( [fetchedPropertiesOfEntity count] ) {
-				return [fetchedPropertiesOfEntity count];
+			if ( [fetchedPropertiesOfEntity_ count] ) {
+				return [fetchedPropertiesOfEntity_ count];
 			}
 		}
 			break;
@@ -239,23 +247,23 @@
 	switch (indexPath.section) {
 		case 0:
 			// Super Entity
-			if ( ! superEntityDescription ) presentEmptyCell = YES;
+			if ( ! superEntityDescription_ ) presentEmptyCell = YES;
 			break;
 		case 1:
 			// Sub Entities
-			if ( ! [subEntityDescriptions count] ) presentEmptyCell = YES;
+			if ( ! [subEntityDescriptions_ count] ) presentEmptyCell = YES;
 			break;
 		case 2:
 			// Attributes
-			if ( ! [atrributesOfEntity count] ) presentEmptyCell = YES;
+			if ( ! [atrributesOfEntity_ count] ) presentEmptyCell = YES;
 			break;
 		case 3:
 			// Relationships
-			if ( ! [relationshipsOfEntity count ] ) presentEmptyCell = YES;
+			if ( ! [relationshipsOfEntity_ count ] ) presentEmptyCell = YES;
 			break;
 		case 4:
 			// Fetched Properties
-			if ( ! [fetchedPropertiesOfEntity count] ) presentEmptyCell = YES;
+			if ( ! [fetchedPropertiesOfEntity_ count] ) presentEmptyCell = YES;
 			break;
 			
 		default:
@@ -340,16 +348,16 @@
 	
 	[super viewDidUnload];
 	
-	ERS_RELEASE_SAFELY( superEntityDescription );
-	ERS_RELEASE_SAFELY(	subEntityDescriptions );
-	ERS_RELEASE_SAFELY(	atrributesOfEntity );
-	ERS_RELEASE_SAFELY(	relationshipsOfEntity );
-	ERS_RELEASE_SAFELY(	fetchedPropertiesOfEntity );
+	ERS_RELEASE_SAFELY( superEntityDescription_ );
+	ERS_RELEASE_SAFELY(	subEntityDescriptions_ );
+	ERS_RELEASE_SAFELY(	atrributesOfEntity_ );
+	ERS_RELEASE_SAFELY(	relationshipsOfEntity_ );
+	ERS_RELEASE_SAFELY(	fetchedPropertiesOfEntity_ );
 }
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailEntityDescription );
+	ERS_RELEASE_SAFELY( detailEntityDescription_ );
 	
     [super dealloc];
 }

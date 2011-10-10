@@ -13,11 +13,13 @@
     < PSAcceptsManagedObjectContext > 
 {
 	
-	NSManagedObjectContext			*managedObjectContext;
+@private
+    
+	NSManagedObjectContext	*managedObjectContext_;
 	
 }
 
-@property (nonatomic, retain) NSManagedObjectContext		*managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 

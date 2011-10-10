@@ -10,16 +10,22 @@
 #import "PSConfigListController.h"
 
 
+@interface PSConfigListController ()
+
+- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+
 @implementation PSConfigListController
 
-
-@synthesize detailString;
-@synthesize entitiesInConfig;
+@synthesize detailString        = detailString_;
+@synthesize entitiesInConfig    = entitiesInConfig_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
 {    
-	NSEntityDescription *entity = [entitiesInConfig objectAtIndex:indexPath.row];
+	NSEntityDescription *entity = [entitiesInConfig_ objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = [entity name];
 	cell.detailTextLabel.text = [entity managedObjectClassName];
@@ -33,8 +39,8 @@
 {
     [super viewDidLoad];
 	
-	if ( detailString ) {
-		self.title = detailString;
+	if ( detailString_ ) {
+		self.title = detailString_;
 	}
 	
 	//self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
@@ -46,7 +52,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
 	NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
-	entitiesInConfig = [[model entitiesForConfiguration:detailString] retain];
+	entitiesInConfig_ = [[model entitiesForConfiguration:detailString_] retain];
 }
 
 
@@ -84,9 +90,9 @@
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
     // Return the number of rows in the section.
-	if ( entitiesInConfig ) {
-		if ( [entitiesInConfig count] ) {
-			return [entitiesInConfig count];
+	if ( entitiesInConfig_ ) {
+		if ( [entitiesInConfig_ count] ) {
+			return [entitiesInConfig_ count];
 		}
 	}
 	
@@ -102,8 +108,8 @@
 	
 	BOOL presentEmptyCell = YES;
 
-	if ( entitiesInConfig ) {
-		if ( [entitiesInConfig count] ) {
+	if ( entitiesInConfig_ ) {
+		if ( [entitiesInConfig_ count] ) {
 			presentEmptyCell = NO;
 		}
 	}
@@ -142,7 +148,7 @@
 	switch (section) {
 		case 0:
 			//
-			return detailString;
+			return detailString_;
 			break;
 
 		default:
@@ -169,12 +175,12 @@
 	
 	[super viewDidUnload];
 	
-	ERS_RELEASE_SAFELY( entitiesInConfig );
+	ERS_RELEASE_SAFELY( entitiesInConfig_ );
 }
 
 - (void) dealloc 
 {	
-	ERS_RELEASE_SAFELY( detailString );
+	ERS_RELEASE_SAFELY( detailString_ );
     
     [super dealloc];
 }

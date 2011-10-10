@@ -17,26 +17,26 @@
     < PSAcceptsEntityDescription > 
 {
 
-	NSEntityDescription			*detailEntityDescription;
+@protected
+    
+	NSEntityDescription		*detailEntityDescription_;
 	
 @private
     
-	NSEntityDescription			*superEntityDescription;
-	NSArray						*subEntityDescriptions;
-	NSArray						*atrributesOfEntity;
-	NSArray						*relationshipsOfEntity;
-	NSMutableArray				*fetchedPropertiesOfEntity;
+	NSEntityDescription		*superEntityDescription_;
+	NSArray					*subEntityDescriptions_;
+	NSArray					*atrributesOfEntity_;
+	NSArray					*relationshipsOfEntity_;
+	NSMutableArray			*fetchedPropertiesOfEntity_;
 }
 
 
-@property (nonatomic, retain) NSEntityDescription		*detailEntityDescription;
+@property (nonatomic, retain) NSEntityDescription	*detailEntityDescription;
 
-@property (nonatomic, retain) NSEntityDescription		*superEntityDescription;
-@property (nonatomic, retain) NSArray					*subEntityDescriptions;
-@property (nonatomic, retain) NSArray					*atrributesOfEntity;
-@property (nonatomic, retain) NSArray					*relationshipsOfEntity;
-@property (nonatomic, retain) NSArray					*fetchedPropertiesOfEntity;
-
-- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@property (nonatomic, retain) NSEntityDescription	*superEntityDescription;
+@property (nonatomic, retain) NSArray				*subEntityDescriptions;
+@property (nonatomic, retain) NSArray				*atrributesOfEntity;
+@property (nonatomic, retain) NSArray				*relationshipsOfEntity;
+@property (nonatomic, retain) NSArray				*fetchedPropertiesOfEntity;
 
 @end

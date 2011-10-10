@@ -10,17 +10,25 @@
 #import "PSFetchedPropertyDetailsController.h"
 
 
+@interface PSFetchedPropertyDetailsController ()
+
+// Methods
+- (void) configureView;
+
+@end
+
+
 @implementation PSFetchedPropertyDetailsController
 
 // Data objects
-@synthesize detailFetchedPropertyDescription;
+@synthesize detailFetchedPropertyDescription = detailFetchedPropertyDescription_;
 
 // Interface
-@synthesize relatedEntityName;
-@synthesize propertyIsIndexed;
-@synthesize propertyIsOptional;
-@synthesize propertyIsTransient;
-@synthesize propertyName;
+@synthesize relatedEntityName   = relatedEntityName_;
+@synthesize propertyIsIndexed   = propertyIsIndexed_;
+@synthesize propertyIsOptional  = propertyIsOptional_;
+@synthesize propertyIsTransient = propertyIsTransient_;
+@synthesize propertyName        = propertyName_;
 
 
 - (void) configureView 
@@ -30,11 +38,11 @@
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
 		
-		propertyName.text = [detailFetchedPropertyDescription name];
-		relatedEntityName.text = [[detailFetchedPropertyDescription entity] name];
-		propertyIsIndexed.text = ( detailFetchedPropertyDescription.isIndexed ) ? @"Yes" : @"No";
-		propertyIsOptional.text = ( detailFetchedPropertyDescription.isOptional ) ? @"Yes" : @"No";
-		propertyIsTransient.text = ( detailFetchedPropertyDescription.isTransient ) ? @"Yes" : @"No";
+		propertyName_.text = [detailFetchedPropertyDescription_ name];
+		relatedEntityName_.text = [[detailFetchedPropertyDescription_ entity] name];
+		propertyIsIndexed_.text = ( detailFetchedPropertyDescription_.isIndexed ) ? @"Yes" : @"No";
+		propertyIsOptional_.text = ( detailFetchedPropertyDescription_.isOptional ) ? @"Yes" : @"No";
+		propertyIsTransient_.text = ( detailFetchedPropertyDescription_.isTransient ) ? @"Yes" : @"No";
         
 	}
 }
@@ -66,7 +74,7 @@
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailFetchedPropertyDescription );
+	ERS_RELEASE_SAFELY( detailFetchedPropertyDescription_ );
 	
 	[super dealloc];
 }

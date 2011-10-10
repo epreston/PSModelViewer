@@ -13,7 +13,8 @@
 
 @implementation PSBaseAppDelegate
 
-@synthesize window, contentController;
+@synthesize window              = window_;
+@synthesize contentController   = contentController_;
 
 
 #pragma mark - Application Lifecycle
@@ -21,7 +22,7 @@
 - (void) awakeFromNib 
 {    
 	// Pass the managed object context to the content controller.
-    contentController.managedObjectContext = self.managedObjectContext; 
+    contentController_.managedObjectContext = self.managedObjectContext; 
 }
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
@@ -30,8 +31,8 @@
 	// [[NSBundle mainBundle] loadNibNamed:@"PSModelView" owner:self options:nil];
 	
 	// Add the split view controller's view to the window and display.
-	[window addSubview:contentController.view];
-    [window makeKeyAndVisible];
+	[window_ addSubview:contentController_.view];
+    [window_ makeKeyAndVisible];
 	
 	return YES;
 }
@@ -51,6 +52,30 @@
 			
         } 
     }
+}
+
+
+#pragma mark - Resource Management
+
+- (void) applicationDidReceiveMemoryWarning:(UIApplication *)application 
+{    
+	/*
+     Free up as much memory as possible by purging cached data objects that can be 
+     recreated (or reloaded from disk) later.
+     */
+}
+
+- (void) dealloc 
+{
+	ERS_RELEASE_SAFELY( contentController_ );
+	
+	ERS_RELEASE_SAFELY( managedObjectContext_ );
+    ERS_RELEASE_SAFELY( managedObjectModel_ );
+    ERS_RELEASE_SAFELY( persistentStoreCoordinator_ );
+    
+	ERS_RELEASE_SAFELY( window_ );
+	
+	[super dealloc];
 }
 
 
@@ -164,30 +189,6 @@
 - (NSString *) applicationDocumentsDirectory 
 {    
 	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-}
-
-
-#pragma mark - Resource Management
-
-- (void) applicationDidReceiveMemoryWarning:(UIApplication *)application 
-{    
-	/*
-     Free up as much memory as possible by purging cached data objects that can be 
-     recreated (or reloaded from disk) later.
-     */
-}
-
-- (void) dealloc 
-{
-	ERS_RELEASE_SAFELY( contentController );
-	
-	ERS_RELEASE_SAFELY( managedObjectContext_ );
-    ERS_RELEASE_SAFELY( managedObjectModel_ );
-    ERS_RELEASE_SAFELY( persistentStoreCoordinator_ );
-    
-	ERS_RELEASE_SAFELY( window );
-	
-	[super dealloc];
 }
 
 

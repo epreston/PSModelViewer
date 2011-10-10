@@ -15,14 +15,17 @@
 @interface PSFetchedTemplateDetailsController : PSBaseDetailViewController 
     < PSAcceptsFetchRequest > 
 {
-	NSFetchRequest				*detailFetchRequest;
+    
+@protected
+    
+	NSFetchRequest	*detailFetchRequest_;
 	
 @private
     
 	// Entity
-	UILabel						*entityName;
-	UILabel						*entityClassName;
-	UILabel						*hasSubEntities;
+	UILabel			*entityName_;
+	UILabel			*entityClassName_;
+	UILabel			*hasSubEntities_;
 	
 	/*
 	
@@ -51,15 +54,12 @@
 }
 
 // Data objects
-@property (nonatomic, retain) NSFetchRequest				*detailFetchRequest;
+@property (nonatomic, retain) NSFetchRequest	*detailFetchRequest;
 
 // Interface
-@property (nonatomic, retain) IBOutlet UILabel				*entityName;
-@property (nonatomic, retain) IBOutlet UILabel				*entityClassName;
-@property (nonatomic, retain) IBOutlet UILabel				*hasSubEntities;
-
-// Methods
-- (void) configureView;
+@property (nonatomic, retain) IBOutlet UILabel	*entityName;
+@property (nonatomic, retain) IBOutlet UILabel	*entityClassName;
+@property (nonatomic, retain) IBOutlet UILabel	*hasSubEntities;
 
 
 @end

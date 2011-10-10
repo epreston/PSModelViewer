@@ -12,12 +12,11 @@
 
 @implementation PSSmallItemUI
 
-@synthesize delegate = _delegate;
-
-@synthesize itemTitle = _itemTitle;
-@synthesize itemSubTitle = _itemSubTitle; 
-@synthesize itemType = _itemType;
-@synthesize itemDetails = _itemDetails;
+@synthesize delegate        = delegate_;
+@synthesize itemTitle       = itemTitle_;
+@synthesize itemSubTitle    = itemSubTitle_; 
+@synthesize itemType        = itemType_;
+@synthesize itemDetails     = itemDetails_;
 
 
 - (IBAction) infoButonAction:(id)sender 

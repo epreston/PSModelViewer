@@ -16,13 +16,13 @@
 
 @private
     
-	int						_itemBorder;
-	int						_itemWidth;
-	int						_itemHeight;
-	NSMutableArray			*_gridViews;
+	int				itemBorder_;
+	int				itemWidth_;
+	int				itemHeight_;
+	NSMutableArray *gridViews_;
 }
 
-@property (nonatomic, copy) NSMutableArray	*gridViews;
+@property (nonatomic, copy) NSMutableArray *gridViews;
 @property (nonatomic) int					itemWidth;
 @property (nonatomic) int					itemHeight;
 @property (nonatomic) int					itemBorder;

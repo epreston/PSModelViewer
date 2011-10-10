@@ -6,26 +6,34 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSAttributeDetailsController.h"
+
+
+@interface PSAttributeDetailsController ()
+
+// Methods
+- (void) configureView;
+- (NSString *) nameFromAttributeType:(NSAttributeType)type;
+
+@end
 
 
 @implementation PSAttributeDetailsController
 
 // Data objects
-@synthesize detailAttributeDescription;
+@synthesize detailAttributeDescription = detailAttributeDescription_;
 
 // Interface
-@synthesize relatedEntityName;
-@synthesize propertyIsIndexed;
-@synthesize propertyIsOptional;
-@synthesize propertyIsTransient;
-@synthesize propertyName;
+@synthesize relatedEntityName       = relatedEntityName_;
+@synthesize propertyIsIndexed       = propertyIsIndexed_;
+@synthesize propertyIsOptional      = propertyIsOptional_;
+@synthesize propertyIsTransient     = propertyIsTransient_;
+@synthesize propertyName            = propertyName_;
 
-@synthesize attributeType;
-@synthesize attributeValueClassName;
-@synthesize attributeDefaultValue;
-@synthesize attributeValueTransformerName;
+@synthesize attributeType           = attributeType_;
+@synthesize attributeValueClassName = attributeValueClassName_;
+@synthesize attributeDefaultValue   = attributeDefaultValue_;
+@synthesize attributeValueTransformerName = attributeValueTransformerName_;
 
 
 - (void) configureView 
@@ -35,37 +43,37 @@
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
 		
-		propertyName.text = [detailAttributeDescription name];
-		relatedEntityName.text = [[detailAttributeDescription entity] name];
-		propertyIsIndexed.text = ( detailAttributeDescription.isIndexed ) ? @"Yes" : @"No";
-		propertyIsOptional.text = ( detailAttributeDescription.isOptional ) ? @"Yes" : @"No";
-		propertyIsTransient.text = ( detailAttributeDescription.isTransient ) ? @"Yes" : @"No";
+		propertyName_.text = [detailAttributeDescription_ name];
+		relatedEntityName_.text = [[detailAttributeDescription_ entity] name];
+		propertyIsIndexed_.text = ( detailAttributeDescription_.isIndexed ) ? @"Yes" : @"No";
+		propertyIsOptional_.text = ( detailAttributeDescription_.isOptional ) ? @"Yes" : @"No";
+		propertyIsTransient_.text = ( detailAttributeDescription_.isTransient ) ? @"Yes" : @"No";
 		
 		
-		attributeType.text = [self nameFromAttributeType:[detailAttributeDescription attributeType]];
-		attributeValueClassName.text = [detailAttributeDescription attributeValueClassName];
-		attributeValueTransformerName.text = [detailAttributeDescription valueTransformerName];
+		attributeType_.text = [self nameFromAttributeType:[detailAttributeDescription_ attributeType]];
+		attributeValueClassName_.text = [detailAttributeDescription_ attributeValueClassName];
+		attributeValueTransformerName_.text = [detailAttributeDescription_ valueTransformerName];
 		
 		
-		switch ([detailAttributeDescription attributeType]) {
+		switch ([detailAttributeDescription_ attributeType]) {
 			case NSUndefinedAttributeType:
 			case NSBinaryDataAttributeType:
 			case NSTransformableAttributeType:
 			case NSObjectIDAttributeType:
-				attributeDefaultValue.text = @"not used";
-				attributeDefaultValue.enabled = NO;
+				attributeDefaultValue_.text = @"not used";
+				attributeDefaultValue_.enabled = NO;
 				break;
 			case NSStringAttributeType:
-				attributeDefaultValue.text = [detailAttributeDescription defaultValue];
+				attributeDefaultValue_.text = [detailAttributeDescription_ defaultValue];
 				break;
 			case NSDateAttributeType:
-				attributeDefaultValue.text = [[detailAttributeDescription defaultValue] description];
+				attributeDefaultValue_.text = [[detailAttributeDescription_ defaultValue] description];
 				break;
 			case NSBooleanAttributeType:
-				attributeDefaultValue.text = ( [[detailAttributeDescription defaultValue] intValue]  == 1 ) ? @"Yes" : @"No";
+				attributeDefaultValue_.text = ( [[detailAttributeDescription_ defaultValue] intValue]  == 1 ) ? @"Yes" : @"No";
 				break;
 			default:
-				attributeDefaultValue.text = [[detailAttributeDescription defaultValue] stringValue];
+				attributeDefaultValue_.text = [[detailAttributeDescription_ defaultValue] stringValue];
 				break;
 		}
 	}
@@ -149,7 +157,7 @@
 
 - (void) dealloc 
 {    
-	ERS_RELEASE_SAFELY( detailAttributeDescription );
+	ERS_RELEASE_SAFELY( detailAttributeDescription_ );
 	
 	[super dealloc];
 }

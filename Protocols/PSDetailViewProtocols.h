@@ -16,7 +16,10 @@
  
  The protocol specifies methods to hide and show the bar button item controlling the popover.
 */
-@protocol PSSwappableDetailView
+@protocol PSSwappableDetailView <NSObject>
+
 - (void) showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
 - (void) invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
+
 @end
+

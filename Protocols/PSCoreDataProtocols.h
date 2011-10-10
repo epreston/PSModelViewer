@@ -19,59 +19,61 @@
  */
 
 
-@protocol PSAcceptsManagedObjectContext
+@protocol PSAcceptsManagedObjectContext <NSObject>
 @property (nonatomic, retain) NSManagedObjectContext		*managedObjectContext;
 @end
 
 
-@protocol PSAcceptsManagedObjectModel
+@protocol PSAcceptsManagedObjectModel <NSObject>
 @property (nonatomic, retain) NSManagedObjectModel			*managedObjectModel;
 @end
 
 
-@protocol PSAcceptsEntityDescription
+@protocol PSAcceptsEntityDescription <NSObject>
 @property (nonatomic, retain) NSEntityDescription			*detailEntityDescription;
 @end
 
 
-@protocol PSAcceptsFetchRequest
+@protocol PSAcceptsFetchRequest <NSObject>
 @property (nonatomic, retain) NSFetchRequest				*detailFetchRequest;
 @end
 
 
-@protocol PSAcceptsAttributeDescription
+@protocol PSAcceptsAttributeDescription <NSObject>
 @property (nonatomic, retain) NSAttributeDescription		*detailAttributeDescription;
 @end
 
 
-@protocol PSAcceptsRelationshipDescription
+@protocol PSAcceptsRelationshipDescription <NSObject>
 @property (nonatomic, retain) NSRelationshipDescription		*detailRelationshipDescription;
 @end
 
 
-@protocol PSAcceptsFetchedPropertyDescription
+@protocol PSAcceptsFetchedPropertyDescription <NSObject>
 @property (nonatomic, retain) NSFetchedPropertyDescription	*detailFetchedPropertyDescription;
 @end
 
 // It makes sense to have all 3
-@protocol PSAcceptsManagedObjects
+@protocol PSAcceptsManagedObjects <NSObject>
+
 @property (nonatomic, retain) NSManagedObject				*detailObject;
 @property (nonatomic, retain) NSEntityDescription			*detailEntityDescription;
 @property (nonatomic, retain) NSManagedObjectContext		*managedObjectContext;
+
 @end
 
 
-@protocol PSAcceptsSets
+@protocol PSAcceptsSets <NSObject>
 @property (nonatomic, retain) NSSet							*detailSet;
 @end
 
 
-@protocol PSAcceptsString
+@protocol PSAcceptsString <NSObject>
 @property (nonatomic, retain) NSString						*detailString;
 @end
 
 
-@protocol PSAcceptsArray
+@protocol PSAcceptsArray <NSObject>
 @property (nonatomic, retain) NSArray						*detailArray;
 @end
 

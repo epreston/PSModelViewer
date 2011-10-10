@@ -13,14 +13,16 @@
 
 @class PSContentController;
 
-@interface PSBaseAppDelegate : NSObject 
-    < UIApplicationDelegate > 
+@interface PSBaseAppDelegate : NSObject < UIApplicationDelegate > 
 {    
-    UIWindow *window;
-	PSContentController				*contentController;
 
-@private
+@protected
     
+    UIWindow                *window_;
+	PSContentController     *contentController_;
+    
+@private
+
     NSManagedObjectContext			*managedObjectContext_;
     NSManagedObjectModel			*managedObjectModel_;
     NSPersistentStoreCoordinator	*persistentStoreCoordinator_;

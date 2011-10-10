@@ -16,21 +16,22 @@
     < PSAcceptsManagedObjectModel > 
 {
 
-	NSManagedObjectModel			*managedObjectModel;
+@protected
+    
+	NSManagedObjectModel	*managedObjectModel_;
 	
 @private
     
-	NSArray							*configNamesInModel;
-	NSArray							*entitiesInModel;						
-	NSArray							*fetchRequestTemplateNamesInModel;
+	NSArray		*configNamesInModel_;
+	NSArray		*entitiesInModel_;						
+	NSArray		*fetchRequestTemplateNamesInModel_;
 }
 
-@property (nonatomic, retain) NSManagedObjectModel			*managedObjectModel;
+@property (nonatomic, retain) NSManagedObjectModel	*managedObjectModel;
 
-@property (nonatomic, retain) NSArray						*configNamesInModel;
-@property (nonatomic, retain) NSArray						*entitiesInModel;
-@property (nonatomic, retain) NSArray						*fetchRequestTemplateNamesInModel;
+@property (nonatomic, retain) NSArray	*configNamesInModel;
+@property (nonatomic, retain) NSArray	*entitiesInModel;
+@property (nonatomic, retain) NSArray	*fetchRequestTemplateNamesInModel;
 
-- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end

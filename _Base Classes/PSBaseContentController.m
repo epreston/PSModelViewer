@@ -15,15 +15,19 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 
 
 @interface PSBaseContentController ()
+
 - (void) masterDisplayRequested:(NSNotification *)notification;
 - (void) detailDisplayRequested:(NSNotification *)notification;
+
 @end
 
 
 @implementation PSBaseContentController
 
-@synthesize splitViewController, navigationController, rootViewController;
-@synthesize managedObjectContext;
+@synthesize splitViewController     = splitViewController_;
+@synthesize navigationController    = navigationController_;
+@synthesize rootViewController      = rootViewController_;
+@synthesize managedObjectContext    = managedObjectContext_;
 
 
 #pragma mark - Display Contoller Lookup
@@ -58,7 +62,7 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	[super awakeFromNib];
 	
 	// Pass along the managed object context
-	[self passManagedObjectContext:managedObjectContext toObject:rootViewController];
+	[self passManagedObjectContext:managedObjectContext_ toObject:rootViewController_];
 	
 	// Listen for our messages
 	NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
@@ -80,11 +84,11 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	// Remove self as an observer.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
-	ERS_RELEASE_SAFELY(rootViewController);
-	ERS_RELEASE_SAFELY(navigationController);
-	ERS_RELEASE_SAFELY(splitViewController);
+	ERS_RELEASE_SAFELY( rootViewController_ );
+	ERS_RELEASE_SAFELY( navigationController_ );
+	ERS_RELEASE_SAFELY( splitViewController_ );
 	
-	ERS_RELEASE_SAFELY(managedObjectContext);
+	ERS_RELEASE_SAFELY( managedObjectContext_ );
 	
     [super dealloc];
 }
@@ -102,13 +106,13 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	
 	if ( newViewController ) {
 		
-		[navigationController pushViewController:newViewController animated:YES];
+		[navigationController_ pushViewController:newViewController animated:YES];
 		// ERS_RELEASE_SAFELY( newViewController );
 		
 	} else {
 		
 		// No controller returned, pop all
-		[navigationController popToRootViewControllerAnimated:YES];
+		[navigationController_ popToRootViewControllerAnimated:YES];
 	}
 
 }
@@ -123,8 +127,8 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	if ( newViewController ) {
 				
 		// Update the split view controller's view controllers array.
-		NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationController, newViewController, nil];
-		splitViewController.viewControllers = viewControllers;
+		NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationController_, newViewController, nil];
+		splitViewController_.viewControllers = viewControllers;
 		ERS_RELEASE_SAFELY( viewControllers );
 		
 		// Ensure button for popup is visable if needed

@@ -14,7 +14,9 @@
 
 
 @protocol PSSmallItemUIDelegate < NSObject >
+
 - (void) performInfoAction: (PSSmallItemUI *) aSmallItem;
+
 @end
 
 
@@ -22,19 +24,20 @@
 {
     
 @private	
-	UILabel						*_itemTitle;
-	UILabel						*_itemSubTitle;
-	UILabel						*_itemType;
-	UITextView					*_itemDetails;
-	id < PSSmallItemUIDelegate > _delegate;
+	UILabel			*itemTitle_;
+	UILabel			*itemSubTitle_;
+	UILabel			*itemType_;
+	UITextView		*itemDetails_;
+    
+	id < PSSmallItemUIDelegate > delegate_;
 }
 
 @property(nonatomic, assign) id delegate;
 
-@property(nonatomic, assign) IBOutlet UILabel		*itemTitle;
-@property(nonatomic, assign) IBOutlet UILabel		*itemSubTitle;
-@property(nonatomic, assign) IBOutlet UILabel		*itemType;
-@property(nonatomic, assign) IBOutlet UITextView	*itemDetails;
+@property(nonatomic, retain) IBOutlet UILabel		*itemTitle;
+@property(nonatomic, retain) IBOutlet UILabel		*itemSubTitle;
+@property(nonatomic, retain) IBOutlet UILabel		*itemType;
+@property(nonatomic, retain) IBOutlet UITextView	*itemDetails;
 
 - (IBAction) infoButonAction:(id)sender;
 

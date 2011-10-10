@@ -9,34 +9,32 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-
 #import "PSBaseMasterViewController.h"
-
 
 
 @interface PSFetchListController : PSBaseMasterViewController 
     < PSAcceptsFetchRequest > 
 {
 
-	NSFetchRequest				*detailFetchRequest;
+@protected
+    
+	NSFetchRequest			*detailFetchRequest_;
 	
 @private
     
-	NSEntityDescription			*fetchEntityDescription;
-	NSArray						*affectedPersistantStores;
-	NSArray						*orderedSortDescriptors;
-	NSArray						*keyPathNamesForPrefetching;
-	NSArray						*propertyDescriptionsToFetch;
+	NSEntityDescription		*fetchEntityDescription_;
+	NSArray					*affectedPersistantStores_;
+	NSArray					*orderedSortDescriptors_;
+	NSArray					*keyPathNamesForPrefetching_;
+	NSArray					*propertyDescriptionsToFetch_;
 }
 
-@property (nonatomic, retain) NSFetchRequest				*detailFetchRequest;
+@property (nonatomic, retain) NSFetchRequest		*detailFetchRequest;
 
-@property (nonatomic, retain) NSEntityDescription			*fetchEntityDescription;
-@property (nonatomic, retain) NSArray						*affectedPersistantStores;
-@property (nonatomic, retain) NSArray						*orderedSortDescriptors;
-@property (nonatomic, retain) NSArray						*keyPathNamesForPrefetching;
-@property (nonatomic, retain) NSArray						*propertyDescriptionsToFetch;
-
-- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@property (nonatomic, retain) NSEntityDescription	*fetchEntityDescription;
+@property (nonatomic, retain) NSArray				*affectedPersistantStores;
+@property (nonatomic, retain) NSArray				*orderedSortDescriptors;
+@property (nonatomic, retain) NSArray				*keyPathNamesForPrefetching;
+@property (nonatomic, retain) NSArray				*propertyDescriptionsToFetch;
 
 @end

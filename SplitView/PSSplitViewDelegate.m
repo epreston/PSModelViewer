@@ -17,23 +17,33 @@ NSString * const PSDismissPopoverRequestNotification = @"PSDismissPopover";
 NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 
 
+@interface PSSplitViewDelegate ()
+
+- (void) dismissPopoverRequested:(NSNotification *)notification;
+- (void) confirmPopoverRequested:(NSNotification *)notification;
+
+@end
+
+
 @implementation PSSplitViewDelegate
 
-@synthesize popoverController, splitViewController, rootPopoverButtonItem;
+@synthesize popoverController       = popoverController_;
+@synthesize splitViewController     = splitViewController_;
+@synthesize rootPopoverButtonItem   = rootPopoverButtonItem_;
 
 
-- (void)dismissPopoverRequested:(NSNotification *)notification 
+- (void) dismissPopoverRequested:(NSNotification *)notification 
 {
     // Dismiss the popover if it's present.
-    if (popoverController != nil) {
-        [popoverController dismissPopoverAnimated:YES];
+    if (popoverController_ != nil) {
+        [popoverController_ dismissPopoverAnimated:YES];
     }
 	
     // Configure the new view controller's popover button (after the view has been displayed 
 	// and its toolbar/navigation bar has been created).
-    if (rootPopoverButtonItem != nil) {
+    if (rootPopoverButtonItem_ != nil) {
 		// Find the current detail view controller, it might be holding a reference to this object
-		UIViewController < PSSwappableDetailView > *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
+		UIViewController < PSSwappableDetailView > *detailViewController = [splitViewController_.viewControllers objectAtIndex:1];
 		
 		if (  [detailViewController conformsToProtocol:@protocol( PSSwappableDetailView )]  ) {
 			[detailViewController showRootPopoverButtonItem:self.rootPopoverButtonItem];
@@ -45,9 +55,9 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 {	
     // Configure the new view controller's popover button (after the view has been displayed and 
 	// its toolbar/navigation bar has been created).
-    if (rootPopoverButtonItem != nil) {
+    if (rootPopoverButtonItem_ != nil) {
 		// Find the current detail view controller, it might be holding a reference to this object
-		UIViewController < PSSwappableDetailView > *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
+		UIViewController < PSSwappableDetailView > *detailViewController = [splitViewController_.viewControllers objectAtIndex:1];
 		
 		if ( [detailViewController conformsToProtocol:@protocol( PSSwappableDetailView )] ) {
 			[detailViewController showRootPopoverButtonItem:self.rootPopoverButtonItem];
@@ -82,14 +92,14 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 	// Remove self as an observer.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
-	ERS_RELEASE_SAFELY(splitViewController);
-    ERS_RELEASE_SAFELY(popoverController);
+	ERS_RELEASE_SAFELY( splitViewController_ );
+    ERS_RELEASE_SAFELY( popoverController_ );
     
     [super dealloc];
 }
 
 
-#pragma mark - Split View Controller Delegate
+#pragma mark - UISplitViewControllerDelegate
 
 - (void) splitViewController:(UISplitViewController *)svc 
       willHideViewController:(UIViewController *)aViewController 
@@ -104,7 +114,7 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
     
     UIViewController < PSSwappableDetailView > *detailViewController = [svc.viewControllers objectAtIndex:1];
 	if ( [detailViewController conformsToProtocol:@protocol( PSSwappableDetailView )] ) {
-		[detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+		[detailViewController showRootPopoverButtonItem:rootPopoverButtonItem_];
 	}
 }
 
@@ -116,7 +126,7 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
     // view controller to hide the button.
     UIViewController < PSSwappableDetailView > *detailViewController = [svc.viewControllers objectAtIndex:1];
 	if ( [detailViewController conformsToProtocol:@protocol( PSSwappableDetailView )] ) {
-		[detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
+		[detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem_];
 	}
     
     self.popoverController = nil;

@@ -17,7 +17,9 @@
     < PSAcceptsRelationshipDescription > 
 {
 
-	NSRelationshipDescription		*detailRelationshipDescription;
+@protected
+    
+	NSRelationshipDescription	*detailRelationshipDescription_;
 	
 @private
 	
@@ -26,47 +28,43 @@
 	// – validationWarnings
 	
 	// Getting Features of a Property (common to all properties)
-	UILabel							*relatedEntityName;
-	UILabel							*propertyIsIndexed;
-	UILabel							*propertyIsOptional;
-	UILabel							*propertyIsTransient;
-	UILabel							*propertyName;
+	UILabel		*relatedEntityName_;
+	UILabel		*propertyIsIndexed_;
+	UILabel		*propertyIsOptional_;
+	UILabel		*propertyIsTransient_;
+	UILabel		*propertyName_;
 	
 	// Managing Type Information
-	UILabel							*relationDestinationEntity;
-	UILabel							*relationInverseRelationship;
+	UILabel		*relationDestinationEntity_;
+	UILabel		*relationInverseRelationship_;
 	
 	// Getting and Setting Delete Rules
-	UILabel							*relationDeleteRule;
+	UILabel		*relationDeleteRule_;
 	
 	// Cardinality
-	UILabel							*relationMaxCount;
-	UILabel							*relationMinCount;
-	UILabel							*relationIsToMany;
+	UILabel		*relationMaxCount_;
+	UILabel		*relationMinCount_;
+	UILabel		*relationIsToMany_;
 }
 
 // Data Objects
 @property (nonatomic, retain) NSRelationshipDescription		*detailRelationshipDescription;
 
 // Interface
-@property (nonatomic, retain) IBOutlet UILabel				*relatedEntityName;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyIsIndexed;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyIsOptional;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyIsTransient;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyName;
+@property (nonatomic, retain) IBOutlet UILabel	*relatedEntityName;
+@property (nonatomic, retain) IBOutlet UILabel	*propertyIsIndexed;
+@property (nonatomic, retain) IBOutlet UILabel	*propertyIsOptional;
+@property (nonatomic, retain) IBOutlet UILabel	*propertyIsTransient;
+@property (nonatomic, retain) IBOutlet UILabel	*propertyName;
 
-@property (nonatomic, retain) IBOutlet UILabel				*relationDestinationEntity;
-@property (nonatomic, retain) IBOutlet UILabel				*relationInverseRelationship;
+@property (nonatomic, retain) IBOutlet UILabel	*relationDestinationEntity;
+@property (nonatomic, retain) IBOutlet UILabel	*relationInverseRelationship;
 
-@property (nonatomic, retain) IBOutlet UILabel				*relationDeleteRule;
+@property (nonatomic, retain) IBOutlet UILabel	*relationDeleteRule;
 
-@property (nonatomic, retain) IBOutlet UILabel				*relationMaxCount;
-@property (nonatomic, retain) IBOutlet UILabel				*relationMinCount;
-@property (nonatomic, retain) IBOutlet UILabel				*relationIsToMany;
-
-// Methods
-- (void) configureView;
-- (NSString *) nameFromDeleteRuleType:(NSDeleteRule)type;
+@property (nonatomic, retain) IBOutlet UILabel	*relationMaxCount;
+@property (nonatomic, retain) IBOutlet UILabel	*relationMinCount;
+@property (nonatomic, retain) IBOutlet UILabel	*relationIsToMany;
 
 
 @end

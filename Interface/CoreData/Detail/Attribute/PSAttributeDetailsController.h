@@ -16,8 +16,10 @@
 @interface PSAttributeDetailsController : PSBaseDetailViewController 
     < PSAcceptsAttributeDescription > 
 {
+    
+@protected
 
-	NSAttributeDescription		*detailAttributeDescription;
+	NSAttributeDescription		*detailAttributeDescription_;
 	
 @private
 	
@@ -26,42 +28,38 @@
 	// – validationWarnings
 	
 	// Getting Features of a Property (common to all properties)
-	UILabel							*relatedEntityName;
-	UILabel							*propertyIsIndexed;
-	UILabel							*propertyIsOptional;
-	UILabel							*propertyIsTransient;
-	UILabel							*propertyName;
+	UILabel		*relatedEntityName_;
+	UILabel		*propertyIsIndexed_;
+	UILabel		*propertyIsOptional_;
+	UILabel		*propertyIsTransient_;
+	UILabel		*propertyName_;
 	
 	// Getting and Setting Type Information
-	UILabel							*attributeType;
-	UILabel							*attributeValueClassName;
+	UILabel		*attributeType_;
+	UILabel		*attributeValueClassName_;
 	
 	// Getting and Setting the Default Value
-	UILabel							*attributeDefaultValue;
+	UILabel		*attributeDefaultValue_;
 	
 	// Value Transformers
-	UILabel							*attributeValueTransformerName;
+	UILabel		*attributeValueTransformerName_;
 	
 }
 
 // Data objects
-@property (nonatomic, retain) NSAttributeDescription		*detailAttributeDescription;
+@property (nonatomic, retain) NSAttributeDescription	*detailAttributeDescription;
 
 // Interface
-@property (nonatomic, retain) IBOutlet UILabel				*relatedEntityName;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyIsIndexed;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyIsOptional;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyIsTransient;
-@property (nonatomic, retain) IBOutlet UILabel				*propertyName;
+@property (nonatomic, retain) IBOutlet UILabel	*relatedEntityName;
+@property (nonatomic, retain) IBOutlet UILabel	*propertyIsIndexed;
+@property (nonatomic, retain) IBOutlet UILabel	*propertyIsOptional;
+@property (nonatomic, retain) IBOutlet UILabel	*propertyIsTransient;
+@property (nonatomic, retain) IBOutlet UILabel	*propertyName;
 
-@property (nonatomic, retain) IBOutlet UILabel				*attributeType;
-@property (nonatomic, retain) IBOutlet UILabel				*attributeValueClassName;
-@property (nonatomic, retain) IBOutlet UILabel				*attributeDefaultValue;
-@property (nonatomic, retain) IBOutlet UILabel				*attributeValueTransformerName;
-
-// Methods
-- (void) configureView;
-- (NSString *) nameFromAttributeType:(NSAttributeType)type;
+@property (nonatomic, retain) IBOutlet UILabel	*attributeType;
+@property (nonatomic, retain) IBOutlet UILabel	*attributeValueClassName;
+@property (nonatomic, retain) IBOutlet UILabel	*attributeDefaultValue;
+@property (nonatomic, retain) IBOutlet UILabel	*attributeValueTransformerName;
 
 
 @end

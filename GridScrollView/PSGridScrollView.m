@@ -24,31 +24,31 @@
 
 #pragma mark - Properties
 
-@synthesize itemWidth = _itemWidth;
+@synthesize itemWidth = itemWidth_;
 
-- (void)setItemWidth:(int)newValue 
+- (void) setItemWidth:(int)newValue 
 {	
-	_itemWidth = newValue;
+	itemWidth_ = newValue;
 	
 	// Update the display
 	[self setNeedsLayout];
 }
 
-@synthesize	itemHeight = _itemHeight;
+@synthesize	itemHeight = itemHeight_;
 
 - (void) setItemHeight:(int)newValue 
 {	
-	_itemHeight = newValue;
+	itemHeight_ = newValue;
 	
 	// Update the display
 	[self setNeedsLayout];
 }
 
-@synthesize itemBorder = _itemBorder;
+@synthesize itemBorder = itemBorder_;
 
 - (void) setItemBorder:(int)newValue 
 {	
-	_itemBorder = newValue;
+	itemBorder_ = newValue;
 	
 	// Update the display
 	[self setNeedsLayout];
@@ -57,41 +57,50 @@
 - (NSMutableArray *) gridViews 
 {	
 	// lazy creation
-	if ( _gridViews != nil) {
-		return _gridViews;
+	if ( gridViews_ != nil) {
+		return gridViews_;
 	}
 	
-	_gridViews = [[NSMutableArray alloc] init];
+	gridViews_ = [[NSMutableArray alloc] init];
 	
-	return _gridViews;
+	return gridViews_;
 }
 
 - (void) setGridViews:(NSMutableArray *)array
 {
-	if (_gridViews != array)
+	if (gridViews_ != array)
     {
-		
 		// Remove the old views
-		for (UIView *view in _gridViews)
+		for (UIView *view in gridViews_)
 			[view removeFromSuperview];
-		[_gridViews release];
+		[gridViews_ release];
 		
 		if ( array != nil ) {
 			
 			// Copy the array
-			_gridViews = [array retain];
+			gridViews_ = [array retain];
 			
 			// Add the new views
-			for (UIView *view in _gridViews)
+			for (UIView *view in gridViews_)
 				[self addSubview:view];
 			
 		} else {
-			_gridViews = nil;
+			gridViews_ = nil;
 		}
 		
 		// Update the display
 		[self setNeedsLayout];
     }
+}
+
+
+#pragma mark - Resource Management
+
+- (void) dealloc 
+{	
+	[gridViews_ release];
+	
+	[super dealloc];
 }
 
 
@@ -120,13 +129,13 @@
 		// NSLog(@"Layout Requested.");
 		
 		// Sanity checks
-		if (_itemWidth < 40) _itemWidth = 40;
-		if (_itemHeight < 40) _itemHeight = 40;
-		if (_itemBorder < 0) _itemBorder = 0;
+		if (itemWidth_ < 40)   itemWidth_   = 40;
+		if (itemHeight_ < 40)  itemHeight_  = 40;
+		if (itemBorder_ < 0)   itemBorder_  = 0;
 		
 		// Caluculate the item width and height with a border on both sides
-		int widthWithBorder = _itemWidth + (_itemBorder * 2);
-		int heightWithBorder = _itemHeight + (_itemBorder * 2);
+		int widthWithBorder = itemWidth_ + (itemBorder_ * 2);
+		int heightWithBorder = itemHeight_ + (itemBorder_ * 2);
 		
 		// calculate the number of columns that can fit
 		CGRect bounds = [self bounds];
@@ -149,11 +158,11 @@
 			int x = index - y * cols;
 		
 			// calculate the origion for the current view
-			xOrigin = (x * widthWithBorder) + (x * itemSpacing) + itemSpacing + _itemBorder;
-			yOrigin = (y * heightWithBorder) + (y * itemSpacing) + itemSpacing + _itemBorder;
+			xOrigin = (x * widthWithBorder) + (x * itemSpacing) + itemSpacing + itemBorder_;
+			yOrigin = (y * heightWithBorder) + (y * itemSpacing) + itemSpacing + itemBorder_;
 			
 			// update its frame
-			view.frame = CGRectMake(xOrigin, yOrigin, _itemWidth, _itemHeight);
+			view.frame = CGRectMake(xOrigin, yOrigin, itemWidth_, itemHeight_);
 			
 			// Set the item to opaque
 			view.opaque = OPAQUE_ITEM_VIEWS ? YES : NO;
@@ -161,18 +170,8 @@
 		}
 	
 		// We may have changed orientation or size.
-		[self setContentSize:CGSizeMake (bounds.size.width, yOrigin + _itemHeight + itemSpacing + _itemBorder)];
+		[self setContentSize:CGSizeMake (bounds.size.width, yOrigin + itemHeight_ + itemSpacing + itemBorder_)];
 	}
-}
-
-
-#pragma mark - Resource Management
-
-- (void) dealloc 
-{	
-	[_gridViews release];
-	
-	[super dealloc];
 }
 
 

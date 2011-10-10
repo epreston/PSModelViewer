@@ -11,14 +11,16 @@
 
 
 @interface PSBaseDetailViewController ()
-- (void)contextWillSave:(NSNotification *)notification;
+
+- (void) contextWillSave:(NSNotification *)notification;
+
 @end
 
 
 @implementation PSBaseDetailViewController
 
-@synthesize		toolbar;
-@synthesize		managedObjectContext;
+@synthesize	toolbar                 = toolbar_;
+@synthesize	managedObjectContext    = managedObjectContext_;
 
 
 - (void) configureView 
@@ -66,7 +68,7 @@
 	[dnc addObserver:self 
 			selector:@selector(contextWillSave:) 
 				name:NSManagedObjectContextWillSaveNotification 
-			  object:managedObjectContext];
+			  object:managedObjectContext_];
 }
 
 
@@ -75,10 +77,10 @@
 - (void) showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem 
 {    
     // Add the popover button to the toolbar.
-    NSMutableArray *itemsArray = [toolbar.items mutableCopy];
+    NSMutableArray *itemsArray = [toolbar_.items mutableCopy];
 	if ( [itemsArray indexOfObject:barButtonItem] == NSNotFound ) {
 		[itemsArray insertObject:barButtonItem atIndex:0];
-		[toolbar setItems:itemsArray animated:NO];
+		[toolbar_ setItems:itemsArray animated:NO];
 	}
     [itemsArray release];
 }
@@ -86,9 +88,9 @@
 - (void) invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem 
 {    
     // Remove the popover button from the toolbar.
-    NSMutableArray *itemsArray = [toolbar.items mutableCopy];
+    NSMutableArray *itemsArray = [toolbar_.items mutableCopy];
     [itemsArray removeObject:barButtonItem];
-    [toolbar setItems:itemsArray animated:NO];
+    [toolbar_ setItems:itemsArray animated:NO];
     [itemsArray release];
 }
 
@@ -139,7 +141,7 @@
 - (void) dealloc 
 {    
 	// ERS_RELEASE_SAFELY( toolbar );
-	ERS_RELEASE_SAFELY( managedObjectContext );
+	ERS_RELEASE_SAFELY( managedObjectContext_ );
 	
 	[super dealloc];
 }

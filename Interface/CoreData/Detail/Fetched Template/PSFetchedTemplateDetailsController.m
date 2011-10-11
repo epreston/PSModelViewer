@@ -33,7 +33,7 @@
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
 		
-		// IMPLEMENT IN SUBCLASS: Update the user interface for the detail item.
+		// TODO:
 	}
 }
 

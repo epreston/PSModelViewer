@@ -15,13 +15,10 @@
 @interface PSEntityListController : PSBaseMasterViewController 
     < PSAcceptsEntityDescription > 
 {
-
-@protected
-    
-	NSEntityDescription		*detailEntityDescription_;
 	
 @private
     
+    NSEntityDescription		*detailEntityDescription_;
 	NSEntityDescription		*superEntityDescription_;
 	NSArray					*subEntityDescriptions_;
 	NSArray					*atrributesOfEntity_;

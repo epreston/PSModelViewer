@@ -27,6 +27,7 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 
 @synthesize splitViewController     = splitViewController_;
 @synthesize navigationController    = navigationController_;
+
 @synthesize rootViewController      = rootViewController_;
 @synthesize detailViewController    = detailViewController_;
 
@@ -122,6 +123,7 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	// Open the notification, pull out the object
 	NSObject *notificationObject		= [notification object];
 	
+    // Request the correct view controller
 	UIViewController *newViewController =  [ self newDetailControllerFor:notificationObject ];
 	
 	if ( newViewController ) {
@@ -136,7 +138,7 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
         
     } else {
         
-        // Update the split view controller's view controllers array.
+        // Update the split view controller's view controllers array. Pop back to default detail display.
 		NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationController_, [self detailViewController], nil];
 		splitViewController_.viewControllers = viewControllers;
 		[viewControllers release];

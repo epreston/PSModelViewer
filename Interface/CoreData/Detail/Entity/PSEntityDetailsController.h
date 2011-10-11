@@ -21,9 +21,9 @@
     NSEntityDescription	*detailEntityDescription_;
     
 	// Information About an Entity Description
-	UILabel			*entityName_;
-	UILabel			*entityManagedObjectClassName_;
-	UILabel			*entityIsAbstract_;
+	UILabel		*entityName_;
+	UILabel		*entityManagedObjectClassName_;
+	UILabel		*entityIsAbstract_;
 	
 	// Working with Properties
 	//    – propertiesByName

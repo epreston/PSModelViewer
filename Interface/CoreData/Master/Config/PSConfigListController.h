@@ -20,6 +20,6 @@
 	NSArray     *entitiesInConfig_;
 }
 
-@property (nonatomic, retain) NSString          *detailString;
+@property (nonatomic, retain) NSString  *detailString;
 
 @end

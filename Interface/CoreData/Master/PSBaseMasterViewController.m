@@ -6,7 +6,6 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSBaseMasterViewController.h"
 
 
@@ -19,7 +18,6 @@
 
 @implementation PSBaseMasterViewController
 
-//@synthesize	managedObjectContext = managedObjectContext_;
 @synthesize managedObjectModel  = managedObjectModel_;
 
 
@@ -84,7 +82,7 @@
 	[super viewDidUnload];
 }
 
-- (void)dealloc
+- (void) dealloc
 {
     [managedObjectModel_ release];
     
@@ -121,7 +119,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {    
-    static NSString *CellIdentifier = @"BaseMasterViewCell";
+    static NSString *CellIdentifier = @"PSBaseMasterViewCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -138,7 +136,6 @@
 
 
 #pragma mark - Rotation Support
-
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 {

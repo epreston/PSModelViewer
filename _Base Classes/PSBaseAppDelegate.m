@@ -27,7 +27,7 @@
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
-	// Add the split view controller's view to the window and display.
+	// Add the content controller's view to the window and display.
 	[window_ addSubview:contentController_.view];
     [window_ makeKeyAndVisible];
 	
@@ -57,20 +57,16 @@
 
 #pragma mark - Core Data Stack
 
-/**
- Returns the managed object model for the application.
- 
- If the model doesn't already exist, it is created from the application's model.
- */
 - (NSManagedObjectModel *) managedObjectModel 
 {    
+    // Returns the managed object model for the application.
     if (managedObjectModel_ != nil) {
         return managedObjectModel_;
     }
     
     NSLog(@"Modify the line below to load your data model.");
     
-    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ModelViewer" ofType:@"momd"];
+    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"" ofType:@"momd"];
     NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
     managedObjectModel_ = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
     return managedObjectModel_;

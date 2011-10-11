@@ -6,7 +6,6 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSContentController.h"
 
 
@@ -26,14 +25,6 @@
 #import "PSRelationshipDetailsController.h"
 #import "PSFetchedPropertyDetailsController.h"
 #import "PSFetchedTemplateDetailsController.h"
-
-
-@interface PSContentController ()
-
-- (UIViewController *) newMasterControllerFor:(NSObject *)anObject;
-- (UIViewController *) newDetailControllerFor:(NSObject *)anObject;
-
-@end
 
 
 @implementation PSContentController

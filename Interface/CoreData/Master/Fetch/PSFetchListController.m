@@ -131,7 +131,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    // Navigation logic may go here. Create and push another view controller.
+    // Navigation logic here to create and push another view controller.
 	//
 	// Use the following macros:
 	//
@@ -142,7 +142,6 @@
 	//
 	// PS_RESET_MASTER_DISPLAY( );					// Pops everthing off the stack of views
 	// PS_RESET_DETAIL_DISPLAY( );					// Returns to the "home" display
-	//
 	
 	switch (indexPath.section) {
 		case 0:
@@ -251,12 +250,11 @@
 	return 1;
 }
 
-
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     // Customize the appearance of table view cells.
-    static NSString *CellIdentifier = @"FetchListCell";
-	static NSString *EmptyIdentifier = @"EmptyListCell";
+    static NSString *CellIdentifier = @"PSFetchListCell";
+	static NSString *EmptyIdentifier = @"PSEmptyListCell";
 	
 	BOOL presentEmptyCell = NO;
 	

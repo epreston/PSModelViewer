@@ -134,7 +134,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    // Navigation logic may go here. Create and push another view controller.
+    // Navigation logic here to create and push another view controller.
 	//
 	// Use the following macros:
 	//
@@ -254,13 +254,12 @@
 	return 1;
 }
 
-
 - (UITableViewCell *) tableView:(UITableView *)tableView 
           cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     // Customize the appearance of table view cells.
-    static NSString *CellIdentifier = @"EntityListCell";
-	static NSString *EmptyIdentifier = @"EmptyListCell";
+    static NSString *CellIdentifier = @"PSEntityListCell";
+	static NSString *EmptyIdentifier = @"PSEmptyListCell";
 	
 	BOOL presentEmptyCell = NO;
     

@@ -13,6 +13,7 @@
 		280420C1108EA07E000629CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280420C0108EA07E000629CD /* CoreData.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		4F2BA1DF11E6C1C100B25D05 /* PSGridScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BA1DE11E6C1C100B25D05 /* PSGridScrollView.m */; };
+		4F43F59D1443D3D1000ECD40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F43F59F1443D3D1000ECD40 /* InfoPlist.strings */; };
 		4F5BBE4E13FA249600F314E7 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F5BBE4D13FA249600F314E7 /* icon_home.png */; };
 		4F5BBE5013FA24AC00F314E7 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F5BBE4F13FA24AC00F314E7 /* Icon-72.png */; };
 		4F5BBE5313FA25AC00F314E7 /* ModelViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BBE5113FA25AC00F314E7 /* ModelViewer.xcdatamodeld */; };
@@ -52,6 +53,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4F2BA1DD11E6C1C100B25D05 /* PSGridScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSGridScrollView.h; path = GridScrollView/PSGridScrollView.h; sourceTree = "<group>"; };
 		4F2BA1DE11E6C1C100B25D05 /* PSGridScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSGridScrollView.m; path = GridScrollView/PSGridScrollView.m; sourceTree = "<group>"; };
+		4F43F59E1443D3D1000ECD40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F5BBE4D13FA249600F314E7 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_home.png; path = Graphics/icon_home.png; sourceTree = "<group>"; };
 		4F5BBE4F13FA24AC00F314E7 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Graphics/72x72/Icon-72.png"; sourceTree = "<group>"; };
 		4F5BBE5213FA25AC00F314E7 /* ModelViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelViewer.xcdatamodel; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				4FD6D9B011E9377800B086FA /* Entitlements.plist */,
 				8D1107310486CEB800E47090 /* PSModelViewer-Info.plist */,
 				4FB34E1D14168F5100E0D1E1 /* Doxyfile */,
+				4F43F59F1443D3D1000ECD40 /* InfoPlist.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				4FFFC41D11E76F1500B4C79E /* PSSmallItemUI.xib in Resources */,
 				4F5BBE4E13FA249600F314E7 /* icon_home.png in Resources */,
 				4F5BBE5013FA24AC00F314E7 /* Icon-72.png in Resources */,
+				4F43F59D1443D3D1000ECD40 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +566,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4F43F59F1443D3D1000ECD40 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F43F59E1443D3D1000ECD40 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {

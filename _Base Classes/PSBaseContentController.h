@@ -28,6 +28,7 @@
 
 @property (nonatomic, retain) IBOutlet	UISplitViewController	*splitViewController;
 @property (nonatomic, retain) IBOutlet	UINavigationController	*navigationController;
+
 @property (nonatomic, retain) IBOutlet	UIViewController		*rootViewController;
 @property (nonatomic, retain) IBOutlet	UIViewController		*detailViewController;
 
@@ -38,8 +39,7 @@
 - (UIViewController *) newMasterControllerFor:(NSObject *)anObject;
 - (UIViewController *) newDetailControllerFor:(NSObject *)anObject;
 
-
-// HELPERS
+// HELPERS FOR CORE DATA
 - (void) passManagedObjectContext:(NSManagedObjectContext *)objectContext toObject:(NSObject *) targetObject;
 - (void) passManagedObjectModel:(NSManagedObjectModel *)objectModel toObject:(NSObject *) targetObject;
 - (void) passEntityDescription:(NSEntityDescription *)entityDescription toObject:(NSObject *) targetObject;

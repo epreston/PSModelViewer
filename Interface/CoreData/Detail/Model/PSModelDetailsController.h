@@ -15,7 +15,6 @@
 
 @class PSGridScrollView;
 
-
 @interface PSModelDetailsController : PSBaseDetailViewController 
     < PSSmallItemUIDelegate >
 {
@@ -34,10 +33,10 @@
 }
 
 // Interface
-@property (nonatomic, assign) IBOutlet UILabel				*numberOfEntities;
-@property (nonatomic, assign) IBOutlet UILabel				*numberOfConfigurations;
-@property (nonatomic, assign) IBOutlet UILabel				*numberOfFetchRequestTemplates;
+@property (nonatomic, assign) IBOutlet UILabel			*numberOfEntities;
+@property (nonatomic, assign) IBOutlet UILabel			*numberOfConfigurations;
+@property (nonatomic, assign) IBOutlet UILabel			*numberOfFetchRequestTemplates;
 
-@property (nonatomic, assign) IBOutlet PSGridScrollView		*gridView;
+@property (nonatomic, assign) IBOutlet PSGridScrollView	*gridView;
 
 @end

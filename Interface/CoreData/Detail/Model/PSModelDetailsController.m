@@ -91,7 +91,7 @@
             }
 		}
         
-        // Populate the grid view display in on
+        // Populate the grid view display in bulk to run the layout code once.
         [self.gridView setGridViews:views];
         
         [views release];
@@ -117,8 +117,6 @@
 	self.numberOfFetchRequestTemplates = nil;
 	
 	self.gridView = nil;
-    
-    NSLog(@"unload");
     
     [super viewDidUnload];
 }

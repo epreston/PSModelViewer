@@ -1,6 +1,6 @@
 //
 //  PSSmallItemUI.m
-//  GridTest
+//  PSModelViewer
 //
 //  Created by Ed Preston on 7/9/10.
 //  Copyright 2010 Preston Software. All rights reserved.
@@ -34,9 +34,9 @@
 	// method, since they may wrongly expect the instance to be fully formed.
 }
 
-- initWithFrame:(CGRect)newFrame 
+- (id) initWithFrame:(CGRect)frame 
 {
-    self = [super initWithFrame:newFrame];
+    self = [super initWithFrame:frame];
     if (self) {
 		[self configureDetaults];
     }
@@ -46,6 +46,7 @@
 - (void) awakeFromNib 
 {
 	[super awakeFromNib];
+    
     [self configureDetaults];
 }
 

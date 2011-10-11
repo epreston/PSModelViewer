@@ -15,13 +15,10 @@
 @interface PSFetchListController : PSBaseMasterViewController 
     < PSAcceptsFetchRequest > 
 {
-
-@protected
-    
-	NSFetchRequest			*detailFetchRequest_;
 	
 @private
     
+    NSFetchRequest			*detailFetchRequest_;
 	NSEntityDescription		*fetchEntityDescription_;
 	NSArray					*affectedPersistantStores_;
 	NSArray					*orderedSortDescriptors_;

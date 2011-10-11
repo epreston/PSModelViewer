@@ -67,6 +67,9 @@
     if (managedObjectModel_ != nil) {
         return managedObjectModel_;
     }
+    
+    NSLog(@"Modify the line below to load your data model.");
+    
     NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ModelViewer" ofType:@"momd"];
     NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
     managedObjectModel_ = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    

@@ -74,8 +74,6 @@
 {    
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
 }
 
 - (void) viewDidUnload 
@@ -88,7 +86,6 @@
 
 - (void)dealloc
 {
-//    [managedObjectContext_ release];
     [managedObjectModel_ release];
     
     [super dealloc];
@@ -99,14 +96,8 @@
 
 - (void) tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {	
-	// Request the correct type of detail view controller for this type of item.
-	// NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-	
-	// PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( selectedObject );
-	
 	// Dismiss the popover and manage the button
 	PS_DISMISS_MAIN_POPOVER_IF_NEEDED();
-	
 }
 
 
@@ -148,10 +139,11 @@
 
 #pragma mark - Rotation Support
 
-// Ensure that the view controller supports rotation and that the split view can therefore 
-// show in both portrait and landscape.
+
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
-{    
+{
+    // Ensure that the view controller supports rotation and that the split view can therefore 
+    // show in both portrait and landscape.
 	return YES;
 }
 

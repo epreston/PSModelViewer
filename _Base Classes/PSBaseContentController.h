@@ -6,7 +6,6 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
@@ -16,7 +15,6 @@
     
 @private
     
-//    NSManagedObjectContext	*managedObjectContext_;
     NSManagedObjectModel	*managedObjectModel_;
     
 	UISplitViewController	*splitViewController_;
@@ -25,16 +23,16 @@
 	UIViewController		*rootViewController_;
     UIViewController		*detailViewController_;
 }
+
 @property (nonatomic, retain)           NSManagedObjectModel    *managedObjectModel;
-//@property (nonatomic, retain)			NSManagedObjectContext	*managedObjectContext;
 
 @property (nonatomic, retain) IBOutlet	UISplitViewController	*splitViewController;
 @property (nonatomic, retain) IBOutlet	UINavigationController	*navigationController;
 @property (nonatomic, retain) IBOutlet	UIViewController		*rootViewController;
 @property (nonatomic, retain) IBOutlet	UIViewController		*detailViewController;
 
+// LOGIC TO SWITCH BETWEEN APPLICATION TYPES (ie iPwn, iPad)
 - (UIView *) view;
-
 
 // IMPLEMENT IN SUBCLASS
 - (UIViewController *) newMasterControllerFor:(NSObject *)anObject;

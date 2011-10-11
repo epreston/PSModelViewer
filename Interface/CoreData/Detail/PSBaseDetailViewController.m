@@ -12,7 +12,6 @@
 @implementation PSBaseDetailViewController
 
 @synthesize	toolbar                 = toolbar_;
-//@synthesize	managedObjectContext    = managedObjectContext_;
 @synthesize managedObjectModel      = managedObjectModel_;
 
 
@@ -44,8 +43,6 @@
 {    
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void) viewDidUnload 
@@ -56,8 +53,7 @@
 }
 
 - (void) dealloc 
-{    
-//	[managedObjectContext_ release];
+{
     [managedObjectModel_ release];
     
 	[super dealloc];

@@ -6,14 +6,14 @@
 //  Copyright Preston Software 2010. All rights reserved.
 //
 
-
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
 
 @class PSContentController;
 
-@interface PSBaseAppDelegate : NSObject < UIApplicationDelegate > 
+@interface PSBaseAppDelegate : NSObject 
+    < UIApplicationDelegate > 
 {    
 
 @protected
@@ -23,18 +23,12 @@
     
 @private
 
-//    NSManagedObjectContext			*managedObjectContext_;
-    NSManagedObjectModel			*managedObjectModel_;
-//    NSPersistentStoreCoordinator	*persistentStoreCoordinator_;
+    NSManagedObjectModel	*managedObjectModel_;
 }
 
-@property (nonatomic, retain) IBOutlet	UIWindow						*window;
-@property (nonatomic, retain) IBOutlet	PSContentController				*contentController;
+@property (nonatomic, retain) IBOutlet	UIWindow				*window;
+@property (nonatomic, retain) IBOutlet	PSContentController     *contentController;
 
-//@property (nonatomic, readonly, retain) NSManagedObjectContext			*managedObjectContext;
-@property (nonatomic, readonly, retain) NSManagedObjectModel			*managedObjectModel;
-//@property (nonatomic, readonly, retain) NSPersistentStoreCoordinator	*persistentStoreCoordinator;
-
-- (NSString *) applicationDocumentsDirectory;
+@property (nonatomic, readonly, retain) NSManagedObjectModel	*managedObjectModel;
 
 @end

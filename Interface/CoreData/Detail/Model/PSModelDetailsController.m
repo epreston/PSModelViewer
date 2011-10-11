@@ -21,9 +21,6 @@
 
 @implementation PSModelDetailsController
 
-// Data object
-//@synthesize managedObjectModel              = managedObjectModel_;
-
 // Interface
 @synthesize numberOfEntities                = numberOfEntities_;
 @synthesize numberOfConfigurations          = numberOfConfigurations_;
@@ -43,7 +40,6 @@
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
 		
-//		NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
         NSManagedObjectModel *model = self.managedObjectModel;
 		
 		numberOfEntities_.text = [NSString stringWithFormat: @"%u", [[model entities] count]];
@@ -112,8 +108,6 @@
 {    
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void) viewDidUnload 
@@ -130,8 +124,7 @@
 }
 
 - (void) dealloc 
-{    
-//	[managedObjectModel_ release];
+{
 	[cachedEntityViewNib release];
     
 	[super dealloc];
@@ -141,8 +134,7 @@
 #pragma mark - PSSmallItemUIDelegate 
 
 - (void) performInfoAction: (PSSmallItemUI *)aSmallItem 
-{	
-//    NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
+{
     NSManagedObjectModel *model = self.managedObjectModel;
     
     NSEntityDescription	*entity =  [model.entitiesByName objectForKey:aSmallItem.itemTitle.text];

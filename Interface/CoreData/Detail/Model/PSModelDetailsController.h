@@ -6,7 +6,6 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
@@ -18,13 +17,10 @@
 
 
 @interface PSModelDetailsController : PSBaseDetailViewController 
-    < PSSmallItemUIDelegate > 
-//    < PSAcceptsManagedObjectModel, PSSmallItemUIDelegate > 
+    < PSSmallItemUIDelegate >
 {
 
 @private
-    
-//    NSManagedObjectModel	*managedObjectModel_;
     
 	// User Interface - Stats
 	UILabel				*numberOfEntities_;
@@ -36,9 +32,6 @@
     // NIB Caching to speed up load (requires iOS 4.0 +)
     UINib               *cachedEntityViewNib;
 }
-
-// Data object
-//@property (nonatomic, retain) NSManagedObjectModel			*managedObjectModel;
 
 // Interface
 @property (nonatomic, assign) IBOutlet UILabel				*numberOfEntities;

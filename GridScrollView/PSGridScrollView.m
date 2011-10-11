@@ -107,6 +107,8 @@
 #pragma mark - Methods
 
 - (void) addViewToGrid:(UIView *)view {
+    
+    // See setGridViews to add items in bulk.
 	
 	// Save the view for later
 	[self.gridViews addObject:view];

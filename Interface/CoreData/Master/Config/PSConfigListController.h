@@ -11,7 +11,6 @@
 #import "PSBaseMasterViewController.h"
 
 
-
 @interface PSConfigListController : PSBaseMasterViewController 
     < PSAcceptsString > 
 {

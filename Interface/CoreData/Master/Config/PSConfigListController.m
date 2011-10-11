@@ -6,7 +6,6 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSConfigListController.h"
 
 
@@ -45,11 +44,7 @@
 
     // Do not preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
-//	NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
 	entitiesInConfig_ = [[self.managedObjectModel entitiesForConfiguration:detailString_] retain];
 }
 
@@ -60,8 +55,6 @@
 {    
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
 }
 
 - (void) viewDidUnload 
@@ -125,9 +118,9 @@
 	return 1;
 }
 
-// Customize the appearance of table view cells.
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
+    // Customize the appearance of table view cells.
     static NSString *CellIdentifier = @"ConfigListCell";
 	static NSString *EmptyIdentifier = @"EmptyListCell";
 	

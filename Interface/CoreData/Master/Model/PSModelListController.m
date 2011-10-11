@@ -19,8 +19,6 @@
 
 @implementation PSModelListController
 
-//@synthesize managedObjectModel = managedObjectModel_;
-
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
 {    
@@ -60,11 +58,6 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	
-//	managedObjectModel_ = [[self.managedObjectContext persistentStoreCoordinator] managedObjectModel];
 	
 	entitiesInModel_    = [[self.managedObjectModel entities] retain];
 	configNamesInModel_ = [[self.managedObjectModel configurations] retain];
@@ -80,8 +73,6 @@
 {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
 }
 
 - (void) viewDidUnload 
@@ -94,7 +85,6 @@
 
 - (void) dealloc
 {
-//    [managedObjectModel_ release];
     [configNamesInModel_ release];
     [entitiesInModel_ release];
     [fetchRequestTemplateNamesInModel_ release];
@@ -118,10 +108,6 @@
 	// PS_RESET_MASTER_DISPLAY( );					// Pops everthing off the stack of views
 	// PS_RESET_DETAIL_DISPLAY( );					// Returns to the "home" display
 	//
-	
-	//NSEntityDescription *entity = [subEntityDescriptions objectAtIndex:indexPath.row];
-	//cell.textLabel.text = [entity name];
-	//cell.detailTextLabel.text = [entity managedObjectClassName];
 	
 	switch (indexPath.section) {
 		case 0:
@@ -203,9 +189,10 @@
 	return 1;
 }
 
-// Customize the appearance of table view cells.
+
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    // Customize the appearance of table view cells.
     static NSString *CellIdentifier = @"ModelListCell";
 	static NSString *EmptyIdentifier = @"EmptyListCell";
 	

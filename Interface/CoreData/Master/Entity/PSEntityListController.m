@@ -81,9 +81,6 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
 	superEntityDescription_     = [[detailEntityDescription_ superentity] retain];
 	subEntityDescriptions_      = [[detailEntityDescription_ subentities] retain];
@@ -110,8 +107,6 @@
 {    
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
 }
 
 - (void) viewDidUnload 
@@ -260,10 +255,10 @@
 }
 
 
-// Customize the appearance of table view cells.
 - (UITableViewCell *) tableView:(UITableView *)tableView 
           cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
+    // Customize the appearance of table view cells.
     static NSString *CellIdentifier = @"EntityListCell";
 	static NSString *EmptyIdentifier = @"EmptyListCell";
 	

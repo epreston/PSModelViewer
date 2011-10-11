@@ -131,14 +131,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BCC11E25D9900ACE4FB /* Protocols */,
-				4FED8BAC11E25A6F00ACE4FB /* Application Delegate */,
-				4FED8BAD11E25A7E00ACE4FB /* Content Controller */,
-				4FC1309211E2696B00A0B940 /* Split View Delegate */,
-				4FED8BA911E25A6500ACE4FB /* Display Controllers */,
-				4F2BA1DB11E6C17600B25D05 /* Support Code */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				4FC1314511E2D03600A0B940 /* Data Model */,
+				4FD503A11443CA4E0094025B /* Controller */,
+				4FD503A01443CA470094025B /* View */,
+				4FD5039F1443CA3A0094025B /* Model */,
+				29B97315FDCFA39411CA2CEA /* Support Code */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -146,20 +142,20 @@
 			name = CustomTemplate;
 			sourceTree = "<group>";
 		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+		29B97315FDCFA39411CA2CEA /* Support Code */ = {
 			isa = PBXGroup;
 			children = (
+				4FED8BCC11E25D9900ACE4FB /* Protocols */,
 				4F82470A1208B9920042EE8A /* PSModelViewer_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
-			name = "Other Sources";
+			name = "Support Code";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				4FF9D86511E809C1007BCD21 /* Icons */,
-				4FD8589C11E2F2C400C9B22D /* MainWindow.xib */,
 				4FD6D9B011E9377800B086FA /* Entitlements.plist */,
 				8D1107310486CEB800E47090 /* PSModelViewer-Info.plist */,
 				4FB34E1D14168F5100E0D1E1 /* Doxyfile */,
@@ -176,14 +172,6 @@
 				280420C0108EA07E000629CD /* CoreData.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4F2BA1DB11E6C17600B25D05 /* Support Code */ = {
-			isa = PBXGroup;
-			children = (
-				4F2BA1DC11E6C1A100B25D05 /* User Interface */,
-			);
-			name = "Support Code";
 			sourceTree = "<group>";
 		};
 		4F2BA1DC11E6C1A100B25D05 /* User Interface */ = {
@@ -232,12 +220,32 @@
 			name = "Split View Delegate";
 			sourceTree = "<group>";
 		};
-		4FC1314511E2D03600A0B940 /* Data Model */ = {
+		4FD5039F1443CA3A0094025B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4F5BBE5113FA25AC00F314E7 /* ModelViewer.xcdatamodeld */,
 			);
-			name = "Data Model";
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4FD503A01443CA470094025B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F2BA1DC11E6C1A100B25D05 /* User Interface */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4FD503A11443CA4E0094025B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8BAC11E25A6F00ACE4FB /* Application Delegate */,
+				4FC1309211E2696B00A0B940 /* Split View Delegate */,
+				4FED8BAD11E25A7E00ACE4FB /* Content Controller */,
+				4FED8BA911E25A6500ACE4FB /* Display Controllers */,
+				4FD8589C11E2F2C400C9B22D /* MainWindow.xib */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		4FED8BA911E25A6500ACE4FB /* Display Controllers */ = {

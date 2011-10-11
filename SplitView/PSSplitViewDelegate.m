@@ -92,8 +92,8 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 	// Remove self as an observer.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
-	ERS_RELEASE_SAFELY( splitViewController_ );
-    ERS_RELEASE_SAFELY( popoverController_ );
+    self.popoverController = nil;
+    self.rootPopoverButtonItem = nil;
     
     [super dealloc];
 }

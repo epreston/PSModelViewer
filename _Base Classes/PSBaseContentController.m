@@ -6,7 +6,6 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSBaseContentController.h"
 
 
@@ -24,7 +23,6 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 
 @implementation PSBaseContentController
 
-//@synthesize managedObjectContext    = managedObjectContext_;
 @synthesize managedObjectModel      = managedObjectModel_;
 
 @synthesize splitViewController     = splitViewController_;
@@ -62,10 +60,6 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 {	
 	// Call super
 	[super awakeFromNib];
-	
-	// Pass along the managed object context
-//	[self passManagedObjectContext:managedObjectContext_ toObject:rootViewController_];
-//  [self passManagedObjectContext:managedObjectContext_ toObject:detailViewController_];
     
     [self passManagedObjectModel:managedObjectModel_ toObject:rootViewController_];
     [self passManagedObjectModel:managedObjectModel_ toObject:detailViewController_];
@@ -90,13 +84,12 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	// Remove self as an observer.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
+    [managedObjectModel_ release];
+    
 	[rootViewController_ release];
     [detailViewController_ release];
 	[navigationController_ release];
 	[splitViewController_ release];
-	
-//	[managedObjectContext_ release];
-    [managedObjectModel_ release];
 	
     [super dealloc];
 }
@@ -138,11 +131,19 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 		splitViewController_.viewControllers = viewControllers;
 		[viewControllers release];
 		
-		// Ensure button for popup is visable if needed
-		[[NSNotificationCenter defaultCenter] postNotificationName:PSConfirmPopoverRequestNotification object:nil];
-	
+        // Release the viewController that was returned.
         [newViewController release];
+        
+    } else {
+        
+        // Update the split view controller's view controllers array.
+		NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationController_, [self detailViewController], nil];
+		splitViewController_.viewControllers = viewControllers;
+		[viewControllers release];
     }
+    
+    // Ensure button for popup is visable if needed
+    [[NSNotificationCenter defaultCenter] postNotificationName:PSConfirmPopoverRequestNotification object:nil];
 }
 
 

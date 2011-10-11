@@ -6,7 +6,6 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
 #import "PSFetchListController.h"
 
 
@@ -55,10 +54,6 @@
 		{
 			cell.textLabel.text = [keyPathNamesForPrefetching_ objectAtIndex:indexPath.row];
 			
-			// we can pull the related class name for the key property
-//			NSEntityDescription *entity = [NSEntityDescription entityForName:[keyPathNamesForPrefetching_ objectAtIndex:indexPath.row]
-//													   inManagedObjectContext:[self managedObjectContext]];
-            
             NSEntityDescription *entity = [self.managedObjectModel.entitiesByName objectForKey:[keyPathNamesForPrefetching_ objectAtIndex:indexPath.row] ];
             
 			if ( entity ) {
@@ -89,18 +84,12 @@
     [super viewDidLoad];
 	
 	if ( detailFetchRequest_ ) {
-		
 		self.title = @"Fetch Request";
-		// self.title = [detailFetchRequest class];
 	}
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	
-	
+    
 	fetchEntityDescription_         = [[detailFetchRequest_ entity] retain];
 	affectedPersistantStores_       = [[detailFetchRequest_ affectedStores] retain];
 	orderedSortDescriptors_         = [[detailFetchRequest_ sortDescriptors] retain];
@@ -115,8 +104,6 @@
 {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
 }
 
 - (void) viewDidUnload 
@@ -264,9 +251,10 @@
 	return 1;
 }
 
-// Customize the appearance of table view cells.
+
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
+    // Customize the appearance of table view cells.
     static NSString *CellIdentifier = @"FetchListCell";
 	static NSString *EmptyIdentifier = @"EmptyListCell";
 	

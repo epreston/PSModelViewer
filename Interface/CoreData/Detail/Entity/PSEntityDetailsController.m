@@ -10,6 +10,22 @@
 
 
 @interface PSEntityDetailsController () 
+{
+    
+@private
+    NSEntityDescription	*detailEntityDescription_;
+    
+	// Information About an Entity Description
+	UILabel		*entityName_;
+	UILabel		*entityManagedObjectClassName_;
+	UILabel		*entityIsAbstract_;
+	
+	// Working with Properties
+	//    – propertiesByName
+	//    – properties
+	//    – attributesByName
+	//    – relationshipsByName
+}
 
 - (void) configureView;
 

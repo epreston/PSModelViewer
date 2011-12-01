@@ -10,6 +10,32 @@
 
 
 @interface PSAttributeDetailsController ()
+{
+    
+@private
+    NSAttributeDescription		*detailAttributeDescription_;
+	
+	// Validation
+	// – validationPredicates
+	// – validationWarnings
+	
+	// Getting Features of a Property (common to all properties)
+	UILabel		*relatedEntityName_;
+	UILabel		*propertyIsIndexed_;
+	UILabel		*propertyIsOptional_;
+	UILabel		*propertyIsTransient_;
+	UILabel		*propertyName_;
+	
+	// Getting and Setting Type Information
+	UILabel		*attributeType_;
+	UILabel		*attributeValueClassName_;
+	
+	// Getting and Setting the Default Value
+	UILabel		*attributeDefaultValue_;
+	
+	// Value Transformers
+	UILabel		*attributeValueTransformerName_;
+}
 
 - (void) configureView;
 - (NSString *) nameFromAttributeType:(NSAttributeType)type;

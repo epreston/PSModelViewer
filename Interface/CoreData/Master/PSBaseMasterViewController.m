@@ -10,6 +10,11 @@
 
 
 @interface PSBaseMasterViewController ()
+{
+	
+@private
+    NSManagedObjectModel    *managedObjectModel_;
+}
 
 - (IBAction) showHomeDetailDisplay:(id)sender;
 

@@ -13,13 +13,6 @@
 
 
 @interface PSModelListController : PSBaseMasterViewController 
-{
 
-@private
-    
-	NSArray		*configNamesInModel_;
-	NSArray		*entitiesInModel_;						
-	NSArray		*fetchRequestTemplateNamesInModel_;
-}
 
 @end

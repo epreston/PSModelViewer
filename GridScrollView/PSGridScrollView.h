@@ -11,16 +11,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PSGridScrollView : UIScrollView 
-{
-
-@private
-    
-	int				itemBorder_;
-	int				itemWidth_;
-	int				itemHeight_;
-	NSMutableArray *gridViews_;
-}
+@interface PSGridScrollView : UIScrollView
 
 @property (nonatomic, retain) NSMutableArray *gridViews;
 @property (nonatomic, assign) int	itemWidth;

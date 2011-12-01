@@ -18,6 +18,13 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 
 
 @interface PSSplitViewDelegate ()
+{
+    
+@private
+    UISplitViewController	*splitViewController_;
+	UIPopoverController		*popoverController_;    
+    UIBarButtonItem			*rootPopoverButtonItem_;
+}
 
 - (void) dismissPopoverRequested:(NSNotification *)notification;
 - (void) confirmPopoverRequested:(NSNotification *)notification;

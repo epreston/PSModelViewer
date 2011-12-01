@@ -10,6 +10,27 @@
 
 
 @interface PSFetchedPropertyDetailsController ()
+{
+	
+@private
+    NSFetchedPropertyDescription	*detailFetchedPropertyDescription_;
+    
+    // Getting and Setting the Fetch Request
+    // – fetchRequest
+    
+    // NOTE: See fetched template details for the fetch request
+	
+	// Validation
+	// – validationPredicates
+	// – validationWarnings
+	
+	// Getting Features of a Property (common to all properties)
+	UILabel		*relatedEntityName_;
+	UILabel		*propertyIsIndexed_;
+	UILabel		*propertyIsOptional_;
+	UILabel		*propertyIsTransient_;
+	UILabel		*propertyName_;
+}
 
 - (void) configureView;
 

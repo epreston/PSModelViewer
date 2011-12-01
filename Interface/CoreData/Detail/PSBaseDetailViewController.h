@@ -12,18 +12,9 @@
 
 @interface PSBaseDetailViewController : UIViewController 
 	< PSSwappableDetailView, PSAcceptsManagedObjectModel > 
-{
-
-@private
-    
-	UIToolbar				*toolbar_;
-    NSManagedObjectModel    *managedObjectModel_;
-}
 
 @property (nonatomic, retain) NSManagedObjectModel  *managedObjectModel;
-
-// For convienience
-@property (nonatomic, assign) IBOutlet UIToolbar        *toolbar;
+@property (nonatomic, assign) IBOutlet UIToolbar    *toolbar;
 
 // IMPLEMENT IN SUBCLASS: Update the user interface for the detail item.
 - (void) configureView;

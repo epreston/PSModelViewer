@@ -11,6 +11,13 @@
 
 
 @interface PSModelListController ()
+{
+    
+@private
+	NSArray		*configNamesInModel_;
+	NSArray		*entitiesInModel_;						
+	NSArray		*fetchRequestTemplateNamesInModel_;
+}
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 

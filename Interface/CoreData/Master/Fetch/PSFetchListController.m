@@ -10,6 +10,16 @@
 
 
 @interface PSFetchListController ()
+{
+	
+@private
+    NSFetchRequest			*detailFetchRequest_;
+	NSEntityDescription		*fetchEntityDescription_;
+	NSArray					*affectedPersistantStores_;
+	NSArray					*orderedSortDescriptors_;
+	NSArray					*keyPathNamesForPrefetching_;
+	NSArray					*propertyDescriptionsToFetch_;
+}
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
     
@@ -18,7 +28,7 @@
 
 @implementation PSFetchListController
 
-@synthesize detailFetchRequest          = detailFetchRequest_;
+@synthesize detailFetchRequest = detailFetchRequest_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 

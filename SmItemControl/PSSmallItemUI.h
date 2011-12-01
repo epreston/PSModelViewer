@@ -9,29 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@class PSSmallItemUI;
+@interface PSSmallItemUI : UIView
 
-
-@protocol PSSmallItemUIDelegate < NSObject >
-
-- (void) performInfoAction: (PSSmallItemUI *) aSmallItem;
-
-@end
-
-
-@interface PSSmallItemUI : UIView 
-{
-    
-@private	
-	UILabel			*itemTitle_;
-	UILabel			*itemSubTitle_;
-	UILabel			*itemType_;
-	UITextView		*itemDetails_;
-    
-	id < PSSmallItemUIDelegate > delegate_;
-}
-
-@property(nonatomic, assign) id delegate;
+@property(nonatomic, weak) id delegate;
 
 @property(nonatomic, assign) IBOutlet UILabel		*itemTitle;
 @property(nonatomic, assign) IBOutlet UILabel		*itemSubTitle;
@@ -40,4 +20,9 @@
 
 - (IBAction) infoButonAction:(id)sender;
 
+@end
+
+
+@protocol PSSmallItemUIDelegate < NSObject >
+- (void) performInfoAction: (PSSmallItemUI *) aSmallItem;
 @end

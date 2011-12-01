@@ -13,6 +13,19 @@
 
 
 @interface PSModelDetailsController ()
+{
+    
+@private
+	// User Interface - Stats
+	UILabel				*numberOfEntities_;
+	UILabel				*numberOfConfigurations_;
+	UILabel				*numberOfFetchRequestTemplates_;
+	
+	PSGridScrollView	*gridView_;
+    
+    // NIB Caching to speed up load (requires iOS 4.0 +)
+    UINib               *cachedEntityViewNib;
+}
 
 - (void) configureView;
 
@@ -52,52 +65,51 @@
 		self.gridView.itemBorder = ITEM_BORDER;
 		
         // Create auto-release pool
-        NSAutoreleasePool * subPool = [[NSAutoreleasePool alloc] init];
+        @autoreleasepool {
         
-        // NIB Caching to speed up load (iOS 4.0 and above only)
-        cachedEntityViewNib = [[UINib nibWithNibName:@"PSSmallItemUI" bundle:[NSBundle mainBundle]] retain];
-        
-        // Store the loaded views in array
-        NSMutableArray *views = [[NSMutableArray alloc] initWithCapacity:32];
-    
-        // Enumerate entities to generate the display
-		NSArray *entities = [model entities];
-		for (NSEntityDescription *entity in entities) {
-			
-            // Instantiate nib from cache
-            NSArray *nibViews = [cachedEntityViewNib instantiateWithOwner:self options:nil];;
+            // NIB Caching to speed up load (iOS 4.0 and above only)
+            cachedEntityViewNib = [[UINib nibWithNibName:@"PSSmallItemUI" bundle:[NSBundle mainBundle]] retain];
             
-            if (nibViews) {
-                // Add a new item to array
-                PSSmallItemUI *smallItem = [nibViews objectAtIndex:0];
+            // Store the loaded views in array
+            NSMutableArray *views = [[NSMutableArray alloc] initWithCapacity:32];
+        
+            // Enumerate entities to generate the display
+            NSArray *entities = [model entities];
+            for (NSEntityDescription *entity in entities) {
                 
-                // Configure the properties
-                smallItem.delegate = self;
-                smallItem.itemTitle.text = [entity name];
-                smallItem.itemSubTitle.text = [entity managedObjectClassName];
+                // Instantiate nib from cache
+                NSArray *nibViews = [cachedEntityViewNib instantiateWithOwner:self options:nil];;
                 
-                
-                NSMutableString *previewText = [NSMutableString stringWithCapacity:255];
-                NSArray *attributeNames = [[entity attributesByName] allKeys] ;
-                
-                for ( NSString *name in attributeNames) {
-                    [previewText appendFormat:@"%@\n", name];
+                if (nibViews) {
+                    // Add a new item to array
+                    PSSmallItemUI *smallItem = [nibViews objectAtIndex:0];
+                    
+                    // Configure the properties
+                    smallItem.delegate = self;
+                    smallItem.itemTitle.text = [entity name];
+                    smallItem.itemSubTitle.text = [entity managedObjectClassName];
+                    
+                    
+                    NSMutableString *previewText = [NSMutableString stringWithCapacity:255];
+                    NSArray *attributeNames = [[entity attributesByName] allKeys] ;
+                    
+                    for ( NSString *name in attributeNames) {
+                        [previewText appendFormat:@"%@\n", name];
+                    }
+                    
+                    smallItem.itemDetails.text = previewText;
+                    
+                    // Add the view to the array
+                    [views addObject:smallItem];
                 }
-                
-                smallItem.itemDetails.text = previewText;
-                
-                // Add the view to the array
-                [views addObject:smallItem];
             }
-		}
+            
+            // Populate the grid view display in bulk to run the layout code once.
+            [self.gridView setGridViews:views];
+            
+            [views release];
         
-        // Populate the grid view display in bulk to run the layout code once.
-        [self.gridView setGridViews:views];
-        
-        [views release];
-        
-        // Drain the pool
-        [subPool release];
+        } // Drain the pool
 	}
 }
 

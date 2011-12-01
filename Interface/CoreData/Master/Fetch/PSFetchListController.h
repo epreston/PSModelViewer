@@ -12,19 +12,8 @@
 #import "PSBaseMasterViewController.h"
 
 
-@interface PSFetchListController : PSBaseMasterViewController 
-    < PSAcceptsFetchRequest > 
-{
-	
-@private
-    
-    NSFetchRequest			*detailFetchRequest_;
-	NSEntityDescription		*fetchEntityDescription_;
-	NSArray					*affectedPersistantStores_;
-	NSArray					*orderedSortDescriptors_;
-	NSArray					*keyPathNamesForPrefetching_;
-	NSArray					*propertyDescriptionsToFetch_;
-}
+@interface PSFetchListController : PSBaseMasterViewController < PSAcceptsFetchRequest > 
+
 
 @property (nonatomic, retain) NSFetchRequest		*detailFetchRequest;
 

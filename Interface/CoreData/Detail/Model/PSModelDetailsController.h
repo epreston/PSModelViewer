@@ -15,22 +15,8 @@
 
 @class PSGridScrollView;
 
-@interface PSModelDetailsController : PSBaseDetailViewController 
-    < PSSmallItemUIDelegate >
-{
 
-@private
-    
-	// User Interface - Stats
-	UILabel				*numberOfEntities_;
-	UILabel				*numberOfConfigurations_;
-	UILabel				*numberOfFetchRequestTemplates_;
-	
-	PSGridScrollView	*gridView_;
-    
-    // NIB Caching to speed up load (requires iOS 4.0 +)
-    UINib               *cachedEntityViewNib;
-}
+@interface PSModelDetailsController : PSBaseDetailViewController < PSSmallItemUIDelegate >
 
 // Interface
 @property (nonatomic, assign) IBOutlet UILabel			*numberOfEntities;

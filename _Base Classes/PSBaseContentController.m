@@ -14,6 +14,17 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 
 
 @interface PSBaseContentController ()
+{	
+    
+@private
+    NSManagedObjectModel	*managedObjectModel_;
+    
+	UISplitViewController	*splitViewController_;
+	UINavigationController	*navigationController_;
+	
+	UIViewController		*rootViewController_;
+    UIViewController		*detailViewController_;
+}
 
 - (void) masterDisplayRequested:(NSNotification *)notification;
 - (void) detailDisplayRequested:(NSNotification *)notification;

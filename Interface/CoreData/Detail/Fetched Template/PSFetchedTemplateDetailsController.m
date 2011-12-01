@@ -10,6 +10,41 @@
 
 
 @interface PSFetchedTemplateDetailsController ()
+{
+	
+@private
+    NSFetchRequest	*detailFetchRequest_;
+    
+	// Entity
+	UILabel			*entityName_;
+	UILabel			*entityClassName_;
+	UILabel			*hasSubEntities_;
+	
+	/*
+     
+     // Fetch Constraints
+     – predicate
+     – fetchLimit
+     – fetchOffset
+     – fetchBatchSize
+     – affectedStores
+     
+     // Sorting
+     – sortDescriptors
+     
+     // Prefetching
+     – relationshipKeyPathsForPrefetching
+     
+     // Managing How Results Are Returned
+     – resultType
+     – includesPendingChanges
+     – propertiesToFetch
+     – returnsDistinctResults
+     – includesPropertyValues
+     – returnsObjectsAsFaults
+     
+	 */
+}
 
 - (void) configureView;
 

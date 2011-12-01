@@ -11,6 +11,23 @@
 #import "PSContentController.h"
 
 
+@interface PSBaseAppDelegate ()
+{    
+    
+@protected
+    
+    UIWindow                *window_;
+	PSContentController     *contentController_;
+    
+@private
+    
+    NSManagedObjectModel	*managedObjectModel_;
+}
+
+@end
+
+
+
 @implementation PSBaseAppDelegate
 
 @synthesize window              = window_;

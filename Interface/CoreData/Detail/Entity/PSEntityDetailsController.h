@@ -12,25 +12,7 @@
 #import	"PSBaseDetailViewController.h"
 
 
-@interface PSEntityDetailsController : PSBaseDetailViewController 
-    < PSAcceptsEntityDescription > 
-{
-
-@private
-    
-    NSEntityDescription	*detailEntityDescription_;
-    
-	// Information About an Entity Description
-	UILabel		*entityName_;
-	UILabel		*entityManagedObjectClassName_;
-	UILabel		*entityIsAbstract_;
-	
-	// Working with Properties
-	//    – propertiesByName
-	//    – properties
-	//    – attributesByName
-	//    – relationshipsByName
-}
+@interface PSEntityDetailsController : PSBaseDetailViewController < PSAcceptsEntityDescription >
 
 // Data object
 @property (nonatomic, retain) NSEntityDescription	*detailEntityDescription;

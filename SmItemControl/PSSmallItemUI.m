@@ -9,6 +9,20 @@
 #import "PSSmallItemUI.h"
 
 
+@interface PSSmallItemUI ()
+{
+    
+@private	
+	UILabel			*itemTitle_;
+	UILabel			*itemSubTitle_;
+	UILabel			*itemType_;
+	UITextView		*itemDetails_;
+    
+	id < PSSmallItemUIDelegate > delegate_;
+}
+@end
+
+
 @implementation PSSmallItemUI
 
 @synthesize delegate        = delegate_;

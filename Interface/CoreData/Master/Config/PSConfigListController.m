@@ -10,6 +10,12 @@
 
 
 @interface PSConfigListController ()
+{
+    
+@private
+    NSString	*detailString_;
+	NSArray     *entitiesInConfig_;
+}
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
@@ -18,7 +24,7 @@
 
 @implementation PSConfigListController
 
-@synthesize detailString        = detailString_;
+@synthesize detailString = detailString_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 

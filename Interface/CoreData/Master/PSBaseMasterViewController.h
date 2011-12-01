@@ -10,14 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface PSBaseMasterViewController : UITableViewController 
-    < PSAcceptsManagedObjectModel >
-{
-	
-@private
-    
-    NSManagedObjectModel    *managedObjectModel_;
-}
+@interface PSBaseMasterViewController : UITableViewController < PSAcceptsManagedObjectModel >
 
 @property (nonatomic, retain) NSManagedObjectModel  *managedObjectModel;
 

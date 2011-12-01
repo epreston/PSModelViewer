@@ -9,20 +9,11 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PSSplitViewDelegate : NSObject 
-    < UISplitViewControllerDelegate > 
-{
-    
-@private
-    UISplitViewController	*splitViewController_;
-	UIPopoverController		*popoverController_;    
-    UIBarButtonItem			*rootPopoverButtonItem_;
-}
+@interface PSSplitViewDelegate : NSObject < UISplitViewControllerDelegate > 
 
 @property (nonatomic, assign) IBOutlet UISplitViewController	*splitViewController;
 
 @property (nonatomic, retain) UIPopoverController				*popoverController;
 @property (nonatomic, retain) UIBarButtonItem					*rootPopoverButtonItem;
-
 
 @end

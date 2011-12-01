@@ -12,19 +12,7 @@
 #import "PSBaseMasterViewController.h"
 
 
-@interface PSEntityListController : PSBaseMasterViewController 
-    < PSAcceptsEntityDescription > 
-{
-	
-@private
-    
-    NSEntityDescription		*detailEntityDescription_;
-	NSEntityDescription		*superEntityDescription_;
-	NSArray					*subEntityDescriptions_;
-	NSArray					*atrributesOfEntity_;
-	NSArray					*relationshipsOfEntity_;
-	NSMutableArray			*fetchedPropertiesOfEntity_;
-}
+@interface PSEntityListController : PSBaseMasterViewController < PSAcceptsEntityDescription >
 
 @property (nonatomic, retain) NSEntityDescription	*detailEntityDescription;
 

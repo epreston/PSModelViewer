@@ -9,6 +9,17 @@
 #import "PSBaseDetailViewController.h"
 
 
+@interface PSBaseDetailViewController ()
+{
+    
+@private
+	UIToolbar				*toolbar_;
+    NSManagedObjectModel    *managedObjectModel_;
+}
+
+@end
+
+
 @implementation PSBaseDetailViewController
 
 @synthesize	toolbar                 = toolbar_;

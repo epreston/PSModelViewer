@@ -12,23 +12,10 @@
 
 @class PSContentController;
 
-@interface PSBaseAppDelegate : NSObject 
-    < UIApplicationDelegate > 
-{    
+@interface PSBaseAppDelegate : UIResponder < UIApplicationDelegate >
 
-@protected
-    
-    UIWindow                *window_;
-	PSContentController     *contentController_;
-    
-@private
-
-    NSManagedObjectModel	*managedObjectModel_;
-}
-
-@property (nonatomic, retain) IBOutlet	UIWindow				*window;
-@property (nonatomic, retain) IBOutlet	PSContentController     *contentController;
-
-@property (nonatomic, readonly, retain) NSManagedObjectModel	*managedObjectModel;
+@property (nonatomic, strong) IBOutlet	UIWindow				*window;
+@property (nonatomic, strong) IBOutlet	PSContentController     *contentController;
+@property (nonatomic, readonly, strong) NSManagedObjectModel	*managedObjectModel;
 
 @end

@@ -10,6 +10,16 @@
 
 
 @interface PSEntityListController ()
+{
+    
+@private
+    NSEntityDescription		*detailEntityDescription_;
+	NSEntityDescription		*superEntityDescription_;
+	NSArray					*subEntityDescriptions_;
+	NSArray					*atrributesOfEntity_;
+	NSArray					*relationshipsOfEntity_;
+	NSMutableArray			*fetchedPropertiesOfEntity_;
+}
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
@@ -18,7 +28,7 @@
 
 @implementation PSEntityListController
 
-@synthesize detailEntityDescription     = detailEntityDescription_;
+@synthesize detailEntityDescription = detailEntityDescription_;
 
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 

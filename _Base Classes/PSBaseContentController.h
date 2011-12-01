@@ -10,21 +10,9 @@
 #import <CoreData/CoreData.h>
 
 
-@interface PSBaseContentController : NSObject 
-{	
-    
-@private
-    
-    NSManagedObjectModel	*managedObjectModel_;
-    
-	UISplitViewController	*splitViewController_;
-	UINavigationController	*navigationController_;
-	
-	UIViewController		*rootViewController_;
-    UIViewController		*detailViewController_;
-}
+@interface PSBaseContentController : NSObject
 
-@property (nonatomic, retain)           NSManagedObjectModel    *managedObjectModel;
+@property (nonatomic, strong)           NSManagedObjectModel    *managedObjectModel;
 
 @property (nonatomic, retain) IBOutlet	UISplitViewController	*splitViewController;
 @property (nonatomic, retain) IBOutlet	UINavigationController	*navigationController;

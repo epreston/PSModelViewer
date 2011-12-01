@@ -11,14 +11,7 @@
 #import "PSBaseMasterViewController.h"
 
 
-@interface PSConfigListController : PSBaseMasterViewController 
-    < PSAcceptsString > 
-{
-
-@private
-    NSString	*detailString_;
-	NSArray     *entitiesInConfig_;
-}
+@interface PSConfigListController : PSBaseMasterViewController < PSAcceptsString > 
 
 @property (nonatomic, retain) NSString  *detailString;
 

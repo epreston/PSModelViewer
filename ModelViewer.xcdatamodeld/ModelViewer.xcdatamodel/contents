@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11B26" minimumToolsVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" iOSVersion="Automatic">
     <entity name="PSArchive" representedClassName="PSArchive" isAbstract="YES" parentEntity="PSBaseElement">
         <attribute name="fileName" optional="YES" attributeType="String" defaultValueString="Archive"/>
         <attribute name="filePath" optional="YES" attributeType="String"/>
@@ -48,6 +48,7 @@
         <attribute name="nodeName" attributeType="String"/>
         <attribute name="nodeType" optional="YES" attributeType="String" maxValueString="128" defaultValueString="string"/>
         <relationship name="dataModel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDataModel" inverseName="rootNode" inverseEntity="PSFormDataModel" indexed="YES"/>
+        <relationship name="formDisplayElement" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="dataModelNode" inverseEntity="PSFormDisplayElement" syncable="YES"/>
         <relationship name="nodeChildren" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSDataModelNode" inverseName="nodeParent" inverseEntity="PSDataModelNode" indexed="YES"/>
         <relationship name="nodeParent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDataModelNode" inverseName="nodeChildren" inverseEntity="PSDataModelNode" indexed="YES"/>
     </entity>
@@ -66,7 +67,7 @@
     </entity>
     <entity name="PSEvent" representedClassName="NSManagedObject" parentEntity="PSBaseElement">
         <attribute name="eventInfo" optional="YES" attributeType="String"/>
-        <attribute name="timeStamp" optional="YES" attributeType="Date" defaultValueString="10/10/2010"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" defaultDateTimeInterval="308365200" defaultValueString="10/10/2010"/>
         <relationship name="eventType" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSEventType" inverseName="events" inverseEntity="PSEventType" indexed="YES"/>
     </entity>
     <entity name="PSEventType" representedClassName="NSManagedObject" parentEntity="PSListItem">
@@ -74,7 +75,7 @@
     </entity>
     <entity name="PSForm" representedClassName="PSForm" parentEntity="PSDetailListItem">
         <attribute name="author" optional="YES" attributeType="String"/>
-        <attribute name="versionMajor" optional="YES" attributeType="Integer 16" minValueString="1" defaultValueString="1"/>
+        <attribute name="versionMajor" optional="YES" attributeType="Integer 16" defaultValueString="1"/>
         <attribute name="versionMinor" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="archive" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormArchive" inverseName="forms" inverseEntity="PSFormArchive" indexed="YES"/>
         <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormCategory" inverseName="forms" inverseEntity="PSFormCategory" indexed="YES"/>
@@ -105,8 +106,9 @@
         <attribute name="inputSize" optional="YES" attributeType="String" defaultValueString="30"/>
         <attribute name="placeholderText" optional="YES" attributeType="String" defaultValueString="Description Here"/>
         <relationship name="customValueSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSCustomElementValue" inverseName="displayElement" inverseEntity="PSCustomElementValue" indexed="YES"/>
-        <relationship name="dataModelNode" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDataModelNode" indexed="YES"/>
+        <relationship name="dataModelNode" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDataModelNode" inverseName="formDisplayElement" inverseEntity="PSDataModelNode" indexed="YES"/>
         <relationship name="formDisplay" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplay" inverseName="rootElement" inverseEntity="PSFormDisplay" indexed="YES"/>
+        <relationship name="formEntryItem" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormEntryItem" inverseName="displayElement" inverseEntity="PSFormEntryItem" syncable="YES"/>
         <relationship name="nodeChildren" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormDisplayElement" inverseName="nodeParent" inverseEntity="PSFormDisplayElement" indexed="YES"/>
         <relationship name="nodeParent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="nodeChildren" inverseEntity="PSFormDisplayElement" indexed="YES"/>
         <relationship name="valueType" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDisplayElementType" inverseName="displayElements" inverseEntity="PSDisplayElementType" indexed="YES"/>
@@ -123,7 +125,7 @@
         <attribute name="isAboutAuthor" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="isKey" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="isSimple" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <relationship name="displayElement" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" indexed="YES"/>
+        <relationship name="displayElement" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="formEntryItem" inverseEntity="PSFormDisplayElement" indexed="YES"/>
         <relationship name="entryInstance" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormEntryInstance" inverseName="values" inverseEntity="PSFormEntryInstance" indexed="YES"/>
     </entity>
     <entity name="PSFormPreviewArchive" representedClassName="NSManagedObject" parentEntity="PSArchive">
@@ -250,7 +252,7 @@
         <element name="PSFormCategory" positionX="1574" positionY="325" width="128" height="60"/>
         <element name="PSFormDataModel" positionX="814" positionY="226" width="128" height="120"/>
         <element name="PSFormDisplay" positionX="832" positionY="575" width="128" height="75"/>
-        <element name="PSFormDisplayElement" positionX="1037" positionY="798" width="128" height="165"/>
+        <element name="PSFormDisplayElement" positionX="1037" positionY="798" width="128" height="180"/>
         <element name="PSFormEntryInstance" positionX="504" positionY="389" width="128" height="135"/>
         <element name="PSFormEntryItem" positionX="688" positionY="652" width="128" height="120"/>
         <element name="PSFormPreviewArchive" positionX="688" positionY="8" width="128" height="60"/>

@@ -12,7 +12,7 @@
 
 @interface PSBaseMasterViewController : UITableViewController < PSAcceptsManagedObjectModel >
 
-@property (nonatomic, retain) NSManagedObjectModel  *managedObjectModel;
+@property (nonatomic, strong) NSManagedObjectModel  *managedObjectModel;
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 

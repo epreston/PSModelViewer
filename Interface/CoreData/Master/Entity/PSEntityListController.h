@@ -14,6 +14,6 @@
 
 @interface PSEntityListController : PSBaseMasterViewController < PSAcceptsEntityDescription >
 
-@property (nonatomic, retain) NSEntityDescription	*detailEntityDescription;
+@property (nonatomic, strong) NSEntityDescription	*detailEntityDescription;
 
 @end

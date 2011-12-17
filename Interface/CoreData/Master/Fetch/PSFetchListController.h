@@ -15,6 +15,6 @@
 @interface PSFetchListController : PSBaseMasterViewController < PSAcceptsFetchRequest > 
 
 
-@property (nonatomic, retain) NSFetchRequest		*detailFetchRequest;
+@property (nonatomic, strong) NSFetchRequest		*detailFetchRequest;
 
 @end

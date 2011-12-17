@@ -15,7 +15,7 @@
 @interface PSAttributeDetailsController : PSBaseDetailViewController < PSAcceptsAttributeDescription >
 
 // Data objects
-@property (nonatomic, retain) NSAttributeDescription	*detailAttributeDescription;
+@property (nonatomic, strong) NSAttributeDescription	*detailAttributeDescription;
 
 // Interface
 @property (nonatomic, assign) IBOutlet UILabel	*relatedEntityName;

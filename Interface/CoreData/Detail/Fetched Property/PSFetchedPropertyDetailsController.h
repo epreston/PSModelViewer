@@ -15,7 +15,7 @@
 @interface PSFetchedPropertyDetailsController : PSBaseDetailViewController < PSAcceptsFetchedPropertyDescription >
 
 // Data objects
-@property (nonatomic, retain) NSFetchedPropertyDescription	*detailFetchedPropertyDescription;
+@property (nonatomic, strong) NSFetchedPropertyDescription	*detailFetchedPropertyDescription;
 
 // Interface
 @property (nonatomic, assign) IBOutlet UILabel	*relatedEntityName;

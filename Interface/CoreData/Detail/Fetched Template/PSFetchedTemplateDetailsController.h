@@ -15,7 +15,7 @@
 @interface PSFetchedTemplateDetailsController : PSBaseDetailViewController < PSAcceptsFetchRequest >
 
 // Data objects
-@property (nonatomic, retain) NSFetchRequest	*detailFetchRequest;
+@property (nonatomic, strong) NSFetchRequest	*detailFetchRequest;
 
 // Interface
 @property (nonatomic, assign) IBOutlet UILabel	*entityName;

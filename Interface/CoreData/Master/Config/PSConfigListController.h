@@ -13,6 +13,6 @@
 
 @interface PSConfigListController : PSBaseMasterViewController < PSAcceptsString > 
 
-@property (nonatomic, retain) NSString  *detailString;
+@property (nonatomic, strong) NSString  *detailString;
 
 @end

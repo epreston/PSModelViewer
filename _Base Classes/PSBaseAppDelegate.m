@@ -81,8 +81,9 @@
         return managedObjectModel_;
     }
     
-    NSLog(@"Modify the line below to load your data model.");
+    NSLog(@"You can modify the line below to load your data model.");
     
+    // Currently configured to load the first "momd" file found. 
     NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"" ofType:@"momd"];
     NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
     managedObjectModel_ = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    

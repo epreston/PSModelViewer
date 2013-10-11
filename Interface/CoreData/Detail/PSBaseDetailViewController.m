@@ -82,8 +82,7 @@
 	} else {
         // This may seem silly but is nessary, button will disappear when displaying the
         // detailViewController for a second time in portrait.
-        [itemsArray replaceObjectAtIndex:[itemsArray indexOfObject:barButtonItem] 
-                              withObject:barButtonItem];
+        itemsArray[[itemsArray indexOfObject:barButtonItem]] = barButtonItem;
     }
     [toolbar_ setItems:itemsArray animated:NO];
     [itemsArray release];

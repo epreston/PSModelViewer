@@ -63,7 +63,7 @@
 																	  action:@selector(showHomeDetailDisplay:)];
 	
 	// Add the button to the toolbar
-	[self setToolbarItems:[NSArray arrayWithObjects:flexSpaceButton, homeButtonItem, nil] animated:YES];
+	[self setToolbarItems:@[flexSpaceButton, homeButtonItem] animated:YES];
 	
 	// Release the buttons we allocated
 	[flexSpaceButton release];

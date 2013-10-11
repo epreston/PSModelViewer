@@ -42,7 +42,7 @@
 		case 1:
 			// Affected Persistant Stores
 		{
-			NSPersistentStore *store = [affectedPersistantStores_ objectAtIndex:indexPath.row];
+			NSPersistentStore *store = affectedPersistantStores_[indexPath.row];
 			cell.textLabel.text = [store identifier];
 			cell.detailTextLabel.text = [store type];
 		}
@@ -50,7 +50,7 @@
 		case 2:
 			// Sort Descriptors
 		{
-			NSSortDescriptor *sort = [orderedSortDescriptors_ objectAtIndex:indexPath.row];
+			NSSortDescriptor *sort = orderedSortDescriptors_[indexPath.row];
 			cell.textLabel.text = [sort key];
 			if ( [sort ascending] ) {
 				cell.detailTextLabel.text = @"ascending";
@@ -62,9 +62,9 @@
 		case 3:
 			// Prefetch Keypaths
 		{
-			cell.textLabel.text = [keyPathNamesForPrefetching_ objectAtIndex:indexPath.row];
+			cell.textLabel.text = keyPathNamesForPrefetching_[indexPath.row];
 			
-            NSEntityDescription *entity = [self.managedObjectModel.entitiesByName objectForKey:[keyPathNamesForPrefetching_ objectAtIndex:indexPath.row] ];
+            NSEntityDescription *entity = (self.managedObjectModel.entitiesByName)[keyPathNamesForPrefetching_[indexPath.row]];
             
 			if ( entity ) {
 				cell.detailTextLabel.text = [entity name];
@@ -74,7 +74,7 @@
 		case 4:
 			// Properties to Fetch
 		{
-			NSPropertyDescription *property = [propertyDescriptionsToFetch_ objectAtIndex:indexPath.row];
+			NSPropertyDescription *property = propertyDescriptionsToFetch_[indexPath.row];
 			cell.textLabel.text = [property name];
 			cell.detailTextLabel.text = @"see resultType";
 		}

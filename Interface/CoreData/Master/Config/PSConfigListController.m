@@ -29,7 +29,7 @@
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
 {    
-	NSEntityDescription *entity = [entitiesInConfig_ objectAtIndex:indexPath.row];
+	NSEntityDescription *entity = entitiesInConfig_[indexPath.row];
 	
 	cell.textLabel.text = [entity name];
 	cell.detailTextLabel.text = [entity managedObjectClassName];
@@ -98,7 +98,7 @@
 	//
 	
 	// PS_DISMISS_MAIN_POPOVER_IF_NEEDED();
-	PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( [entitiesInConfig_ objectAtIndex:indexPath.row] );
+	PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entitiesInConfig_[indexPath.row] );
 	
 }
 

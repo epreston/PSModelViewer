@@ -33,20 +33,20 @@
 		case 0:
 			// Configurations
 		{
-			cell.textLabel.text = [configNamesInModel_ objectAtIndex:indexPath.row];
+			cell.textLabel.text = configNamesInModel_[indexPath.row];
 		}
 			break;
 		case 1:
 			// Entities
 		{
-			NSEntityDescription *entity = [entitiesInModel_ objectAtIndex:indexPath.row];
+			NSEntityDescription *entity = entitiesInModel_[indexPath.row];
 			cell.textLabel.text = [entity name];
 		}
 			break;
 		case 2:
 			// Fetche Request Templates
 		{
-			cell.textLabel.text = [fetchRequestTemplateNamesInModel_ objectAtIndex:indexPath.row];
+			cell.textLabel.text = fetchRequestTemplateNamesInModel_[indexPath.row];
 		}
 			break;
 			
@@ -121,7 +121,7 @@
 			// Configurations
 		{
 			if ( [configNamesInModel_ count] ) {
-				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( [configNamesInModel_ objectAtIndex:indexPath.row] );
+				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( configNamesInModel_[indexPath.row] );
 			}
 		}
 			break;
@@ -129,8 +129,8 @@
 			// Entities
 		{
 			if ( [entitiesInModel_ count] ) {
-				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( [entitiesInModel_ objectAtIndex:indexPath.row] );
-				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( [entitiesInModel_ objectAtIndex:indexPath.row] );
+				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( entitiesInModel_[indexPath.row] );
+				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entitiesInModel_[indexPath.row] );
 			}
 		}
 			break;
@@ -138,7 +138,7 @@
 			// Fetch Request Templates
 		{
 			if ( [fetchRequestTemplateNamesInModel_ count] ) {
-				NSString *selectedFetch = [fetchRequestTemplateNamesInModel_ objectAtIndex:indexPath.row];
+				NSString *selectedFetch = fetchRequestTemplateNamesInModel_[indexPath.row];
 				NSFetchRequest *fetch = [self.managedObjectModel fetchRequestTemplateForName:selectedFetch];
 				
 				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( fetch );

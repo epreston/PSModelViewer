@@ -45,6 +45,7 @@
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
 	// Add the content controller's view to the window and display.
+    [window_ setRootViewController:contentController_.splitViewController];
 	[window_ addSubview:contentController_.view];
     [window_ makeKeyAndVisible];
 	

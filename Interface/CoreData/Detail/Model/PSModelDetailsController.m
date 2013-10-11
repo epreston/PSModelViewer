@@ -82,7 +82,7 @@
                 
                 if (nibViews) {
                     // Add a new item to array
-                    PSSmallItemUI *smallItem = [nibViews objectAtIndex:0];
+                    PSSmallItemUI *smallItem = nibViews[0];
                     
                     // Configure the properties
                     smallItem.delegate = self;
@@ -147,7 +147,7 @@
 {
     NSManagedObjectModel *model = self.managedObjectModel;
     
-    NSEntityDescription	*entity =  [model.entitiesByName objectForKey:aSmallItem.itemTitle.text];
+    NSEntityDescription	*entity =  (model.entitiesByName)[aSmallItem.itemTitle.text];
     
     if (entity) {
         PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( entity );

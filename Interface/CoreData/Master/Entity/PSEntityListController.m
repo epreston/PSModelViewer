@@ -42,7 +42,7 @@
 		case 1:
 			// Sub Entities
 		{
-			NSEntityDescription *entity = [subEntityDescriptions_ objectAtIndex:indexPath.row];
+			NSEntityDescription *entity = subEntityDescriptions_[indexPath.row];
 			cell.textLabel.text = [entity name];
 			cell.detailTextLabel.text = [entity managedObjectClassName];
 		}
@@ -50,7 +50,7 @@
 		case 2:
 			// Attributes
 		{
-			NSAttributeDescription *attrib = [atrributesOfEntity_ objectAtIndex:indexPath.row];
+			NSAttributeDescription *attrib = atrributesOfEntity_[indexPath.row];
 			cell.textLabel.text = [attrib name];
 			cell.detailTextLabel.text = [attrib attributeValueClassName];
 		}
@@ -58,7 +58,7 @@
 		case 3:
 			// Relationships
 		{
-			NSRelationshipDescription *relation = [relationshipsOfEntity_ objectAtIndex:indexPath.row];
+			NSRelationshipDescription *relation = relationshipsOfEntity_[indexPath.row];
 			cell.textLabel.text = [relation name];
 			cell.detailTextLabel.text = [[relation destinationEntity] name];
 		}	
@@ -66,7 +66,7 @@
 		case 4:
 			// Fetched Properties
 		{
-			NSFetchedPropertyDescription *fetches = [fetchedPropertiesOfEntity_ objectAtIndex:indexPath.row];
+			NSFetchedPropertyDescription *fetches = fetchedPropertiesOfEntity_[indexPath.row];
 			cell.textLabel.text = [fetches name];
 			cell.detailTextLabel.text = @"value is dynamic";
 		}
@@ -168,7 +168,7 @@
 			// Sub Entities
 		{
 			if ( [subEntityDescriptions_ count] ) {
-				NSEntityDescription *entity = [subEntityDescriptions_ objectAtIndex:indexPath.row];
+				NSEntityDescription *entity = subEntityDescriptions_[indexPath.row];
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
 		}
@@ -177,7 +177,7 @@
 			// Attributes
 		{
 			if ( [atrributesOfEntity_ count] ) {
-				NSAttributeDescription *attrib = [atrributesOfEntity_ objectAtIndex:indexPath.row];
+				NSAttributeDescription *attrib = atrributesOfEntity_[indexPath.row];
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( attrib );
 			}
 		}
@@ -186,7 +186,7 @@
 			// Relationships
 		{
 			if ( [relationshipsOfEntity_ count] ) {
-				NSRelationshipDescription *relation = [relationshipsOfEntity_ objectAtIndex:indexPath.row];
+				NSRelationshipDescription *relation = relationshipsOfEntity_[indexPath.row];
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( relation );
 			}
 		}
@@ -195,7 +195,7 @@
 			// Fetched Properties
 		{
 			if ( [fetchedPropertiesOfEntity_ count] ) {
-				NSFetchedPropertyDescription *fetches = [fetchedPropertiesOfEntity_ objectAtIndex:indexPath.row];
+				NSFetchedPropertyDescription *fetches = fetchedPropertiesOfEntity_[indexPath.row];
 				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( fetches );
 			}
 		}

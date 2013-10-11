@@ -27,7 +27,9 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="6"/>
-                        <barButtonItem style="plain" systemItem="bookmarks" id="5"/>
+                        <barButtonItem style="plain" systemItem="bookmarks" id="5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </items>
                 </toolbar>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Entity Details" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="17" id="8">

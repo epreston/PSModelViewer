@@ -20,23 +20,23 @@
 	// – validationWarnings
 	
 	// Getting Features of a Property (common to all properties)
-	UILabel		*relatedEntityName_;
-	UILabel		*propertyIsIndexed_;
-	UILabel		*propertyIsOptional_;
-	UILabel		*propertyIsTransient_;
-	UILabel		*propertyName_;
+	UILabel		*__weak relatedEntityName_;
+	UILabel		*__weak propertyIsIndexed_;
+	UILabel		*__weak propertyIsOptional_;
+	UILabel		*__weak propertyIsTransient_;
+	UILabel		*__weak propertyName_;
 	
 	// Managing Type Information
-	UILabel		*relationDestinationEntity_;
-	UILabel		*relationInverseRelationship_;
+	UILabel		*__weak relationDestinationEntity_;
+	UILabel		*__weak relationInverseRelationship_;
 	
 	// Getting and Setting Delete Rules
-	UILabel		*relationDeleteRule_;
+	UILabel		*__weak relationDeleteRule_;
 	
 	// Cardinality
-	UILabel		*relationMaxCount_;
-	UILabel		*relationMinCount_;
-	UILabel		*relationIsToMany_;
+	UILabel		*__weak relationMaxCount_;
+	UILabel		*__weak relationMinCount_;
+	UILabel		*__weak relationIsToMany_;
 }
 
 - (void) configureView;
@@ -136,12 +136,6 @@
     [super viewDidUnload];
 }
 
-- (void) dealloc 
-{    
-	[detailRelationshipDescription_ release];
-	
-	[super dealloc];
-}
 
 
 @end

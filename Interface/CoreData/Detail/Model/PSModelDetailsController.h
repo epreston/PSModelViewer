@@ -19,10 +19,10 @@
 @interface PSModelDetailsController : PSBaseDetailViewController < PSSmallItemUIDelegate >
 
 // Interface
-@property (nonatomic, assign) IBOutlet UILabel			*numberOfEntities;
-@property (nonatomic, assign) IBOutlet UILabel			*numberOfConfigurations;
-@property (nonatomic, assign) IBOutlet UILabel			*numberOfFetchRequestTemplates;
+@property (nonatomic, weak) IBOutlet UILabel			*numberOfEntities;
+@property (nonatomic, weak) IBOutlet UILabel			*numberOfConfigurations;
+@property (nonatomic, weak) IBOutlet UILabel			*numberOfFetchRequestTemplates;
 
-@property (nonatomic, assign) IBOutlet PSGridScrollView	*gridView;
+@property (nonatomic, weak) IBOutlet PSGridScrollView	*gridView;
 
 @end

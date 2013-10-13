@@ -20,21 +20,21 @@
 	// – validationWarnings
 	
 	// Getting Features of a Property (common to all properties)
-	UILabel		*relatedEntityName_;
-	UILabel		*propertyIsIndexed_;
-	UILabel		*propertyIsOptional_;
-	UILabel		*propertyIsTransient_;
-	UILabel		*propertyName_;
+	UILabel		*__weak relatedEntityName_;
+	UILabel		*__weak propertyIsIndexed_;
+	UILabel		*__weak propertyIsOptional_;
+	UILabel		*__weak propertyIsTransient_;
+	UILabel		*__weak propertyName_;
 	
 	// Getting and Setting Type Information
-	UILabel		*attributeType_;
-	UILabel		*attributeValueClassName_;
+	UILabel		*__weak attributeType_;
+	UILabel		*__weak attributeValueClassName_;
 	
 	// Getting and Setting the Default Value
-	UILabel		*attributeDefaultValue_;
+	UILabel		*__weak attributeDefaultValue_;
 	
 	// Value Transformers
-	UILabel		*attributeValueTransformerName_;
+	UILabel		*__weak attributeValueTransformerName_;
 }
 
 - (void) configureView;
@@ -179,12 +179,6 @@
     [super viewDidUnload];
 }
 
-- (void) dealloc 
-{    
-	[detailAttributeDescription_ release];
-	
-	[super dealloc];
-}
 
 
 @end

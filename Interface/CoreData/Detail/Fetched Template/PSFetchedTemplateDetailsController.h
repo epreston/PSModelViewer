@@ -18,8 +18,8 @@
 @property (nonatomic, strong) NSFetchRequest	*detailFetchRequest;
 
 // Interface
-@property (nonatomic, assign) IBOutlet UILabel	*entityName;
-@property (nonatomic, assign) IBOutlet UILabel	*entityClassName;
-@property (nonatomic, assign) IBOutlet UILabel	*hasSubEntities;
+@property (nonatomic, weak) IBOutlet UILabel	*entityName;
+@property (nonatomic, weak) IBOutlet UILabel	*entityClassName;
+@property (nonatomic, weak) IBOutlet UILabel	*hasSubEntities;
 
 @end

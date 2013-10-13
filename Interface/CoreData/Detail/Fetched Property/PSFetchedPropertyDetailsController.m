@@ -25,11 +25,11 @@
 	// – validationWarnings
 	
 	// Getting Features of a Property (common to all properties)
-	UILabel		*relatedEntityName_;
-	UILabel		*propertyIsIndexed_;
-	UILabel		*propertyIsOptional_;
-	UILabel		*propertyIsTransient_;
-	UILabel		*propertyName_;
+	UILabel		*__weak relatedEntityName_;
+	UILabel		*__weak propertyIsIndexed_;
+	UILabel		*__weak propertyIsOptional_;
+	UILabel		*__weak propertyIsTransient_;
+	UILabel		*__weak propertyName_;
 }
 
 - (void) configureView;
@@ -86,12 +86,6 @@
     [super viewDidUnload];
 }
 
-- (void) dealloc 
-{    
-	[detailFetchedPropertyDescription_ release];
-	
-	[super dealloc];
-}
 
 
 @end

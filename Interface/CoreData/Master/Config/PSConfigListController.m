@@ -51,7 +51,7 @@
     // Do not preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
 	
-	entitiesInConfig_ = [[self.managedObjectModel entitiesForConfiguration:detailString_] retain];
+	entitiesInConfig_ = [self.managedObjectModel entitiesForConfiguration:detailString_];
 }
 
 
@@ -71,13 +71,6 @@
 	[super viewDidUnload];
 }
 
-- (void)dealloc
-{
-    [detailString_ release];
-    [entitiesInConfig_ release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark - UITableViewDelegate
@@ -143,8 +136,8 @@
 	if ( presentEmptyCell ) {
 		cell = [tableView dequeueReusableCellWithIdentifier:EmptyIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
-                                           reuseIdentifier:EmptyIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
+                                           reuseIdentifier:EmptyIdentifier];
 			cell.textLabel.enabled = NO;
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		}
@@ -154,8 +147,8 @@
 	} else {
 		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
-                                           reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
+                                           reuseIdentifier:CellIdentifier];
 			// cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			cell.selectionStyle = UITableViewCellSelectionStyleGray;
 		}

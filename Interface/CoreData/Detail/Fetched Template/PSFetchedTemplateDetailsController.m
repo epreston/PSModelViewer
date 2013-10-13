@@ -16,9 +16,9 @@
     NSFetchRequest	*detailFetchRequest_;
     
 	// Entity
-	UILabel			*entityName_;
-	UILabel			*entityClassName_;
-	UILabel			*hasSubEntities_;
+	UILabel			*__weak entityName_;
+	UILabel			*__weak entityClassName_;
+	UILabel			*__weak hasSubEntities_;
 	
 	/*
      
@@ -90,12 +90,6 @@
     [super viewDidUnload];
 }
 
-- (void) dealloc 
-{    
-	[detailFetchRequest_ release];
-	
-	[super dealloc];
-}
 
 
 @end

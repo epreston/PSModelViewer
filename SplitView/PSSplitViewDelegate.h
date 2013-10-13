@@ -11,9 +11,9 @@
 
 @interface PSSplitViewDelegate : NSObject < UISplitViewControllerDelegate > 
 
-@property (nonatomic, assign) IBOutlet UISplitViewController	*splitViewController;
+@property (nonatomic, weak) IBOutlet UISplitViewController	*splitViewController;
 
-@property (nonatomic, retain) UIPopoverController				*popoverController;
-@property (nonatomic, retain) UIBarButtonItem					*rootPopoverButtonItem;
+@property (nonatomic, strong) UIPopoverController				*popoverController;
+@property (nonatomic, strong) UIBarButtonItem					*rootPopoverButtonItem;
 
 @end

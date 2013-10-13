@@ -96,14 +96,8 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	// Remove self as an observer.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
-    [managedObjectModel_ release];
     
-	[rootViewController_ release];
-    [detailViewController_ release];
-	[navigationController_ release];
-	[splitViewController_ release];
 	
-    [super dealloc];
 }
 
 
@@ -121,7 +115,6 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 		
 		[navigationController_ pushViewController:newViewController animated:YES];
 		
-        [newViewController release];
 	} else {
 		
 		// No controller returned, pop all
@@ -142,17 +135,14 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 		// Update the split view controller's view controllers array.
 		NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationController_, newViewController, nil];
 		splitViewController_.viewControllers = viewControllers;
-		[viewControllers release];
 		
         // Release the viewController that was returned.
-        [newViewController release];
         
     } else {
         
         // Update the split view controller's view controllers array. Pop back to default detail display.
 		NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationController_, [self detailViewController], nil];
 		splitViewController_.viewControllers = viewControllers;
-		[viewControllers release];
     }
     
     // Ensure button for popup is visable if needed

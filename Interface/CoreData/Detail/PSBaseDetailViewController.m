@@ -13,7 +13,7 @@
 {
     
 @private
-	UIToolbar				*toolbar_;
+	UIToolbar				*__weak toolbar_;
     NSManagedObjectModel    *managedObjectModel_;
 }
 
@@ -63,12 +63,6 @@
     [super viewDidUnload];
 }
 
-- (void) dealloc 
-{
-    [managedObjectModel_ release];
-    
-	[super dealloc];
-}
 
 
 #pragma mark - PSSwappableDetailView
@@ -85,7 +79,6 @@
         itemsArray[[itemsArray indexOfObject:barButtonItem]] = barButtonItem;
     }
     [toolbar_ setItems:itemsArray animated:NO];
-    [itemsArray release];
 }
 
 - (void) invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem 
@@ -94,7 +87,6 @@
     NSMutableArray *itemsArray = [toolbar_.items mutableCopy];
     [itemsArray removeObject:barButtonItem];
     [toolbar_ setItems:itemsArray animated:NO];
-    [itemsArray release];
 }
 
 

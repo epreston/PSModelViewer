@@ -13,10 +13,10 @@
 {
     
 @private	
-	UILabel			*itemTitle_;
-	UILabel			*itemSubTitle_;
-	UILabel			*itemType_;
-	UITextView		*itemDetails_;
+	UILabel			*__weak itemTitle_;
+	UILabel			*__weak itemSubTitle_;
+	UILabel			*__weak itemType_;
+	UITextView		*__weak itemDetails_;
     
 	__weak id < PSSmallItemUIDelegate > delegate_;
 }
@@ -71,7 +71,6 @@
 {
     delegate_ = nil;
     
-    [super dealloc];
 }
 
 

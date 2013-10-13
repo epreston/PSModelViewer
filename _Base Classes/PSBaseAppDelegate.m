@@ -63,14 +63,6 @@
      */
 }
 
-- (void) dealloc
-{
-    [managedObjectModel_ release];
-    [contentController_ release];
-    [window_ release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark - Core Data Stack

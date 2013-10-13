@@ -92,15 +92,15 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 	
-	superEntityDescription_     = [[detailEntityDescription_ superentity] retain];
-	subEntityDescriptions_      = [[detailEntityDescription_ subentities] retain];
-	atrributesOfEntity_         = [[[detailEntityDescription_ attributesByName] allValues] retain];
-	relationshipsOfEntity_      = [[[detailEntityDescription_ relationshipsByName] allValues] retain];
+	superEntityDescription_     = [detailEntityDescription_ superentity];
+	subEntityDescriptions_      = [detailEntityDescription_ subentities];
+	atrributesOfEntity_         = [[detailEntityDescription_ attributesByName] allValues];
+	relationshipsOfEntity_      = [[detailEntityDescription_ relationshipsByName] allValues];
 	
 	// I am not happy we do not have direct access to fetched properties
 	NSArray *allProperties = [detailEntityDescription_ properties];
 	
-	fetchedPropertiesOfEntity_  = [[NSMutableArray arrayWithCapacity:6] retain];
+	fetchedPropertiesOfEntity_  = [NSMutableArray arrayWithCapacity:6];
 	
 	for ( NSPropertyDescription *aProperty in allProperties ) {
 		if ( [aProperty isKindOfClass:[NSFetchedPropertyDescription class]] ) {
@@ -127,17 +127,6 @@
 	[super viewDidUnload];
 }
 
-- (void) dealloc
-{
-    [detailEntityDescription_ release];
-    [superEntityDescription_ release];
-    [subEntityDescriptions_ release];
-    [atrributesOfEntity_ release];
-    [relationshipsOfEntity_ release];
-    [fetchedPropertiesOfEntity_ release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark - UITableViewDelegate
@@ -305,8 +294,8 @@
 	if ( presentEmptyCell ) {
 		cell = [tableView dequeueReusableCellWithIdentifier:EmptyIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
-                                           reuseIdentifier:EmptyIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
+                                           reuseIdentifier:EmptyIdentifier];
 			cell.textLabel.enabled = NO;
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		}
@@ -316,8 +305,8 @@
 	} else {
 		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
-                                           reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
+                                           reuseIdentifier:CellIdentifier];
 			// cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			cell.selectionStyle = UITableViewCellSelectionStyleGray;
 		}

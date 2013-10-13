@@ -13,7 +13,7 @@
 
 @interface PSGridScrollView : UIScrollView
 
-@property (nonatomic, retain) NSMutableArray *gridViews;
+@property (nonatomic, strong) NSMutableArray *gridViews;
 @property (nonatomic, assign) int	itemWidth;
 @property (nonatomic, assign) int	itemHeight;
 @property (nonatomic, assign) int	itemBorder;

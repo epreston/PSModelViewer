@@ -18,8 +18,8 @@
 @property (nonatomic, strong) NSEntityDescription	*detailEntityDescription;
 
 // Interface
-@property (nonatomic, assign) IBOutlet UILabel		*entityName;
-@property (nonatomic, assign) IBOutlet UILabel		*entityManagedObjectClassName;
-@property (nonatomic, assign) IBOutlet UILabel		*entityIsAbstract;
+@property (nonatomic, weak) IBOutlet UILabel		*entityName;
+@property (nonatomic, weak) IBOutlet UILabel		*entityManagedObjectClassName;
+@property (nonatomic, weak) IBOutlet UILabel		*entityIsAbstract;
 
 @end

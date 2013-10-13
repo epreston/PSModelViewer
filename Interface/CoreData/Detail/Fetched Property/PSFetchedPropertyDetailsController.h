@@ -18,10 +18,10 @@
 @property (nonatomic, strong) NSFetchedPropertyDescription	*detailFetchedPropertyDescription;
 
 // Interface
-@property (nonatomic, assign) IBOutlet UILabel	*relatedEntityName;
-@property (nonatomic, assign) IBOutlet UILabel	*propertyIsIndexed;
-@property (nonatomic, assign) IBOutlet UILabel	*propertyIsOptional;
-@property (nonatomic, assign) IBOutlet UILabel	*propertyIsTransient;
-@property (nonatomic, assign) IBOutlet UILabel	*propertyName;
+@property (nonatomic, weak) IBOutlet UILabel	*relatedEntityName;
+@property (nonatomic, weak) IBOutlet UILabel	*propertyIsIndexed;
+@property (nonatomic, weak) IBOutlet UILabel	*propertyIsOptional;
+@property (nonatomic, weak) IBOutlet UILabel	*propertyIsTransient;
+@property (nonatomic, weak) IBOutlet UILabel	*propertyName;
 
 @end

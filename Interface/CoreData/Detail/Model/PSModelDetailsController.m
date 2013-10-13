@@ -17,11 +17,11 @@
     
 @private
 	// User Interface - Stats
-	UILabel				*numberOfEntities_;
-	UILabel				*numberOfConfigurations_;
-	UILabel				*numberOfFetchRequestTemplates_;
+	UILabel				*__weak numberOfEntities_;
+	UILabel				*__weak numberOfConfigurations_;
+	UILabel				*__weak numberOfFetchRequestTemplates_;
 	
-	PSGridScrollView	*gridView_;
+	PSGridScrollView	*__weak gridView_;
     
     // NIB Caching to speed up load (requires iOS 4.0 +)
     UINib               *cachedEntityViewNib;
@@ -68,7 +68,7 @@
         @autoreleasepool {
         
             // NIB Caching to speed up load (iOS 4.0 and above only)
-            cachedEntityViewNib = [[UINib nibWithNibName:@"PSSmallItemUI" bundle:[NSBundle mainBundle]] retain];
+            cachedEntityViewNib = [UINib nibWithNibName:@"PSSmallItemUI" bundle:[NSBundle mainBundle]];
             
             // Store the loaded views in array
             NSMutableArray *views = [[NSMutableArray alloc] initWithCapacity:32];
@@ -107,7 +107,6 @@
             // Populate the grid view display in bulk to run the layout code once.
             [self.gridView setGridViews:views];
             
-            [views release];
         
         } // Drain the pool
 	}
@@ -133,12 +132,6 @@
     [super viewDidUnload];
 }
 
-- (void) dealloc 
-{
-	[cachedEntityViewNib release];
-    
-	[super dealloc];
-}
 
 
 #pragma mark - PSSmallItemUIDelegate 

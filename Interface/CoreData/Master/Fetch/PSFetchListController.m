@@ -100,11 +100,11 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-	fetchEntityDescription_         = [[detailFetchRequest_ entity] retain];
-	affectedPersistantStores_       = [[detailFetchRequest_ affectedStores] retain];
-	orderedSortDescriptors_         = [[detailFetchRequest_ sortDescriptors] retain];
-	keyPathNamesForPrefetching_     = [[detailFetchRequest_ relationshipKeyPathsForPrefetching] retain];
-	propertyDescriptionsToFetch_    = [[detailFetchRequest_ propertiesToFetch] retain];
+	fetchEntityDescription_         = [detailFetchRequest_ entity];
+	affectedPersistantStores_       = [detailFetchRequest_ affectedStores];
+	orderedSortDescriptors_         = [detailFetchRequest_ sortDescriptors];
+	keyPathNamesForPrefetching_     = [detailFetchRequest_ relationshipKeyPathsForPrefetching];
+	propertyDescriptionsToFetch_    = [detailFetchRequest_ propertiesToFetch];
 }
 
 
@@ -124,17 +124,6 @@
 	[super viewDidUnload];
 }
 
-- (void) dealloc
-{
-    [detailFetchRequest_ release];
-    [fetchEntityDescription_ release];
-    [affectedPersistantStores_ release];
-    [orderedSortDescriptors_ release];
-    [keyPathNamesForPrefetching_ release];
-    [propertyDescriptionsToFetch_ release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark - UITableViewDelegate
@@ -300,8 +289,8 @@
 	if ( presentEmptyCell ) {
 		cell = [tableView dequeueReusableCellWithIdentifier:EmptyIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
-                                           reuseIdentifier:EmptyIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
+                                           reuseIdentifier:EmptyIdentifier];
 			cell.textLabel.enabled = NO;
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		}
@@ -311,8 +300,8 @@
 	} else {
 		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
-                                           reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
+                                           reuseIdentifier:CellIdentifier];
 			// cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			cell.selectionStyle = UITableViewCellSelectionStyleGray;
 		}

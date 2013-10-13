@@ -66,8 +66,6 @@
 	[self setToolbarItems:@[flexSpaceButton, homeButtonItem] animated:YES];
 	
 	// Release the buttons we allocated
-	[flexSpaceButton release];
-	[homeButtonItem release];
 }
 
 
@@ -87,12 +85,6 @@
 	[super viewDidUnload];
 }
 
-- (void) dealloc
-{
-    [managedObjectModel_ release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark - UITableViewDelegate
@@ -128,8 +120,8 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
-                                       reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
+                                       reuseIdentifier:CellIdentifier];
 		cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	}
     

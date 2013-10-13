@@ -21,7 +21,7 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 {
     
 @private
-    UISplitViewController	*splitViewController_;
+    UISplitViewController	*__weak splitViewController_;
 	UIPopoverController		*popoverController_;    
     UIBarButtonItem			*rootPopoverButtonItem_;
 }
@@ -99,10 +99,7 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 	// Remove self as an observer.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
-    self.popoverController = nil;
-    self.rootPopoverButtonItem = nil;
     
-    [super dealloc];
 }
 
 

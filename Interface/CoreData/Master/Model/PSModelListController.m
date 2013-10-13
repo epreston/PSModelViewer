@@ -66,11 +66,11 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 	
-	entitiesInModel_    = [[self.managedObjectModel entities] retain];
-	configNamesInModel_ = [[self.managedObjectModel configurations] retain];
+	entitiesInModel_    = [self.managedObjectModel entities];
+	configNamesInModel_ = [self.managedObjectModel configurations];
 	
 	NSDictionary *namesLookup           = [self.managedObjectModel fetchRequestTemplatesByName];
-	fetchRequestTemplateNamesInModel_   = [[namesLookup allKeys] retain];
+	fetchRequestTemplateNamesInModel_   = [namesLookup allKeys];
 }
 
 
@@ -90,14 +90,6 @@
 	[super viewDidUnload];
 }
 
-- (void) dealloc
-{
-    [configNamesInModel_ release];
-    [entitiesInModel_ release];
-    [fetchRequestTemplateNamesInModel_ release];
-    
-    [super dealloc];
-}
 
 #pragma mark - UITableViewDelegate
 
@@ -228,8 +220,8 @@
 	if ( presentEmptyCell ) {
 		cell = [tableView dequeueReusableCellWithIdentifier:EmptyIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
-                                           reuseIdentifier:EmptyIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
+                                           reuseIdentifier:EmptyIdentifier];
 			cell.textLabel.enabled = NO;
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		}
@@ -239,8 +231,8 @@
 	} else {
 		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
-                                           reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
+                                           reuseIdentifier:CellIdentifier];
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			cell.selectionStyle = UITableViewCellSelectionStyleGray;
 		}

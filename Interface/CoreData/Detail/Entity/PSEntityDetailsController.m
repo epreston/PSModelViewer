@@ -16,9 +16,9 @@
     NSEntityDescription	*detailEntityDescription_;
     
 	// Information About an Entity Description
-	UILabel		*entityName_;
-	UILabel		*entityManagedObjectClassName_;
-	UILabel		*entityIsAbstract_;
+	UILabel		*__weak entityName_;
+	UILabel		*__weak entityManagedObjectClassName_;
+	UILabel		*__weak entityIsAbstract_;
 	
 	// Working with Properties
 	//    – propertiesByName
@@ -73,12 +73,6 @@
     [super viewDidUnload];
 }
 
-- (void) dealloc 
-{    
-	[detailEntityDescription_ release];
-	
-	[super dealloc];
-}
 
 
 @end

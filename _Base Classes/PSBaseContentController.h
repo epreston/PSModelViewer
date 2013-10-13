@@ -14,11 +14,11 @@
 
 @property (nonatomic, strong)           NSManagedObjectModel    *managedObjectModel;
 
-@property (nonatomic, retain) IBOutlet	UISplitViewController	*splitViewController;
-@property (nonatomic, retain) IBOutlet	UINavigationController	*navigationController;
+@property (nonatomic, strong) IBOutlet	UISplitViewController	*splitViewController;
+@property (nonatomic, strong) IBOutlet	UINavigationController	*navigationController;
 
-@property (nonatomic, retain) IBOutlet	UIViewController		*rootViewController;
-@property (nonatomic, retain) IBOutlet	UIViewController		*detailViewController;
+@property (nonatomic, strong) IBOutlet	UIViewController		*rootViewController;
+@property (nonatomic, strong) IBOutlet	UIViewController		*detailViewController;
 
 // LOGIC TO SWITCH BETWEEN APPLICATION TYPES (ie iPwn, iPad)
 - (UIView *) view;

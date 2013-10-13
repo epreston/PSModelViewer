@@ -11,7 +11,7 @@ This application includes a moderately complex Core Data model to demonstrate th
 
 ## Status
 
-PSModelViewer is a rough yet workable solution for instantly creating an interactive reference for Core Data development work.  It is meant to be quickly updated with minimum effort and rebuilt each time the data model changes.
+PSModelViewer is a rough yet workable solution for instantly creating an interactive reference for Core Data development work.  It is meant to be quickly updated with minimum effort and rebuilt each time the data model changes.  Those looking for a reference counted implementation should look for a "Non ARC 1.0" branch.
 
 This project follows the [SemVer](http://semver.org/) standard. The API may change in backwards-incompatible ways before the 1.0 release.
 

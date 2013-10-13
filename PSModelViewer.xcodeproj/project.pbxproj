@@ -51,6 +51,7 @@
 		280420C0108EA07E000629CD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4F10E988180B51D300D4210C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; wrapsLines = 1; };
 		4F2BA1DD11E6C1C100B25D05 /* PSGridScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSGridScrollView.h; path = GridScrollView/PSGridScrollView.h; sourceTree = "<group>"; };
 		4F2BA1DE11E6C1C100B25D05 /* PSGridScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSGridScrollView.m; path = GridScrollView/PSGridScrollView.m; sourceTree = "<group>"; };
 		4F43F59E1443D3D1000ECD40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 				4FD6D9B011E9377800B086FA /* Entitlements.plist */,
 				8D1107310486CEB800E47090 /* PSModelViewer-Info.plist */,
 				4FB34E1D14168F5100E0D1E1 /* Doxyfile */,
+				4F10E988180B51D300D4210C /* README.md */,
 				4F43F59F1443D3D1000ECD40 /* InfoPlist.strings */,
 			);
 			name = Resources;

@@ -1,0 +1,12 @@
+language: objective-c
+xcode_project: PSModelViewer.xcodeproj
+xcode_scheme: PSModelViewer
+xcode_sdk: iphonesimulator
+
+before_install:
+  - git submodule update --init --recursive
+
+# whitelist
+branches:
+  only:
+    - master

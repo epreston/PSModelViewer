@@ -49,7 +49,7 @@
     self.clearsSelectionOnViewWillAppear = NO;
 	
 	// avoid display issues
-	self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+	self.preferredContentSize = CGSizeMake(320.0, 600.0);
 	
 	// setup our toolbar buttons
 	UIBarButtonItem *flexSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 

@@ -45,7 +45,7 @@ The best way to get your changes merged back into core is as follows:
 
 ## Copyright and License
 
-Copyright 2010 Preston Software.
+Copyright 2014 Preston Software.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this work except in compliance with the License.

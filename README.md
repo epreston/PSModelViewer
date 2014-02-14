@@ -1,5 +1,6 @@
-
 # PSModelViewer
+
+[![Build Status](https://travis-ci.org/epreston/PSModelViewer.png?branch=master)](https://travis-ci.org/epreston/PSModelViewer)
 
 PSModelViewer is an iPad application that allows you to browse a Core Data model on the go.  Simply drop in a Core Data model and build.
 

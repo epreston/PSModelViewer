@@ -593,6 +593,8 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSModelViewer_Prefix.pch;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "PSModelViewer-Info.plist";
 				PRODUCT_NAME = PSModelViewer;
 			};
@@ -642,6 +644,8 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSModelViewer_Prefix.pch;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "PSModelViewer-Info.plist";
 				PRODUCT_NAME = PSModelViewer;
 				VALIDATE_PRODUCT = YES;
@@ -669,6 +673,8 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSModelViewer_Prefix.pch;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "PSModelViewer-Info.plist";
 				PRODUCT_NAME = PSModelViewer;
 				VALIDATE_PRODUCT = YES;
@@ -699,7 +705,7 @@
 				4FF9D93111E81ABC007BCD21 /* Ad Hoc Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		4FB34E1F141691A000E0D1E1 /* Build configuration list for PBXLegacyTarget "Documentation" */ = {
 			isa = XCConfigurationList;
@@ -709,7 +715,7 @@
 				4FB34E22141691A000E0D1E1 /* Ad Hoc Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PSModelViewer" */ = {
 			isa = XCConfigurationList;
@@ -719,7 +725,7 @@
 				4FF9D93011E81ABC007BCD21 /* Ad Hoc Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

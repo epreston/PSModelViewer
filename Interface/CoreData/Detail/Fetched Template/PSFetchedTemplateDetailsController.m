@@ -9,59 +9,9 @@
 #import "PSFetchedTemplateDetailsController.h"
 
 
-@interface PSFetchedTemplateDetailsController ()
-{
-	
-@private
-    NSFetchRequest	*detailFetchRequest_;
-    
-	// Entity
-	UILabel			*__weak entityName_;
-	UILabel			*__weak entityClassName_;
-	UILabel			*__weak hasSubEntities_;
-	
-	/*
-     
-     // Fetch Constraints
-     – predicate
-     – fetchLimit
-     – fetchOffset
-     – fetchBatchSize
-     – affectedStores
-     
-     // Sorting
-     – sortDescriptors
-     
-     // Prefetching
-     – relationshipKeyPathsForPrefetching
-     
-     // Managing How Results Are Returned
-     – resultType
-     – includesPendingChanges
-     – propertiesToFetch
-     – returnsDistinctResults
-     – includesPropertyValues
-     – returnsObjectsAsFaults
-     
-	 */
-}
-
-- (void) configureView;
-
-@end
-
-
 @implementation PSFetchedTemplateDetailsController
 
-// Data Objects
-@synthesize detailFetchRequest = detailFetchRequest_;
-
-// Interface
-@synthesize entityName      = entityName_;
-@synthesize entityClassName = entityClassName_;
-@synthesize hasSubEntities  = hasSubEntities_;
-
-- (void) configureView 
+- (void) configureView
 {
 	[super configureView];
 	
@@ -69,11 +19,36 @@
 	if ( [self isViewLoaded] ) {
 		
 		// TODO:
+        
+        /*
+         
+         // Fetch Constraints
+         – predicate
+         – fetchLimit
+         – fetchOffset
+         – fetchBatchSize
+         – affectedStores
+         
+         // Sorting
+         – sortDescriptors
+         
+         // Prefetching
+         – relationshipKeyPathsForPrefetching
+         
+         // Managing How Results Are Returned
+         – resultType
+         – includesPendingChanges
+         – propertiesToFetch
+         – returnsDistinctResults
+         – includesPropertyValues
+         – returnsObjectsAsFaults
+         
+         */
 	}
 }
 
 
-#pragma mark - Resource Management
+#pragma mark - UIViewController
 
 - (void) didReceiveMemoryWarning 
 {    

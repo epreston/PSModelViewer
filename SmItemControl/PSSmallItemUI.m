@@ -9,28 +9,7 @@
 #import "PSSmallItemUI.h"
 
 
-@interface PSSmallItemUI ()
-{
-    
-@private	
-	UILabel			*__weak itemTitle_;
-	UILabel			*__weak itemSubTitle_;
-	UILabel			*__weak itemType_;
-	UITextView		*__weak itemDetails_;
-    
-	__weak id < PSSmallItemUIDelegate > delegate_;
-}
-@end
-
-
 @implementation PSSmallItemUI
-
-@synthesize delegate        = delegate_;
-@synthesize itemTitle       = itemTitle_;
-@synthesize itemSubTitle    = itemSubTitle_; 
-@synthesize itemType        = itemType_;
-@synthesize itemDetails     = itemDetails_;
-
 
 - (IBAction) infoButonAction:(id)sender 
 {	
@@ -67,9 +46,9 @@
 
 #pragma mark - Resource Management
 
-- (void)dealloc
+- (void) dealloc
 {
-    delegate_ = nil;
+    _delegate = nil;
     
 }
 

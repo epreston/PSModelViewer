@@ -6,10 +6,10 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
+#import	"PSBaseDetailViewController.h"
+
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-
-#import	"PSBaseDetailViewController.h"
 
 
 @interface PSRelationshipDetailsController : PSBaseDetailViewController < PSAcceptsRelationshipDescription >

@@ -6,32 +6,22 @@
 //  Copyright Preston Software 2010. All rights reserved.
 //
 
-
 #import "PSBaseAppDelegate.h"
 #import "PSContentController.h"
 
 
 @interface PSBaseAppDelegate ()
-{    
-    
-@protected
-    
-    UIWindow                *window_;
-	PSContentController     *contentController_;
+{
     
 @private
     
-    NSManagedObjectModel	*managedObjectModel_;
+    NSManagedObjectModel	*_managedObjectModel;
 }
 
 @end
 
 
-
 @implementation PSBaseAppDelegate
-
-@synthesize window              = window_;
-@synthesize contentController   = contentController_;
 
 
 #pragma mark - Application Lifecycle
@@ -39,15 +29,15 @@
 - (void) awakeFromNib 
 {    
 	// Pass the managed object model to the content controller.
-    contentController_.managedObjectModel = self.managedObjectModel;
+    _contentController.managedObjectModel = self.managedObjectModel;
 }
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
 	// Add the content controller's view to the window and display.
-    [window_ setRootViewController:contentController_.splitViewController];
-	[window_ addSubview:contentController_.view];
-    [window_ makeKeyAndVisible];
+    [_window setRootViewController:_contentController.splitViewController];
+	[_window addSubview:_contentController.view];
+    [_window makeKeyAndVisible];
 	
 	return YES;
 }
@@ -70,8 +60,8 @@
 - (NSManagedObjectModel *) managedObjectModel 
 {    
     // Returns the managed object model for the application.
-    if (managedObjectModel_ != nil) {
-        return managedObjectModel_;
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
     }
     
     NSLog(@"You can modify the line below to load your data model.");
@@ -79,8 +69,8 @@
     // Currently configured to load the first "momd" file found. 
     NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"" ofType:@"momd"];
     NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
-    managedObjectModel_ = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
-    return managedObjectModel_;
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
+    return _managedObjectModel;
 }
 
 

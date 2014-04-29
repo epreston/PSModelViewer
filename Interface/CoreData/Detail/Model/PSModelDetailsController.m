@@ -11,40 +11,27 @@
 #import "PSGridScrollView.h"
 #import "PSSmallItemUI.h"
 
+#import <CoreData/CoreData.h>
+
 
 @interface PSModelDetailsController ()
 {
     
 @private
-	// User Interface - Stats
-	UILabel				*__weak numberOfEntities_;
-	UILabel				*__weak numberOfConfigurations_;
-	UILabel				*__weak numberOfFetchRequestTemplates_;
-	
-	PSGridScrollView	*__weak gridView_;
     
     // NIB Caching to speed up load (requires iOS 4.0 +)
     UINib               *cachedEntityViewNib;
 }
 
-- (void) configureView;
-
 @end
-
-
-@implementation PSModelDetailsController
-
-// Interface
-@synthesize numberOfEntities                = numberOfEntities_;
-@synthesize numberOfConfigurations          = numberOfConfigurations_;
-@synthesize numberOfFetchRequestTemplates   = numberOfFetchRequestTemplates_;
-@synthesize gridView                        = gridView_;
 
 
 #define ITEM_WIDTH 172
 #define ITEM_HEIGHT 197
 #define ITEM_BORDER 5
 
+
+@implementation PSModelDetailsController
 
 - (void) configureView 
 {	
@@ -55,9 +42,9 @@
 		
         NSManagedObjectModel *model = self.managedObjectModel;
 		
-		numberOfEntities_.text = [NSString stringWithFormat: @"%u", [[model entities] count]];
-		numberOfConfigurations_.text = [NSString stringWithFormat: @"%u", [[model configurations] count]];
-		numberOfFetchRequestTemplates_.text = [NSString stringWithFormat: @"%u", [[model fetchRequestTemplatesByName] count]];
+		_numberOfEntities.text = [NSString stringWithFormat: @"%u", [[model entities] count]];
+		_numberOfConfigurations.text = [NSString stringWithFormat: @"%u", [[model configurations] count]];
+		_numberOfFetchRequestTemplates.text = [NSString stringWithFormat: @"%u", [[model fetchRequestTemplatesByName] count]];
 		
 		// Set the item width and height
 		self.gridView.itemWidth = ITEM_WIDTH;
@@ -113,7 +100,7 @@
 }
 
 
-#pragma mark - Resource Management
+#pragma mark - UIViewController
 
 - (void) didReceiveMemoryWarning 
 {    
@@ -152,7 +139,7 @@
 #pragma mark - Rotation Support
 
 - (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
-                                         duration:(NSTimeInterval)duration 
+                                          duration:(NSTimeInterval)duration
 {
 	// Edge case where view is scrolling and orientation changes:
 	// Need to update the display of the gridview

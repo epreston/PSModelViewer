@@ -136,6 +136,7 @@
 				4FD503A11443CA4E0094025B /* Controller */,
 				4FD503A01443CA470094025B /* View */,
 				4FD5039F1443CA3A0094025B /* Model */,
+				4FED8BCC11E25D9900ACE4FB /* Protocols */,
 				29B97315FDCFA39411CA2CEA /* Support Code */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -147,7 +148,6 @@
 		29B97315FDCFA39411CA2CEA /* Support Code */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BCC11E25D9900ACE4FB /* Protocols */,
 				4F82470A1208B9920042EE8A /* PSModelViewer_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -494,11 +494,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
-				TargetAttributes = {
-					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = QNF5V32SN5;
-					};
-				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PSModelViewer" */;
 			compatibilityVersion = "Xcode 3.2";

@@ -6,6 +6,9 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
+#import "PSDetailViewProtocols.h"
+#import "PSCoreDataProtocols.h"
+
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 

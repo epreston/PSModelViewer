@@ -9,46 +9,7 @@
 #import "PSFetchedPropertyDetailsController.h"
 
 
-@interface PSFetchedPropertyDetailsController ()
-{
-	
-@private
-    NSFetchedPropertyDescription	*detailFetchedPropertyDescription_;
-    
-    // Getting and Setting the Fetch Request
-    // – fetchRequest
-    
-    // NOTE: See fetched template details for the fetch request
-	
-	// Validation
-	// – validationPredicates
-	// – validationWarnings
-	
-	// Getting Features of a Property (common to all properties)
-	UILabel		*__weak relatedEntityName_;
-	UILabel		*__weak propertyIsIndexed_;
-	UILabel		*__weak propertyIsOptional_;
-	UILabel		*__weak propertyIsTransient_;
-	UILabel		*__weak propertyName_;
-}
-
-- (void) configureView;
-
-@end
-
-
 @implementation PSFetchedPropertyDetailsController
-
-// Data objects
-@synthesize detailFetchedPropertyDescription = detailFetchedPropertyDescription_;
-
-// Interface
-@synthesize relatedEntityName   = relatedEntityName_;
-@synthesize propertyIsIndexed   = propertyIsIndexed_;
-@synthesize propertyIsOptional  = propertyIsOptional_;
-@synthesize propertyIsTransient = propertyIsTransient_;
-@synthesize propertyName        = propertyName_;
-
 
 - (void) configureView 
 {	
@@ -57,17 +18,28 @@
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
 		
-		propertyName_.text = [detailFetchedPropertyDescription_ name];
-		relatedEntityName_.text = [[detailFetchedPropertyDescription_ entity] name];
-		propertyIsIndexed_.text = ( detailFetchedPropertyDescription_.isIndexed ) ? @"Yes" : @"No";
-		propertyIsOptional_.text = ( detailFetchedPropertyDescription_.isOptional ) ? @"Yes" : @"No";
-		propertyIsTransient_.text = ( detailFetchedPropertyDescription_.isTransient ) ? @"Yes" : @"No";
+        // Getting and Setting the Fetch Request
+        // – fetchRequest
+        
+        // NOTE: See fetched template details for the fetch request
+        
+        // Validation
+        // – validationPredicates
+        // – validationWarnings
+        
+        // Getting Features of a Property (common to all properties)
+        
+		_propertyName.text = [_detailFetchedPropertyDescription name];
+		_relatedEntityName.text = [[_detailFetchedPropertyDescription entity] name];
+		_propertyIsIndexed.text = ( _detailFetchedPropertyDescription.isIndexed ) ? @"Yes" : @"No";
+		_propertyIsOptional.text = ( _detailFetchedPropertyDescription.isOptional ) ? @"Yes" : @"No";
+		_propertyIsTransient.text = ( _detailFetchedPropertyDescription.isTransient ) ? @"Yes" : @"No";
         
 	}
 }
 
 
-#pragma mark - Resource Management
+#pragma mark - UIViewController
 
 - (void) didReceiveMemoryWarning 
 {    
@@ -85,7 +57,6 @@
     
     [super viewDidUnload];
 }
-
 
 
 @end

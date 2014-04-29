@@ -13,36 +13,30 @@
 {
 	
 @private
-    NSFetchRequest			*detailFetchRequest_;
-	NSEntityDescription		*fetchEntityDescription_;
-	NSArray					*affectedPersistantStores_;
-	NSArray					*orderedSortDescriptors_;
-	NSArray					*keyPathNamesForPrefetching_;
-	NSArray					*propertyDescriptionsToFetch_;
+	NSEntityDescription		*_fetchEntityDescription;
+	NSArray					*_affectedPersistantStores;
+	NSArray					*_orderedSortDescriptors;
+	NSArray					*_keyPathNamesForPrefetching;
+	NSArray					*_propertyDescriptionsToFetch;
 }
 
-- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-    
 @end
 
 
 @implementation PSFetchListController
-
-@synthesize detailFetchRequest = detailFetchRequest_;
-
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
 {    
 	switch (indexPath.section) {
 		case 0:
 			// Search Entity
-			cell.textLabel.text = [fetchEntityDescription_ name];
-			cell.detailTextLabel.text = [fetchEntityDescription_ managedObjectClassName];
+			cell.textLabel.text = [_fetchEntityDescription name];
+			cell.detailTextLabel.text = [_fetchEntityDescription managedObjectClassName];
 			break;
 		case 1:
 			// Affected Persistant Stores
 		{
-			NSPersistentStore *store = affectedPersistantStores_[indexPath.row];
+			NSPersistentStore *store = _affectedPersistantStores[indexPath.row];
 			cell.textLabel.text = [store identifier];
 			cell.detailTextLabel.text = [store type];
 		}
@@ -50,7 +44,7 @@
 		case 2:
 			// Sort Descriptors
 		{
-			NSSortDescriptor *sort = orderedSortDescriptors_[indexPath.row];
+			NSSortDescriptor *sort = _orderedSortDescriptors[indexPath.row];
 			cell.textLabel.text = [sort key];
 			if ( [sort ascending] ) {
 				cell.detailTextLabel.text = @"ascending";
@@ -62,9 +56,9 @@
 		case 3:
 			// Prefetch Keypaths
 		{
-			cell.textLabel.text = keyPathNamesForPrefetching_[indexPath.row];
+			cell.textLabel.text = _keyPathNamesForPrefetching[indexPath.row];
 			
-            NSEntityDescription *entity = (self.managedObjectModel.entitiesByName)[keyPathNamesForPrefetching_[indexPath.row]];
+            NSEntityDescription *entity = (self.managedObjectModel.entitiesByName)[_keyPathNamesForPrefetching[indexPath.row]];
             
 			if ( entity ) {
 				cell.detailTextLabel.text = [entity name];
@@ -74,7 +68,7 @@
 		case 4:
 			// Properties to Fetch
 		{
-			NSPropertyDescription *property = propertyDescriptionsToFetch_[indexPath.row];
+			NSPropertyDescription *property = _propertyDescriptionsToFetch[indexPath.row];
 			cell.textLabel.text = [property name];
 			cell.detailTextLabel.text = @"see resultType";
 		}
@@ -87,28 +81,25 @@
 }
 
 
-#pragma mark - View Lifecycle
+#pragma mark - UIViewController
 
 - (void) viewDidLoad 
 {
     [super viewDidLoad];
 	
-	if ( detailFetchRequest_ ) {
+	if ( _detailFetchRequest ) {
 		self.title = @"Fetch Request";
 	}
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-	fetchEntityDescription_         = [detailFetchRequest_ entity];
-	affectedPersistantStores_       = [detailFetchRequest_ affectedStores];
-	orderedSortDescriptors_         = [detailFetchRequest_ sortDescriptors];
-	keyPathNamesForPrefetching_     = [detailFetchRequest_ relationshipKeyPathsForPrefetching];
-	propertyDescriptionsToFetch_    = [detailFetchRequest_ propertiesToFetch];
+	_fetchEntityDescription         = [_detailFetchRequest entity];
+	_affectedPersistantStores       = [_detailFetchRequest affectedStores];
+	_orderedSortDescriptors         = [_detailFetchRequest sortDescriptors];
+	_keyPathNamesForPrefetching     = [_detailFetchRequest relationshipKeyPathsForPrefetching];
+	_propertyDescriptionsToFetch    = [_detailFetchRequest propertiesToFetch];
 }
-
-
-#pragma mark - Resource Management
 
 - (void) didReceiveMemoryWarning 
 {
@@ -145,14 +136,14 @@
 	switch (indexPath.section) {
 		case 0:
 			// Search Entity
-			if ( fetchEntityDescription_ ) {
-				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( fetchEntityDescription_ );
+			if ( _fetchEntityDescription ) {
+				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( _fetchEntityDescription );
 			}
 			break;
 		case 1:
 			// Affected Persistant Stores
 		{
-			if ( [affectedPersistantStores_ count] ) {
+			if ( [_affectedPersistantStores count] ) {
 				// NSEntityDescription *entity = [affectedPersistantStores objectAtIndex:indexPath.row];
 				// PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
@@ -161,7 +152,7 @@
 		case 2:
 			// Sort Descriptors
 		{
-			if ( [orderedSortDescriptors_ count] ) {
+			if ( [_orderedSortDescriptors count] ) {
 				// NSEntityDescription *entity = [orderedSortDescriptors objectAtIndex:indexPath.row];
 				// PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
@@ -170,7 +161,7 @@
 		case 3:
 			// Prefetch Keypaths
 		{
-			if ( [keyPathNamesForPrefetching_ count] ) {
+			if ( [_keyPathNamesForPrefetching count] ) {
 				// NSEntityDescription *entity = [keyPathNamesForPrefetching objectAtIndex:indexPath.row];
 				// PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
@@ -179,7 +170,7 @@
 		case 4:
 			// Properties to Fetch
 		{
-			if ( [propertyDescriptionsToFetch_ count] ) {
+			if ( [_propertyDescriptionsToFetch count] ) {
 				// NSEntityDescription *entity = [propertyDescriptionsToFetch objectAtIndex:indexPath.row];
 				// PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entity );
 			}
@@ -211,32 +202,32 @@
 		case 1:
 			// Affected Persistant Stores
 		{
-			if ( [affectedPersistantStores_ count] ) {
-				return [affectedPersistantStores_ count];
+			if ( [_affectedPersistantStores count] ) {
+				return [_affectedPersistantStores count];
 			}
 		}
 			break;
 		case 2:
 			// Sort Descriptors
 		{
-			if ( [orderedSortDescriptors_ count] ) {
-				return [orderedSortDescriptors_ count];
+			if ( [_orderedSortDescriptors count] ) {
+				return [_orderedSortDescriptors count];
 			}
 		}
 			break;
 		case 3:
 			// Prefetch Keypaths
 		{
-			if ( [keyPathNamesForPrefetching_ count] ) {
-				return [keyPathNamesForPrefetching_ count];
+			if ( [_keyPathNamesForPrefetching count] ) {
+				return [_keyPathNamesForPrefetching count];
 			}
 		}
 			break;
 		case 4:
 			// Properties to Fetch
 		{
-			if ( [propertyDescriptionsToFetch_ count] ) {
-				return [propertyDescriptionsToFetch_ count];
+			if ( [_propertyDescriptionsToFetch count] ) {
+				return [_propertyDescriptionsToFetch count];
 			}
 		}
 			break;
@@ -260,23 +251,23 @@
 	switch (indexPath.section) {
 		case 0:
 			// Search Entity
-			if ( ! fetchEntityDescription_ ) presentEmptyCell = YES;
+			if ( ! _fetchEntityDescription ) presentEmptyCell = YES;
 			break;
 		case 1:
 			// Affected Persistant Stores
-			if ( ! [affectedPersistantStores_ count] ) presentEmptyCell = YES;
+			if ( ! [_affectedPersistantStores count] ) presentEmptyCell = YES;
 			break;
 		case 2:
 			// Sort Descriptors
-			if ( ! [orderedSortDescriptors_ count] ) presentEmptyCell = YES;
+			if ( ! [_orderedSortDescriptors count] ) presentEmptyCell = YES;
 			break;
 		case 3:
 			// Prefetch Keypaths
-			if ( ! [keyPathNamesForPrefetching_ count] ) presentEmptyCell = YES;
+			if ( ! [_keyPathNamesForPrefetching count] ) presentEmptyCell = YES;
 			break;
 		case 4:
 			// Properties to Fetch
-			if ( ! [propertyDescriptionsToFetch_ count] ) presentEmptyCell = YES;
+			if ( ! [_propertyDescriptionsToFetch count] ) presentEmptyCell = YES;
 			break;
 			
 		default:

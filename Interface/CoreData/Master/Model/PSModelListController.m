@@ -9,17 +9,17 @@
 
 #import "PSModelListController.h"
 
+#import <CoreData/CoreData.h>
+
 
 @interface PSModelListController ()
 {
     
 @private
-	NSArray		*configNamesInModel_;
-	NSArray		*entitiesInModel_;						
-	NSArray		*fetchRequestTemplateNamesInModel_;
+	NSArray		*_configNamesInModel;
+	NSArray		*_entitiesInModel;						
+	NSArray		*_fetchRequestTemplateNamesInModel;
 }
-
-- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -33,20 +33,20 @@
 		case 0:
 			// Configurations
 		{
-			cell.textLabel.text = configNamesInModel_[indexPath.row];
+			cell.textLabel.text = _configNamesInModel[indexPath.row];
 		}
 			break;
 		case 1:
 			// Entities
 		{
-			NSEntityDescription *entity = entitiesInModel_[indexPath.row];
+			NSEntityDescription *entity = _entitiesInModel[indexPath.row];
 			cell.textLabel.text = [entity name];
 		}
 			break;
 		case 2:
 			// Fetche Request Templates
 		{
-			cell.textLabel.text = fetchRequestTemplateNamesInModel_[indexPath.row];
+			cell.textLabel.text = _fetchRequestTemplateNamesInModel[indexPath.row];
 		}
 			break;
 			
@@ -66,11 +66,11 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 	
-	entitiesInModel_    = [self.managedObjectModel entities];
-	configNamesInModel_ = [self.managedObjectModel configurations];
+	_entitiesInModel    = [self.managedObjectModel entities];
+	_configNamesInModel = [self.managedObjectModel configurations];
 	
 	NSDictionary *namesLookup           = [self.managedObjectModel fetchRequestTemplatesByName];
-	fetchRequestTemplateNamesInModel_   = [namesLookup allKeys];
+	_fetchRequestTemplateNamesInModel   = [namesLookup allKeys];
 }
 
 
@@ -112,25 +112,25 @@
 		case 0:
 			// Configurations
 		{
-			if ( [configNamesInModel_ count] ) {
-				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( configNamesInModel_[indexPath.row] );
+			if ( [_configNamesInModel count] ) {
+				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( _configNamesInModel[indexPath.row] );
 			}
 		}
 			break;
 		case 1:
 			// Entities
 		{
-			if ( [entitiesInModel_ count] ) {
-				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( entitiesInModel_[indexPath.row] );
-				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entitiesInModel_[indexPath.row] );
+			if ( [_entitiesInModel count] ) {
+				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( _entitiesInModel[indexPath.row] );
+				PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( _entitiesInModel[indexPath.row] );
 			}
 		}
 			break;
 		case 2:
 			// Fetch Request Templates
 		{
-			if ( [fetchRequestTemplateNamesInModel_ count] ) {
-				NSString *selectedFetch = fetchRequestTemplateNamesInModel_[indexPath.row];
+			if ( [_fetchRequestTemplateNamesInModel count] ) {
+				NSString *selectedFetch = _fetchRequestTemplateNamesInModel[indexPath.row];
 				NSFetchRequest *fetch = [self.managedObjectModel fetchRequestTemplateForName:selectedFetch];
 				
 				PS_SHOW_MASTER_DISPLAY_FOR_OBJECT( fetch );
@@ -158,24 +158,24 @@
 		case 0:
 			// Configurations
 		{
-			if ( [configNamesInModel_ count] ) {
-				return [configNamesInModel_ count];
+			if ( [_configNamesInModel count] ) {
+				return [_configNamesInModel count];
 			}
 		}
 			break;
 		case 1:
 			// Entities
 		{
-			if ( [entitiesInModel_ count] ) {
-				return [entitiesInModel_ count];
+			if ( [_entitiesInModel count] ) {
+				return [_entitiesInModel count];
 			}
 		}
 			break;
 		case 2:
 			// Fetch Request Templates
 		{
-			if ( [fetchRequestTemplateNamesInModel_ count] ) {
-				return [fetchRequestTemplateNamesInModel_ count];
+			if ( [_fetchRequestTemplateNamesInModel count] ) {
+				return [_fetchRequestTemplateNamesInModel count];
 			}
 		}
 			break;
@@ -199,15 +199,15 @@
 	switch (indexPath.section) {
 		case 0:
 			// Configurations
-			if ( ! [configNamesInModel_ count] ) presentEmptyCell = YES;
+			if ( ! [_configNamesInModel count] ) presentEmptyCell = YES;
 			break;
 		case 1:
 			// Entities
-			if ( ! [entitiesInModel_ count] ) presentEmptyCell = YES;
+			if ( ! [_entitiesInModel count] ) presentEmptyCell = YES;
 			break;
 		case 2:
 			// Fetch Request Template Properties
-			if ( ! [fetchRequestTemplateNamesInModel_ count] ) presentEmptyCell = YES;
+			if ( ! [_fetchRequestTemplateNamesInModel count] ) presentEmptyCell = YES;
 			break;
 			
 		default:

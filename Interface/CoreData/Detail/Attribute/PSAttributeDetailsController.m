@@ -9,57 +9,7 @@
 #import "PSAttributeDetailsController.h"
 
 
-@interface PSAttributeDetailsController ()
-{
-    
-@private
-    NSAttributeDescription		*detailAttributeDescription_;
-	
-	// Validation
-	// – validationPredicates
-	// – validationWarnings
-	
-	// Getting Features of a Property (common to all properties)
-	UILabel		*__weak relatedEntityName_;
-	UILabel		*__weak propertyIsIndexed_;
-	UILabel		*__weak propertyIsOptional_;
-	UILabel		*__weak propertyIsTransient_;
-	UILabel		*__weak propertyName_;
-	
-	// Getting and Setting Type Information
-	UILabel		*__weak attributeType_;
-	UILabel		*__weak attributeValueClassName_;
-	
-	// Getting and Setting the Default Value
-	UILabel		*__weak attributeDefaultValue_;
-	
-	// Value Transformers
-	UILabel		*__weak attributeValueTransformerName_;
-}
-
-- (void) configureView;
-- (NSString *) nameFromAttributeType:(NSAttributeType)type;
-
-@end
-
-
 @implementation PSAttributeDetailsController
-
-// Data objects
-@synthesize detailAttributeDescription = detailAttributeDescription_;
-
-// Interface
-@synthesize relatedEntityName       = relatedEntityName_;
-@synthesize propertyIsIndexed       = propertyIsIndexed_;
-@synthesize propertyIsOptional      = propertyIsOptional_;
-@synthesize propertyIsTransient     = propertyIsTransient_;
-@synthesize propertyName            = propertyName_;
-
-@synthesize attributeType           = attributeType_;
-@synthesize attributeValueClassName = attributeValueClassName_;
-@synthesize attributeDefaultValue   = attributeDefaultValue_;
-@synthesize attributeValueTransformerName = attributeValueTransformerName_;
-
 
 - (void) configureView 
 {	
@@ -67,45 +17,53 @@
 	
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
+        
+        
+        // Validation
+        // – validationPredicates
+        // – validationWarnings
+        
+		// Getting Features of a Property (common to all properties)
+		_propertyName.text = [_detailAttributeDescription name];
+		_relatedEntityName.text = [[_detailAttributeDescription entity] name];
+		_propertyIsIndexed.text = ( _detailAttributeDescription.isIndexed ) ? @"Yes" : @"No";
+		_propertyIsOptional.text = ( _detailAttributeDescription.isOptional ) ? @"Yes" : @"No";
+		_propertyIsTransient.text = ( _detailAttributeDescription.isTransient ) ? @"Yes" : @"No";
 		
-		propertyName_.text = [detailAttributeDescription_ name];
-		relatedEntityName_.text = [[detailAttributeDescription_ entity] name];
-		propertyIsIndexed_.text = ( detailAttributeDescription_.isIndexed ) ? @"Yes" : @"No";
-		propertyIsOptional_.text = ( detailAttributeDescription_.isOptional ) ? @"Yes" : @"No";
-		propertyIsTransient_.text = ( detailAttributeDescription_.isTransient ) ? @"Yes" : @"No";
+		// Getting and Setting Type Information
+		_attributeType.text = [self nameFromAttributeType:[_detailAttributeDescription attributeType]];
+		_attributeValueClassName.text = [_detailAttributeDescription attributeValueClassName];
+        
+        // Value Transformers
+		_attributeValueTransformerName.text = [_detailAttributeDescription valueTransformerName];
 		
-		
-		attributeType_.text = [self nameFromAttributeType:[detailAttributeDescription_ attributeType]];
-		attributeValueClassName_.text = [detailAttributeDescription_ attributeValueClassName];
-		attributeValueTransformerName_.text = [detailAttributeDescription_ valueTransformerName];
-		
-		
-		switch ([detailAttributeDescription_ attributeType]) {
+		// Getting and Setting the Default Value
+		switch ([_detailAttributeDescription attributeType]) {
 			case NSUndefinedAttributeType:
 			case NSBinaryDataAttributeType:
 			case NSTransformableAttributeType:
 			case NSObjectIDAttributeType:
-				attributeDefaultValue_.text = @"not used";
-				attributeDefaultValue_.enabled = NO;
+				_attributeDefaultValue.text = @"not used";
+				_attributeDefaultValue.enabled = NO;
 				break;
 			case NSStringAttributeType:
-				attributeDefaultValue_.text = [detailAttributeDescription_ defaultValue];
+				_attributeDefaultValue.text = [_detailAttributeDescription defaultValue];
 				break;
 			case NSDateAttributeType:
-				attributeDefaultValue_.text = [[detailAttributeDescription_ defaultValue] description];
+				_attributeDefaultValue.text = [[_detailAttributeDescription defaultValue] description];
 				break;
 			case NSBooleanAttributeType:
-				attributeDefaultValue_.text = ( [[detailAttributeDescription_ defaultValue] intValue]  == 1 ) ? @"Yes" : @"No";
+				_attributeDefaultValue.text = ( [[_detailAttributeDescription defaultValue] intValue]  == 1 ) ? @"Yes" : @"No";
 				break;
 			default:
-				attributeDefaultValue_.text = [[detailAttributeDescription_ defaultValue] stringValue];
+				_attributeDefaultValue.text = [[_detailAttributeDescription defaultValue] stringValue];
 				break;
 		}
 	}
 }
 
 
-#pragma mark - Helper Methods
+#pragma mark - Internal Helper Methods
 
 - (NSString *) nameFromAttributeType:(NSAttributeType)type 
 {
@@ -156,7 +114,7 @@
 }
 
 
-#pragma mark - Resource Management
+#pragma mark - UIViewController
 
 - (void) didReceiveMemoryWarning 
 {    
@@ -178,7 +136,6 @@
     
     [super viewDidUnload];
 }
-
 
 
 @end

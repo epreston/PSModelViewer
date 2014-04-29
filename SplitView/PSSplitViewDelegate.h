@@ -13,7 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UISplitViewController	*splitViewController;
 
-@property (nonatomic, strong) UIPopoverController				*popoverController;
-@property (nonatomic, strong) UIBarButtonItem					*rootPopoverButtonItem;
+@property (nonatomic, strong) UIPopoverController			*popoverController;
+@property (nonatomic, strong) UIBarButtonItem				*rootPopoverButtonItem;
 
 @end

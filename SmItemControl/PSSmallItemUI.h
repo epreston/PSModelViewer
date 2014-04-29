@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
+@protocol PSSmallItemUIDelegate;
+
+
 @interface PSSmallItemUI : UIView
 
-@property(nonatomic, weak) id delegate;
+@property(nonatomic, weak) id <PSSmallItemUIDelegate> delegate;
 
 @property(nonatomic, weak) IBOutlet UILabel		*itemTitle;
 @property(nonatomic, weak) IBOutlet UILabel		*itemSubTitle;

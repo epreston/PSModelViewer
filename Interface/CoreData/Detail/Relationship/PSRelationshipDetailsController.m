@@ -9,61 +9,7 @@
 #import "PSRelationshipDetailsController.h"
 
 
-@interface PSRelationshipDetailsController ()
-{
-	
-@private
-    NSRelationshipDescription	*detailRelationshipDescription_;
-	
-	// Validation
-	// – validationPredicates
-	// – validationWarnings
-	
-	// Getting Features of a Property (common to all properties)
-	UILabel		*__weak relatedEntityName_;
-	UILabel		*__weak propertyIsIndexed_;
-	UILabel		*__weak propertyIsOptional_;
-	UILabel		*__weak propertyIsTransient_;
-	UILabel		*__weak propertyName_;
-	
-	// Managing Type Information
-	UILabel		*__weak relationDestinationEntity_;
-	UILabel		*__weak relationInverseRelationship_;
-	
-	// Getting and Setting Delete Rules
-	UILabel		*__weak relationDeleteRule_;
-	
-	// Cardinality
-	UILabel		*__weak relationMaxCount_;
-	UILabel		*__weak relationMinCount_;
-	UILabel		*__weak relationIsToMany_;
-}
-
-- (void) configureView;
-- (NSString *) nameFromDeleteRuleType:(NSDeleteRule)type;
-
-@end
-
-
 @implementation PSRelationshipDetailsController
-
-// Data objects
-@synthesize detailRelationshipDescription = detailRelationshipDescription_;
-
-// Interface
-@synthesize relatedEntityName   = relatedEntityName_;
-
-@synthesize propertyIsIndexed   = propertyIsIndexed_;
-@synthesize propertyIsOptional  = propertyIsOptional_;
-@synthesize propertyIsTransient = propertyIsTransient_;
-@synthesize propertyName        = propertyName_;
-
-@synthesize relationDestinationEntity = relationDestinationEntity_;
-@synthesize relationInverseRelationship = relationInverseRelationship_;
-@synthesize relationDeleteRule  = relationDeleteRule_;
-@synthesize relationMaxCount    = relationMaxCount_;
-@synthesize relationMinCount    = relationMinCount_;
-@synthesize relationIsToMany    = relationIsToMany_;
 
 - (void) configureView 
 {	
@@ -71,23 +17,34 @@
 	
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
+        
+        // Validation
+        // – validationPredicates
+        // – validationWarnings
 		
-		propertyName_.text = [detailRelationshipDescription_ name];
-		relatedEntityName_.text = [[detailRelationshipDescription_ entity] name];
-		propertyIsIndexed_.text = ( detailRelationshipDescription_.isIndexed ) ? @"Yes" : @"No";
-		propertyIsOptional_.text = ( detailRelationshipDescription_.isOptional ) ? @"Yes" : @"No";
-		propertyIsTransient_.text = ( detailRelationshipDescription_.isTransient ) ? @"Yes" : @"No";
+        // Getting Features of a Property (common to all properties)
+		_propertyName.text = [_detailRelationshipDescription name];
+		_relatedEntityName.text = [[_detailRelationshipDescription entity] name];
+		_propertyIsIndexed.text = ( _detailRelationshipDescription.isIndexed ) ? @"Yes" : @"No";
+		_propertyIsOptional.text = ( _detailRelationshipDescription.isOptional ) ? @"Yes" : @"No";
+		_propertyIsTransient.text = ( _detailRelationshipDescription.isTransient ) ? @"Yes" : @"No";
 		
-		relationDestinationEntity_.text = [[detailRelationshipDescription_ destinationEntity] name];
-		relationInverseRelationship_.text = [[detailRelationshipDescription_ inverseRelationship] name];
+        // Managing Type Information
+		_relationDestinationEntity.text = [[_detailRelationshipDescription destinationEntity] name];
+		_relationInverseRelationship.text = [[_detailRelationshipDescription inverseRelationship] name];
 		
-		relationDeleteRule_.text = [self nameFromDeleteRuleType:[detailRelationshipDescription_ deleteRule]];
+        // Getting and Setting Delete Rules
+		_relationDeleteRule.text = [self nameFromDeleteRuleType:[_detailRelationshipDescription deleteRule]];
 		
-		relationMaxCount_.text = [NSString stringWithFormat: @"%u", [detailRelationshipDescription_ maxCount]];
-		relationMinCount_.text = [NSString stringWithFormat: @"%u", [detailRelationshipDescription_ minCount]];
-		relationIsToMany_.text = ( detailRelationshipDescription_.isToMany ) ? @"Yes" : @"No";
+        // Cardinality
+		_relationMaxCount.text = [NSString stringWithFormat: @"%u", [_detailRelationshipDescription maxCount]];
+		_relationMinCount.text = [NSString stringWithFormat: @"%u", [_detailRelationshipDescription minCount]];
+		_relationIsToMany.text = ( _detailRelationshipDescription.isToMany ) ? @"Yes" : @"No";
 	}
 }
+
+
+#pragma mark - Internal
 
 - (NSString *) nameFromDeleteRuleType:(NSDeleteRule)type 
 {
@@ -111,7 +68,7 @@
 }
 
 
-#pragma mark - Resource Management
+#pragma mark - UIViewController
 
 - (void) didReceiveMemoryWarning 
 {    
@@ -135,7 +92,6 @@
     
     [super viewDidUnload];
 }
-
 
 
 @end

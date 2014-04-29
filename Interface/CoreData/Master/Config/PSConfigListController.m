@@ -13,37 +13,32 @@
 {
     
 @private
-    NSString	*detailString_;
-	NSArray     *entitiesInConfig_;
+	NSArray     *_entitiesInConfig;
 }
-
-- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
 
 @implementation PSConfigListController
 
-@synthesize detailString = detailString_;
-
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
 {    
-	NSEntityDescription *entity = entitiesInConfig_[indexPath.row];
+	NSEntityDescription *entity = _entitiesInConfig[indexPath.row];
 	
 	cell.textLabel.text = [entity name];
 	cell.detailTextLabel.text = [entity managedObjectClassName];
 }
 
 
-#pragma mark - View lifecycle
+#pragma mark - UIViewController
 
 - (void) viewDidLoad 
 {
     [super viewDidLoad];
 	
-	if ( detailString_ ) {
-		self.title = detailString_;
+	if ( _detailString ) {
+		self.title = _detailString;
 	}
 	
 	//self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
@@ -51,7 +46,7 @@
     // Do not preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
 	
-	entitiesInConfig_ = [self.managedObjectModel entitiesForConfiguration:detailString_];
+	_entitiesInConfig = [self.managedObjectModel entitiesForConfiguration:_detailString];
 }
 
 
@@ -91,7 +86,7 @@
 	//
 	
 	// PS_DISMISS_MAIN_POPOVER_IF_NEEDED();
-	PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( entitiesInConfig_[indexPath.row] );
+	PS_SHOW_DETAIL_DISPLAY_FOR_OBJECT( _entitiesInConfig[indexPath.row] );
 	
 }
 
@@ -107,9 +102,9 @@
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
     // Return the number of rows in the section.
-	if ( entitiesInConfig_ ) {
-		if ( [entitiesInConfig_ count] ) {
-			return [entitiesInConfig_ count];
+	if ( _entitiesInConfig ) {
+		if ( [_entitiesInConfig count] ) {
+			return [_entitiesInConfig count];
 		}
 	}
 	
@@ -125,8 +120,8 @@
 	
 	BOOL presentEmptyCell = YES;
 
-	if ( entitiesInConfig_ ) {
-		if ( [entitiesInConfig_ count] ) {
+	if ( _entitiesInConfig ) {
+		if ( [_entitiesInConfig count] ) {
 			presentEmptyCell = NO;
 		}
 	}
@@ -165,7 +160,7 @@
 	switch (section) {
 		case 0:
 			//
-			return detailString_;
+			return _detailString;
 			break;
 
 		default:

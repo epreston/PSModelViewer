@@ -7,40 +7,16 @@
 //
 
 #import "PSBaseContentController.h"
+#import "PSDetailViewProtocols.h"
+#import "PSCoreDataProtocols.h"
 
 
 NSString * const PSDetailDisplayRequestNotification = @"PSDetailDisplay";
 NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 
 
-@interface PSBaseContentController ()
-{	
-    
-@private
-    NSManagedObjectModel	*managedObjectModel_;
-    
-	UISplitViewController	*splitViewController_;
-	UINavigationController	*navigationController_;
-	
-	UIViewController		*rootViewController_;
-    UIViewController		*detailViewController_;
-}
-
-- (void) masterDisplayRequested:(NSNotification *)notification;
-- (void) detailDisplayRequested:(NSNotification *)notification;
-
-@end
-
-
 @implementation PSBaseContentController
 
-@synthesize managedObjectModel      = managedObjectModel_;
-
-@synthesize splitViewController     = splitViewController_;
-@synthesize navigationController    = navigationController_;
-
-@synthesize rootViewController      = rootViewController_;
-@synthesize detailViewController    = detailViewController_;
 
 #pragma mark - Display Contoller Lookup
 
@@ -73,8 +49,8 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	// Call super
 	[super awakeFromNib];
     
-    [self passManagedObjectModel:managedObjectModel_ toObject:rootViewController_];
-    [self passManagedObjectModel:managedObjectModel_ toObject:detailViewController_];
+    [self passManagedObjectModel:_managedObjectModel toObject:_rootViewController];
+    [self passManagedObjectModel:_managedObjectModel toObject:_detailViewController];
 	
 	// Listen for our messages
 	NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
@@ -95,13 +71,11 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 {	
 	// Remove self as an observer.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-
     
-	
 }
 
 
-#pragma mark - Application Notifications
+#pragma mark - Application Notifications (Internal)
 
 - (void) masterDisplayRequested:(NSNotification *)notification 
 {	
@@ -113,12 +87,12 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	
 	if ( newViewController ) {
 		
-		[navigationController_ pushViewController:newViewController animated:YES];
+		[_navigationController pushViewController:newViewController animated:YES];
 		
 	} else {
 		
 		// No controller returned, pop all
-		[navigationController_ popToRootViewControllerAnimated:YES];
+		[_navigationController popToRootViewControllerAnimated:YES];
 	}
 }
 
@@ -133,16 +107,16 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	if ( newViewController ) {
 				
 		// Update the split view controller's view controllers array.
-		NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationController_, newViewController, nil];
-		splitViewController_.viewControllers = viewControllers;
+		NSArray *viewControllers = [[NSArray alloc] initWithObjects:_navigationController, newViewController, nil];
+		_splitViewController.viewControllers = viewControllers;
 		
         // Release the viewController that was returned.
         
     } else {
         
         // Update the split view controller's view controllers array. Pop back to default detail display.
-		NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationController_, [self detailViewController], nil];
-		splitViewController_.viewControllers = viewControllers;
+		NSArray *viewControllers = [[NSArray alloc] initWithObjects:_navigationController, [self detailViewController], nil];
+		_splitViewController.viewControllers = viewControllers;
     }
     
     // Ensure button for popup is visable if needed

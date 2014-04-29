@@ -22,10 +22,7 @@
 {
     
 @private
-	int				itemBorder_;
-	int				itemWidth_;
-	int				itemHeight_;
-	NSMutableArray *gridViews_;
+	NSMutableArray *_gridViews;
 }
 @end
 
@@ -35,31 +32,25 @@
 
 #pragma mark - Properties
 
-@synthesize itemWidth = itemWidth_;
-
 - (void) setItemWidth:(int)newValue 
 {	
-    itemWidth_ = (newValue < 40) ? 40 : newValue;
+    _itemWidth = (newValue < 40) ? 40 : newValue;
 	
 	// Update the display
 	[self setNeedsLayout];
 }
-
-@synthesize	itemHeight = itemHeight_;
 
 - (void) setItemHeight:(int)newValue 
 {	
-	itemHeight_ = (newValue < 40) ? 40 : newValue;
+	_itemHeight = (newValue < 40) ? 40 : newValue;
 	
 	// Update the display
 	[self setNeedsLayout];
 }
 
-@synthesize itemBorder = itemBorder_;
-
 - (void) setItemBorder:(int)newValue 
 {	
-	itemBorder_ = (newValue < 0) ? 0 : newValue;
+	_itemBorder = (newValue < 0) ? 0 : newValue;
 	
 	// Update the display
 	[self setNeedsLayout];
@@ -68,44 +59,40 @@
 - (NSMutableArray *) gridViews 
 {	
 	// lazy creation
-	if ( gridViews_ != nil) {
-		return gridViews_;
+	if ( _gridViews != nil) {
+		return _gridViews;
 	}
 	
-	gridViews_ = [[NSMutableArray alloc] init];
+	_gridViews = [[NSMutableArray alloc] init];
 	
-	return gridViews_;
+	return _gridViews;
 }
 
 - (void) setGridViews:(NSMutableArray *)array
 {
-	if (gridViews_ != array)
+	if (_gridViews != array)
     {
 		// Remove the old views
-		for (UIView *view in gridViews_)
+		for (UIView *view in _gridViews)
 			[view removeFromSuperview];
 		
 		if ( array != nil ) {
 			
 			// Copy the array
-			gridViews_ = array;
+			_gridViews = array;
 			
 			// Add the new views
-			for (UIView *view in gridViews_)
+			for (UIView *view in _gridViews)
 				[self addSubview:view];
 			
 		} else {
-			gridViews_ = nil;
+			_gridViews = nil;
 		}
 		
 		// Update the display
 		[self setNeedsLayout];
     }
 }
-
-
-#pragma mark - Resource Management
-
 
 
 #pragma mark - Methods
@@ -126,7 +113,7 @@
 }
 
 
-#pragma mark - View Display 
+#pragma mark - UIView 
 
 - (void) layoutSubviews {
 
@@ -135,13 +122,13 @@
 		// NSLog(@"Layout Requested.");
 		
 		// Sanity checks
-		if (itemWidth_ < 40)   itemWidth_   = 40;
-		if (itemHeight_ < 40)  itemHeight_  = 40;
-		if (itemBorder_ < 0)   itemBorder_  = 0;
+		if (_itemWidth < 40)   _itemWidth   = 40;
+		if (_itemHeight < 40)  _itemHeight  = 40;
+		if (_itemBorder < 0)   _itemBorder  = 0;
 		
 		// Caluculate the item width and height with a border on both sides
-		int widthWithBorder = itemWidth_ + (itemBorder_ * 2);
-		int heightWithBorder = itemHeight_ + (itemBorder_ * 2);
+		int widthWithBorder = _itemWidth + (_itemBorder * 2);
+		int heightWithBorder = _itemHeight + (_itemBorder * 2);
 		
 		// calculate the number of columns that can fit
 		CGRect bounds = [self bounds];
@@ -164,11 +151,11 @@
 			int x = index - y * cols;
 		
 			// calculate the origion for the current view
-			xOrigin = (x * widthWithBorder) + (x * itemSpacing) + itemSpacing + itemBorder_;
-			yOrigin = (y * heightWithBorder) + (y * itemSpacing) + itemSpacing + itemBorder_;
+			xOrigin = (x * widthWithBorder) + (x * itemSpacing) + itemSpacing + _itemBorder;
+			yOrigin = (y * heightWithBorder) + (y * itemSpacing) + itemSpacing + _itemBorder;
 			
 			// update its frame
-			view.frame = CGRectMake(xOrigin, yOrigin, itemWidth_, itemHeight_);
+			view.frame = CGRectMake(xOrigin, yOrigin, _itemWidth, _itemHeight);
 			
 			// Set the item to opaque
 			view.opaque = OPAQUE_ITEM_VIEWS ? YES : NO;
@@ -176,7 +163,7 @@
 		}
 	
 		// We may have changed orientation or size.
-		[self setContentSize:CGSizeMake (bounds.size.width, yOrigin + itemHeight_ + itemSpacing + itemBorder_)];
+		[self setContentSize:CGSizeMake (bounds.size.width, yOrigin + _itemHeight + itemSpacing + _itemBorder)];
 	}
 }
 

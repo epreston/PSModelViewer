@@ -6,14 +6,13 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
+#import "PSBaseMasterViewController.h"
+
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-#import "PSBaseMasterViewController.h"
-
 
 @interface PSFetchListController : PSBaseMasterViewController < PSAcceptsFetchRequest > 
-
 
 @property (nonatomic, strong) NSFetchRequest		*detailFetchRequest;
 

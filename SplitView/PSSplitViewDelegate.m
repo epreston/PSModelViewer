@@ -6,51 +6,35 @@
 //  Copyright 2010 Preston Software Inc. All rights reserved.
 //
 
-
 #import "PSSplitViewDelegate.h"
-
+#import "PSDetailViewProtocols.h"
 
 #define PS_BUTTON_TITLE @"Data Model Viewer"
-
 
 NSString * const PSDismissPopoverRequestNotification = @"PSDismissPopover";
 NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 
 
-@interface PSSplitViewDelegate ()
-{
-    
-@private
-    UISplitViewController	*__weak splitViewController_;
-	UIPopoverController		*popoverController_;    
-    UIBarButtonItem			*rootPopoverButtonItem_;
-}
 
-- (void) dismissPopoverRequested:(NSNotification *)notification;
-- (void) confirmPopoverRequested:(NSNotification *)notification;
-
-@end
 
 
 @implementation PSSplitViewDelegate
 
-@synthesize popoverController       = popoverController_;
-@synthesize splitViewController     = splitViewController_;
-@synthesize rootPopoverButtonItem   = rootPopoverButtonItem_;
 
+#pragma mark - Internal
 
 - (void) dismissPopoverRequested:(NSNotification *)notification 
 {
     // Dismiss the popover if it's present.
-    if (popoverController_ != nil) {
-        [popoverController_ dismissPopoverAnimated:YES];
+    if (_popoverController != nil) {
+        [_popoverController dismissPopoverAnimated:YES];
     }
 	
     // Configure the new view controller's popover button (after the view has been displayed 
 	// and its toolbar/navigation bar has been created).
-    if (rootPopoverButtonItem_ != nil) {
+    if (_rootPopoverButtonItem != nil) {
 		// Find the current detail view controller, it might be holding a reference to this object
-		UIViewController < PSSwappableDetailView > *detailViewController = (splitViewController_.viewControllers)[1];
+		UIViewController < PSSwappableDetailView > *detailViewController = (_splitViewController.viewControllers)[1];
 		
 		if (  [detailViewController conformsToProtocol:@protocol( PSSwappableDetailView )]  ) {
 			[detailViewController showRootPopoverButtonItem:self.rootPopoverButtonItem];
@@ -62,9 +46,9 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 {	
     // Configure the new view controller's popover button (after the view has been displayed and 
 	// its toolbar/navigation bar has been created).
-    if (rootPopoverButtonItem_ != nil) {
+    if (_rootPopoverButtonItem != nil) {
 		// Find the current detail view controller, it might be holding a reference to this object
-		UIViewController < PSSwappableDetailView > *detailViewController = (splitViewController_.viewControllers)[1];
+		UIViewController < PSSwappableDetailView > *detailViewController = (_splitViewController.viewControllers)[1];
 		
 		if ( [detailViewController conformsToProtocol:@protocol( PSSwappableDetailView )] ) {
 			[detailViewController showRootPopoverButtonItem:self.rootPopoverButtonItem];
@@ -99,7 +83,6 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
 	// Remove self as an observer.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
-    
 }
 
 
@@ -118,7 +101,7 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
     
     UIViewController < PSSwappableDetailView > *detailViewController = (svc.viewControllers)[1];
 	if ( [detailViewController conformsToProtocol:@protocol( PSSwappableDetailView )] ) {
-		[detailViewController showRootPopoverButtonItem:rootPopoverButtonItem_];
+		[detailViewController showRootPopoverButtonItem:_rootPopoverButtonItem];
 	}
 }
 
@@ -130,7 +113,7 @@ NSString * const PSConfirmPopoverRequestNotification = @"PSConfirmPopover";
     // view controller to hide the button.
     UIViewController < PSSwappableDetailView > *detailViewController = (svc.viewControllers)[1];
 	if ( [detailViewController conformsToProtocol:@protocol( PSSwappableDetailView )] ) {
-		[detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem_];
+		[detailViewController invalidateRootPopoverButtonItem:_rootPopoverButtonItem];
 	}
     
     self.popoverController = nil;

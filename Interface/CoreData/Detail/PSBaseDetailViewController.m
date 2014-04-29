@@ -9,22 +9,7 @@
 #import "PSBaseDetailViewController.h"
 
 
-@interface PSBaseDetailViewController ()
-{
-    
-@private
-	UIToolbar				*__weak toolbar_;
-    NSManagedObjectModel    *managedObjectModel_;
-}
-
-@end
-
-
 @implementation PSBaseDetailViewController
-
-@synthesize	toolbar                 = toolbar_;
-@synthesize managedObjectModel      = managedObjectModel_;
-
 
 // IMPLEMENT IN SUBCLASS: Update the user interface for the detail item.
 
@@ -38,7 +23,7 @@
 }
 
 
-#pragma mark - View Lifecycle
+#pragma mark - UIViewController
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void) viewDidLoad 
@@ -47,8 +32,6 @@
 	
 	[self configureView];
 }
-
-#pragma mark - Resource Management
 
 - (void) didReceiveMemoryWarning 
 {    
@@ -64,13 +47,12 @@
 }
 
 
-
 #pragma mark - PSSwappableDetailView
 
 - (void) showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem 
 {    
     // Add the popover button to the toolbar.
-    NSMutableArray *itemsArray = [toolbar_.items mutableCopy];
+    NSMutableArray *itemsArray = [_toolbar.items mutableCopy];
 	if ( [itemsArray indexOfObject:barButtonItem] == NSNotFound ) {
 		[itemsArray insertObject:barButtonItem atIndex:0];
 	} else {
@@ -78,15 +60,15 @@
         // detailViewController for a second time in portrait.
         itemsArray[[itemsArray indexOfObject:barButtonItem]] = barButtonItem;
     }
-    [toolbar_ setItems:itemsArray animated:NO];
+    [_toolbar setItems:itemsArray animated:NO];
 }
 
 - (void) invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem 
 {    
     // Remove the popover button from the toolbar.
-    NSMutableArray *itemsArray = [toolbar_.items mutableCopy];
+    NSMutableArray *itemsArray = [_toolbar.items mutableCopy];
     [itemsArray removeObject:barButtonItem];
-    [toolbar_ setItems:itemsArray animated:NO];
+    [_toolbar setItems:itemsArray animated:NO];
 }
 
 
@@ -97,17 +79,6 @@
 	// Dismiss the keyboard when they press return
 	[textField resignFirstResponder];
 	return NO;
-}
-
-
-#pragma mark - Rotation Support
-
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
-{   
-    // Ensure that the view controller supports rotation and that the split view can therefore
-    // show in both portrait and landscape.
-    
-	return YES;
 }
 
 

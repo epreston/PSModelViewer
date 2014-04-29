@@ -6,11 +6,9 @@
 //  Copyright 2010 Preston Software. All rights reserved.
 //
 
-
-#import <UIKit/UIKit.h>
-
 #import "PSBaseContentController.h"
 
+#import <UIKit/UIKit.h>
 
 @interface PSContentController : PSBaseContentController
 

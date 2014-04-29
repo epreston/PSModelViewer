@@ -9,21 +9,7 @@
 #import "PSBaseMasterViewController.h"
 
 
-@interface PSBaseMasterViewController ()
-{
-	
-@private
-    NSManagedObjectModel    *managedObjectModel_;
-}
-
-- (IBAction) showHomeDetailDisplay:(id)sender;
-
-@end
-
-
 @implementation PSBaseMasterViewController
-
-@synthesize managedObjectModel  = managedObjectModel_;
 
 
 // IMPLEMENT IN SUBCLASS: Update the cell text.
@@ -39,7 +25,7 @@
 }
 
 
-#pragma mark - View Lifecycle
+#pragma mark - UIViewController
 
 - (void) viewDidLoad 
 {    
@@ -64,12 +50,19 @@
 	
 	// Add the button to the toolbar
 	[self setToolbarItems:@[flexSpaceButton, homeButtonItem] animated:YES];
-	
-	// Release the buttons we allocated
 }
 
-
-#pragma mark - Resource Management
+- (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+                                          duration:(NSTimeInterval)duration
+{
+    // no popouts for lanscape orientation (use the MasterViewController's table)
+    if (UIInterfaceOrientationIsLandscape(interfaceOrientation))
+    {
+		// This fixes the problem with losing theme on rotation
+		self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+		self.navigationController.toolbar.barStyle = UIBarStyleBlack;
+	}
+}
 
 - (void) didReceiveMemoryWarning 
 {    
@@ -129,28 +122,6 @@
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
-}
-
-
-#pragma mark - Rotation Support
-
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
-{
-    // Ensure that the view controller supports rotation and that the split view can therefore 
-    // show in both portrait and landscape.
-	return YES;
-}
-
-- (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
-                                          duration:(NSTimeInterval)duration 
-{
-    // no popouts for lanscape orientation (use the MasterViewController's table)
-    if (UIInterfaceOrientationIsLandscape(interfaceOrientation))
-    {
-		// This fixes the problem with losing theme on rotation
-		self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-		self.navigationController.toolbar.barStyle = UIBarStyleBlack;
-	}
 }
 
 

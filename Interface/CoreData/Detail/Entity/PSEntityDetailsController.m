@@ -9,38 +9,7 @@
 #import "PSEntityDetailsController.h"
 
 
-@interface PSEntityDetailsController () 
-{
-    
-@private
-    NSEntityDescription	*detailEntityDescription_;
-    
-	// Information About an Entity Description
-	UILabel		*__weak entityName_;
-	UILabel		*__weak entityManagedObjectClassName_;
-	UILabel		*__weak entityIsAbstract_;
-	
-	// Working with Properties
-	//    – propertiesByName
-	//    – properties
-	//    – attributesByName
-	//    – relationshipsByName
-}
-
-- (void) configureView;
-
-@end
-
-
 @implementation PSEntityDetailsController
-
-// Data object
-@synthesize detailEntityDescription         = detailEntityDescription_;
-
-// Interface
-@synthesize entityName                      = entityName_;
-@synthesize entityManagedObjectClassName    = entityManagedObjectClassName_;
-@synthesize entityIsAbstract                = entityIsAbstract_;
 
 - (void) configureView 
 {	
@@ -49,14 +18,21 @@
 	// The nib will overwrite our configuration if we are not loaded
 	if ( [self isViewLoaded] ) {
 		
-		entityName_.text = [detailEntityDescription_ name];
-		entityManagedObjectClassName_.text = [detailEntityDescription_ managedObjectClassName];
-		entityIsAbstract_.text = ( detailEntityDescription_.isAbstract ) ? @"Yes" : @"No";
+        // Information About an Entity Description
+		_entityName.text = [_detailEntityDescription name];
+		_entityManagedObjectClassName.text = [_detailEntityDescription managedObjectClassName];
+		_entityIsAbstract.text = ( _detailEntityDescription.isAbstract ) ? @"Yes" : @"No";
+        
+        // Working with Properties
+        //    – propertiesByName
+        //    – properties
+        //    – attributesByName
+        //    – relationshipsByName
 	}
 }
 
 
-#pragma mark - Resource Management
+#pragma mark - UIViewController
 
 - (void) didReceiveMemoryWarning 
 {    
@@ -72,7 +48,6 @@
     
     [super viewDidUnload];
 }
-
 
 
 @end

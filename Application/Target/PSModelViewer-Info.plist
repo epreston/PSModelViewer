@@ -10,8 +10,6 @@
 	<array/>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>Graphics/72x72/Icon-72.png</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.prestonsoft.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>

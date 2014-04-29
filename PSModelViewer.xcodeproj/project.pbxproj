@@ -12,36 +12,35 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		280420C1108EA07E000629CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280420C0108EA07E000629CD /* CoreData.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		4F2BA1DF11E6C1C100B25D05 /* PSGridScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BA1DE11E6C1C100B25D05 /* PSGridScrollView.m */; };
 		4F43F59D1443D3D1000ECD40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F43F59F1443D3D1000ECD40 /* InfoPlist.strings */; };
-		4F5BBE4E13FA249600F314E7 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F5BBE4D13FA249600F314E7 /* icon_home.png */; };
-		4F5BBE5013FA24AC00F314E7 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F5BBE4F13FA24AC00F314E7 /* Icon-72.png */; };
 		4F5BBE5313FA25AC00F314E7 /* ModelViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BBE5113FA25AC00F314E7 /* ModelViewer.xcdatamodeld */; };
-		4FC1307611E264D500A0B940 /* PSBaseMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1307511E264D500A0B940 /* PSBaseMasterViewController.m */; };
-		4FC1307911E264F300A0B940 /* PSBaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1307811E264F300A0B940 /* PSBaseDetailViewController.m */; };
-		4FC1309511E2696C00A0B940 /* PSSplitViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1309411E2696C00A0B940 /* PSSplitViewDelegate.m */; };
-		4FD8589F11E2F2C400C9B22D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD8589C11E2F2C400C9B22D /* MainWindow.xib */; };
-		4FED8BCB11E25D9300ACE4FB /* PSModelListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BCA11E25D9300ACE4FB /* PSModelListController.m */; };
-		4FED8BD011E25DCF00ACE4FB /* PSConfigListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BCF11E25DCF00ACE4FB /* PSConfigListController.m */; };
-		4FED8BD311E25DEA00ACE4FB /* PSEntityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BD211E25DEA00ACE4FB /* PSEntityListController.m */; };
-		4FED8BD611E25DFB00ACE4FB /* PSFetchListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BD511E25DFB00ACE4FB /* PSFetchListController.m */; };
-		4FED8BDA11E25E2000ACE4FB /* PSModelDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BD811E25E2000ACE4FB /* PSModelDetailsController.m */; };
-		4FED8BDB11E25E2000ACE4FB /* PSModelDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BD911E25E2000ACE4FB /* PSModelDetails.xib */; };
-		4FED8BDF11E25E3D00ACE4FB /* PSEntityDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BDD11E25E3D00ACE4FB /* PSEntityDetailsController.m */; };
-		4FED8BE011E25E3D00ACE4FB /* PSEntityDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BDE11E25E3D00ACE4FB /* PSEntityDetails.xib */; };
-		4FED8BE411E25E5900ACE4FB /* PSAttributeDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BE211E25E5900ACE4FB /* PSAttributeDetailsController.m */; };
-		4FED8BE511E25E5900ACE4FB /* PSAttributeDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BE311E25E5900ACE4FB /* PSAttributeDetails.xib */; };
-		4FED8BE911E25E7B00ACE4FB /* PSRelationshipDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BE711E25E7B00ACE4FB /* PSRelationshipDetailsController.m */; };
-		4FED8BEA11E25E7B00ACE4FB /* PSRelationshipDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BE811E25E7B00ACE4FB /* PSRelationshipDetails.xib */; };
-		4FED8BEE11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BEC11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m */; };
-		4FED8BEF11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BED11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib */; };
-		4FED8BF311E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8BF111E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m */; };
-		4FED8BF411E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FED8BF211E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib */; };
-		4FED8C0D11E25F8300ACE4FB /* PSBaseContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8C0C11E25F8300ACE4FB /* PSBaseContentController.m */; };
-		4FED8C1011E25FA100ACE4FB /* PSContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8C0F11E25FA100ACE4FB /* PSContentController.m */; };
+		4FD5F3B5191061420011F37E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5F3B4191061420011F37E /* Images.xcassets */; };
+		4FD5F3F2191062AF0011F37E /* PSBaseContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3B9191062AF0011F37E /* PSBaseContentController.m */; };
+		4FD5F3F3191062AF0011F37E /* PSContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3BB191062AF0011F37E /* PSContentController.m */; };
+		4FD5F3F4191062AF0011F37E /* PSAttributeDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5F3BF191062AF0011F37E /* PSAttributeDetails.xib */; };
+		4FD5F3F5191062AF0011F37E /* PSAttributeDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3C1191062AF0011F37E /* PSAttributeDetailsController.m */; };
+		4FD5F3F6191062AF0011F37E /* PSEntityDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5F3C3191062AF0011F37E /* PSEntityDetails.xib */; };
+		4FD5F3F7191062AF0011F37E /* PSEntityDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3C5191062AF0011F37E /* PSEntityDetailsController.m */; };
+		4FD5F3F8191062AF0011F37E /* PSFetchedPropertyDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5F3C7191062AF0011F37E /* PSFetchedPropertyDetails.xib */; };
+		4FD5F3F9191062AF0011F37E /* PSFetchedPropertyDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3C9191062AF0011F37E /* PSFetchedPropertyDetailsController.m */; };
+		4FD5F3FA191062AF0011F37E /* PSFetchedTemplateDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5F3CB191062AF0011F37E /* PSFetchedTemplateDetails.xib */; };
+		4FD5F3FB191062AF0011F37E /* PSFetchedTemplateDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3CD191062AF0011F37E /* PSFetchedTemplateDetailsController.m */; };
+		4FD5F3FC191062AF0011F37E /* PSModelDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5F3CF191062AF0011F37E /* PSModelDetails.xib */; };
+		4FD5F3FD191062AF0011F37E /* PSModelDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3D1191062AF0011F37E /* PSModelDetailsController.m */; };
+		4FD5F3FE191062AF0011F37E /* PSBaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3D3191062AF0011F37E /* PSBaseDetailViewController.m */; };
+		4FD5F3FF191062AF0011F37E /* PSRelationshipDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5F3D5191062AF0011F37E /* PSRelationshipDetails.xib */; };
+		4FD5F400191062AF0011F37E /* PSRelationshipDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3D7191062AF0011F37E /* PSRelationshipDetailsController.m */; };
+		4FD5F401191062AF0011F37E /* PSConfigListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3DB191062AF0011F37E /* PSConfigListController.m */; };
+		4FD5F402191062AF0011F37E /* PSEntityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3DE191062AF0011F37E /* PSEntityListController.m */; };
+		4FD5F403191062AF0011F37E /* PSFetchListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3E1191062AF0011F37E /* PSFetchListController.m */; };
+		4FD5F404191062AF0011F37E /* PSModelListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3E4191062AF0011F37E /* PSModelListController.m */; };
+		4FD5F405191062AF0011F37E /* PSBaseMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3E6191062AF0011F37E /* PSBaseMasterViewController.m */; };
+		4FD5F406191062AF0011F37E /* PSSplitViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3E9191062AF0011F37E /* PSSplitViewDelegate.m */; };
+		4FD5F407191062AF0011F37E /* PSGridScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3ED191062AF0011F37E /* PSGridScrollView.m */; };
+		4FD5F408191062AF0011F37E /* PSSmallItemUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5F3F0191062AF0011F37E /* PSSmallItemUI.m */; };
+		4FD5F409191062AF0011F37E /* PSSmallItemUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5F3F1191062AF0011F37E /* PSSmallItemUI.xib */; };
+		4FD5F40C191063040011F37E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5F40E191063040011F37E /* MainWindow.xib */; };
 		4FED8C1411E2600B00ACE4FB /* PSBaseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FED8C1311E2600B00ACE4FB /* PSBaseAppDelegate.m */; };
-		4FFFC41C11E76F1500B4C79E /* PSSmallItemUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFFC41A11E76F1500B4C79E /* PSSmallItemUI.m */; };
-		4FFFC41D11E76F1500B4C79E /* PSSmallItemUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FFFC41B11E76F1500B4C79E /* PSSmallItemUI.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,58 +51,57 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4F10E988180B51D300D4210C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; wrapsLines = 1; };
-		4F2BA1DD11E6C1C100B25D05 /* PSGridScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSGridScrollView.h; path = GridScrollView/PSGridScrollView.h; sourceTree = "<group>"; };
-		4F2BA1DE11E6C1C100B25D05 /* PSGridScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSGridScrollView.m; path = GridScrollView/PSGridScrollView.m; sourceTree = "<group>"; };
 		4F43F59E1443D3D1000ECD40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4F5BBE4D13FA249600F314E7 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_home.png; path = Graphics/icon_home.png; sourceTree = "<group>"; };
-		4F5BBE4F13FA24AC00F314E7 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Graphics/72x72/Icon-72.png"; sourceTree = "<group>"; };
 		4F5BBE5213FA25AC00F314E7 /* ModelViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelViewer.xcdatamodel; sourceTree = "<group>"; };
 		4F82470A1208B9920042EE8A /* PSModelViewer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSModelViewer_Prefix.pch; sourceTree = "<group>"; };
 		4FB34E1D14168F5100E0D1E1 /* Doxyfile */ = {isa = PBXFileReference; explicitFileType = text.script; path = Doxyfile; sourceTree = "<group>"; };
-		4FC1307411E264D500A0B940 /* PSBaseMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseMasterViewController.h; sourceTree = "<group>"; };
-		4FC1307511E264D500A0B940 /* PSBaseMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseMasterViewController.m; sourceTree = "<group>"; };
-		4FC1307711E264F300A0B940 /* PSBaseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseDetailViewController.h; sourceTree = "<group>"; };
-		4FC1307811E264F300A0B940 /* PSBaseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseDetailViewController.m; sourceTree = "<group>"; };
-		4FC1309311E2696C00A0B940 /* PSSplitViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSSplitViewDelegate.h; path = SplitView/PSSplitViewDelegate.h; sourceTree = "<group>"; };
-		4FC1309411E2696C00A0B940 /* PSSplitViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSSplitViewDelegate.m; path = SplitView/PSSplitViewDelegate.m; sourceTree = "<group>"; };
-		4FD8589C11E2F2C400C9B22D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		4FED8BC911E25D9300ACE4FB /* PSModelListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSModelListController.h; sourceTree = "<group>"; };
-		4FED8BCA11E25D9300ACE4FB /* PSModelListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSModelListController.m; sourceTree = "<group>"; };
-		4FED8BCE11E25DCF00ACE4FB /* PSConfigListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSConfigListController.h; sourceTree = "<group>"; };
-		4FED8BCF11E25DCF00ACE4FB /* PSConfigListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSConfigListController.m; sourceTree = "<group>"; };
-		4FED8BD111E25DEA00ACE4FB /* PSEntityListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSEntityListController.h; sourceTree = "<group>"; };
-		4FED8BD211E25DEA00ACE4FB /* PSEntityListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSEntityListController.m; sourceTree = "<group>"; };
-		4FED8BD411E25DFB00ACE4FB /* PSFetchListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchListController.h; sourceTree = "<group>"; };
-		4FED8BD511E25DFB00ACE4FB /* PSFetchListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchListController.m; sourceTree = "<group>"; };
-		4FED8BD711E25E2000ACE4FB /* PSModelDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSModelDetailsController.h; sourceTree = "<group>"; };
-		4FED8BD811E25E2000ACE4FB /* PSModelDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSModelDetailsController.m; sourceTree = "<group>"; };
-		4FED8BD911E25E2000ACE4FB /* PSModelDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSModelDetails.xib; sourceTree = "<group>"; };
-		4FED8BDC11E25E3D00ACE4FB /* PSEntityDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSEntityDetailsController.h; sourceTree = "<group>"; };
-		4FED8BDD11E25E3D00ACE4FB /* PSEntityDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSEntityDetailsController.m; sourceTree = "<group>"; };
-		4FED8BDE11E25E3D00ACE4FB /* PSEntityDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSEntityDetails.xib; sourceTree = "<group>"; };
-		4FED8BE111E25E5900ACE4FB /* PSAttributeDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAttributeDetailsController.h; sourceTree = "<group>"; };
-		4FED8BE211E25E5900ACE4FB /* PSAttributeDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAttributeDetailsController.m; sourceTree = "<group>"; };
-		4FED8BE311E25E5900ACE4FB /* PSAttributeDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSAttributeDetails.xib; sourceTree = "<group>"; };
-		4FED8BE611E25E7B00ACE4FB /* PSRelationshipDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRelationshipDetailsController.h; sourceTree = "<group>"; };
-		4FED8BE711E25E7B00ACE4FB /* PSRelationshipDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRelationshipDetailsController.m; sourceTree = "<group>"; };
-		4FED8BE811E25E7B00ACE4FB /* PSRelationshipDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSRelationshipDetails.xib; sourceTree = "<group>"; };
-		4FED8BEB11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchedPropertyDetailsController.h; sourceTree = "<group>"; };
-		4FED8BEC11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchedPropertyDetailsController.m; sourceTree = "<group>"; };
-		4FED8BED11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSFetchedPropertyDetails.xib; sourceTree = "<group>"; };
-		4FED8BF011E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchedTemplateDetailsController.h; sourceTree = "<group>"; };
-		4FED8BF111E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchedTemplateDetailsController.m; sourceTree = "<group>"; };
-		4FED8BF211E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSFetchedTemplateDetails.xib; sourceTree = "<group>"; };
+		4FD5F3B4191061420011F37E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4FD5F3B8191062AF0011F37E /* PSBaseContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseContentController.h; sourceTree = "<group>"; };
+		4FD5F3B9191062AF0011F37E /* PSBaseContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseContentController.m; sourceTree = "<group>"; };
+		4FD5F3BA191062AF0011F37E /* PSContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSContentController.h; sourceTree = "<group>"; };
+		4FD5F3BB191062AF0011F37E /* PSContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSContentController.m; sourceTree = "<group>"; };
+		4FD5F3BF191062AF0011F37E /* PSAttributeDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSAttributeDetails.xib; sourceTree = "<group>"; };
+		4FD5F3C0191062AF0011F37E /* PSAttributeDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAttributeDetailsController.h; sourceTree = "<group>"; };
+		4FD5F3C1191062AF0011F37E /* PSAttributeDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAttributeDetailsController.m; sourceTree = "<group>"; };
+		4FD5F3C3191062AF0011F37E /* PSEntityDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSEntityDetails.xib; sourceTree = "<group>"; };
+		4FD5F3C4191062AF0011F37E /* PSEntityDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSEntityDetailsController.h; sourceTree = "<group>"; };
+		4FD5F3C5191062AF0011F37E /* PSEntityDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSEntityDetailsController.m; sourceTree = "<group>"; };
+		4FD5F3C7191062AF0011F37E /* PSFetchedPropertyDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSFetchedPropertyDetails.xib; sourceTree = "<group>"; };
+		4FD5F3C8191062AF0011F37E /* PSFetchedPropertyDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchedPropertyDetailsController.h; sourceTree = "<group>"; };
+		4FD5F3C9191062AF0011F37E /* PSFetchedPropertyDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchedPropertyDetailsController.m; sourceTree = "<group>"; };
+		4FD5F3CB191062AF0011F37E /* PSFetchedTemplateDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSFetchedTemplateDetails.xib; sourceTree = "<group>"; };
+		4FD5F3CC191062AF0011F37E /* PSFetchedTemplateDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchedTemplateDetailsController.h; sourceTree = "<group>"; };
+		4FD5F3CD191062AF0011F37E /* PSFetchedTemplateDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchedTemplateDetailsController.m; sourceTree = "<group>"; };
+		4FD5F3CF191062AF0011F37E /* PSModelDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSModelDetails.xib; sourceTree = "<group>"; };
+		4FD5F3D0191062AF0011F37E /* PSModelDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSModelDetailsController.h; sourceTree = "<group>"; };
+		4FD5F3D1191062AF0011F37E /* PSModelDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSModelDetailsController.m; sourceTree = "<group>"; };
+		4FD5F3D2191062AF0011F37E /* PSBaseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseDetailViewController.h; sourceTree = "<group>"; };
+		4FD5F3D3191062AF0011F37E /* PSBaseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseDetailViewController.m; sourceTree = "<group>"; };
+		4FD5F3D5191062AF0011F37E /* PSRelationshipDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSRelationshipDetails.xib; sourceTree = "<group>"; };
+		4FD5F3D6191062AF0011F37E /* PSRelationshipDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRelationshipDetailsController.h; sourceTree = "<group>"; };
+		4FD5F3D7191062AF0011F37E /* PSRelationshipDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRelationshipDetailsController.m; sourceTree = "<group>"; };
+		4FD5F3DA191062AF0011F37E /* PSConfigListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSConfigListController.h; sourceTree = "<group>"; };
+		4FD5F3DB191062AF0011F37E /* PSConfigListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSConfigListController.m; sourceTree = "<group>"; };
+		4FD5F3DD191062AF0011F37E /* PSEntityListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSEntityListController.h; sourceTree = "<group>"; };
+		4FD5F3DE191062AF0011F37E /* PSEntityListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSEntityListController.m; sourceTree = "<group>"; };
+		4FD5F3E0191062AF0011F37E /* PSFetchListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchListController.h; sourceTree = "<group>"; };
+		4FD5F3E1191062AF0011F37E /* PSFetchListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchListController.m; sourceTree = "<group>"; };
+		4FD5F3E3191062AF0011F37E /* PSModelListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSModelListController.h; sourceTree = "<group>"; };
+		4FD5F3E4191062AF0011F37E /* PSModelListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSModelListController.m; sourceTree = "<group>"; };
+		4FD5F3E5191062AF0011F37E /* PSBaseMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseMasterViewController.h; sourceTree = "<group>"; };
+		4FD5F3E6191062AF0011F37E /* PSBaseMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseMasterViewController.m; sourceTree = "<group>"; };
+		4FD5F3E8191062AF0011F37E /* PSSplitViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSplitViewDelegate.h; sourceTree = "<group>"; };
+		4FD5F3E9191062AF0011F37E /* PSSplitViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSplitViewDelegate.m; sourceTree = "<group>"; };
+		4FD5F3EC191062AF0011F37E /* PSGridScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGridScrollView.h; sourceTree = "<group>"; };
+		4FD5F3ED191062AF0011F37E /* PSGridScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGridScrollView.m; sourceTree = "<group>"; };
+		4FD5F3EF191062AF0011F37E /* PSSmallItemUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSmallItemUI.h; sourceTree = "<group>"; };
+		4FD5F3F0191062AF0011F37E /* PSSmallItemUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSmallItemUI.m; sourceTree = "<group>"; };
+		4FD5F3F1191062AF0011F37E /* PSSmallItemUI.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSSmallItemUI.xib; sourceTree = "<group>"; };
+		4FD5F40D191063040011F37E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		4FED8C0A11E25F6200ACE4FB /* PSDetailViewProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDetailViewProtocols.h; sourceTree = "<group>"; };
-		4FED8C0B11E25F8300ACE4FB /* PSBaseContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PSBaseContentController.h; path = "_Base Classes/PSBaseContentController.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		4FED8C0C11E25F8300ACE4FB /* PSBaseContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSBaseContentController.m; path = "_Base Classes/PSBaseContentController.m"; sourceTree = "<group>"; };
-		4FED8C0E11E25FA100ACE4FB /* PSContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSContentController.h; path = Content/PSContentController.h; sourceTree = "<group>"; };
-		4FED8C0F11E25FA100ACE4FB /* PSContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSContentController.m; path = Content/PSContentController.m; sourceTree = "<group>"; };
-		4FED8C1211E2600B00ACE4FB /* PSBaseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSBaseAppDelegate.h; path = "_Base Classes/PSBaseAppDelegate.h"; sourceTree = "<group>"; };
-		4FED8C1311E2600B00ACE4FB /* PSBaseAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSBaseAppDelegate.m; path = "_Base Classes/PSBaseAppDelegate.m"; sourceTree = "<group>"; };
+		4FED8C1211E2600B00ACE4FB /* PSBaseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseAppDelegate.h; sourceTree = "<group>"; };
+		4FED8C1311E2600B00ACE4FB /* PSBaseAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseAppDelegate.m; sourceTree = "<group>"; };
 		4FED8C1F11E2614B00ACE4FB /* PSCoreDataProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCoreDataProtocols.h; sourceTree = "<group>"; };
-		4FFFC41911E76F1500B4C79E /* PSSmallItemUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSmallItemUI.h; sourceTree = "<group>"; };
-		4FFFC41A11E76F1500B4C79E /* PSSmallItemUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSmallItemUI.m; sourceTree = "<group>"; };
-		4FFFC41B11E76F1500B4C79E /* PSSmallItemUI.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSSmallItemUI.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* PSModelViewer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PSModelViewer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,37 +131,23 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				4FD503A11443CA4E0094025B /* Controller */,
-				4FD503A01443CA470094025B /* View */,
-				4FD5039F1443CA3A0094025B /* Model */,
-				4FED8BCC11E25D9900ACE4FB /* Protocols */,
-				29B97315FDCFA39411CA2CEA /* Support Code */,
-				29B97317FDCFA39411CA2CEA /* Resources */,
+				4FB34E1D14168F5100E0D1E1 /* Doxyfile */,
+				4F10E988180B51D300D4210C /* README.md */,
+				4FD5F3B219105CA20011F37E /* Application */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
 		};
-		29B97315FDCFA39411CA2CEA /* Support Code */ = {
-			isa = PBXGroup;
-			children = (
-				4F82470A1208B9920042EE8A /* PSModelViewer_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
-			);
-			name = "Support Code";
-			sourceTree = "<group>";
-		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4FF9D86511E809C1007BCD21 /* Icons */,
-				8D1107310486CEB800E47090 /* PSModelViewer-Info.plist */,
-				4FB34E1D14168F5100E0D1E1 /* Doxyfile */,
-				4F10E988180B51D300D4210C /* README.md */,
+				4FD5F3B4191061420011F37E /* Images.xcassets */,
+				4FD5F40E191063040011F37E /* MainWindow.xib */,
 				4F43F59F1443D3D1000ECD40 /* InfoPlist.strings */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
@@ -177,241 +161,236 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4F2BA1DC11E6C1A100B25D05 /* User Interface */ = {
-			isa = PBXGroup;
-			children = (
-				4F2BA1E811E6C9EF00B25D05 /* Entity Control Large */,
-				4F2BA1E711E6C9E100B25D05 /* Entity Control Small */,
-				4F2BA1E011E6C2E500B25D05 /* Scrolling Grid View */,
-			);
-			name = "User Interface";
-			sourceTree = "<group>";
-		};
-		4F2BA1E011E6C2E500B25D05 /* Scrolling Grid View */ = {
-			isa = PBXGroup;
-			children = (
-				4F2BA1DD11E6C1C100B25D05 /* PSGridScrollView.h */,
-				4F2BA1DE11E6C1C100B25D05 /* PSGridScrollView.m */,
-			);
-			name = "Scrolling Grid View";
-			sourceTree = "<group>";
-		};
-		4F2BA1E711E6C9E100B25D05 /* Entity Control Small */ = {
-			isa = PBXGroup;
-			children = (
-				4FFFC41911E76F1500B4C79E /* PSSmallItemUI.h */,
-				4FFFC41A11E76F1500B4C79E /* PSSmallItemUI.m */,
-				4FFFC41B11E76F1500B4C79E /* PSSmallItemUI.xib */,
-			);
-			name = "Entity Control Small";
-			path = SmItemControl;
-			sourceTree = "<group>";
-		};
-		4F2BA1E811E6C9EF00B25D05 /* Entity Control Large */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Entity Control Large";
-			sourceTree = "<group>";
-		};
-		4FC1309211E2696B00A0B940 /* Split View Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				4FC1309311E2696C00A0B940 /* PSSplitViewDelegate.h */,
-				4FC1309411E2696C00A0B940 /* PSSplitViewDelegate.m */,
-			);
-			name = "Split View Delegate";
-			sourceTree = "<group>";
-		};
 		4FD5039F1443CA3A0094025B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4F5BBE5113FA25AC00F314E7 /* ModelViewer.xcdatamodeld */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		4FD503A01443CA470094025B /* View */ = {
+		4FD5F3B219105CA20011F37E /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				4F2BA1DC11E6C1A100B25D05 /* User Interface */,
+				4FED8BAC11E25A6F00ACE4FB /* AppDelegate */,
+				4FD5F3B6191062AF0011F37E /* Interface */,
+				4FD5039F1443CA3A0094025B /* Model */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				4FD5F3B319105D500011F37E /* Target */,
 			);
-			name = View;
+			path = Application;
 			sourceTree = "<group>";
 		};
-		4FD503A11443CA4E0094025B /* Controller */ = {
+		4FD5F3B319105D500011F37E /* Target */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BAC11E25A6F00ACE4FB /* Application Delegate */,
-				4FC1309211E2696B00A0B940 /* Split View Delegate */,
-				4FED8BAD11E25A7E00ACE4FB /* Content Controller */,
-				4FED8BA911E25A6500ACE4FB /* Display Controllers */,
-				4FD8589C11E2F2C400C9B22D /* MainWindow.xib */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				4F82470A1208B9920042EE8A /* PSModelViewer_Prefix.pch */,
+				8D1107310486CEB800E47090 /* PSModelViewer-Info.plist */,
 			);
-			name = Controller;
+			path = Target;
 			sourceTree = "<group>";
 		};
-		4FED8BA911E25A6500ACE4FB /* Display Controllers */ = {
+		4FD5F3B6191062AF0011F37E /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BAE11E25A8D00ACE4FB /* Master */,
-				4FED8BAF11E25A9400ACE4FB /* Detail */,
+				4FED8BCC11E25D9900ACE4FB /* Protocols */,
+				4FD5F3E7191062AF0011F37E /* SplitView */,
+				4FD5F3B7191062AF0011F37E /* Content */,
+				4FD5F3BC191062AF0011F37E /* Display */,
+				4FD5F3EA191062AF0011F37E /* Views */,
 			);
-			name = "Display Controllers";
+			path = Interface;
 			sourceTree = "<group>";
 		};
-		4FED8BAC11E25A6F00ACE4FB /* Application Delegate */ = {
+		4FD5F3B7191062AF0011F37E /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8C1111E25FDE00ACE4FB /* base class */,
+				4FD5F3B8191062AF0011F37E /* PSBaseContentController.h */,
+				4FD5F3B9191062AF0011F37E /* PSBaseContentController.m */,
+				4FD5F3BA191062AF0011F37E /* PSContentController.h */,
+				4FD5F3BB191062AF0011F37E /* PSContentController.m */,
 			);
-			name = "Application Delegate";
+			path = Content;
 			sourceTree = "<group>";
 		};
-		4FED8BAD11E25A7E00ACE4FB /* Content Controller */ = {
+		4FD5F3BC191062AF0011F37E /* Display */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8C0711E25F1500ACE4FB /* base class */,
-				4FED8C0E11E25FA100ACE4FB /* PSContentController.h */,
-				4FED8C0F11E25FA100ACE4FB /* PSContentController.m */,
+				4FD5F3BD191062AF0011F37E /* Detail */,
+				4FD5F3D8191062AF0011F37E /* Master */,
 			);
-			name = "Content Controller";
+			path = Display;
 			sourceTree = "<group>";
 		};
-		4FED8BAE11E25A8D00ACE4FB /* Master */ = {
+		4FD5F3BD191062AF0011F37E /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BBF11E25B3800ACE4FB /* Model */,
-				4FED8BC211E25BCB00ACE4FB /* Config */,
-				4FED8BC011E25B4000ACE4FB /* Entity */,
-				4FED8BC111E25B4A00ACE4FB /* Fetch */,
-				4FC1307411E264D500A0B940 /* PSBaseMasterViewController.h */,
-				4FC1307511E264D500A0B940 /* PSBaseMasterViewController.m */,
+				4FD5F3BE191062AF0011F37E /* Attribute */,
+				4FD5F3C2191062AF0011F37E /* Entity */,
+				4FD5F3C6191062AF0011F37E /* Fetched Property */,
+				4FD5F3CA191062AF0011F37E /* Fetched Template */,
+				4FD5F3CE191062AF0011F37E /* Model */,
+				4FD5F3D4191062AF0011F37E /* Relationship */,
+				4FD5F3D2191062AF0011F37E /* PSBaseDetailViewController.h */,
+				4FD5F3D3191062AF0011F37E /* PSBaseDetailViewController.m */,
 			);
-			name = Master;
-			path = Interface/CoreData/Master;
+			path = Detail;
 			sourceTree = "<group>";
 		};
-		4FED8BAF11E25A9400ACE4FB /* Detail */ = {
+		4FD5F3BE191062AF0011F37E /* Attribute */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BC311E25BFA00ACE4FB /* Model */,
-				4FED8BC411E25C0100ACE4FB /* Entity */,
-				4FED8BC711E25C4300ACE4FB /* Attribute */,
-				4FED8BC611E25C3100ACE4FB /* Relationship */,
-				4FED8BC811E25C5800ACE4FB /* Fetched Property */,
-				4FED8BC511E25C1500ACE4FB /* Fetched Template */,
-				4FC1307711E264F300A0B940 /* PSBaseDetailViewController.h */,
-				4FC1307811E264F300A0B940 /* PSBaseDetailViewController.m */,
+				4FD5F3BF191062AF0011F37E /* PSAttributeDetails.xib */,
+				4FD5F3C0191062AF0011F37E /* PSAttributeDetailsController.h */,
+				4FD5F3C1191062AF0011F37E /* PSAttributeDetailsController.m */,
 			);
-			name = Detail;
-			path = Interface/CoreData/Detail;
+			path = Attribute;
 			sourceTree = "<group>";
 		};
-		4FED8BBF11E25B3800ACE4FB /* Model */ = {
+		4FD5F3C2191062AF0011F37E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BC911E25D9300ACE4FB /* PSModelListController.h */,
-				4FED8BCA11E25D9300ACE4FB /* PSModelListController.m */,
+				4FD5F3C3191062AF0011F37E /* PSEntityDetails.xib */,
+				4FD5F3C4191062AF0011F37E /* PSEntityDetailsController.h */,
+				4FD5F3C5191062AF0011F37E /* PSEntityDetailsController.m */,
 			);
-			name = Model;
-			path = ../../../Interface/CoreData/Master/Model;
+			path = Entity;
 			sourceTree = "<group>";
 		};
-		4FED8BC011E25B4000ACE4FB /* Entity */ = {
+		4FD5F3C6191062AF0011F37E /* Fetched Property */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BD111E25DEA00ACE4FB /* PSEntityListController.h */,
-				4FED8BD211E25DEA00ACE4FB /* PSEntityListController.m */,
+				4FD5F3C7191062AF0011F37E /* PSFetchedPropertyDetails.xib */,
+				4FD5F3C8191062AF0011F37E /* PSFetchedPropertyDetailsController.h */,
+				4FD5F3C9191062AF0011F37E /* PSFetchedPropertyDetailsController.m */,
 			);
-			name = Entity;
-			path = ../../../Interface/CoreData/Master/Entity;
+			path = "Fetched Property";
 			sourceTree = "<group>";
 		};
-		4FED8BC111E25B4A00ACE4FB /* Fetch */ = {
+		4FD5F3CA191062AF0011F37E /* Fetched Template */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BD411E25DFB00ACE4FB /* PSFetchListController.h */,
-				4FED8BD511E25DFB00ACE4FB /* PSFetchListController.m */,
+				4FD5F3CB191062AF0011F37E /* PSFetchedTemplateDetails.xib */,
+				4FD5F3CC191062AF0011F37E /* PSFetchedTemplateDetailsController.h */,
+				4FD5F3CD191062AF0011F37E /* PSFetchedTemplateDetailsController.m */,
 			);
-			name = Fetch;
-			path = ../../../Interface/CoreData/Master/Fetch;
+			path = "Fetched Template";
 			sourceTree = "<group>";
 		};
-		4FED8BC211E25BCB00ACE4FB /* Config */ = {
+		4FD5F3CE191062AF0011F37E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BCE11E25DCF00ACE4FB /* PSConfigListController.h */,
-				4FED8BCF11E25DCF00ACE4FB /* PSConfigListController.m */,
+				4FD5F3CF191062AF0011F37E /* PSModelDetails.xib */,
+				4FD5F3D0191062AF0011F37E /* PSModelDetailsController.h */,
+				4FD5F3D1191062AF0011F37E /* PSModelDetailsController.m */,
 			);
-			name = Config;
-			path = ../../../Interface/CoreData/Master/Config;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		4FED8BC311E25BFA00ACE4FB /* Model */ = {
+		4FD5F3D4191062AF0011F37E /* Relationship */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BD711E25E2000ACE4FB /* PSModelDetailsController.h */,
-				4FED8BD811E25E2000ACE4FB /* PSModelDetailsController.m */,
-				4FED8BD911E25E2000ACE4FB /* PSModelDetails.xib */,
+				4FD5F3D5191062AF0011F37E /* PSRelationshipDetails.xib */,
+				4FD5F3D6191062AF0011F37E /* PSRelationshipDetailsController.h */,
+				4FD5F3D7191062AF0011F37E /* PSRelationshipDetailsController.m */,
 			);
-			name = Model;
-			path = ../../../Interface/CoreData/Detail/Model;
+			path = Relationship;
 			sourceTree = "<group>";
 		};
-		4FED8BC411E25C0100ACE4FB /* Entity */ = {
+		4FD5F3D8191062AF0011F37E /* Master */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BDC11E25E3D00ACE4FB /* PSEntityDetailsController.h */,
-				4FED8BDD11E25E3D00ACE4FB /* PSEntityDetailsController.m */,
-				4FED8BDE11E25E3D00ACE4FB /* PSEntityDetails.xib */,
+				4FD5F3D9191062AF0011F37E /* Config */,
+				4FD5F3DC191062AF0011F37E /* Entity */,
+				4FD5F3DF191062AF0011F37E /* Fetch */,
+				4FD5F3E2191062AF0011F37E /* Model */,
+				4FD5F3E5191062AF0011F37E /* PSBaseMasterViewController.h */,
+				4FD5F3E6191062AF0011F37E /* PSBaseMasterViewController.m */,
 			);
-			name = Entity;
-			path = ../../../Interface/CoreData/Detail/Entity;
+			path = Master;
 			sourceTree = "<group>";
 		};
-		4FED8BC511E25C1500ACE4FB /* Fetched Template */ = {
+		4FD5F3D9191062AF0011F37E /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BF011E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.h */,
-				4FED8BF111E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m */,
-				4FED8BF211E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib */,
+				4FD5F3DA191062AF0011F37E /* PSConfigListController.h */,
+				4FD5F3DB191062AF0011F37E /* PSConfigListController.m */,
 			);
-			name = "Fetched Template";
-			path = "../../../Interface/CoreData/Detail/Fetched Template";
+			path = Config;
 			sourceTree = "<group>";
 		};
-		4FED8BC611E25C3100ACE4FB /* Relationship */ = {
+		4FD5F3DC191062AF0011F37E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BE611E25E7B00ACE4FB /* PSRelationshipDetailsController.h */,
-				4FED8BE711E25E7B00ACE4FB /* PSRelationshipDetailsController.m */,
-				4FED8BE811E25E7B00ACE4FB /* PSRelationshipDetails.xib */,
+				4FD5F3DD191062AF0011F37E /* PSEntityListController.h */,
+				4FD5F3DE191062AF0011F37E /* PSEntityListController.m */,
 			);
-			name = Relationship;
-			path = ../../../Interface/CoreData/Detail/Relationship;
+			path = Entity;
 			sourceTree = "<group>";
 		};
-		4FED8BC711E25C4300ACE4FB /* Attribute */ = {
+		4FD5F3DF191062AF0011F37E /* Fetch */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BE111E25E5900ACE4FB /* PSAttributeDetailsController.h */,
-				4FED8BE211E25E5900ACE4FB /* PSAttributeDetailsController.m */,
-				4FED8BE311E25E5900ACE4FB /* PSAttributeDetails.xib */,
+				4FD5F3E0191062AF0011F37E /* PSFetchListController.h */,
+				4FD5F3E1191062AF0011F37E /* PSFetchListController.m */,
 			);
-			name = Attribute;
-			path = ../../../Interface/CoreData/Detail/Attribute;
+			path = Fetch;
 			sourceTree = "<group>";
 		};
-		4FED8BC811E25C5800ACE4FB /* Fetched Property */ = {
+		4FD5F3E2191062AF0011F37E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4FED8BEB11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.h */,
-				4FED8BEC11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m */,
-				4FED8BED11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib */,
+				4FD5F3E3191062AF0011F37E /* PSModelListController.h */,
+				4FD5F3E4191062AF0011F37E /* PSModelListController.m */,
 			);
-			name = "Fetched Property";
-			path = "../../../Interface/CoreData/Detail/Fetched Property";
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4FD5F3E7191062AF0011F37E /* SplitView */ = {
+			isa = PBXGroup;
+			children = (
+				4FD5F3E8191062AF0011F37E /* PSSplitViewDelegate.h */,
+				4FD5F3E9191062AF0011F37E /* PSSplitViewDelegate.m */,
+			);
+			path = SplitView;
+			sourceTree = "<group>";
+		};
+		4FD5F3EA191062AF0011F37E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4FD5F3EB191062AF0011F37E /* GridScrollView */,
+				4FD5F3EE191062AF0011F37E /* SmItemControl */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4FD5F3EB191062AF0011F37E /* GridScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				4FD5F3EC191062AF0011F37E /* PSGridScrollView.h */,
+				4FD5F3ED191062AF0011F37E /* PSGridScrollView.m */,
+			);
+			path = GridScrollView;
+			sourceTree = "<group>";
+		};
+		4FD5F3EE191062AF0011F37E /* SmItemControl */ = {
+			isa = PBXGroup;
+			children = (
+				4FD5F3EF191062AF0011F37E /* PSSmallItemUI.h */,
+				4FD5F3F0191062AF0011F37E /* PSSmallItemUI.m */,
+				4FD5F3F1191062AF0011F37E /* PSSmallItemUI.xib */,
+			);
+			path = SmItemControl;
+			sourceTree = "<group>";
+		};
+		4FED8BAC11E25A6F00ACE4FB /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4FED8C1211E2600B00ACE4FB /* PSBaseAppDelegate.h */,
+				4FED8C1311E2600B00ACE4FB /* PSBaseAppDelegate.m */,
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		4FED8BCC11E25D9900ACE4FB /* Protocols */ = {
@@ -421,33 +400,6 @@
 				4FED8C1F11E2614B00ACE4FB /* PSCoreDataProtocols.h */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		4FED8C0711E25F1500ACE4FB /* base class */ = {
-			isa = PBXGroup;
-			children = (
-				4FED8C0B11E25F8300ACE4FB /* PSBaseContentController.h */,
-				4FED8C0C11E25F8300ACE4FB /* PSBaseContentController.m */,
-			);
-			name = "base class";
-			sourceTree = "<group>";
-		};
-		4FED8C1111E25FDE00ACE4FB /* base class */ = {
-			isa = PBXGroup;
-			children = (
-				4FED8C1211E2600B00ACE4FB /* PSBaseAppDelegate.h */,
-				4FED8C1311E2600B00ACE4FB /* PSBaseAppDelegate.m */,
-			);
-			name = "base class";
-			sourceTree = "<group>";
-		};
-		4FF9D86511E809C1007BCD21 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				4F5BBE4D13FA249600F314E7 /* icon_home.png */,
-				4F5BBE4F13FA24AC00F314E7 /* Icon-72.png */,
-			);
-			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,17 +473,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FED8BDB11E25E2000ACE4FB /* PSModelDetails.xib in Resources */,
-				4FED8BE011E25E3D00ACE4FB /* PSEntityDetails.xib in Resources */,
-				4FED8BE511E25E5900ACE4FB /* PSAttributeDetails.xib in Resources */,
-				4FED8BEA11E25E7B00ACE4FB /* PSRelationshipDetails.xib in Resources */,
-				4FED8BEF11E25E9800ACE4FB /* PSFetchedPropertyDetails.xib in Resources */,
-				4FED8BF411E25EAC00ACE4FB /* PSFetchedTemplateDetails.xib in Resources */,
-				4FD8589F11E2F2C400C9B22D /* MainWindow.xib in Resources */,
-				4FFFC41D11E76F1500B4C79E /* PSSmallItemUI.xib in Resources */,
-				4F5BBE4E13FA249600F314E7 /* icon_home.png in Resources */,
-				4F5BBE5013FA24AC00F314E7 /* Icon-72.png in Resources */,
+				4FD5F3F4191062AF0011F37E /* PSAttributeDetails.xib in Resources */,
+				4FD5F409191062AF0011F37E /* PSSmallItemUI.xib in Resources */,
+				4FD5F3B5191061420011F37E /* Images.xcassets in Resources */,
+				4FD5F3FC191062AF0011F37E /* PSModelDetails.xib in Resources */,
+				4FD5F3F8191062AF0011F37E /* PSFetchedPropertyDetails.xib in Resources */,
+				4FD5F3F6191062AF0011F37E /* PSEntityDetails.xib in Resources */,
+				4FD5F40C191063040011F37E /* MainWindow.xib in Resources */,
+				4FD5F3FF191062AF0011F37E /* PSRelationshipDetails.xib in Resources */,
 				4F43F59D1443D3D1000ECD40 /* InfoPlist.strings in Resources */,
+				4FD5F3FA191062AF0011F37E /* PSFetchedTemplateDetails.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,26 +493,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD5F403191062AF0011F37E /* PSFetchListController.m in Sources */,
+				4FD5F405191062AF0011F37E /* PSBaseMasterViewController.m in Sources */,
+				4FD5F3F5191062AF0011F37E /* PSAttributeDetailsController.m in Sources */,
+				4FD5F400191062AF0011F37E /* PSRelationshipDetailsController.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				4FED8BCB11E25D9300ACE4FB /* PSModelListController.m in Sources */,
-				4FED8BD011E25DCF00ACE4FB /* PSConfigListController.m in Sources */,
-				4FED8BD311E25DEA00ACE4FB /* PSEntityListController.m in Sources */,
-				4FED8BD611E25DFB00ACE4FB /* PSFetchListController.m in Sources */,
-				4FED8BDA11E25E2000ACE4FB /* PSModelDetailsController.m in Sources */,
-				4FED8BDF11E25E3D00ACE4FB /* PSEntityDetailsController.m in Sources */,
-				4FED8BE411E25E5900ACE4FB /* PSAttributeDetailsController.m in Sources */,
-				4FED8BE911E25E7B00ACE4FB /* PSRelationshipDetailsController.m in Sources */,
-				4FED8BEE11E25E9800ACE4FB /* PSFetchedPropertyDetailsController.m in Sources */,
-				4FED8BF311E25EAC00ACE4FB /* PSFetchedTemplateDetailsController.m in Sources */,
-				4FED8C0D11E25F8300ACE4FB /* PSBaseContentController.m in Sources */,
-				4FED8C1011E25FA100ACE4FB /* PSContentController.m in Sources */,
+				4FD5F3F2191062AF0011F37E /* PSBaseContentController.m in Sources */,
+				4FD5F407191062AF0011F37E /* PSGridScrollView.m in Sources */,
+				4FD5F3FD191062AF0011F37E /* PSModelDetailsController.m in Sources */,
+				4FD5F406191062AF0011F37E /* PSSplitViewDelegate.m in Sources */,
+				4FD5F404191062AF0011F37E /* PSModelListController.m in Sources */,
 				4FED8C1411E2600B00ACE4FB /* PSBaseAppDelegate.m in Sources */,
-				4FC1307611E264D500A0B940 /* PSBaseMasterViewController.m in Sources */,
-				4FC1307911E264F300A0B940 /* PSBaseDetailViewController.m in Sources */,
-				4FC1309511E2696C00A0B940 /* PSSplitViewDelegate.m in Sources */,
-				4F2BA1DF11E6C1C100B25D05 /* PSGridScrollView.m in Sources */,
-				4FFFC41C11E76F1500B4C79E /* PSSmallItemUI.m in Sources */,
+				4FD5F3F9191062AF0011F37E /* PSFetchedPropertyDetailsController.m in Sources */,
+				4FD5F3F7191062AF0011F37E /* PSEntityDetailsController.m in Sources */,
+				4FD5F3F3191062AF0011F37E /* PSContentController.m in Sources */,
+				4FD5F402191062AF0011F37E /* PSEntityListController.m in Sources */,
+				4FD5F408191062AF0011F37E /* PSSmallItemUI.m in Sources */,
+				4FD5F3FB191062AF0011F37E /* PSFetchedTemplateDetailsController.m in Sources */,
 				4F5BBE5313FA25AC00F314E7 /* ModelViewer.xcdatamodeld in Sources */,
+				4FD5F401191062AF0011F37E /* PSConfigListController.m in Sources */,
+				4FD5F3FE191062AF0011F37E /* PSBaseDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,21 +527,32 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		4FD5F40E191063040011F37E /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FD5F40D191063040011F37E /* en */,
+			);
+			name = MainWindow.xib;
+			path = Application/Resources;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = PSModelViewer_Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Application/Target/PSModelViewer_Prefix.pch";
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
-				INFOPLIST_FILE = "PSModelViewer-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Application/Target/PSModelViewer-Info.plist";
 				PRODUCT_NAME = PSModelViewer;
 			};
 			name = Debug;
@@ -634,14 +596,16 @@
 		4FD6D99011E9306500B086FA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = PSModelViewer_Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Application/Target/PSModelViewer_Prefix.pch";
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
-				INFOPLIST_FILE = "PSModelViewer-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Application/Target/PSModelViewer-Info.plist";
 				PRODUCT_NAME = PSModelViewer;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -663,14 +627,16 @@
 		4FF9D93111E81ABC007BCD21 /* Ad Hoc Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = PSModelViewer_Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Application/Target/PSModelViewer_Prefix.pch";
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
-				INFOPLIST_FILE = "PSModelViewer-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Application/Target/PSModelViewer-Info.plist";
 				PRODUCT_NAME = PSModelViewer;
 				VALIDATE_PRODUCT = YES;
 			};

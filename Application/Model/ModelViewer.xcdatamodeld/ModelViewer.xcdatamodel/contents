@@ -1,183 +1,419 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Automatic" iOSVersion="Automatic">
     <entity name="PSArchive" representedClassName="PSArchive" isAbstract="YES" parentEntity="PSBaseElement">
-        <attribute name="fileName" optional="YES" attributeType="String" defaultValueString="Archive"/>
-        <attribute name="filePath" optional="YES" attributeType="String"/>
-        <attribute name="fileSize" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="fileName" optional="YES" attributeType="String" defaultValueString="Archive">
+            <userInfo/>
+        </attribute>
+        <attribute name="filePath" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="fileSize" optional="YES" attributeType="Integer 32" defaultValueString="0">
+            <userInfo/>
+        </attribute>
+        <userInfo/>
     </entity>
     <entity name="PSAudioArchive" representedClassName="NSManagedObject" parentEntity="PSArchive">
-        <relationship name="audioNote" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSAudioNote" inverseName="archive" inverseEntity="PSAudioNote" indexed="YES"/>
+        <relationship name="audioNote" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSAudioNote" inverseName="archive" inverseEntity="PSAudioNote" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSAudioNote" representedClassName="PSAudioNote" parentEntity="PSDetailListItem">
-        <attribute name="dateCreated" attributeType="Date"/>
-        <attribute name="duration" optional="YES" attributeType="Float" defaultValueString="0"/>
-        <relationship name="archive" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSAudioArchive" inverseName="audioNote" inverseEntity="PSAudioArchive" indexed="YES"/>
-        <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSAudioNoteCategory" inverseName="audioNotes" inverseEntity="PSAudioNoteCategory" indexed="YES"/>
-        <relationship name="formEntry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormEntryInstance" inverseName="audioNotes" inverseEntity="PSFormEntryInstance" indexed="YES"/>
+        <attribute name="dateCreated" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="duration" optional="YES" attributeType="Float" defaultValueString="0">
+            <userInfo/>
+        </attribute>
+        <relationship name="archive" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSAudioArchive" inverseName="audioNote" inverseEntity="PSAudioArchive" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSAudioNoteCategory" inverseName="audioNotes" inverseEntity="PSAudioNoteCategory" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="formEntry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormEntryInstance" inverseName="audioNotes" inverseEntity="PSFormEntryInstance" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSAudioNoteCategory" representedClassName="PSAudioNoteCategory" parentEntity="PSListItem">
-        <relationship name="audioNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSAudioNote" inverseName="category" inverseEntity="PSAudioNote" indexed="YES"/>
+        <relationship name="audioNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSAudioNote" inverseName="category" inverseEntity="PSAudioNote" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSAuthorConfig" representedClassName="PSAuthorConfig" parentEntity="PSDetailListItem">
-        <relationship name="configValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSAuthorConfigValue" inverseName="authorConfig" inverseEntity="PSAuthorConfigValue" indexed="YES"/>
-        <relationship name="simpleValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSAuthorSimpleValue" inverseName="authorConfig" inverseEntity="PSAuthorSimpleValue" indexed="YES"/>
+        <relationship name="configValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSAuthorConfigValue" inverseName="authorConfig" inverseEntity="PSAuthorConfigValue" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="simpleValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSAuthorSimpleValue" inverseName="authorConfig" inverseEntity="PSAuthorSimpleValue" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSAuthorConfigValue" representedClassName="PSAuthorConfigValue" parentEntity="PSNameValuePair">
-        <relationship name="authorConfig" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSAuthorConfig" inverseName="configValues" inverseEntity="PSAuthorConfig" indexed="YES"/>
+        <relationship name="authorConfig" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSAuthorConfig" inverseName="configValues" inverseEntity="PSAuthorConfig" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSAuthorSimpleValue" representedClassName="PSAuthorSimpleValue" parentEntity="PSNameValuePair">
-        <relationship name="authorConfig" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSAuthorConfig" inverseName="simpleValues" inverseEntity="PSAuthorConfig" indexed="YES"/>
+        <relationship name="authorConfig" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSAuthorConfig" inverseName="simpleValues" inverseEntity="PSAuthorConfig" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSBaseElement" representedClassName="PSBaseElement" isAbstract="YES">
-        <attribute name="elementID" optional="YES" attributeType="String" maxValueString="128"/>
+        <attribute name="elementID" optional="YES" attributeType="String" maxValueString="128">
+            <userInfo/>
+        </attribute>
+        <userInfo/>
     </entity>
     <entity name="PSBrandingConfig" representedClassName="PSBrandingConfig" parentEntity="PSDetailListItem">
-        <relationship name="brandingValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSBrandingValue" inverseName="brandingConfig" inverseEntity="PSBrandingValue" indexed="YES"/>
+        <relationship name="brandingValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSBrandingValue" inverseName="brandingConfig" inverseEntity="PSBrandingValue" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSBrandingValue" representedClassName="PSBrandingValue" parentEntity="PSNameValuePair">
-        <relationship name="brandingConfig" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSBrandingConfig" inverseName="brandingValues" inverseEntity="PSBrandingConfig" indexed="YES"/>
+        <relationship name="brandingConfig" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSBrandingConfig" inverseName="brandingValues" inverseEntity="PSBrandingConfig" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSCustomElementValue" representedClassName="NSManagedObject" parentEntity="PSListItem">
-        <attribute name="itemValue" optional="YES" attributeType="String"/>
-        <relationship name="displayElement" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="customValueSet" inverseEntity="PSFormDisplayElement" indexed="YES"/>
+        <attribute name="itemValue" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="displayElement" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="customValueSet" inverseEntity="PSFormDisplayElement" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSDataModelNode" representedClassName="PSDataModelNode" parentEntity="PSListItem">
-        <attribute name="isAboutAuthor" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <attribute name="isKey" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <attribute name="isSimple" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <attribute name="nodeName" attributeType="String"/>
-        <attribute name="nodeType" optional="YES" attributeType="String" maxValueString="128" defaultValueString="string"/>
-        <relationship name="dataModel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDataModel" inverseName="rootNode" inverseEntity="PSFormDataModel" indexed="YES"/>
+        <attribute name="isAboutAuthor" optional="YES" attributeType="Boolean" defaultValueString="NO">
+            <userInfo/>
+        </attribute>
+        <attribute name="isKey" optional="YES" attributeType="Boolean" defaultValueString="NO">
+            <userInfo/>
+        </attribute>
+        <attribute name="isSimple" optional="YES" attributeType="Boolean" defaultValueString="NO">
+            <userInfo/>
+        </attribute>
+        <attribute name="nodeName" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="nodeType" optional="YES" attributeType="String" maxValueString="128" defaultValueString="string">
+            <userInfo/>
+        </attribute>
+        <relationship name="dataModel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDataModel" inverseName="rootNode" inverseEntity="PSFormDataModel" indexed="YES">
+            <userInfo/>
+        </relationship>
         <relationship name="formDisplayElement" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="dataModelNode" inverseEntity="PSFormDisplayElement" syncable="YES"/>
-        <relationship name="nodeChildren" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSDataModelNode" inverseName="nodeParent" inverseEntity="PSDataModelNode" indexed="YES"/>
-        <relationship name="nodeParent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDataModelNode" inverseName="nodeChildren" inverseEntity="PSDataModelNode" indexed="YES"/>
+        <relationship name="nodeChildren" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSDataModelNode" inverseName="nodeParent" inverseEntity="PSDataModelNode" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="nodeParent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDataModelNode" inverseName="nodeChildren" inverseEntity="PSDataModelNode" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSDetailListItem" representedClassName="PSDetailListItem" isAbstract="YES" parentEntity="PSListItem">
-        <attribute name="detailedDescription" optional="YES" attributeType="String"/>
-        <attribute name="quickDescription" optional="YES" attributeType="String" maxValueString="255"/>
+        <attribute name="detailedDescription" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="quickDescription" optional="YES" attributeType="String" maxValueString="255">
+            <userInfo/>
+        </attribute>
+        <userInfo/>
     </entity>
     <entity name="PSDisplayElementType" representedClassName="PSDisplayElementType" parentEntity="PSDetailListItem">
-        <attribute name="itemClass" attributeType="String" maxValueString="128" defaultValueString="UITextField"/>
-        <relationship name="displayElements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="valueType" inverseEntity="PSFormDisplayElement" indexed="YES"/>
-        <relationship name="valueSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSDisplayElementValue" inverseName="displayElementType" inverseEntity="PSDisplayElementValue" indexed="YES"/>
+        <attribute name="itemClass" attributeType="String" maxValueString="128" defaultValueString="UITextField">
+            <userInfo/>
+        </attribute>
+        <relationship name="displayElements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="valueType" inverseEntity="PSFormDisplayElement" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="valueSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSDisplayElementValue" inverseName="displayElementType" inverseEntity="PSDisplayElementValue" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSDisplayElementValue" representedClassName="PSDisplayElementValue" parentEntity="PSListItem">
-        <attribute name="itemValue" optional="YES" attributeType="String"/>
-        <relationship name="displayElementType" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDisplayElementType" inverseName="valueSet" inverseEntity="PSDisplayElementType" indexed="YES"/>
+        <attribute name="itemValue" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="displayElementType" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDisplayElementType" inverseName="valueSet" inverseEntity="PSDisplayElementType" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSEvent" representedClassName="NSManagedObject" parentEntity="PSBaseElement">
-        <attribute name="eventInfo" optional="YES" attributeType="String"/>
-        <attribute name="timeStamp" optional="YES" attributeType="Date" defaultDateTimeInterval="308365200" defaultValueString="10/10/2010"/>
-        <relationship name="eventType" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSEventType" inverseName="events" inverseEntity="PSEventType" indexed="YES"/>
+        <attribute name="eventInfo" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" defaultDateTimeInterval="308365200" defaultValueString="10/10/2010">
+            <userInfo/>
+        </attribute>
+        <relationship name="eventType" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSEventType" inverseName="events" inverseEntity="PSEventType" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSEventType" representedClassName="NSManagedObject" parentEntity="PSListItem">
-        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSEvent" inverseName="eventType" inverseEntity="PSEvent" indexed="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSEvent" inverseName="eventType" inverseEntity="PSEvent" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSForm" representedClassName="PSForm" parentEntity="PSDetailListItem">
-        <attribute name="author" optional="YES" attributeType="String"/>
-        <attribute name="versionMajor" optional="YES" attributeType="Integer 16" defaultValueString="1"/>
-        <attribute name="versionMinor" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
-        <relationship name="archive" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormArchive" inverseName="forms" inverseEntity="PSFormArchive" indexed="YES"/>
-        <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormCategory" inverseName="forms" inverseEntity="PSFormCategory" indexed="YES"/>
-        <relationship name="dataModel" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSFormDataModel" inverseName="form" inverseEntity="PSFormDataModel" indexed="YES"/>
-        <relationship name="entryInstances" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="PSFormEntryInstance" inverseName="form" inverseEntity="PSFormEntryInstance" indexed="YES"/>
-        <relationship name="formDisplay" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSFormDisplay" inverseName="form" inverseEntity="PSFormDisplay" indexed="YES"/>
-        <relationship name="previewImage" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSFormPreviewArchive" inverseName="form" inverseEntity="PSFormPreviewArchive" indexed="YES"/>
-        <relationship name="setListMemberships" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormSetItem" inverseName="form" inverseEntity="PSFormSetItem" indexed="YES"/>
+        <attribute name="author" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="versionMajor" optional="YES" attributeType="Integer 16" defaultValueString="1">
+            <userInfo/>
+        </attribute>
+        <attribute name="versionMinor" optional="YES" attributeType="Integer 16" defaultValueString="0">
+            <userInfo/>
+        </attribute>
+        <relationship name="archive" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormArchive" inverseName="forms" inverseEntity="PSFormArchive" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormCategory" inverseName="forms" inverseEntity="PSFormCategory" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="dataModel" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSFormDataModel" inverseName="form" inverseEntity="PSFormDataModel" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="entryInstances" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="PSFormEntryInstance" inverseName="form" inverseEntity="PSFormEntryInstance" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="formDisplay" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSFormDisplay" inverseName="form" inverseEntity="PSFormDisplay" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="previewImage" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSFormPreviewArchive" inverseName="form" inverseEntity="PSFormPreviewArchive" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="setListMemberships" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormSetItem" inverseName="form" inverseEntity="PSFormSetItem" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormArchive" representedClassName="NSManagedObject" parentEntity="PSArchive">
-        <relationship name="forms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSForm" inverseName="archive" inverseEntity="PSForm" indexed="YES"/>
+        <relationship name="forms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSForm" inverseName="archive" inverseEntity="PSForm" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormCategory" representedClassName="PSFormCategory" parentEntity="PSListItem">
-        <relationship name="forms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSForm" inverseName="category" inverseEntity="PSForm" indexed="YES"/>
+        <relationship name="forms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSForm" inverseName="category" inverseEntity="PSForm" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormDataModel" representedClassName="PSFormDataModel" parentEntity="PSBaseElement">
-        <attribute name="submitAction" optional="YES" attributeType="String"/>
-        <attribute name="submitMethod" optional="YES" attributeType="String" maxValueString="64" defaultValueString="post"/>
-        <attribute name="submitOptions" optional="YES" attributeType="String"/>
-        <relationship name="form" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="dataModel" inverseEntity="PSForm" indexed="YES"/>
-        <relationship name="rootNode" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSDataModelNode" inverseName="dataModel" inverseEntity="PSDataModelNode" indexed="YES"/>
+        <attribute name="submitAction" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="submitMethod" optional="YES" attributeType="String" maxValueString="64" defaultValueString="post">
+            <userInfo/>
+        </attribute>
+        <attribute name="submitOptions" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="form" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="dataModel" inverseEntity="PSForm" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="rootNode" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSDataModelNode" inverseName="dataModel" inverseEntity="PSDataModelNode" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormDisplay" representedClassName="PSFormDisplay" parentEntity="PSBaseElement">
-        <relationship name="form" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="formDisplay" inverseEntity="PSForm" indexed="YES"/>
-        <relationship name="rootElement" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSFormDisplayElement" inverseName="formDisplay" inverseEntity="PSFormDisplayElement" indexed="YES"/>
+        <relationship name="form" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="formDisplay" inverseEntity="PSForm" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="rootElement" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSFormDisplayElement" inverseName="formDisplay" inverseEntity="PSFormDisplayElement" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormDisplayElement" representedClassName="PSFormDisplayElement" parentEntity="PSDetailListItem">
-        <attribute name="inputSize" optional="YES" attributeType="String" defaultValueString="30"/>
-        <attribute name="placeholderText" optional="YES" attributeType="String" defaultValueString="Description Here"/>
-        <relationship name="customValueSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSCustomElementValue" inverseName="displayElement" inverseEntity="PSCustomElementValue" indexed="YES"/>
-        <relationship name="dataModelNode" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDataModelNode" inverseName="formDisplayElement" inverseEntity="PSDataModelNode" indexed="YES"/>
-        <relationship name="formDisplay" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplay" inverseName="rootElement" inverseEntity="PSFormDisplay" indexed="YES"/>
+        <attribute name="inputSize" optional="YES" attributeType="String" defaultValueString="30">
+            <userInfo/>
+        </attribute>
+        <attribute name="placeholderText" optional="YES" attributeType="String" defaultValueString="Description Here">
+            <userInfo/>
+        </attribute>
+        <relationship name="customValueSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSCustomElementValue" inverseName="displayElement" inverseEntity="PSCustomElementValue" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="dataModelNode" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDataModelNode" inverseName="formDisplayElement" inverseEntity="PSDataModelNode" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="formDisplay" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplay" inverseName="rootElement" inverseEntity="PSFormDisplay" indexed="YES">
+            <userInfo/>
+        </relationship>
         <relationship name="formEntryItem" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormEntryItem" inverseName="displayElement" inverseEntity="PSFormEntryItem" syncable="YES"/>
-        <relationship name="nodeChildren" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormDisplayElement" inverseName="nodeParent" inverseEntity="PSFormDisplayElement" indexed="YES"/>
-        <relationship name="nodeParent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="nodeChildren" inverseEntity="PSFormDisplayElement" indexed="YES"/>
-        <relationship name="valueType" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDisplayElementType" inverseName="displayElements" inverseEntity="PSDisplayElementType" indexed="YES"/>
+        <relationship name="nodeChildren" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormDisplayElement" inverseName="nodeParent" inverseEntity="PSFormDisplayElement" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="nodeParent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="nodeChildren" inverseEntity="PSFormDisplayElement" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="valueType" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSDisplayElementType" inverseName="displayElements" inverseEntity="PSDisplayElementType" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormEntryInstance" representedClassName="PSFormEntryInstance" parentEntity="PSBaseElement">
-        <attribute name="dateCreated" attributeType="Date"/>
-        <attribute name="dateModified" optional="YES" attributeType="Date"/>
-        <attribute name="isLocked" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <relationship name="audioNotes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSAudioNote" inverseName="formEntry" inverseEntity="PSAudioNote" indexed="YES"/>
-        <relationship name="form" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="entryInstances" inverseEntity="PSForm" indexed="YES"/>
-        <relationship name="values" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormEntryItem" inverseName="entryInstance" inverseEntity="PSFormEntryItem" indexed="YES"/>
+        <attribute name="dateCreated" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="dateModified" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="isLocked" optional="YES" attributeType="Boolean" defaultValueString="NO">
+            <userInfo/>
+        </attribute>
+        <relationship name="audioNotes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSAudioNote" inverseName="formEntry" inverseEntity="PSAudioNote" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="form" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="entryInstances" inverseEntity="PSForm" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="values" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormEntryItem" inverseName="entryInstance" inverseEntity="PSFormEntryItem" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormEntryItem" representedClassName="PSFormEntryItem" parentEntity="PSNameValuePair">
-        <attribute name="isAboutAuthor" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <attribute name="isKey" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <attribute name="isSimple" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <relationship name="displayElement" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="formEntryItem" inverseEntity="PSFormDisplayElement" indexed="YES"/>
-        <relationship name="entryInstance" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormEntryInstance" inverseName="values" inverseEntity="PSFormEntryInstance" indexed="YES"/>
+        <attribute name="isAboutAuthor" optional="YES" attributeType="Boolean" defaultValueString="NO">
+            <userInfo/>
+        </attribute>
+        <attribute name="isKey" optional="YES" attributeType="Boolean" defaultValueString="NO">
+            <userInfo/>
+        </attribute>
+        <attribute name="isSimple" optional="YES" attributeType="Boolean" defaultValueString="NO">
+            <userInfo/>
+        </attribute>
+        <relationship name="displayElement" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormDisplayElement" inverseName="formEntryItem" inverseEntity="PSFormDisplayElement" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="entryInstance" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormEntryInstance" inverseName="values" inverseEntity="PSFormEntryInstance" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormPreviewArchive" representedClassName="NSManagedObject" parentEntity="PSArchive">
-        <relationship name="form" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="previewImage" inverseEntity="PSForm" indexed="YES"/>
+        <relationship name="form" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="previewImage" inverseEntity="PSForm" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormSet" representedClassName="PSFormSet" parentEntity="PSDetailListItem">
-        <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormSetCategory" inverseName="formSets" inverseEntity="PSFormSetCategory" indexed="YES"/>
-        <relationship name="setList" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormSetItem" inverseName="formSet" inverseEntity="PSFormSetItem" indexed="YES"/>
+        <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormSetCategory" inverseName="formSets" inverseEntity="PSFormSetCategory" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="setList" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormSetItem" inverseName="formSet" inverseEntity="PSFormSetItem" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormSetCategory" representedClassName="PSFormSetCategory" parentEntity="PSListItem">
-        <relationship name="formSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSFormSet" inverseName="category" inverseEntity="PSFormSet" indexed="YES"/>
+        <relationship name="formSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSFormSet" inverseName="category" inverseEntity="PSFormSet" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormSetItem" representedClassName="PSFormSetItem" parentEntity="PSListItem">
-        <relationship name="form" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="setListMemberships" inverseEntity="PSForm" indexed="YES"/>
-        <relationship name="formSet" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormSet" inverseName="setList" inverseEntity="PSFormSet" indexed="YES"/>
+        <relationship name="form" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSForm" inverseName="setListMemberships" inverseEntity="PSForm" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="formSet" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormSet" inverseName="setList" inverseEntity="PSFormSet" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormTarget" representedClassName="PSFormTarget" parentEntity="PSBaseElement">
-        <attribute name="timeStamp" optional="YES" attributeType="Date"/>
-        <relationship name="keyValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormTargetKeyValue" inverseName="formTarget" inverseEntity="PSFormTargetKeyValue" indexed="YES"/>
-        <relationship name="simpleValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormTargetSimpleValue" inverseName="formTarget" inverseEntity="PSFormTargetSimpleValue" indexed="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <relationship name="keyValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormTargetKeyValue" inverseName="formTarget" inverseEntity="PSFormTargetKeyValue" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <relationship name="simpleValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFormTargetSimpleValue" inverseName="formTarget" inverseEntity="PSFormTargetSimpleValue" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormTargetKeyValue" representedClassName="PSFormTargetKeyValue" parentEntity="PSNameValuePair">
-        <relationship name="formTarget" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormTarget" inverseName="keyValues" inverseEntity="PSFormTarget" indexed="YES"/>
+        <relationship name="formTarget" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormTarget" inverseName="keyValues" inverseEntity="PSFormTarget" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSFormTargetSimpleValue" representedClassName="PSFormTargetSimpleValue" parentEntity="PSNameValuePair">
-        <relationship name="formTarget" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormTarget" inverseName="simpleValues" inverseEntity="PSFormTarget" indexed="YES"/>
+        <relationship name="formTarget" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSFormTarget" inverseName="simpleValues" inverseEntity="PSFormTarget" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSListItem" representedClassName="PSListItem" isAbstract="YES" parentEntity="PSBaseElement">
-        <attribute name="displayName" attributeType="String" maxValueString="128" defaultValueString="Item Name"/>
-        <attribute name="displayOrder" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
-        <attribute name="isDeletable" optional="YES" attributeType="Boolean" defaultValueString="YES"/>
-        <attribute name="isLocked" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
+        <attribute name="displayName" attributeType="String" maxValueString="128" defaultValueString="Item Name">
+            <userInfo/>
+        </attribute>
+        <attribute name="displayOrder" optional="YES" attributeType="Integer 32" defaultValueString="0">
+            <userInfo/>
+        </attribute>
+        <attribute name="isDeletable" optional="YES" attributeType="Boolean" defaultValueString="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="isLocked" optional="YES" attributeType="Boolean" defaultValueString="NO">
+            <userInfo/>
+        </attribute>
+        <userInfo/>
     </entity>
     <entity name="PSNameValuePair" representedClassName="PSNameValuePair" isAbstract="YES" parentEntity="PSBaseElement">
-        <attribute name="itemName" attributeType="String"/>
-        <attribute name="itemValue" optional="YES" attributeType="String"/>
+        <attribute name="itemName" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="itemValue" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <userInfo/>
     </entity>
     <entity name="PSReference" representedClassName="PSReference" parentEntity="PSDetailListItem">
-        <attribute name="mediaType" optional="YES" attributeType="String"/>
-        <attribute name="sourcePath" optional="YES" attributeType="String"/>
-        <relationship name="archive" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSReferenceArchive" inverseName="referenceItem" inverseEntity="PSReferenceArchive" indexed="YES"/>
+        <attribute name="mediaType" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="sourcePath" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="archive" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSReferenceArchive" inverseName="referenceItem" inverseEntity="PSReferenceArchive" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSReferenceArchive" representedClassName="NSManagedObject" parentEntity="PSArchive">
-        <relationship name="referenceItem" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSReference" inverseName="archive" inverseEntity="PSReference" indexed="YES"/>
+        <relationship name="referenceItem" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="PSReference" inverseName="archive" inverseEntity="PSReference" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSSystemConfig" representedClassName="PSSystemConfig" parentEntity="PSDetailListItem">
-        <relationship name="systemValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSSystemValue" inverseName="systemConfig" inverseEntity="PSSystemValue" indexed="YES"/>
+        <relationship name="systemValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSSystemValue" inverseName="systemConfig" inverseEntity="PSSystemValue" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="PSSystemValue" representedClassName="PSSystemValue" parentEntity="PSNameValuePair">
-        <relationship name="systemConfig" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSSystemConfig" inverseName="systemValues" inverseEntity="PSSystemConfig" indexed="YES"/>
+        <relationship name="systemConfig" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSSystemConfig" inverseName="systemValues" inverseEntity="PSSystemConfig" indexed="YES">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
-    <fetchRequest name="TestFetchRequest" entity="PSEvent" predicateString="timeStamp > CAST(0.000000, &quot;NSDate&quot;) OR elementID LIKE[c] &quot;new&quot;"/>
+    <fetchRequest name="TestFetchRequest" entity="PSEvent" predicateString="timeStamp &gt; CAST(0.000000, &quot;NSDate&quot;) OR elementID LIKE[c] &quot;new&quot;"/>
     <configuration name="BrandingRelated">
         <memberEntity name="PSBrandingConfig"/>
         <memberEntity name="PSBrandingValue"/>

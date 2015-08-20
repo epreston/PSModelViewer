@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4511" systemVersion="13A598" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3745"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIApplication">
@@ -41,17 +40,9 @@
             <extendedEdge key="edgesForExtendedLayout"/>
             <toolbarItems/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-            <nil key="simulatedTopBarMetrics"/>
-            <nil key="simulatedBottomBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-            <nil key="simulatedDestinationMetrics"/>
             <navigationController key="masterViewController" toolbarHidden="NO" id="8">
                 <extendedEdge key="edgesForExtendedLayout"/>
-                <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                <nil key="simulatedTopBarMetrics"/>
-                <nil key="simulatedBottomBarMetrics"/>
-                <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                <nil key="simulatedDestinationMetrics"/>
                 <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="11">
                     <autoresizingMask key="autoresizingMask"/>
                 </navigationBar>
@@ -60,11 +51,6 @@
                         <extendedEdge key="edgesForExtendedLayout"/>
                         <toolbarItems/>
                         <navigationItem key="navigationItem" title="Model Viewer" id="12"/>
-                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                        <nil key="simulatedTopBarMetrics"/>
-                        <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                        <nil key="simulatedDestinationMetrics"/>
                     </tableViewController>
                 </viewControllers>
                 <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" barStyle="black" id="25">
@@ -75,15 +61,15 @@
             <viewController key="detailViewController" nibName="PSModelDetails" id="9" customClass="PSModelDetailsController">
                 <extendedEdge key="edgesForExtendedLayout"/>
                 <toolbarItems/>
-                <nil key="simulatedStatusBarMetrics"/>
-                <nil key="simulatedTopBarMetrics"/>
-                <nil key="simulatedBottomBarMetrics"/>
-                <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                <nil key="simulatedDestinationMetrics"/>
             </viewController>
             <connections>
                 <outlet property="delegate" destination="18" id="28"/>
             </connections>
         </splitViewController>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>

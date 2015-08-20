@@ -27,7 +27,7 @@
 	// method, since they may wrongly expect the instance to be fully formed.
 }
 
-- (id) initWithFrame:(CGRect)frame 
+- (instancetype) initWithFrame:(CGRect)frame 
 {
     self = [super initWithFrame:frame];
     if (self) {

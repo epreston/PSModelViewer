@@ -107,7 +107,7 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
 	if ( newViewController ) {
 				
 		// Update the split view controller's view controllers array.
-		NSArray *viewControllers = [[NSArray alloc] initWithObjects:_navigationController, newViewController, nil];
+		NSArray *viewControllers = @[_navigationController, newViewController];
 		_splitViewController.viewControllers = viewControllers;
 		
         // Release the viewController that was returned.
@@ -115,7 +115,7 @@ NSString * const PSMasterDisplayRequestNotification = @"PSMasterDisplay";
     } else {
         
         // Update the split view controller's view controllers array. Pop back to default detail display.
-		NSArray *viewControllers = [[NSArray alloc] initWithObjects:_navigationController, [self detailViewController], nil];
+		NSArray *viewControllers = @[_navigationController, [self detailViewController]];
 		_splitViewController.viewControllers = viewControllers;
     }
     

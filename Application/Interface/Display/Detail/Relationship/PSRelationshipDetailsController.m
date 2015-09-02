@@ -37,8 +37,8 @@
 		_relationDeleteRule.text = [self nameFromDeleteRuleType:[_detailRelationshipDescription deleteRule]];
 		
         // Cardinality
-		_relationMaxCount.text = [NSString stringWithFormat: @"%u", [_detailRelationshipDescription maxCount]];
-		_relationMinCount.text = [NSString stringWithFormat: @"%u", [_detailRelationshipDescription minCount]];
+		_relationMaxCount.text = [NSString stringWithFormat: @"%lu", (unsigned long)[_detailRelationshipDescription maxCount]];
+		_relationMinCount.text = [NSString stringWithFormat: @"%lu", (unsigned long)[_detailRelationshipDescription minCount]];
 		_relationIsToMany.text = ( _detailRelationshipDescription.isToMany ) ? @"Yes" : @"No";
 	}
 }

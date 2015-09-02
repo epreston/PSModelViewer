@@ -144,7 +144,7 @@
 		for ( UIView *view in self.gridViews ) {
 			
 			// find the new index of the item to draw
-			int index = [self.gridViews indexOfObject:view];
+			int index = (int)[self.gridViews indexOfObject:view];
 			
 			// calculate out index in the grid
 			int y = index / cols;

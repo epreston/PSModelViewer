@@ -42,9 +42,9 @@
 		
         NSManagedObjectModel *model = self.managedObjectModel;
 		
-		_numberOfEntities.text = [NSString stringWithFormat: @"%u", [[model entities] count]];
-		_numberOfConfigurations.text = [NSString stringWithFormat: @"%u", [[model configurations] count]];
-		_numberOfFetchRequestTemplates.text = [NSString stringWithFormat: @"%u", [[model fetchRequestTemplatesByName] count]];
+		_numberOfEntities.text = [NSString stringWithFormat: @"%lu", (unsigned long)[[model entities] count]];
+		_numberOfConfigurations.text = [NSString stringWithFormat: @"%lu", (unsigned long)[[model configurations] count]];
+		_numberOfFetchRequestTemplates.text = [NSString stringWithFormat: @"%lu", (unsigned long)[[model fetchRequestTemplatesByName] count]];
 		
 		// Set the item width and height
 		self.gridView.itemWidth = ITEM_WIDTH;

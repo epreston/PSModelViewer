@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
     <entity name="PSArchive" representedClassName="PSArchive" isAbstract="YES" parentEntity="PSBaseElement">
         <attribute name="fileName" optional="YES" attributeType="String" defaultValueString="Archive">
             <userInfo/>
@@ -152,7 +152,7 @@
         <attribute name="eventInfo" optional="YES" attributeType="String">
             <userInfo/>
         </attribute>
-        <attribute name="timeStamp" optional="YES" attributeType="Date" defaultDateTimeInterval="308365200" defaultValueString="10/10/2010">
+        <attribute name="timeStamp" optional="YES" attributeType="Date" defaultDateTimeInterval="0">
             <userInfo/>
         </attribute>
         <relationship name="eventType" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PSEventType" inverseName="events" inverseEntity="PSEventType" indexed="YES">

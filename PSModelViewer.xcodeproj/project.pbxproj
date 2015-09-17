@@ -445,7 +445,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PSModelViewer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -553,6 +553,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Application/Target/PSModelViewer-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prestonsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PSModelViewer;
 			};
 			name = Debug;
@@ -619,6 +620,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Application/Target/PSModelViewer-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prestonsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PSModelViewer;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -663,6 +665,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Application/Target/PSModelViewer-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prestonsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PSModelViewer;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -682,6 +685,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
